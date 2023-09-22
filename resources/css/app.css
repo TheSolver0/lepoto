@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html 
+{
+    box-sizing: border-box;
+    /* font-size: 1.1vw; */
+}
+*,
+*::after,
+*::before 
+{
+    box-sizing: inherit;
+}
+
+::selection 
+{
+    background: rgb(105, 200, 255);
+    color: white;
+}
+body
+{
+    background-image: linear-gradient(100deg,lightblue,lightpink);
+}
+.contenu
+{
+    margin:100px;
+}
+.logo
+{
+    width: 100px;
+    margin-left:100px;
+}
+#pagefooter1
+{
+    position: fixed;
+    overflow: hidden;
+    text-align: left;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 90px;
+    z-index: 3;
+    background:white;
+    border-top: 1px solid rgb(151, 150, 150);
+}   
+.nav
+{
+    display: flex;
+    flex-flow:row wrap ;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding:0;
+    /* margin-left: 500px; */
+}
+.nav  a
+{
+    display: block;
+    padding: 1.5em;
+    text-decoration: none;
+    text-align: center;
+    color:black;
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    font-weight: bold;
+    /* padding-left:100px; */
+    /* font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+}
+.nav button
+{
+    background-color: transparent;
+    border-radius: 20px;
+    border: 1px solid yellow;
+    height:50px;
+    margin-top:12px;
+    margin-left: 300px;
+    color:white;
+}
+
+.nav button :hover
+{
+    transform: scale(1.1);
+}
+.nav a :hover
+{
+    filter: invert(.2);
+}
+
+/* Responsive pour le menu  Ecrans moyens*/
+@media  (max-width:800px)
+{
+    .nav a
+    {
+        padding: .5em;
+    }
+
+}
+
+/* Responsive pour le menu  Ecrans petits*/
+@media  (max-width:500px)
+{
+    .contenu
+    {
+        margin:0px;
+    }
+    .nav a
+    {
+        padding: .5em;
+    }
+    /* #pagefooter1
+    {
+        position: fixed;
+    } */
+}
+.container-fluid
+{
+    /* position: absolute; */
+    margin: 100px;
+    bottom: 100px;
+}
+.container-fluid img
+{
+    max-width: 100%;
+    max-height: 100%;
+}
+.card
+{
+    border: 1px solid white !important;
+    padding: 50px;
+}
