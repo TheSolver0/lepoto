@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Avatar;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -43,11 +44,27 @@ class RegisteredUserController extends Controller
             'tel' => $request->tel,
             'password' => Hash::make($request->password),
         ]);
+        
+        $filename = time() . '.' . $request->avatar->extension();
+        
+        $path = $request->avatar->storeAs(
+            'avatars',
+            $filename,
+            'public'
+        );
+       
+
+        $avatar = Avatar::create([
+            'path' => $filename,
+            'users_id' => $user->id
+        ]);
+
+        dd($filename);
 
         event(new Registered($user));
 
         Auth::login($user);
-
+        
         return redirect(RouteServiceProvider::HOME);
     }
 }
