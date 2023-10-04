@@ -27,9 +27,9 @@
         <textarea name="description" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
         <label for="floatingTextarea">Description 'vous pourriez donner plus d'information sur le livre , son etat'</label>
       </div><br>
-        <label for="avatar">Choisir une image:</label><br><br>
+        <label for="image">Choisir une image:</label><br><br>
         <input type="file"
-          id="avatar" name="avatar" 
+          id="image" name="image" 
           accept="image/png , image/jpeg">
           <br><br>
         <button class="btn btn-success" type="submit">Créer</button>

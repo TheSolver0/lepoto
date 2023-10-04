@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class PostController extends Controller
 {
@@ -33,6 +35,21 @@ class PostController extends Controller
             'ville' => $request->ville,
             'description' => $request->description
         ]);
-        return view('acceuil');
+
+        $filename = time() . '.' . $request->image->extension();
+        
+        $path = $request->image->storeAs(
+            'Images',
+            $filename,
+            'public'
+        );
+       
+
+        $avatar = Image::create([
+            'path' => $path,
+            'posts_id' => $post->id
+        ]);
+
+        return Redirect::route('Acceuil');
     }
 }

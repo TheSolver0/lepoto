@@ -55,11 +55,9 @@ class RegisteredUserController extends Controller
        
 
         $avatar = Avatar::create([
-            'path' => $filename,
+            'path' => $path,
             'users_id' => $user->id
         ]);
-
-        dd($filename);
 
         event(new Registered($user));
 
