@@ -19,6 +19,6 @@ jobs:
           passphrase: id_rsa_lucky
           port: 5022
           script: |
-            whoami
+            whoami 
             ls -al
 
