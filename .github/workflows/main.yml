@@ -25,7 +25,7 @@ jobs:
             git pull --rebase
             git checkout ${{ secrets.TRIGGERED_BRANCH }}
             git pull
-            composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+            php /home/tvcjeypd/composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
             npm run build
             php artisan optimize
 
