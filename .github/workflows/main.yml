@@ -15,11 +15,16 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
-          password: 6RYpDqaJzSy3Uf
+          password: ${{ secrets.SSH_PASSWORD }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          passphrase: id_rsa_lucky
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
           port: 5022
           script: |
-            whoami 
-            ls -al
+            ls
+            git pull --rebase
+            git checkout ${{ secrets.TRIGGERED_BRANCH }}
+            git pull
+            composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+            npm run build
+            php artisan optimize
 
