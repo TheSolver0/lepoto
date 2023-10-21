@@ -15,6 +15,7 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
+          password: 6RYpDqaJzSy3Uf
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           passphrase: id_rsa_lucky
           port: 5022
