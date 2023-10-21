@@ -21,6 +21,7 @@ jobs:
           port: 5022
           script: |
             ls
+            cd lepoto
             git pull --rebase
             git checkout ${{ secrets.TRIGGERED_BRANCH }}
             git pull
