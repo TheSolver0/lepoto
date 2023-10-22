@@ -32,7 +32,7 @@
           id="image" name="image" 
           accept="image/png , image/jpeg">
           <br><br>
-        <button class="btn btn-success" type="submit">Créer</button>
+        <button class="btn btn-success" type="submit">Enregistrer</button>
 </form>
 
 @endsection 
