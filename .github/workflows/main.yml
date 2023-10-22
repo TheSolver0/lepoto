@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Build
+    name: Build lepoto
     runs-on: ubuntu-latest
     steps:
       - name: multiple command
@@ -20,12 +20,11 @@ jobs:
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           port: 5022
           script: |
-            ls
             cd lepoto
             git stash
-            git pull --rebase
-            git checkout ${{ secrets.TRIGGERED_BRANCH }}
             git pull
+            git checkout ${{ secrets.TRIGGERED_BRANCH }}
+            git pull --rebase
             php /home/tvcjeypd/composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
             npm i
             npm run build
