@@ -2,11 +2,15 @@
    
 @section('content')
 
+ <ul class="tranding_select tabs">
+        <li class="tab"><a href="#latest" class="waves-effect btn active">Latest</a></li>
+        <li class="tab"><a href="#trending" class="waves-effect btn">Trending</a></li>
+        <li class="tab"><a href="#featured" class="waves-effect btn">Featured</a></li>   
+    </ul>
+    
 
 
-
-    <div class="container-fluid">
-        <h4>Filtrer ></h4> <hr>   
+    <div class="container-fluid">   
         <div class="card-group" >
         @forelse ($posts as $post)
             <div class="card" >
@@ -20,12 +24,14 @@
                     <p class="card-text">{{ $post->description }}
                     </p>
                     <a href="{{ route('posts.show', ['id' => $post->id]) }}">
-                        <button type="button" name="description " id="description" class="btn btn-primary btn-lg btn-block">Description</button>
+                        <button type="button" name="description " id="description" class="btn btn-primary">Description</button>
                     </a>
-                    <button type="button" name="description " id="description" class="btn btn-success btn-lg btn-block">Acheter</button>
+                    <a href="">
+                        <button type="button" name="acheter " id="acheter" class="btn btn-success">Acheter</button>
+                    </a>
                 </div>
             </div>
-        @if($post->id %2 == 1)        
+        @if($post->id %3 == 0)        
             </div>    
             <div class="card-group" >
         @endif
@@ -43,7 +49,9 @@
                     {{-- <a href="{{ route('posts.show', ['id' => $post->id]) }}"> --}}
                         <button type="button" name="description " id="description" class="btn btn-primary btn-lg btn-block">Description</button>
                     {{-- </a> --}}
-                    <button type="button" name="description " id="description" class="btn btn-success btn-lg btn-block">Acheter</button>
+                    <a href="">
+                        <button type="button" name="acheter " id="acheter" class="btn btn-success btn-lg btn-block">Acheter</button>
+                    </a>
                 </div>
             </div>
             <div class="card">
