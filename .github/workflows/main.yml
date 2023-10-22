@@ -1,0 +1,32 @@
+name: Push to remote server
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+    name: Build lepoto
+    runs-on: ubuntu-latest
+    steps:
+      - name: multiple command
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          port: 5022
+          script: |
+            cd lepoto
+            git stash
+            git pull
+            git checkout ${{ secrets.TRIGGERED_BRANCH }}
+            git pull --rebase
+            php /home/tvcjeypd/composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+            npm i
+            npm run build
+            php artisan optimize
+
