@@ -16,8 +16,8 @@
         <label for="floatingInput">Titre ex:Livre Ciam Tle C</label>
       </div>
     <div class="form-floating mb-3">
-        <input type="text" name="prix" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Prix ex:2500 XAF</label>
+        <input type="number" name="prix" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Prix ex:2500</label>
       </div>
     <div class="form-floating mb-3">
         <input type="text" name="ville" class="form-control" id="floatingInput" placeholder="name@example.com">

@@ -20,8 +20,8 @@
                 <img class="card-img-top" src="{{ asset('Images/laptop.jpg') }}" alt="Card image cap">
             @endif
                 <div class="card-body">
-                    <h4 class="card-title">{{ $post->title }}<b> {{ $post->prix }} </b></h4>
-                    <p class="card-text">{{ $post->description }}
+                    <h4 class="card-title">{{ $post->title }}<b> {{ $post->prix }}  <button style="margin: 0 !important;" class="btn btn-outline-success" style="left:150px;">XAF</button> </b></h4>
+                    <p class="card-text"> <i>Cliquez sur le bouton description pour voir la description...</i>
                     </p>
                     <a href="{{ route('posts.show', ['id' => $post->id]) }}">
                         <button type="button" name="description " id="description" class="btn btn-primary">Description</button>

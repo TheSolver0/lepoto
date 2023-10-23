@@ -24,6 +24,10 @@ body
     background-color: #eff3f5 !important;
     /* background-image: linear-gradient(100deg,lightblue,lightpink); */
 }
+a
+{
+    text-decoration: none !important;
+}
 .contenu
 {
     margin:100px;

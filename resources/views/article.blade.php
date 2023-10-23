@@ -30,8 +30,6 @@
                     <button type="button" name="Negocier " id="Negocier" class="btn btn-secondary btn-lg btn-block">Negocier</button>
                 </form>
             </div>
-        <div class="card-group" >
-    </div>
 
 
 @endsection
