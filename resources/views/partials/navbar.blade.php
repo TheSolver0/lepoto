@@ -5,7 +5,7 @@
             <div class="nav-wrapper">
                 <a href="{{ route('Acceuil') }}" class="brand-logo"><img src="images/logo.png" alt=""></a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                <a href="{{ route('Vendre') }}" class="waves-effect btn post_btn sm_post_btn modal-trigger"><i class="ion-plus"></i>Add Post</a>
+                <a href="{{ route('Vendre') }}" class="waves-effect btn post_btn sm_post_btn modal-trigger" style="background: rgb(255, 113, 65);"><i class="ion-plus"></i>Add Post</a>
                 <ul class="left_menu hide-on-med-and-down">
                     {{-- <li><a href="{{ route('Acceuil') }}" class="active">Acceuil</a></li>   --}}
                     <li><a href="{{ route('Acceuil') }}">Acceuil</a></li>  
@@ -27,7 +27,7 @@
                             <li><a href="#" class="search_icon"><i class="ion-ios-search"></i></a> </li> 
                        </ul>
                     </li>
-                    <li><a href="{{ route('Vendre') }}" class="waves-effect btn post_btn modal-trigger"><i class="ion-plus"></i><span>Add Post</span></a></li> 
+                    <li><a href="{{ route('Vendre') }}" class="waves-effect btn post_btn modal-trigger" style="background: rgb(255, 113, 65);"><i class="ion-plus"></i><span>Add Post</span></a></li> 
                     <!-- Follow feed -->
                     
                     <!-- Messages -->
