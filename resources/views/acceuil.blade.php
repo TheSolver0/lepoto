@@ -22,7 +22,7 @@
                 <div class="card-body">
                     <h4 class="card-title">
                         <a href="">
-                            <span  class="" style="background:#ff7141 !important;color: white;">{{ $post->auteur->users_name }}</span>
+                            <span  class="" style="background:#ff7141 !important;color: white;">@if($post->auteur->users_name != null){{ $post->auteur->users_name }}@endif</span>
                         </a>
                         <br>{{ $post->title }}<b> {{ $post->prix }}  <button style="margin: 0 !important;" class="btn btn-outline-success" style="left:150px;">XAF</button> </b></h4>
                     <p class="card-text"> <i>Cliquez sur le bouton description pour voir la description...</i>
