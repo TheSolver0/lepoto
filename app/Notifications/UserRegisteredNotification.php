@@ -2,7 +2,9 @@
 
 namespace App\Notifications;
 
+use App\Mail\NotificationUserMail;
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Mail\Mailable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
@@ -32,12 +34,10 @@ class UserRegisteredNotification extends Notification
     /**
      * Get the mail representation of the notification.
      */
-    public function toMail(object $notifiable): MailMessage
+    public function toMail(object $notifiable): Mailable
     {
-        return (new MailMessage)
-                    ->line('Felicitation '.$notifiable->name.' pour votre inscription sur lepoto !')
-                    ->action('Allez sur le site', url('/'))
-                    ->line('Thank you for using our application!');
+        return (new NotificationUserMail($notifiable))
+        ->to($notifiable->email);
     }
 
     /**
