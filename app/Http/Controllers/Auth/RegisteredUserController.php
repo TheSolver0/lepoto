@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Avatar;
 use App\Models\User;
+use App\Notifications\UserRegisteredNotification;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -60,6 +61,8 @@ class RegisteredUserController extends Controller
         ]);
 
         event(new Registered($user));
+
+        $user->notify(new UserRegisteredNotification);
 
         Auth::login($user);
         
