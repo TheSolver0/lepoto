@@ -23,11 +23,11 @@
                     <h4 class="card-title">
                         <a href="">
                             <span  class="" style="background:#ff7141 !important;color: white;">
-                            @if($post->auteur->users_name != null)
+                            {{-- @if($post->auteur->users_name != null)
                                 {{ $post->auteur->users_name }}
                             @else 
                                 test 
-                            @endif
+                            @endif --}} test
                             </span>
                         </a>
                         <br>{{ $post->title }}<b> {{ $post->prix }}  <button style="margin: 0 !important;" class="btn btn-outline-success" style="left:150px;">XAF</button> </b></h4>
