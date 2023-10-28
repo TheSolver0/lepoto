@@ -7,8 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 style='font-weigth:bold;color:blue;'>Mail de Notification</h1>
-    <p>Félécitation {{ $user->name }} pour votre inscription , sur lepoto. Merci d'utiliser notre application.</p>
+    <h1 style='font-weigth:bold;color:Gold;'>Mail de Notification</h1>
+    <p>Félicitation <b>{{ $user->name }}</b> pour votre inscription sur <b><a href="https://lepoto.stephanetoukam.com">lepoto</a></b>. Merci d'utiliser notre application.</p>
 {{-- 
     @foreach (auth()->user()->notifications as $notification) 
     {

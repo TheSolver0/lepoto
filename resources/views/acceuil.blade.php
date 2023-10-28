@@ -22,7 +22,7 @@
                 <div class="card-body">
                     <h4 class="card-title">
                         <a href="">
-                            @if($post->auteur->users_name != null)
+                            @if(!empty($post->auteur->users_name))
                                 <span  class="" style="background:#ff7141 !important;color: white;">
                                     {{ $post->auteur->users_name }}
                                 </span>
