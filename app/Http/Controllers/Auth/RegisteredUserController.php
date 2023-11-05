@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\sendWelcomeUserMailJob;
 use App\Models\Avatar;
 use App\Models\User;
 use App\Notifications\UserRegisteredNotification;
@@ -63,6 +64,7 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         // $user->notify(new UserRegisteredNotification);
+        sendWelcomeUserMailJob::dispatch($user);
 
         Auth::login($user);
         
