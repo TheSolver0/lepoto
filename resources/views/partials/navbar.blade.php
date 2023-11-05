@@ -31,7 +31,7 @@
                     <!-- Follow feed -->
                     
                     <!-- Messages -->
-                    <li class="notifications messages"><a class="dropdown-button" href="#!" data-activates="dropdown3"><i class="ion-ios-chatboxes-outline"></i><b class="n-number"></b></a>
+                    <li class="notifications messages" style="display:none;"><a class="dropdown-button" href="#!" data-activates="dropdown3"><i class="ion-ios-chatboxes-outline"></i><b class="n-number"></b></a>
                         <!-- Dropdown Structure -->
                         <ul id="dropdown3" class="dropdown-content">
                             <li class="hed_notic">Messages <span>Mark all as read <i class="ion-ios-gear-outline"></i></span></li> 
@@ -94,7 +94,7 @@
                         </ul>
                     </li>
                     <!-- Notifications -->
-                    <li class="notifications"><a class="dropdown-button" href="#!" data-activates="dropdown2"><i class="ion-ios-bell-outline"></i><b class="n-number"></b></a>
+                    <li class="notifications" style="display:none;"><a class="dropdown-button" href="#!" data-activates="dropdown2"><i class="ion-ios-bell-outline"></i><b class="n-number"></b></a>
                         <!-- Dropdown Structure -->
                         <ul id="dropdown2" class="dropdown-content">
                             <li class="hed_notic">Notifications <span>Mark all as read <i class="ion-ios-gear-outline"></i></span></li> 
@@ -187,7 +187,7 @@
                     <!-- Follow feed -->
                     
                   <!-- Messages -->
-                    <li class="notifications messages"><a class="dropdown-button" href="#!" data-activates="dropdown_s2"><i class="ion-ios-chatboxes-outline"></i><b class="n-number"></b></a>
+                    <li class="notifications messages" style="display:none;"><a class="dropdown-button" href="#!" data-activates="dropdown_s2"><i class="ion-ios-chatboxes-outline"></i><b class="n-number"></b></a>
                         <!-- Dropdown Structure -->
                     <ul id="dropdown_s2" class="dropdown-content">
                             <li class="hed_notic">Messages <span>Mark all as read <i class="ion-ios-gear-outline"></i></span></li> 
@@ -250,7 +250,7 @@
                         </ul>
                     </li>
                     <!-- Notifications -->
-                    <li class="notifications"><a class="dropdown-button" href="#!" data-activates="dropdown_s3"><i class="ion-ios-bell-outline"></i><b class="n-number"></b></a>
+                    <li class="notifications" style="display:none;"><a class="dropdown-button" href="#!" data-activates="dropdown_s3"><i class="ion-ios-bell-outline"></i><b class="n-number"></b></a>
                         <!-- Dropdown Structure -->
                         <ul id="dropdown_s3" class="dropdown-content">
                             <li class="hed_notic">Notifications <span>Mark all as read <i class="ion-ios-gear-outline"></i></span></li> 

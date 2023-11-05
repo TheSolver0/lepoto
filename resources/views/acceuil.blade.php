@@ -22,10 +22,11 @@
                 <div class="card-body">
                     <h4 class="card-title">
                         <a href="">
-                            @if(!empty($post->auteur->users_name))
+                            @if(!empty($post->auteur->users_name) || !empty($post->auteur->users_tel))
                                 <span  class="" style="background:#ff7141 !important;color: white;">
-                                    {{ $post->auteur->users_name }}
+                                    <a href="https://wa.me/{{$post->auteur->users_tel}}" >{{ $post->auteur->users_name }} </a>
                                 </span>
+                                <br /> 
                             @else 
                                 Auteur
                             @endif 

@@ -56,7 +56,8 @@ class PostController extends Controller
         
         $auteur = Auteur::create([
             'posts_id' => $post->id,
-            'users_name' => Auth::user()->name
+            'users_name' => Auth::user()->name,
+            'users_tel' => Auth::user()->tel
         ]);
 
         return Redirect::route('Acceuil');
