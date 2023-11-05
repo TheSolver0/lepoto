@@ -26,6 +26,13 @@ class PostController extends Controller
             'post' => $post
         ]);
     }
+    public function search()
+    {
+        $recherche = $_GET['recherche'];
+        $posts = Post::where('title','LIKE',"%$recherche%")->get();
+
+        return view('searchpage',compact('posts'));
+    }
     public function create()
     {
         return view('createpost');

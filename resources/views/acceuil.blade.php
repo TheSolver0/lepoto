@@ -24,7 +24,8 @@
                         <a href="">
                             @if(!empty($post->auteur->users_name) || !empty($post->auteur->users_tel))
                                 <span  class="" style="background:#ff7141 !important;color: white;">
-                                    <a href="https://wa.me/{{$post->auteur->users_tel}}" >{{ $post->auteur->users_name }} </a>
+                                    <a href="https://wa.me/{{$post->auteur->users_tel}}" >{{ $post->auteur->users_name}} : </a>
+                                    <i style="text-decoration:underline;color:orange;">{{ $post->auteur->users_tel }}</i>
                                 </span>
                                 <br /> 
                             @else 
@@ -38,7 +39,7 @@
                         <button type="button" name="description " id="description" class="btn btn-primary">Description</button>
                     </a>
                     <a href="">
-                        <button type="button" name="acheter " id="acheter" class="btn btn-success">Acheter</button>
+                        <a type="button" href="https://wa.me/{{$post->auteur->users_tel}}" name="acheter " id="acheter" class="btn btn-success">Acheter</button>
                     </a>
                 </div>
             </div>

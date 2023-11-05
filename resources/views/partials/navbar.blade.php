@@ -22,10 +22,12 @@
                 </ul>
                 <ul class="right right_menu hide-on-med-and-down">
                     <li class="search_min">
-                       <ul class="search_from"> 
-                            <li><input placeholder="Search Here" type="text"></li>
-                            <li><a href="#" class="search_icon"><i class="ion-ios-search"></i></a> </li> 
-                       </ul>
+                       <form action="{{route('posts.search')}}" method="get">
+                        <ul class="search_from"> 
+                                <li><input placeholder="Search Here" name="recherche" type="text"></li>
+                                <li><a type="submit" class="search_icon" ><i class="ion-ios-search"></i></a> </li> 
+                        </ul>
+                       </form>
                     </li>
                     <li><a href="{{ route('Vendre') }}" class="waves-effect btn post_btn modal-trigger" style="background: rgb(255, 113, 65);"><i class="ion-plus"></i><span>Add Post</span></a></li> 
                     <!-- Follow feed -->
@@ -157,7 +159,7 @@
                         </ul>
                     </li>
                     <!-- Profile -->
-                    <li class="user_dropdown"><a class="dropdown-button" href="#!" data-activates="dropdown1"><img src="{{ Storage::url(Auth::user()->avatar->path) }}" alt="" class="circle p_2 improfile"></a>
+                    <li class="user_dropdown"><a class="dropdown-button" href="#!" data-activates="dropdown1" title="{{Auth::user()->name}}"><img src="{{ Storage::url(Auth::user()->avatar->path) }}" alt="" class="circle p_2 improfile"></a>
                         <!-- Dropdown Structure -->
                         <ul id="dropdown1" class="dropdown-content">
                             <li><a href="{{ route('profile.edit') }}"><i class="ion-person"></i>My profile</a></li> 
@@ -172,12 +174,14 @@
                     </li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
-                    <li class="search_min">
-                       <div class="search_from"> 
-                            <input placeholder="Search Here" type="text">
-                            <a href="#" class="search_icon"><i class="ion-ios-search"></i></a> 
-                       </div>
-                    </li>
+                    <form action="{{route('posts.search')}}" method="get">
+                        <li class="search_min">
+                            <div class="search_from"> 
+                                <input placeholder="Search Here" name="recherche" type="text">
+                                <a type="submit" href="#" class="search_icon"><i class="ion-ios-search"></i></a> 
+                            </div>
+                        </li>
+                    </form>
                     <li><a href="{{ route('Acceuil') }}">Home</a></li>
                     {{-- <li class="user_dropdown"><a class="dropdown-button" href="#!" data-activates="dropdown_s0">All Pages</a> --}}
                         <!-- Dropdown Structure -->
@@ -313,7 +317,7 @@
                         </ul>
                     </li>
                     <!-- Profile -->
-                    <li class="user_dropdown"><a class="dropdown-button" href="#!" data-activates="dropdown_s4"><img src="{{ Storage::url(Auth::user()->avatar->path) }}" alt="" class="circle p_2 improfile"></a>
+                    <li class="user_dropdown"><a class="dropdown-button" href="#!" data-activates="dropdown_s4" title="{{Auth::user()->name}}"><img src="{{ Storage::url(Auth::user()->avatar->path) }}" alt="" class="circle p_2 improfile"></a>
                         <!-- Dropdown Structure -->
                         <ul id="dropdown_s4" class="dropdown-content">
                             <li><a href="{{ route('profile.edit') }}"><i class="ion-person"></i>My profile</a></li> 

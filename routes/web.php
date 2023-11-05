@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/createpost',[PostController::class, 'create'])->name('Vendre');
     Route::post('/storepost', [PostController::class, 'store'])->name('posts.store');
     Route::get('/posts/{id}',[PostController::class, 'show'])->name('posts.show');
+    Route::get('/posts',[PostController::class, 'search'])->name('posts.search');
 });
 
 require __DIR__.'/auth.php';

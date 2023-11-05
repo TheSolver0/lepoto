@@ -31,6 +31,6 @@ class sendWelcomeUserMailJob implements ShouldQueue
     public function handle(): void
     {
         // send mail
-        $user->notify(new UserRegisteredNotification);
+        $this->user->notify(new UserRegisteredNotification);
     }
 }
