@@ -227,8 +227,8 @@ Author: webstrot
                                 </div>
                                 <div class="jp_listing_list_icon_cont_wrapper">
                                     <ul>
-                                        <li>Date Posted:</li>
-                                        <li>Octomber 02, 2019</li>
+                                        <li>Date Posté:</li>
+                                        <li>{{$post->created_at}}</li>
                                     </ul>
                                 </div>
                             </div>

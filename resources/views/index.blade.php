@@ -158,7 +158,12 @@ Author: webstrot
                                     </li>
                                     {{-- <li><a href="#"><i class="fas fa-lock"></i>Lock Screen</a> --}}
                                     </li>
-                                    <li><a href="#"><i class="fas fa-sign-in-alt"></i>logout</a>
+                                    <li>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <a onclick="event.preventDefault();
+                                                this.closest('form').submit();"><i class="fas fa-sign-in-alt"></i>logout</a>
+                                    </form>
                                     </li>
                                 </ul>
                             </div>
@@ -223,7 +228,10 @@ Author: webstrot
 
                                         <p data-animation="animated fadeInUp">lepto, la meilleure plateforme pour élèves et etudiants.</p>
                                         <div data-animation="animated fadeInUp" class="btn_hover slider_btn">
-                                            <a href="#">Inscription gratuite</a>
+                                            <a href="{{route('register')}}">Inscription gratuite</a>
+                                        </div>
+                                        <div data-animation="animated fadeInUp" class="btn_hover slider_btn">
+                                            <a href="{{route('login')}}">Se connecter</a>
                                         </div>
                                         {{-- <div data-animation="animated fadeInUp" class="slider_icon_list">
                                             <ul>
@@ -270,7 +278,7 @@ Author: webstrot
 
                                         <p data-animation="animated fadeInUp">lepoto la meilleure plateforme pour vous...</p>
                                         <div data-animation="animated fadeInUp" class="btn_hover slider_btn">
-                                            <a href="#">Inscription gratuite</a>
+                                            <a href="{{ route('register') }}">Inscription gratuite</a>
                                         </div>
                                         {{-- <div data-animation="animated fadeInUp" class="slider_icon_list">
                                             <ul>

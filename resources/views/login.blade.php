@@ -227,47 +227,64 @@ Author: webstrot
                             <img src="images/logo.png" alt="logo">
                             <div class="header_btn search_btn facebook_wrap jb_cover">
 
-                                <a href="#">login with facebook <i class="fab fa-facebook-f"></i></a>
+                                <a href="#" title="pas encore fonctionnel">login with facebook <i class="fab fa-facebook-f"></i></a>
 
                             </div>
                             <div class="header_btn search_btn google_wrap jb_cover">
 
-                                <a href="#">login with pinterest <i class="fab fa-pinterest-p"></i></a>
+                                <a href="#" title="pas encore fonctionnel">login with pinterest <i class="fab fa-pinterest-p"></i></a>
 
                             </div>
                             <div class="jp_regis_center_tag_wrapper jb_register_red_or">
                                 <h1>OR</h1>
                             </div>
                         </div>
+                        <x-auth-session-status class="mb-4" :status="session('status')" />
+
+                        <form method="POST" action="{{ route('login') }}">
+                        @csrf
+
                         <div class="login_form_wrapper">
                             <h2>login</h2>
                             <div class="form-group icon_form comments_form">
-
-                                <input type="text" class="form-control require" name="full_name" placeholder="Email Address*">
+                                <x-text-input id="email" class="form-control require" type="email" placeholder="Email Address*" name="email" :value="old('email')" required  autocomplete="username" />
+                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                {{-- <input type="text" class="form-control require" name="full_name" placeholder="Email Address*"> --}}
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div class="form-group icon_form comments_form">
+                                <x-text-input id="password" class="form-control require"
+                                    type="password"
+                                    name="password"
+                                    placeholder="Password *"
+                                    required autocomplete="current-password" />
 
-                                <input type="password" class="form-control require" placeholder="Password *">
+                                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                                {{-- <input type="password" class="form-control require" placeholder="Password *"> --}}
                                 <i class="fas fa-lock"></i>
                             </div>
                             <div class="login_remember_box">
+       
                                 <label class="control control--checkbox">Remember me
-                                    <input type="checkbox">
+                                    <input type="checkbox" name="remember">
                                     <span class="control__indicator"></span>
                                 </label>
-                                <a href="#" class="forget_password">
+                                @if (Route::has('password.request'))
+                                <a href="{{ route('password.request') }}" class="forget_password">
 									Forgot Password
 								</a>
+                                @endif
                             </div>
                             <div class="header_btn search_btn login_btn jb_cover">
 
-                                <a href="#">login</a>
+                                <a onclick="event.preventDefault();
+                                                this.closest('form').submit();" href="">login</a>
                             </div>
                             <div class="dont_have_account jb_cover">
-                                <p>Don’t have an acount ? <a href="sign_up.html">Sign up</a></p>
+                                <p>Don’t have an acount ? <a href="{{ route('register') }}">Sign up</a></p>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>

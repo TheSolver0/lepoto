@@ -21,9 +21,9 @@ use Illuminate\Support\Facades\Route;
  Route::get('/livre',[PostController::class, 'show'])->name('posts.show');
 
 
-Route::get('/s', function () {
-    return view('signup');
-});
+// Route::get('/si', function () {
+//     return view('signup');
+// })->name('signup');
 
  Route::get('/', [PostController::class, 'index'])->name('accueil');
  Route::get('/posts',[PostController::class, 'search'])->name('posts.search');

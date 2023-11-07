@@ -23,7 +23,7 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        return view('signup');
     }
 
     /**
@@ -47,19 +47,19 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
         
-        $filename = time() . '.' . $request->avatar->extension();
+        // $filename = time() . '.' . $request->avatar->extension();
         
-        $path = $request->avatar->storeAs(
-            'avatars',
-            $filename,
-            'public'
-        );
+        // $path = $request->avatar->storeAs(
+        //     'avatars',
+        //     $filename,
+        //     'public'
+        // );
        
 
-        $avatar = Avatar::create([
-            'path' => $path,
-            'users_id' => $user->id
-        ]);
+        // $avatar = Avatar::create([
+        //     'path' => $path,
+        //     'users_id' => $user->id
+        // ]);
 
         event(new Registered($user));
 
