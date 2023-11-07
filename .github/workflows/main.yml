@@ -29,5 +29,5 @@ jobs:
             npm i
             npm run build
             php artisan optimize
-            php artisan migrate:rollback
+            php artisan migrate
             
