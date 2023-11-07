@@ -66,14 +66,14 @@ Author: webstrot
                 <a href="#">acceuil</a>
             </li>
             <li class="">
-                <a href="#">vendre</a>
+                <a href="{{route('vendre')}}">vendre</a>
             </li>
             <!-- .has-children -->
             <li class="">
-                <a href="#">profile</a>
+                <a href="{{route('profile.edit')}}">profile</a>
             </li>
             <li><a href="contact_us.html">contact us </a></li>
-            <li><a href="login.html">login</a></li>
+            <li><a href="{{ route('login') }}">login</a></li>
         </ul>
         <!-- .cd-dropdown-content -->
     </nav>
@@ -170,7 +170,7 @@ Author: webstrot
                         </div>
                     </li>
                     <li class="btn_hover">
-                         <a href="https://webstrot.com/html/jbdesk/dashboard/comp_post_new_job.html">Ajouter un article</a>
+                         <a href="{{ route('vendre') }}">Ajouter un article</a>
                     </li>
                 </ul>
             </div>
@@ -184,7 +184,7 @@ Author: webstrot
                      
                     </li>
                     <li class="has-mega gc_main_navigation kv_sub_menu green_sub_menu blue_sub_menu">
-                        <a href="#" class="gc_main_navigation">  profile</a>
+                        <a href="{{route('profile.edit')}}" class="gc_main_navigation">  profile</a>
                         <!-- mega menu start -->
                         
                     </li>

@@ -73,7 +73,7 @@ Author: webstrot
                 <a href="#">profile</a>
             </li>
             <li><a href="contact_us.html">contact us </a></li>
-            <li><a href="login.html">login</a></li>
+            <li><a href="{{ route('login') }}">login</a></li>
         </ul>
         <!-- .cd-dropdown-content -->
     </nav>
@@ -170,7 +170,7 @@ Author: webstrot
                         </div>
                     </li>
                     <li class="btn_hover">
-                         <a href="https://webstrot.com/html/jbdesk/dashboard/comp_post_new_job.html">Ajouter un article</a>
+                         <a href="{{ route('vendre') }}">Ajouter un article</a>
                     </li>
                 </ul>
             </div>
@@ -209,11 +209,11 @@ Author: webstrot
         
     @endif
     <div class="form-floating mb-3">
-        <input type="text" name="title" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <input type="text" name="title" class="form-control" id="floatingInput" placeholder="Titre ex:Livre Ciam Tle C">
         <label for="floatingInput">Titre ex:Livre Ciam Tle C</label>
       </div>
     <div class="form-floating mb-3">
-        <input type="number" name="prix" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <input type="number" name="prix" class="form-control" id="floatingInput" placeholder="Prix ex:2500">
         <label for="floatingInput">Prix ex:2500</label>
       </div>
     <div class="form-floating mb-3">
@@ -221,7 +221,7 @@ Author: webstrot
         <label for="floatingInput">Entre ta ville</label>
       </div>
       <div class="form-floating">
-        <textarea name="description" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+        <textarea name="description" class="form-control" placeholder="description" id="floatingTextarea"></textarea>
         <label for="floatingTextarea">Description 'vous pourriez donner plus d'information sur le livre , son etat'</label>
       </div><br>
         <label for="image">Choisir une image:</label><br><br>

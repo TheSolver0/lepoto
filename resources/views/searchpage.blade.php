@@ -73,7 +73,7 @@ Author: webstrot
                 <a href="#">profile</a>
             </li>
             <li><a href="contact_us.html">contact us </a></li>
-            <li><a href="login.html">login</a></li>
+            <li><a href="{{ route('login') }}">login</a></li>
         </ul>
         <!-- .cd-dropdown-content -->
     </nav>
@@ -165,7 +165,7 @@ Author: webstrot
                         </div>
                     </li>
                     <li class="btn_hover">
-                         <a href="https://webstrot.com/html/jbdesk/dashboard/comp_post_new_job.html">Ajouter un article</a>
+                         <a href="{{ route('vendre') }}">Ajouter un article</a>
                     </li>
                 </ul>
             </div>

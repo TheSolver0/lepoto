@@ -5,7 +5,7 @@
         </h2>
 
         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-            {{ __('Ensure your account is using a long, random password to stay secure.') }}
+            {{ __('') }}
         </p>
     </header>
 
@@ -32,7 +32,9 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <div data-animation="animated fadeInUp" class="header_btn search_btn login_btn jb_cover">
+            <a href="">{{ __('Save') }}</a>
+            </div>
 
             @if (session('status') === 'password-updated')
                 <p
