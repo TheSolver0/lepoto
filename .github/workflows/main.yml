@@ -29,6 +29,5 @@ jobs:
             npm i
             npm run build
             php artisan optimize
-            php artisan auth:clear-resets 
             php artisan migrate:refresh
             
