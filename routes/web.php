@@ -15,22 +15,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.register');
+ Route::get('/', function () {
+     return view('index');
+ });
+ Route::get('/livre',[PostController::class, 'show'])->name('posts.show');
+
+
+Route::get('/s', function () {
+    return view('signup');
 });
 
-Route::get('/Acceuil', [PostController::class, 'index'])  
-        ->middleware(['auth', 'verified'])
-        ->name('Acceuil');
+ Route::get('/', [PostController::class, 'index'])->name('accueil');
+ Route::get('/posts',[PostController::class, 'search'])->name('posts.search');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/createpost',[PostController::class, 'create'])->name('Vendre');
+    Route::get('/createpost',[PostController::class, 'create'])->name('vendre');
     Route::post('/storepost', [PostController::class, 'store'])->name('posts.store');
-    Route::get('/posts/{id}',[PostController::class, 'show'])->name('posts.show');
-    Route::get('/posts',[PostController::class, 'search'])->name('posts.search');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__.'\auth.php';

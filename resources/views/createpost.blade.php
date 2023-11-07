@@ -4,7 +4,7 @@
 
 <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
-    <h2>Vendre un nouveau livre</h2>
+    <h2>vendre un nouveau livre</h2>
     @if ($errors->any())
       @foreach ($errors->all() as $error)
           <div style="color:red;"> {{ $error }} </div>

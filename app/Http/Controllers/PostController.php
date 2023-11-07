@@ -16,15 +16,19 @@ class PostController extends Controller
     {
         $posts = Post::orderBy('id', 'desc')->get();
 
-        return view('acceuil',compact('posts'));
+        return view('index',compact('posts'));
     }
-    public function show($id)
+    /**
+     * Summary of show
+     * @param mixed $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function show()
     {
-        $post = Post::findOrFail($id);
+        $recherche = $_GET['id'];
+        $post = Post::findOrfail($recherche);
 
-        return view('article', [
-            'post' => $post
-        ]);
+        return view('livre',compact('post'));
     }
     public function search()
     {
@@ -67,6 +71,6 @@ class PostController extends Controller
             'users_tel' => Auth::user()->tel
         ]);
 
-        return Redirect::route('Acceuil');
+        return Redirect::route('accueil');
     }
 }

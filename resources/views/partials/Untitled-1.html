@@ -8,7 +8,7 @@
 
                 <!-- Navigation Links -->
                 {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('Acceuil')" :active="request()->routeIs(request()->route()->getName())">
+                    <x-nav-link :href="route('accueil')" :active="request()->routeIs(request()->route()->getName())">
                         {{ request()->route()->getName() }}
                     </x-nav-link>
                 </div> --}}
@@ -64,7 +64,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('Acceuil')" :active="request()->routeIs(request()->route()->getName())">
+            <x-responsive-nav-link :href="route('accueil')" :active="request()->routeIs(request()->route()->getName())">
                         {{ request()->route()->getName() }}
             </x-responsive-nav-link>
         </div>
@@ -98,10 +98,10 @@
 <div id="pagefooter1">
             {{-- <img src="{{asset("Images/MJ fond transparent.png")}}" class="logo"> --}}
             <ul  role="navigation" class="">
-                <a href="{{ route('Acceuil') }}">
+                <a href="{{ route('accueil') }}">
                     <li>
                         {{-- <img    src="{{ asset('Images/home.png') }}" style="padding-left:20px;width:70%;"> --}}
-                        Acceuil
+                        accueil
                     </li>
                 </a>
                 <a href="#">
@@ -110,10 +110,10 @@
                         Rechercher
                     </li>
                 </a>
-                <a href="{{ route('Vendre') }}">
+                <a href="{{ route('vendre') }}">
                     <li>
                         {{-- <img src="{{ asset('Images/circle-plus.png') }}" style="padding-left:10px;width:70%;"> --}}
-                        Vendre
+                        vendre
                     </li>
                 </a>
                 <a href="#">

@@ -3,13 +3,13 @@
     <nav class="header_area"> 
         <div class="custom_container"> 
             <div class="nav-wrapper">
-                <a href="{{ route('Acceuil') }}" class="brand-logo"><img src="images/logo.png" alt=""></a>
+                <a href="{{ route('accueil') }}" class="brand-logo"><img src="images/logo.png" alt=""></a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                <a href="{{ route('Vendre') }}" class="waves-effect btn post_btn sm_post_btn modal-trigger" style="background: rgb(255, 113, 65);"><i class="ion-plus"></i>Add Post</a>
+                <a href="{{ route('vendre') }}" class="waves-effect btn post_btn sm_post_btn modal-trigger" style="background: rgb(255, 113, 65);"><i class="ion-plus"></i>Add Post</a>
                 <ul class="left_menu hide-on-med-and-down">
-                    {{-- <li><a href="{{ route('Acceuil') }}" class="active">Acceuil</a></li>   --}}
-                    <li><a href="{{ route('Acceuil') }}">Acceuil</a></li>  
-                    <li><a href="{{ route('Vendre') }}">Vendre</a></li>
+                    {{-- <li><a href="{{ route('accueil') }}" class="active">accueil</a></li>   --}}
+                    <li><a href="{{ route('accueil') }}">accueil</a></li>  
+                    <li><a href="{{ route('vendre') }}">vendre</a></li>
                     <li><a href="{{ route('profile.edit') }}">Profile</a></li>
                     <li class="notifications search_sm"><a class="dropdown-button" href="#!" data-activates="dropdown5"><i class="ion-ios-search"></i></a>
                         <!-- Dropdown Structure -->
@@ -29,7 +29,7 @@
                         </ul>
                        </form>
                     </li>
-                    <li><a href="{{ route('Vendre') }}" class="waves-effect btn post_btn modal-trigger" style="background: rgb(255, 113, 65);"><i class="ion-plus"></i><span>Add Post</span></a></li> 
+                    <li><a href="{{ route('vendre') }}" class="waves-effect btn post_btn modal-trigger" style="background: rgb(255, 113, 65);"><i class="ion-plus"></i><span>Add Post</span></a></li> 
                     <!-- Follow feed -->
                     
                     <!-- Messages -->
@@ -159,7 +159,11 @@
                         </ul>
                     </li>
                     <!-- Profile -->
-                    <li class="user_dropdown"><a class="dropdown-button" href="#!" data-activates="dropdown1" title="{{Auth::user()->name}}"><img src="{{ Storage::url(Auth::user()->avatar->path) }}" alt="" class="circle p_2 improfile"></a>
+                            @if(!empty(Auth::user()->name))
+                                <li class="user_dropdown"><a class="dropdown-button" href="#!" data-activates="dropdown1" title="{{Auth::user()->name}}"><img src="{{ Storage::url(Auth::user()->avatar->path) }}" alt="" class="circle p_2 improfile"></a>
+                            @else 
+                                <li class="user_dropdown"><a class="dropdown-button" href="#!" data-activates="dropdown1" title=""><img src="" alt="" class="circle p_2 improfile"></a>
+                            @endif
                         <!-- Dropdown Structure -->
                         <ul id="dropdown1" class="dropdown-content">
                             <li><a href="{{ route('profile.edit') }}"><i class="ion-person"></i>My profile</a></li> 
@@ -182,11 +186,11 @@
                             </div>
                         </li>
                     </form>
-                    <li><a href="{{ route('Acceuil') }}">Home</a></li>
+                    <li><a href="{{ route('accueil') }}">Home</a></li>
                     {{-- <li class="user_dropdown"><a class="dropdown-button" href="#!" data-activates="dropdown_s0">All Pages</a> --}}
                         <!-- Dropdown Structure -->
                     </li> 
-                    <li><a href="{{ route('Vendre') }}">Vendre</a></li>
+                    <li><a href="{{ route('vendre') }}">vendre</a></li>
                     {{-- <li><a href="#"></a></li>   --}}
                     <!-- Follow feed -->
                     
@@ -317,7 +321,12 @@
                         </ul>
                     </li>
                     <!-- Profile -->
-                    <li class="user_dropdown"><a class="dropdown-button" href="#!" data-activates="dropdown_s4" title="{{Auth::user()->name}}"><img src="{{ Storage::url(Auth::user()->avatar->path) }}" alt="" class="circle p_2 improfile"></a>
+                     @if(!empty(Auth::user()->name))
+                                <li class="user_dropdown"><a class="dropdown-button" href="#!" data-activates="dropdown_s4" title="{{Auth::user()->name}}"><img src="{{ Storage::url(Auth::user()->avatar->path) }}" alt="" class="circle p_2 improfile"></a>
+                    @else 
+                                <li class="user_dropdown"><a class="dropdown-button" href="#!" data-activates="dropdown_s4" title=""><img src="" alt="" class="circle p_2 improfile"></a>
+                    @endif
+                    {{-- <li class="user_dropdown"><a class="dropdown-button" href="#!" data-activates="dropdown_s4" title="{{Auth::user()->name}}"><img src="{{ Storage::url(Auth::user()->avatar->path) }}" alt="" class="circle p_2 improfile"></a> --}}
                         <!-- Dropdown Structure -->
                         <ul id="dropdown_s4" class="dropdown-content">
                             <li><a href="{{ route('profile.edit') }}"><i class="ion-person"></i>My profile</a></li> 
