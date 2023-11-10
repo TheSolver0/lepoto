@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MailAuxCreateur;
 use App\Models\Auteur;
 use App\Models\Image;
 use App\Models\Post;
@@ -72,5 +73,12 @@ class PostController extends Controller
         ]);
 
         return Redirect::route('accueil');
+    }
+    public function mail()
+    {
+        $contenu = $_POST["contenu"];
+        $user = Auth::user();
+        return (new MailAuxCreateur($user,$contenu))
+        ->to("lucfotso0@gmail.com");
     }
 }
