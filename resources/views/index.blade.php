@@ -38,7 +38,7 @@ Author: webstrot
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/responsive.css" />
     <!--favicon-->
-    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="images/icolepoto.png" />
 </head>
 
 <body>
@@ -54,7 +54,7 @@ Author: webstrot
     <!-- Top Scroll End -->
     <!-- cp navi wrapper Start -->
     <nav class="cd-dropdown cd_dropdown_index2 cd_dropdown_index3 d-block d-sm-block d-md-block d-lg-none d-xl-none">
-        <h2><a href="index.html"> <span><img src="images/logo5.png" alt="img"></span></a></h2>
+        <h2><a href="index.html"> <span><img src="images/logolepoto.png" alt="img" style="width:163px;height:43px;"></span></a></h2>
         <a href="#0" class="cd-close">Close</a>
         <ul class="cd-dropdown-content">
             <li>
@@ -63,7 +63,7 @@ Author: webstrot
                 </form>
             </li>
             <li class="">
-                <a href="#">acceuil</a>
+                <a href="{{ route('accueil') }}">acceuil</a>
             </li>
             <li class="">
                 <a href="{{route('vendre')}}">vendre</a>
@@ -80,8 +80,8 @@ Author: webstrot
     <div class="cp_navi_main_wrapper index_2_top_header index_3_top_header jb_cover">
 
         <div class="cp_logo_wrapper index_2_logo index_3_logo">
-            <a href="index_III.html">
-                <img src="images/logo4.png" alt="logo">
+            <a href="{{route('accueil')}}">
+                <img src="images/logolepoto.png" alt="logo" style="width:163px;height:63px;" style="width:163px;height:63px;">
             </a>
         </div>
         <!-- mobile menu area start -->
@@ -230,8 +230,8 @@ Author: webstrot
                                         <div data-animation="animated fadeInUp" class="btn_hover slider_btn">
                                             <a href="{{route('register')}}">Inscription gratuite</a>
                                         </div>
-                                        <div data-animation="animated fadeInUp" class="btn_hover slider_btn">
-                                            <a href="{{route('login')}}">Se connecter</a>
+                                        <div data-animation="animated fadeInUp" class="btn_hover slider_btn" >
+                                            <a href="{{route('login')}}" style="margin-left:50px;">Se connecter</a>
                                         </div>
                                         {{-- <div data-animation="animated fadeInUp" class="slider_icon_list">
                                             <ul>
@@ -931,7 +931,7 @@ Author: webstrot
             <div class="row">
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="footerNav jb_cover">
-                        <a href="#"><img src="images/logo5.png" alt="img"></a>
+                        <a href="#"><img src="images/logolepoto1.png" alt="img" style="width:250px;"></a>
                         <ul class="footer_first_contact">
                             <li><i class="flaticon-location-pointer"></i>
                                 <p>Douala, Nyalla
@@ -1004,7 +1004,7 @@ Author: webstrot
       </div><!--chat-log -->
     </div>
     <div class="chat-input">      
-      <form>
+      <form action="{{route('mail')}}" method="POST">
         <input type="text" id="chat-input" placeholder="Send a message..."/>
       <button type="submit" class="chat-submit" id="chat-submit"><i class="fas fa-paper-plane"></i></button>
       </form>      

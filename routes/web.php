@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\Route;
 
  Route::get('/', [PostController::class, 'index'])->name('accueil');
  Route::get('/posts',[PostController::class, 'search'])->name('posts.search');
+ Route::get('/mail',[PostController::class, 'mail'])->name('mail');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

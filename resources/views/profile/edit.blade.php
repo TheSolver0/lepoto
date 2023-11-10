@@ -54,7 +54,7 @@ Author: webstrot
     <!-- Top Scroll End -->
     <!-- cp navi wrapper Start -->
     <nav class="cd-dropdown cd_dropdown_index2 cd_dropdown_index3 d-block d-sm-block d-md-block d-lg-none d-xl-none">
-        <h2><a href="index.html"> <span><img src="images/logo5.png" alt="img"></span></a></h2>
+        <h2><a href="index.html"> <span><img src="images/logolepoto.png" alt="img"></span></a></h2>
         <a href="#0" class="cd-close">Close</a>
         <ul class="cd-dropdown-content">
             <li>
@@ -63,7 +63,7 @@ Author: webstrot
                 </form>
             </li>
             <li class="">
-                <a href="#">acceuil</a>
+                <a href="{{ route('accueil') }}">acceuil</a>
             </li>
             <li class="">
                 <a href="{{route('vendre')}}">vendre</a>
@@ -80,8 +80,8 @@ Author: webstrot
     <div class="cp_navi_main_wrapper index_2_top_header index_3_top_header jb_cover">
 
         <div class="cp_logo_wrapper index_2_logo index_3_logo">
-            <a href="index_III.html">
-                <img src="images/logo4.png" alt="logo">
+            <a href="{{route('accueil')}}">
+                <img src="images/logolepoto.png" alt="logo" style="width:163px;height:63px;">
             </a>
         </div>
         <!-- mobile menu area start -->
@@ -246,7 +246,7 @@ Author: webstrot
             <div class="row">
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="footerNav jb_cover">
-                        <a href="#"><img src="images/logo5.png" alt="img"></a>
+                        <a href="#"><img src="images/logolepoto.png" alt="img"></a>
                         <ul class="footer_first_contact">
                             <li><i class="flaticon-location-pointer"></i>
                                 <p>Douala, Nyalla
