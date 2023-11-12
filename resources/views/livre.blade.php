@@ -38,7 +38,7 @@ Author: webstrot
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/responsive.css" />
     <!--favicon-->
-    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="images/icolepoto.png" />
 </head>
 
 <body>
@@ -81,7 +81,7 @@ Author: webstrot
 
         <div class="cp_logo_wrapper index_2_logo index_3_logo">
             <a href="{{route('accueil')}}">
-                <img src="images/logolepoto.png" alt="logo" style="width:163px;height:63px;">
+                <img src="images/logolepoto.png" alt="logo" style="width:163px;height:43px;">
             </a>
         </div>
         <!-- mobile menu area start -->
@@ -238,8 +238,8 @@ Author: webstrot
                                 </div>
                                 <div class="jp_listing_list_icon_cont_wrapper">
                                     <ul>
-                                        <li>Location:</li>
-                                        <li>Los Angeles Califonia PO, 455001</li>
+                                        <li>Localisation:</li>
+                                        <li>{{$post->ville}}</li>
                                     </ul>
                                 </div>
                             </div>
@@ -249,8 +249,8 @@ Author: webstrot
                                 </div>
                                 <div class="jp_listing_list_icon_cont_wrapper">
                                     <ul>
-                                        <li>Job Title:</li>
-                                        <li>HTML Developer</li>
+                                        <li>Titre</li>
+                                        <li>{{$post->title}}</li>
                                     </ul>
                                 </div>
                             </div>
@@ -266,8 +266,8 @@ Author: webstrot
                                 </div>
                                 <div class="jp_listing_list_icon_cont_wrapper">
                                     <ul>
-                                        <li>Salary:</li>
-                                        <li>$12K - 15k P.A.</li>
+                                        <li>prix:</li>
+                                        <li>{{$post->prix}}</li>
                                     </ul>
                                 </div>
                             </div>
@@ -278,13 +278,13 @@ Author: webstrot
                                 <div class="jp_listing_list_icon_cont_wrapper">
                                     <ul>
                                         <li>Category:</li>
-                                        <li>Science</li>
+                                        <li>Etudes</li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="header_btn search_btn news_btn overview_btn  jb_cover">
 
-                                <a href="#" data-toggle="modal" data-target="#myModal41">acheter maintenant</a>
+                                <a href="https//wa.me/{{$post->auteur->users_tel}}" data-toggle="modal" data-target="#myModal41">acheter maintenant</a>
 
                             </div>
                             <div class="modal fade apply_job_popup" id="myModal41" role="dialog">
@@ -293,37 +293,12 @@ Author: webstrot
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         <div class="row">
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-
+                                            {{-- @if(empty(Auth::user()))         --}}
                                                 <div class="apply_job jb_cover">
-                                                    <h1>Inscrivez-vous d'abord :</h1>
-                                                    <div class="search_alert_box jb_cover">
-
-                                                        <div class="apply_job_form">
-
-                                                            <input type="text" name="name" placeholder="full name">
-                                                        </div>
-                                                        <div class="apply_job_form">
-
-                                                            <input type="text" name="Email" placeholder="Enter Your Email">
-                                                        </div>
-                                                        <div class="apply_job_form">
-                                                            <textarea class="form-control" name="message" placeholder="Message"></textarea>
-                                                        </div>
-
-                                                        <div class="resume_optional jb_cover">
-                                                            <p>resume (optional)</p>
-                                                            <div class="width_50">
-                                                                <input type="file" id="input-file-now-custom-27" class="dropify" data-height="90" /><span class="post_photo">upload resume</span>
-                                                            </div>
-                                                            <p class="word_file"> microsoft word or pdf file only (5mb)</p>
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="header_btn search_btn applt_pop_btn jb_cover">
-
-                                                        <a href="#">apply now</a>
-
-                                                    </div>
+                                                    <a href="{{route('register')}}">
+                                                     <h1>Inscrivez-vous d'abord :</h1>
+                                                    </a>
+                                            {{-- @endif         --}}
                                                 </div>
                                             </div>
                                         </div>
@@ -338,9 +313,9 @@ Author: webstrot
                     <div class="jb_listing_single_overview jb_cover">
                         <div class="jp_job_des jb_cover">
                             <h2 class="job_description_heading">Description du livre</h2>
-                            <p>Livre euf , bon etat , aucune page déchirée</p>
+                            <p>{{$post->description}}</p>
                             <ul>
-                                <li><i class="fas fa-globe-asia"></i>&nbsp;&nbsp; <a href="#">whatsapp du vendeur</a></li>
+                                <li><i class="fas fa-globe-asia"></i>&nbsp;&nbsp; <a href="https//wa.me/{{$post->auteur->users_tel}}">whatsapp du vendeur</a></li>
                                 {{-- <li><i class="fas fa-file-download"></i>&nbsp;&nbsp; <a href="#">Download Info</a></li> --}}
 
                             </ul>
@@ -362,7 +337,7 @@ Author: webstrot
             <div class="row">
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="footerNav jb_cover">
-                        <a href="#"><img src="images/logolepoto.png" alt="img"></a>
+                        <a href="#"><img src="images/logolepoto1.png" alt="img" style="width:250px;"></a>
                         <ul class="footer_first_contact">
                             <li><i class="flaticon-location-pointer"></i>
                                 <p>Douala, Nyalla
@@ -435,7 +410,7 @@ Author: webstrot
       </div><!--chat-log -->
     </div>
     <div class="chat-input">      
-      <form>
+      <form action="{{route('mail')}}" method="POST">
         <input type="text" id="chat-input" placeholder="Send a message..."/>
       <button type="submit" class="chat-submit" id="chat-submit"><i class="fas fa-paper-plane"></i></button>
       </form>      

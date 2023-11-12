@@ -38,7 +38,7 @@ Author: webstrot
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/responsive.css" />
     <!--favicon-->
-    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="images/icolepoto.png" />
 </head>
 
 <body>
@@ -81,7 +81,7 @@ Author: webstrot
 
         <div class="cp_logo_wrapper index_2_logo index_3_logo">
             <a href="{{route('accueil')}}">
-                <img src="images/logolepoto.png" alt="logo" style="width:163px;height:63px;">
+                <img src="images/logolepoto.png" alt="logo" style="width:163px;height:43px;">
             </a>
         </div>
         <!-- mobile menu area start -->
@@ -246,7 +246,7 @@ Author: webstrot
             <div class="row">
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="footerNav jb_cover">
-                        <a href="#"><img src="images/logolepoto.png" alt="img"></a>
+                        <a href="#"><img src="images/logolepoto1.png" alt="img" style="width:250px;"></a>
                         <ul class="footer_first_contact">
                             <li><i class="flaticon-location-pointer"></i>
                                 <p>Douala, Nyalla
@@ -319,7 +319,7 @@ Author: webstrot
       </div><!--chat-log -->
     </div>
     <div class="chat-input">      
-      <form>
+      <form action="{{route('mail')}}" method="POST">
         <input type="text" id="chat-input" placeholder="Send a message..."/>
       <button type="submit" class="chat-submit" id="chat-submit"><i class="fas fa-paper-plane"></i></button>
       </form>      

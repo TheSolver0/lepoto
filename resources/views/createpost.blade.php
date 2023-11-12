@@ -38,7 +38,7 @@ Author: webstrot
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/responsive.css" />
     <!--favicon-->
-    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="images/icolepoto.png" />
 </head>
 
 <body>
@@ -81,7 +81,7 @@ Author: webstrot
 
         <div class="cp_logo_wrapper index_2_logo index_3_logo">
             <a href="{{route('accueil')}}">
-                <img src="images/logolepoto.png" alt="logo" style="width:163px;height:63px;">
+                <img src="images/logolepoto.png" alt="logo" style="width:163px;height:43px;">
             </a>
         </div>
         <!-- mobile menu area start -->

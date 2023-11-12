@@ -7,7 +7,7 @@
     <title>lepoto</title>
     
     <!-- Favicon -->
-    <link rel="icon" href="images/favicon.png" type="image/x-icon" />
+    <link rel="icon" href="images/icolepoto.png" type="image/x-icon" />
     <!-- Materialize CSS --> 
     <link rel="stylesheet" href="css/materialize.min.css">
     <!-- Tooltip CSS --> 
