@@ -54,7 +54,7 @@ Author: webstrot
     <!-- Top Scroll End -->
     <!-- cp navi wrapper Start -->
     <nav class="cd-dropdown cd_dropdown_index2 cd_dropdown_index3 d-block d-sm-block d-md-block d-lg-none d-xl-none">
-        <h2><a href="index.html"> <span><img src="images/logolepoto.png" alt="img" style="width:163px;height:43px;"></span></a></h2>
+        <h2><a href="index.html"> <span><img src="images/" alt="img"></span></a></h2>
         <a href="#0" class="cd-close">Close</a>
         <ul class="cd-dropdown-content">
             <li>
@@ -81,7 +81,7 @@ Author: webstrot
 
         <div class="cp_logo_wrapper index_2_logo index_3_logo">
             <a href="{{route('accueil')}}">
-                <img src="images/logolepoto.png" alt="logo" style="width:163px;height:63px;" style="width:163px;height:63px;">
+                <img src="images/logolepoto.png" alt="logo" style="width:163px;height:43px;">
             </a>
         </div>
         <!-- mobile menu area start -->
@@ -188,7 +188,7 @@ Author: webstrot
                         <!-- mega menu start -->
                         
                     </li>
-                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">dashboard</a>
+                    <li class="has-mega gc_main_navigation"><a href="{{route('profile.edit')}}" class="gc_main_navigation">dashboard</a>
                             
                         </li>
 					
@@ -524,7 +524,7 @@ Author: webstrot
                                                                 <input type="hidden" name="id" value="{{$post->id}}">
                                                                 <a href=""><input type="submit" value="Description" style="background:transparent;border:1px solid transparent;cursor:pointer;"></a></li>
                                                             </form>
-                                                            <li> <a href="#" data-toggle="modal" data-target="#myModal01">Acheter</a></li>
+                                                            <li> <a href="https//wa.me/{{$post->auteur->users_tel}}" data-toggle="modal" data-target="#myModal01">Acheter</a></li>
                                                         </ul>
                                                     </div>
                                                     
