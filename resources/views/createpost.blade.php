@@ -70,9 +70,9 @@ Author: webstrot
             </li>
             <!-- .has-children -->
             <li class="">
-                <a href="#">profile</a>
+                <a href="{{route('profile.edit')}}">profile</a>
             </li>
-            <li><a href="contact_us.html">contact us </a></li>
+            <li><a href="{{route('contact_us')}}">contact us </a></li>
             <li><a href="{{ route('login') }}">login</a></li>
         </ul>
         <!-- .cd-dropdown-content -->
@@ -177,22 +177,22 @@ Author: webstrot
 
             <div class="mainmenu green_main_menu blue_main_menu d-xl-block d-lg-block d-md-none d-sm-none d-none">
                 <ul class="main_nav_ul menu_2_ul">
-                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation ">acceuil</a>
+                    <li class="has-mega gc_main_navigation"><a href="{{route('accueil')}}" class="gc_main_navigation ">acceuil</a>
                         
                     </li>		
                     <li class="has-mega gc_main_navigation"><a href="{{route('vendre')}}" class="gc_main_navigation active_class active_class2 active_class3">vendre</a>
                      
                     </li>
                     <li class="has-mega gc_main_navigation kv_sub_menu green_sub_menu blue_sub_menu">
-                        <a href="#" class="gc_main_navigation">  profile</a>
+                        <a href="{{route('profile.edit')}}" class="gc_main_navigation">  profile</a>
                         <!-- mega menu start -->
                         
                     </li>
-                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">dashboard</a>
+                    <li class="has-mega gc_main_navigation"><a href="{{route('profile.edit')}}" class="gc_main_navigation">dashboard</a>
                             
                         </li>
 					
-                   <li><a href="contact_us.html" class="gc_main_navigation">contact</a></li>
+                   <li><a href="{{route('contact_us')}}" class="gc_main_navigation">contact</a></li>
 
                 </ul>
             </div>
