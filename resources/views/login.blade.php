@@ -70,7 +70,7 @@ Author: webstrot
             </li>
             <!-- .has-children -->
             <li class="">
-                <a href="#">profile</a>
+                <a href="{{route('profile.edit')}}">profile</a>
             </li>
             <li><a href="contact_us.html">contact us </a></li>
             <li><a href="{{ route('login') }}">login</a></li>
@@ -145,7 +145,7 @@ Author: webstrot
                         <div class="jb_profile_box jb_3_profile_box">
                             <div class="nice-select" tabindex="0"> <span class="current"><img src="images/profile-11.jpg" alt="img"></span>
                                 <ul class="list">
-                                    <li><a href="#"><i class="fas fa-user-edit"></i>Profile</a>
+                                    <li><a href="{{route('profile.edit')}}"><i class="fas fa-user-edit"></i>Profile</a>
                                     </li>
 
                                     {{-- <li><a href="#"><i class="far fa-calendar-alt"></i> My Calender</a> --}}
@@ -277,6 +277,7 @@ Author: webstrot
                             </div>
                             <div class="header_btn search_btn login_btn jb_cover">
 
+                                <input type="submit" value="login" style="visibility:hidden;background:transparent;">
                                 <a onclick="event.preventDefault();
                                                 this.closest('form').submit();" href="">login</a>
                             </div>

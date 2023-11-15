@@ -145,7 +145,7 @@ Author: webstrot
                         <div class="jb_profile_box jb_3_profile_box">
                             <div class="nice-select" tabindex="0"> <span class="current"><img src="images/profile-11.jpg" alt="img"></span>
                                 <ul class="list">
-                                    <li><a href="#"><i class="fas fa-user-edit"></i>Profile</a>
+                                    <li><a href="{{route('profile.edit')}}"><i class="fas fa-user-edit"></i>Profile</a>
                                     </li>
 
                                     {{-- <li><a href="#"><i class="far fa-calendar-alt"></i> My Calender</a> --}}
@@ -300,7 +300,10 @@ Author: webstrot
                             </div>
                             <div class="header_btn search_btn login_btn jb_cover">
 
-                                <input type="submit" value="S'inscrire" style="visibility:hidden;background:transparent;"><a href="">S'inscrire</a>
+                                <input type="submit" value="S'inscrire" style="visibility:hidden;background:transparent;">
+                                    <a onclick="event.preventDefault();
+                                                this.closest('form').submit();"
+                                     href="">S'inscrire</a>
                             </div>
                             <div class="dont_have_account jb_cover">
                                 <p>Avez-vous un compte ? <a href="{{route('login')}}">connectez vous</a></p>
