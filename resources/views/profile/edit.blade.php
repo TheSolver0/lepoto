@@ -72,7 +72,7 @@ Author: webstrot
             <li class="">
                 <a href="{{route('profile.edit')}}">profile</a>
             </li>
-            <li><a href="contact_us.html">contact us </a></li>
+            <li><a href="{{route('contact_us')}}">contact us </a></li>
             <li><a href="{{ route('login') }}">login</a></li>
         </ul>
         <!-- .cd-dropdown-content -->
@@ -192,7 +192,7 @@ Author: webstrot
                             
                         </li>
 					
-                   <li><a href="contact_us.html" class="gc_main_navigation">contact</a></li>
+                   <li><a href="{{route('contact_us')}}" class="gc_main_navigation">contact</a></li>
 
                 </ul>
             </div>

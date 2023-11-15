@@ -54,7 +54,7 @@ Author: webstrot
     <!-- Top Scroll End -->
     <!-- cp navi wrapper Start -->
     <nav class="cd-dropdown cd_dropdown_index2 cd_dropdown_index3 d-block d-sm-block d-md-block d-lg-none d-xl-none">
-        <h2><a href="index.html"> <span><img src="images/" alt="img"></span></a></h2>
+        <h2><a href="index.html"> <span><img src="images/logolepoto1.png" style="width:163px;height:43px;" alt="img"></span></a></h2>
         <a href="#0" class="cd-close">Close</a>
         <ul class="cd-dropdown-content">
             <li>
@@ -72,7 +72,7 @@ Author: webstrot
             <li class="">
                 <a href="{{route('profile.edit')}}">profile</a>
             </li>
-            <li><a href="contact_us.html">contact us </a></li>
+            <li><a href="{{route('contact_us')}}">contact us </a></li>
             <li><a href="{{ route('login') }}">login</a></li>
         </ul>
         <!-- .cd-dropdown-content -->
@@ -192,7 +192,7 @@ Author: webstrot
                             
                         </li>
 					
-                   <li><a href="contact_us.html" class="gc_main_navigation">contact</a></li>
+                   <li><a href="{{route('contact_us')}}" class="gc_main_navigation">contact</a></li>
 
                 </ul>
             </div>
@@ -228,10 +228,10 @@ Author: webstrot
 
                                         <p data-animation="animated fadeInUp">lepto, la meilleure plateforme pour élèves et etudiants.</p>
                                         <div data-animation="animated fadeInUp" class="btn_hover slider_btn">
-                                            <a href="{{route('register')}}">Inscription gratuite</a>
+                                            <a href="{{route('register')}}" style="margin:10px;">Inscription gratuite</a>
                                         </div>
                                         <div data-animation="animated fadeInUp" class="btn_hover slider_btn" >
-                                            <a href="{{route('login')}}" style="margin-left:50px;">Se connecter</a>
+                                            <a href="{{route('login')}}" style="margin:10px;">Se connecter</a>
                                         </div>
                                         {{-- <div data-animation="animated fadeInUp" class="slider_icon_list">
                                             <ul>
