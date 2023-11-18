@@ -264,7 +264,7 @@ Author: webstrot
                             {{-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> --}}
                             <div class="form-group icon_form comments_form">
 
-                                <x-text-input id="tel" class="form-control require" type="number" placeholder="Numero de téléphone*" name="tel" :value="old('tel')" required   autocomplete="tel" />
+                                <x-text-input id="tel" class="form-control require" type="number" placeholder="Numero de téléphone whatsapp*" name="tel" :value="old('tel')" required   autocomplete="tel" />
                                 <x-input-error :messages="$errors->get('tel')" class="mt-2" />
                                 {{-- <input type="number" class="form-control require" name="tel" placeholder="Numero de téléphone*"> --}}
                                 <i class="fas fa-call"></i>

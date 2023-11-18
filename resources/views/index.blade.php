@@ -497,7 +497,7 @@ Author: webstrot
                                                         <img src="{{ Storage::url($post->image->path) }}" alt="post_img" style="width:175px;" />
                                                     @endif
                                                     @if(!empty($post->auteur->users_name) || !empty($post->auteur->users_tel))
-                                                        <br> <span>Luc Fotso 695984844</span>
+                                                        <br> <span>{{$post->auteur->users_name}} </span>
                                                     @else 
                                                         Auteur
                                                     @endif 
@@ -524,7 +524,11 @@ Author: webstrot
                                                                 <input type="hidden" name="id" value="{{$post->id}}">
                                                                 <a href=""><input type="submit" value="Description" style="background:transparent;border:1px solid transparent;cursor:pointer;"></a></li>
                                                             </form>
-                                                            <li> <a href="https//wa.me/{{$post->auteur->users_tel}}" data-toggle="modal" data-target="#myModal01">Acheter</a></li>
+                                                            @if(!empty(Auth::user()))
+                                                            <li> <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}" data-toggle="modal" data-target="#myModal01">Acheter</a></li>
+                                                            @else
+                                                            <li> <a href="{{route('login')}}" data-toggle="modal" data-target="#myModal01">Buy(connecté)</a></li>
+                                                            @endif
                                                         </ul>
                                                     </div>
                                                     

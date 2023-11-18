@@ -315,9 +315,12 @@ Author: webstrot
                             <h2 class="job_description_heading">Description du livre</h2>
                             <p>{{$post->description}}</p>
                             <ul>
-                                <li><i class="fas fa-globe-asia"></i>&nbsp;&nbsp; <a href="https//wa.me/{{$post->auteur->users_tel}}">whatsapp du vendeur</a></li>
-                                {{-- <li><i class="fas fa-file-download"></i>&nbsp;&nbsp; <a href="#">Download Info</a></li> --}}
-
+                                {{-- <li><i class="fas fa-globe-asia"></i>&nbsp;&nbsp; <a href="">whatsapp du vendeur</a></li> --}}
+                                 @if(!empty(Auth::user()))   
+                                <li><i class="fas fa-globe-asia"></i>&nbsp;&nbsp; <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}">whatsapp du vendeur</a></li>
+                                @else
+                                <li><i class="fas fa-file-download"></i>&nbsp;&nbsp; <a href="{{route('login')}}">Connectez ou Inscrivez vous d' abord</a></li> 
+                                @endif
                             </ul>
                         </div>
                     </div>
