@@ -54,7 +54,7 @@ Author: webstrot
     <!-- Top Scroll End -->
     <!-- cp navi wrapper Start -->
     <nav class="cd-dropdown cd_dropdown_index2 cd_dropdown_index3 d-block d-sm-block d-md-block d-lg-none d-xl-none">
-        <h2><a href="index.html"> <span><img src="images/logolepoto.png" alt="img"></span></a></h2>
+        <h2><a href="index.html"> <span><img src="images/logolepoto1.png" style="width:163px;height:43px;" alt="img"></span></a></h2>
         <a href="#0" class="cd-close">Close</a>
         <ul class="cd-dropdown-content">
             <li>
@@ -264,7 +264,7 @@ Author: webstrot
                             {{-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> --}}
                             <div class="form-group icon_form comments_form">
 
-                                <x-text-input id="tel" class="form-control require" type="number" placeholder="Numero de téléphone*" name="tel" :value="old('tel')" required   autocomplete="tel" />
+                                <x-text-input id="tel" class="form-control require" type="number" placeholder="Numero de téléphone whatsapp*" name="tel" :value="old('tel')" required   autocomplete="tel" />
                                 <x-input-error :messages="$errors->get('tel')" class="mt-2" />
                                 {{-- <input type="number" class="form-control require" name="tel" placeholder="Numero de téléphone*"> --}}
                                 <i class="fas fa-call"></i>
