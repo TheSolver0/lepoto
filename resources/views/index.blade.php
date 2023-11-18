@@ -525,7 +525,7 @@ Author: webstrot
                                                                 <a href=""><input type="submit" value="Description" style="background:transparent;border:1px solid transparent;cursor:pointer;"></a></li>
                                                             </form>
                                                             @if(!empty(Auth::user()))
-                                                            <li> <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}" data-toggle="modal" data-target="#myModal01">Acheter</a></li>
+                                                            <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
                                                             @else
                                                             <li> <a href="{{route('login')}}" data-toggle="modal" data-target="#myModal01">Buy(connecté)</a></li>
                                                             @endif
