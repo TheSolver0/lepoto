@@ -215,7 +215,7 @@ Author: webstrot
                                 <h4>{{ $post->title }}</h4>
                             @if(!empty($post->auteur->users_name) || !empty($post->auteur->users_tel))
                                 <ul class="job_single_lists">
-                                <p>{{ $post->auteur->users_name }}</p>
+                                <p>{{ $post->auteur->users_name }}  : {{ $post->auteur->users_tel }} (vous pouvez appeler si vous n'avez pas whatsapp)</p>
                             @else 
                                 Auteur
                             @endif 
@@ -284,7 +284,7 @@ Author: webstrot
                             </div>
                             <div class="header_btn search_btn news_btn overview_btn  jb_cover">
 
-                                <a href="https//wa.me/{{$post->auteur->users_tel}}" data-toggle="modal" data-target="#myModal41">acheter maintenant</a>
+                                {{-- <a href="https//wa.me/{{$post->auteur->users_tel}}" data-toggle="modal" data-target="#myModal41">acheter maintenant</a> --}}
 
                             </div>
                             <div class="modal fade apply_job_popup" id="myModal41" role="dialog">
