@@ -5563,6 +5563,7 @@ a:hover {
 }
 .index_3_logo{
 	width:22%;
+	height: 101px;
 	background: rgb(180, 70, 255);
     background: -moz-linear-gradient(90deg, rgb(180, 70, 255) 25%, rgb(109, 104, 254) 100%);
     background: -webkit-linear-gradient(90deg, rgb(180, 70, 255) 25%, rgb(109, 104, 254) 100%);
@@ -5572,6 +5573,8 @@ a:hover {
 .index_3_right_menu{
 	width:78%;
 	padding-right:50px;
+	border-bottom:1px solid #e2e2e2;
+	/* border-bottom:1px solid #7a62fe; */
 }
 .index_2_top_header{
 	border-bottom:0;

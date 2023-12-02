@@ -15,7 +15,8 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderBy('id', 'desc')->get();
+        $posts = Post::orderBy('id','desc')->paginate(4);
+        // $posts = Post::orderBy('id', 'desc')->get();
 
         return view('index',compact('posts'));
     }
@@ -72,7 +73,7 @@ class PostController extends Controller
             'users_tel' => Auth::user()->tel
         ]);
 
-        return Redirect::route('accueil');
+        return Redirect::route('manuel');
     }
     public function mail()
     {

@@ -70,7 +70,7 @@ Author: webstrot
             </li>
             <!-- .has-children -->
             <li class="">
-                <a href="{{route('profile.edit')}}">profile</a>
+                <a href="">profile</a>
             </li>
             <li><a href="{{route('contact_us')}}">contact us </a></li>
             <li><a href="{{ route('login') }}">login</a></li>
@@ -143,9 +143,15 @@ Author: webstrot
                     </li>
                     <li>
                         <div class="jb_profile_box jb_3_profile_box">
-                            <div class="nice-select" tabindex="0"> <span class="current"><img src="images/profile-11.jpg" alt="img"></span>
+
+                            <div class="nice-select" tabindex="0"> <span class="current">
+                            @if(!empty($user->avatar->path))
+                            <img src="{{ Storage::url($user->avatar->path) }}" alt="img" style="width:50px;height:50px;border-radius:50%;"></span>
+                            @else
+                            <img src="images/profile-11.jpg" alt="img" style="width:50px;height:50px;border-radius:50%;"></span>
+                            @endif
                                 <ul class="list">
-                                    <li><a href="{{route('profile.edit')}}"><i class="fas fa-user-edit"></i>Profile</a>
+                                    <li><a href=""><i class="fas fa-user-edit"></i>Profile</a>
                                     </li>
 
                                     {{-- <li><a href="#"><i class="far fa-calendar-alt"></i> My Calender</a> --}}
@@ -184,7 +190,7 @@ Author: webstrot
                      
                     </li>
                     <li class="has-mega gc_main_navigation kv_sub_menu green_sub_menu blue_sub_menu">
-                        <a href="{{route('profile.edit')}}" class="gc_main_navigation ">  profile</a>
+                        <a href="" class="gc_main_navigation ">  profile</a>
                         <!-- mega menu start -->
                         
                     </li>
@@ -201,43 +207,201 @@ Author: webstrot
     </div>
 
 {{-- <div class="container"> --}}
-<div class="login_form_wrapper">
+<div class="page_title_section">
 
-{{-- <x-app-layout> --}}
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+        <div class="page_header">
+            <div class="container">
+                <div class="row">
+                    <!-- section_heading start -->
+                    <div class="col-lg-9 col-md-8 col-12 col-sm-7">
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
-            </div>
-
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
-            </div>
-
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
+                        <h1>Profil</h1>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-12 col-sm-5">
+                        <div class="sub_title_section">
+                            <ul class="sub_title">
+                                <li> <a href="#"> Accueil </a>&nbsp; / &nbsp; </li>
+                                <li>profil</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
-{{-- </x-app-layout> --}}
-    </div>
-    </div>
-    </div>
+    <!-- top header wrapper end -->
+    <!-- sign up wrapper start -->
+    <div class="login_wrapper jb_cover">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="login_top_box jb_cover">
+                        <div class="login_banner_wrapper">
+                            {{-- <img src="images/logo.png" alt="logo">
+                            <div class="header_btn search_btn facebook_wrap jb_cover">
 
-<div class="footer index2_footer_wrapper footer_index3 shaa jb_cover">
+                                <a href="#" title="pas encore fonctionnel">s'inscire via facebook <i class="fab fa-facebook-f"></i></a>
+
+                            </div>
+                            {{-- <div class="header_btn search_btn google_wrap jb_cover">
+
+                                <a href="#">login with pinterest <i class="fab fa-google-p"></i></a>
+
+                            </div> 
+                            <div class="jp_regis_center_tag_wrapper jb_register_red_or">
+                                <h1>Ou</h1>
+                            </div> --}}
+                        </div>
+                        <div class="login_form_wrapper signup_wrapper">
+    {{-- <x-guest-layout> --}}
+                        <form method="POST" action="{{ route('update',['id' => $user->id]) }}" enctype="multipart/form-data">
+                        @csrf
+                        @method('PATCH')
+                            <h2>Vos informations</h2>
+							<div class="form-group icon_form comments_form">
+
+                                <x-text-input id="name" class="form-control require" type="text" name="name" value="{{$user->name}}" placeholder="Nom complet *" required />
+                                <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                                {{-- <input type="text" class="form-control require" name="name" placeholder="Nom complet *"> --}}
+                                <i class="fas fa-user"></i>
+                            </div>
+                            {{-- <x-input-error :messages="$errors->get('name')" class="mt-2" /> --}}
+                            <div class="form-group icon_form comments_form">
+                               <x-text-input id="email" class="form-control require" type="email" placeholder="Email*" name="email" value="{{Auth::user()->email}}" required/>
+                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                {{-- <input type="text" class="form-control require" name="email" placeholder="Email*"> --}}
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            {{-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> --}}
+                            <div class="form-group icon_form comments_form">
+
+                                <x-text-input id="tel" class="form-control require" type="number" placeholder="Numero de téléphone whatsapp*" name="tel" value="{{Auth::user()->tel}}" required />
+                                <x-input-error :messages="$errors->get('tel')" class="mt-2" />
+                                {{-- <input type="number" class="form-control require" name="tel" placeholder="Numero de téléphone*"> --}}
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            {{-- <x-input-error :messages="$errors->get('tel')" class="mt-2" /> --}}
+                            <div class="form-group icon_form comments_form">
+                                <x-text-input id="password" class="form-control require"
+                                type="password"
+                                name="password"
+                                placeholder="Mot de passe *"
+                                :value="__('Current Password')" />
+
+                                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                                {{-- <input type="password" name="password" class="form-control require" placeholder="Mot de passe *"> --}}
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            {{-- <x-input-error :messages="$errors->get('password')" class="mt-2" /> --}}
+                            <div class="form-group icon_form comments_form">
+                                <x-text-input id="password_confirmation" class="form-control require"
+                                type="password" placeholder="Mot de passe(confirmation) *" :value="__('Current Password')"
+                                name="password_confirmation" />
+
+                                <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                                {{-- <input type="password" name="password" class="form-control require" placeholder="Mot de passe *"> --}}
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="form-group icon_form comments_form">
+
+                                <x-text-input id="avatar" class="form-control require" type="file" name="avatar" />
+                                <x-input-error :messages="$errors->get('avatar')" class="mt-2" />
+                                {{-- <input type="number" class="form-control require" name="tel" placeholder="Numero de téléphone*"> --}}
+                                <i class="fas fa-file"></i>
+                            </div>
+                            <div class="login_remember_box">
+                                <label class="control control--checkbox">Se souvenir de moi
+                                    <input type="checkbox">
+                                    <span class="control__indicator"></span>
+                                </label>
+                            </div>
+                            <div class="header_btn search_btn login_btn jb_cover">
+
+                                <input type="submit" value="S'inscrire" style="visibility:hidden;background:transparent;">
+                                    <a onclick="event.preventDefault();
+                                                this.closest('form').submit();"
+                                     href="">Enregistrer</a>
+                            </div>
+                            <div class="dont_have_account jb_cover">
+                                <p>Avez-vous un compte ? <a href="{{route('login')}}">connectez vous</a></p>
+                            </div>
+                        </form>
+    {{-- </x-guest-layout> --}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- footer --}}
+        <div class="col-lg-12 col-md-12 col-sm-12" style="margin-top:200px;">
+                            <div id="accordion" role="tablist">
+                                <h1>Questions fréquemment posées...</h1>
+                                <div class="card">
+
+                                    <div class="card_pagee" role="tab" id="heading1">
+                                        <h5 class="h5-md">
+								       	    <a class="collapsed" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">
+								          		Is there any auto-renew subscription?
+
+								        	</a>
+								     	 </h5>
+                                    </div>
+
+                                    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="heading1" data-parent="#accordion" style="">
+                                        <div class="card-body">
+
+                                            <div class="card_cntnt">
+                                                <p>This is Photoshop's version of LoremProin gravida nibh vel velit auctor Ipsum. Proin gravida nibh vel velit auctor aliquet....</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="card">
+
+                                    <div class="card_pagee" role="tab" id="heading2">
+                                        <h5 class="h5-md">
+								       	    <a class="collapsed" data-toggle="collapse" href="#collapsethree" role="button" aria-expanded="false" aria-controls="collapsethree">
+								          How many sites can I use my themes on?
+
+								        	</a>
+								     	 </h5>
+                                    </div>
+
+                                    <div id="collapsethree" class="collapse" role="tabpanel" aria-labelledby="heading2" data-parent="#accordion" style="">
+                                        <div class="card-body">
+
+                                            <div class="card_cntnt">
+                                                <p>This is Photoshop's version of LoremProin gravida nibh vel velit auctor Ipsum. Proin gravida nibh vel velit auctor aliquet....</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+    <!--popular wrapper end-->
+    <!--resume wrapper start-->
+    <div class="pricing_table_3 recent_resume_wrapper jb_cover">
+        <div class="slider_small_shape44">
+            <img src="images/p2.png" class="img-responsive " alt="img">
+        </div>
+        
+        <div class="counter_jbbb2 jb_cover">
+
+            <img src="images/line3.png" class="img-responsive" alt="img">
+        </div>
+    </div>
+    <!--resume wrapper end-->
+    <!-- news app wrapper start-->
+    
+    
+    <!-- news app wrapper end-->
+    <!-- footer Wrapper Start -->
+    <div class="footer jb_cover">
         <div class="ft_shape bubble-18">
             <img src="images/bubble2.png" class="img-responsive " alt="img">
         </div>
@@ -246,7 +410,7 @@ Author: webstrot
             <div class="row">
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="footerNav jb_cover">
-                        <a href="#"><img src="images/logolepoto1.png" alt="img" style="width:250px;"></a>
+                        <a href="#"><img src="images/logolepoto.png" alt="img" style="width:250px;"></a>
                         <ul class="footer_first_contact">
                             <li><i class="flaticon-location-pointer"></i>
                                 <p>Douala, Nyalla
@@ -274,7 +438,7 @@ Author: webstrot
                         </ul>
                     </div>
                 </div>
-                                <div class="copyright_left"><i class="fa fa-copyright"></i> 2019 <a href="#">  JB desks.  </a> All Rights Reserved.
+                                <div class="copyright_left"><i class="fa fa-copyright"></i> 2023 <a href="#">  LEPOTO.  </a> Tout droit réservé.
                 </div>
 
                 <div class="clearfix"></div>

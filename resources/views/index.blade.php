@@ -53,7 +53,7 @@ Author: webstrot
     <!-- Top Scroll Start --><a href="javascript:" id="return-to-top" class="return_top3"><i class="fas fa-angle-double-up"></i></a>
     <!-- Top Scroll End -->
     <!-- cp navi wrapper Start -->
-    <nav class="cd-dropdown cd_dropdown_index2 cd_dropdown_index3 d-block d-sm-block d-md-block d-lg-none d-xl-none">
+    <nav class="cd-dropdown cd_dropdown_index2 cd_dropdown_index3 d-block d-sm-block d-md-block d-lg-none d-xl-none" style="border-bottom:1px solid gray !important;">
         <h2><a href="index.html"> <span><img src="images/logolepoto1.png" style="width:163px;height:43px;" alt="img"></span></a></h2>
         <a href="#0" class="cd-close">Close</a>
         <ul class="cd-dropdown-content">
@@ -63,17 +63,17 @@ Author: webstrot
                 </form>
             </li>
             <li class="">
-                <a href="{{ route('accueil') }}">acceuil</a>
+                <a href="{{ route('accueil') }}">accueil</a>
             </li>
             <li class="">
-                <a href="{{route('vendre')}}">vendre</a>
+                <a href="#manuel">Manuels</a>
             </li>
             <!-- .has-children -->
             <li class="">
-                <a href="{{route('profile.edit')}}">profile</a>
+                <a href="#accordion">FAQ</a>
             </li>
-            <li><a href="{{route('contact_us')}}">contact us </a></li>
-            <li><a href="{{ route('login') }}">login</a></li>
+            <li><a href="{{route('contact_us')}}">A  propos</a></li>
+            <li><a href="{{ route('login') }}">Contact</a></li>
         </ul>
         <!-- .cd-dropdown-content -->
     </nav>
@@ -143,9 +143,12 @@ Author: webstrot
                     </li>
                     <li>
                         <div class="jb_profile_box jb_3_profile_box">
-                            <div class="nice-select" tabindex="0"> <span class="current"><img src="images/profile-11.jpg" alt="img"></span>
-                                <ul class="list">
-                                    <li><a href="{{route('profile.edit')}}"><i class="fas fa-user-edit"></i>Profile</a>
+                            @if(!empty($user->avatar->path))
+                                <img src="{{ Storage::url($user->avatar->path) }}" alt="img" style="width:50px;height:50px;border-radius:50%;"></span>
+                            @else
+                                <img src="images/profile-11.jpg" alt="img" style="width:50px;height:50px;border-radius:50%;"></span>
+                            @endif    <ul class="list">
+                                    <li><a href="#accordion"><i class="fas fa-user-edit"></i>FAQ</a>
                                     </li>
 
                                     {{-- <li><a href="#"><i class="far fa-calendar-alt"></i> My Calender</a> --}}
@@ -170,25 +173,25 @@ Author: webstrot
                         </div>
                     </li>
                     <li class="btn_hover">
-                         <a href="{{ route('vendre') }}">Ajouter un article</a>
+                         <a href="{{ route('login') }}">Connexion</a>
                     </li>
                 </ul>
             </div>
 
             <div class="mainmenu green_main_menu blue_main_menu d-xl-block d-lg-block d-md-none d-sm-none d-none">
                 <ul class="main_nav_ul menu_2_ul">
-                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation active_class active_class2 active_class3">acceuil</a>
+                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation active_class active_class2 active_class3">accueil</a>
                         
                     </li>		
-                    <li class="has-mega gc_main_navigation"><a href="{{route('vendre')}}" class="gc_main_navigation">vendre</a>
+                    <li class="has-mega gc_main_navigation"><a href="#manuel" class="gc_main_navigation">Manuels</a>
                      
                     </li>
                     <li class="has-mega gc_main_navigation kv_sub_menu green_sub_menu blue_sub_menu">
-                        <a href="{{route('profile.edit')}}" class="gc_main_navigation">  profile</a>
+                        <a href="#accordion" class="gc_main_navigation">  FAQ</a>
                         <!-- mega menu start -->
                         
                     </li>
-                    <li class="has-mega gc_main_navigation"><a href="{{route('profile.edit')}}" class="gc_main_navigation">dashboard</a>
+                    <li class="has-mega gc_main_navigation"><a href="{{route('profile.edit')}}" class="gc_main_navigation">A   propos</a>
                             
                         </li>
 					
@@ -226,7 +229,7 @@ Author: webstrot
                                         </div>
                                         <h2 data-animation="animated fadeInUp">Revendez en toute simplicité les manuels que vous n'utilisez plus</h2>
 
-                                        <p data-animation="animated fadeInUp">lepto, la meilleure plateforme pour élèves et etudiants.</p>
+                                        <p data-animation="animated fadeInUp">lepoto, la meilleure plateforme pour élèves et etudiants.</p>
                                         <div data-animation="animated fadeInUp" class="btn_hover slider_btn">
                                             <a href="{{route('register')}}" style="margin:10px;">Inscription gratuite</a>
                                         </div>
@@ -278,7 +281,10 @@ Author: webstrot
 
                                         <p data-animation="animated fadeInUp">lepoto la meilleure plateforme pour vous...</p>
                                         <div data-animation="animated fadeInUp" class="btn_hover slider_btn">
-                                            <a href="{{ route('register') }}">Inscription gratuite</a>
+                                            <a href="{{ route('register') }}" style="margin:10px;">Inscription gratuite</a>
+                                        </div>
+                                        <div data-animation="animated fadeInUp" class="btn_hover slider_btn" >
+                                            <a href="{{route('login')}}" style="margin:10px;">Se connecter</a>
                                         </div>
                                         {{-- <div data-animation="animated fadeInUp" class="slider_icon_list">
                                             <ul>
@@ -312,7 +318,74 @@ Author: webstrot
                         </div>
                     </div>
                 </div>
-                
+                <div class="carousel-item">
+                    <div class="carousel-captions caption-3">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                                    <div class="content">
+                                        <div class="slider_shape_smt1 bubble-6">
+                                            <img src="images/bubble.png" class="img-responsive" alt="img">
+                                        </div>
+                                        <h2 data-animation="animated fadeInUp">We Offer <span> 25,000 </span>Job
+Vacancies Right Now!.</h2>
+
+                                        <p data-animation="animated fadeInUp">The most complete field service software for IT & Mobile Support, Fire Services, Electrical, Maintenance, HVAC & Security Industries</p>
+                                        <div data-animation="animated fadeInUp" class="btn_hover slider_btn">
+                                            <a href="#">sign up free</a>
+                                        </div>
+                                        {{-- <div data-animation="animated fadeInUp" class="slider_icon_list">
+                                            <ul>
+
+                                                <li><a href="#"><i class="fab fa-apple"></i></a>
+                                                </li>
+                                                <li><a href="#"><i class="fab fa-amazon"></i></a>
+                                                </li>
+                                                <li><a href="#"><i class="fab fa-angular"></i></a>
+                                                </li>
+                                                <li><a href="#"><i class="fas fa-th-large"></i></a>
+                                                </li>
+                                                <li><a href="#"><i class="fas fa-blog"></i></a>
+                                                </li>
+
+                                            </ul>
+                                        </div> --}}
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                                    <div class="slider_shape_sm3 bubble-7">
+                                        <img src="images/bubble.png" class="img-responsive" alt="img">
+                                    </div>
+                                    <div class="slider_side_img jb_cover">
+                                        <img src="images/slider_img.png" class="img-responsive" alt="img">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active">
+                    </li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1" class="">
+                    </li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2" class="">
+                    </li>
+                </ol>
+                <div class="carousel-nevigation">
+                    <a class="prev" href="#carousel-example-generic" role="button" data-slide="prev"><i class="flaticon-left-arrow"></i>
+					</a>
+                    <a class="next" href="#carousel-example-generic" role="button" data-slide="next"><i class="flaticon-right-arrow"></i>
+					</a>
+                </div>
+            </div>
+        </div>
+        <div class="slider_small_shape">
+            <img src="images/shape4.png" class="img-responsive" alt="img">
+        </div>
+    </div>
     <!-- slider wrapper End -->
     <!--services wrapper start-->
     <div class="index3_form_wrapper jb_cover">
@@ -326,59 +399,7 @@ Author: webstrot
         <div class="slider_small3_shape">
             <img src="images/shape4.png" class="img-responsive" alt="img">
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="index3_form_box jb_cover">
-                        <div class="select_box select_box3">
-
-                            <select>
-                                <option>categorie</option>
-                                <option>Science</option>
-                                <option>Technologie</option>
-                                <option>Litterature</option>
-                                <option>Autre</option>
-
-                            </select>
-
-                        </div>
-                        <div class="select_box select_box3">
-
-                            <select>
-                                <option>titre connu</option>
-                                <option>Excellence</option>
-                                <option>ciam</option>
-                                <option>autre</option>
-                                {{-- <option>graphic</option> --}}
-
-                            </select>
-
-                        </div>
-                        <div class="select_box select_box3">
-
-                            <select>
-                                <option>localisation</option>
-                                <option>Douala</option>
-                                <option>Yaounde</option>
-                                <option>Bandjoun</option>
-                                <option>Souza</option>
-
-                            </select>
-
-                        </div>
-                        <div class="contect_form3 contct_form_new3">
-
-                       <form action="{{route('posts.search')}}" method="get">
-                            <input type="text" name="recherche" placeholder="Keyword">
-                        </form>
-                        </div>
-                        <div class="index3_form_search">
-                            <a href="#"><i class="fas fa-search"></i></a>
-                        </div>
-                    
-                </div>
-            </div>
-        </div>
+        
     </div>
     <!--service wrapper end-->
     <!-- best jobs wrapper start-->
@@ -386,7 +407,7 @@ Author: webstrot
         <div class="line_shape">
             <img src="images/line.png" class="img-responsive" alt="img">
         </div>
-        <div class="container">
+        <div class="container" id="manuel">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-12">
                     <div class="jb_heading_wraper">
@@ -395,9 +416,61 @@ Author: webstrot
 
                         <p>Faites votre choix ....</p>
                     </div>
+                    <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="index3_form_box jb_cover">
+                                <div class="select_box select_box3">
+
+                                    <select>
+                                        <option>categorie</option>
+                                        <option>Science</option>
+                                        <option>Technologie</option>
+                                        <option>Litterature</option>
+                                        <option>Autre</option>
+
+                                    </select>
+
+                                </div>
+                                <div class="select_box select_box3">
+
+                                    <select>
+                                        <option>titre connu</option>
+                                        <option>Excellence</option>
+                                        <option>ciam</option>
+                                        <option>autre</option>
+                                        {{-- <option>graphic</option> --}}
+
+                                    </select>
+
+                                </div>
+                                <div class="select_box select_box3">
+
+                                    <select>
+                                        <option>localisation</option>
+                                        <option>Douala</option>
+                                        <option>Yaounde</option>
+                                        <option>Bandjoun</option>
+                                        <option>Souza</option>
+
+                                    </select>
+
+                                </div>
+                                <div class="contect_form3 contct_form_new3">
+
+                            <form action="{{route('posts.search')}}" method="get">
+                                    <input type="text" name="recherche" placeholder="Keyword">
+                                </form>
+                                </div>
+                                <div class="index3_form_search">
+                                    <a href="#"><i class="fas fa-search"></i></a>
+                                </div>
+                            
+                    </div>
+                    </div>
                 </div>
                 <div class="job_filter_listing_wrapper jb_cover">
-        <div class="container">
+        {{-- <div class="container">
 
             <div class="row">
                 <div class="col-lg-3 col-md-12 col-sm-12 col-12 d-none d-sm-none d-md-none d-lg-block d-xl-block ">
@@ -458,13 +531,13 @@ Author: webstrot
                                 <input type="checkbox" id="c02" name="cb">
                                 <label for="c02">
                                     Yaounde
-                                    <span> (1**2)</span>
+                                    <span> (**)</span>
                                 </label>
                             </p>
                             <p class="job_field">
                                 <input type="checkbox" id="c03" name="cb">
                                 <label for="c03">Bandjoun
-                                    <span>(458)</span>
+                                    <span>(**)</span>
                                 </label>
                             </p>
                             <div class="seeMore"><a href="#">Tout voir</a></div>
@@ -476,13 +549,14 @@ Author: webstrot
                         <div class="filter-area jb_cover">
 
                             <select>
-                                <option>short by</option>
-                                <option>most recent </option>
-                                <option>most popular</option>
-                                <option>top rated</option>
+                                <option>filtrer par</option>
+                                <option>plus recent</option>
+                                <option>plus ancien</option>
+                                {{-- <option>top rated</option> 
                             </select>
 
                         </div>
+                        </div>--}}
                         <div class="tab-content btc_shop_index_content_tabs_main jb_cover">
                             <div id="grid" class="tab-pane active">
                                 <div class="row">
@@ -492,9 +566,9 @@ Author: webstrot
                                         <div class="job_listing_left_fullwidth job_listing_grid_wrapper jb_cover">
                                             <div class="row">
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                                    <div class="jp_job_post_side_img" style="margin-left:0;">
-                                                    @if($post->image->path != null)
-                                                        <img src="{{ Storage::url($post->image->path) }}" alt="post_img" style="width:175px;" />
+                                                    <div class="jp_job_post_side_img">
+                                                    @if(!empty($post->image->path))
+                                                        <img src="{{ Storage::url($post->image->path) }}" alt="post_img" style="width:170px;height:200px;" />
                                                     @endif
                                                     @if(!empty($post->auteur->users_name) || !empty($post->auteur->users_tel))
                                                         <br> <span>{{$post->auteur->users_name}} </span>
@@ -507,7 +581,7 @@ Author: webstrot
 
                                                         <ul>
                                                             <li><i class="flaticon-cash"></i>&nbsp; XAF {{ $post->prix }} </li>
-                                                            <li><i class="flaticon-location-pointer"></i>&nbsp;{{ $post->ville }}</li>
+                                                            <li><i class="flaticon-location-pointer"></i>&nbsp; {{ $post->ville }} </li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -515,20 +589,22 @@ Author: webstrot
                                                     <div class="jp_job_post_right_btn_wrapper jb_cover">
                                                         <ul>
                                                             <li>
-                                                                <div class="job_adds_right">
-                                                                    <a href="#!"><i class="far fa-heart"></i></a>
-                                                                </div>
                                                             </li>
                                                             <li>
                                                             <form method="GET" action="{{ route('posts.show')}}">
                                                                 <input type="hidden" name="id" value="{{$post->id}}">
-                                                                <a href=""><input type="submit" value="Description" style="background:transparent;border:1px solid transparent;cursor:pointer;"></a></li>
+                                                                <a href=""><input type="submit" value="Description" style="background:transparent;border:1px solid transparent;cursor:pointer;"></a>
                                                             </form>
-                                                            @if(!empty(Auth::user()))
+                                                            </li>
+                                                            <li>
+                                                            <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
+                                                            </li>
+
+                                                            {{-- @if(!empty(Auth::user()))
                                                             <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
                                                             @else
-                                                            <li> <a href="{{route('login')}}" data-toggle="modal" data-target="#myModal01">Buy(connecté)</a></li>
-                                                            @endif
+                                                            <a href="{{route('login')}}" data-toggle="modal" data-target="#myModal01">Acheter</a></li>
+                                                            @endif --}}
                                                         </ul>
                                                     </div>
                                                     
@@ -544,7 +620,7 @@ Author: webstrot
                                             <div class="row">
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                                     <div class="jp_job_post_side_img" style="margin-left:0;">
-                                                        <img src="images/math.jpg" alt="post_img" style="width:200px;" />
+                                                        <img src="images/logolepoto.jpg" alt="post_img" style="width:200px;" />
                                                         <br> <span>Luc Fotso 695984844</span>
                                                     </div>
                                                     <div class="jp_job_post_right_cont">
@@ -615,7 +691,9 @@ Author: webstrot
                                 </div>
                             </div>
                             <div class="blog_pagination_section jb_cover">
-                                <ul>
+                            {{-- {{$posts->links()}} --}}
+                             {!! $posts->withQueryString()->links('pagination::bootstrap-5') !!}
+                                {{-- <ul>
                                     <li>
                                         <a href="#" class="prev"> <i class="flaticon-left-arrow"></i> </a>
                                     </li>
@@ -633,7 +711,7 @@ Author: webstrot
                                     <li>
                                         <a href="#" class="next"> <i class="flaticon-right-arrow"></i> </a>
                                     </li>
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                     </div>
@@ -856,7 +934,7 @@ Author: webstrot
                                     <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
                                         <div class="clinnt_slider_img jb_cover">
                                 {{-- mettre l'image quote la --}}
-                                            <img src="images/v.png" class="img-responsive" alt="img">
+                                            <img src="images/vv.png" class="img-responsive" alt="img">
                                         </div>
                                     </div>
                                 </div>
@@ -885,7 +963,7 @@ Author: webstrot
                                       <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
                                         <div class="clinnt_slider_img jb_cover">
                                 {{-- mettre l'image quote la --}}
-                                            <img src="images/v.png" class="img-responsive" alt="img">
+                                            <img src="images/vv.png" class="img-responsive" alt="img">
                                         </div>
                                     </div>
                                 </div>
@@ -895,6 +973,7 @@ Author: webstrot
                 </div>
             </div>
         </div>
+        
         <div class="slider_small3_shape shapenew">
             <img src="images/shape4.png" class="img-responsive" alt="img">
         </div>
@@ -909,6 +988,56 @@ Author: webstrot
         </div>
         
     </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div id="accordion" role="tablist">
+                                <h1>Questions fréquemment posées...</h1>
+                                <div class="card">
+
+                                    <div class="card_pagee" role="tab" id="heading1">
+                                        <h5 class="h5-md">
+								       	    <a class="collapsed" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">
+								          		Is there any auto-renew subscription?
+
+								        	</a>
+								     	 </h5>
+                                    </div>
+
+                                    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="heading1" data-parent="#accordion" style="">
+                                        <div class="card-body">
+
+                                            <div class="card_cntnt">
+                                                <p>This is Photoshop's version of LoremProin gravida nibh vel velit auctor Ipsum. Proin gravida nibh vel velit auctor aliquet....</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="card">
+
+                                    <div class="card_pagee" role="tab" id="heading2">
+                                        <h5 class="h5-md">
+								       	    <a class="collapsed" data-toggle="collapse" href="#collapsethree" role="button" aria-expanded="false" aria-controls="collapsethree">
+								          How many sites can I use my themes on?
+
+								        	</a>
+								     	 </h5>
+                                    </div>
+
+                                    <div id="collapsethree" class="collapse" role="tabpanel" aria-labelledby="heading2" data-parent="#accordion" style="">
+                                        <div class="card-body">
+
+                                            <div class="card_cntnt">
+                                                <p>This is Photoshop's version of LoremProin gravida nibh vel velit auctor Ipsum. Proin gravida nibh vel velit auctor aliquet....</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
     <!--popular wrapper end-->
     <!--resume wrapper start-->
     <div class="pricing_table_3 recent_resume_wrapper jb_cover">
@@ -924,9 +1053,10 @@ Author: webstrot
     <!--resume wrapper end-->
     <!-- news app wrapper start-->
     
+    
     <!-- news app wrapper end-->
     <!-- footer Wrapper Start -->
-    <div class="footer index2_footer_wrapper footer_index3 shaa jb_cover">
+    <div class="footer jb_cover">
         <div class="ft_shape bubble-18">
             <img src="images/bubble2.png" class="img-responsive " alt="img">
         </div>
@@ -935,7 +1065,7 @@ Author: webstrot
             <div class="row">
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="footerNav jb_cover">
-                        <a href="#"><img src="images/logolepoto1.png" alt="img" style="width:250px;"></a>
+                        <a href="#"><img src="images/logolepoto.png" alt="img" style="width:250px;"></a>
                         <ul class="footer_first_contact">
                             <li><i class="flaticon-location-pointer"></i>
                                 <p>Douala, Nyalla
@@ -963,7 +1093,7 @@ Author: webstrot
                         </ul>
                     </div>
                 </div>
-                                <div class="copyright_left"><i class="fa fa-copyright"></i> 2019 <a href="#">  JB desks.  </a> All Rights Reserved.
+                                <div class="copyright_left"><i class="fa fa-copyright"></i> 2023 <a href="#">  LEPOTO.  </a> Tout droit réservé.
                 </div>
 
                 <div class="clearfix"></div>
@@ -992,27 +1122,6 @@ Author: webstrot
 
     <!-- footer Wrapper End -->
 	 <!-- chat box Wrapper start -->
-	<div id="chat-circle" class="btn btn-raised circle_index3"> 
-		<i class="fas fa-comment-alt"></i>
-	</div>
-  <div class="chat-box chat_box_3">
-    <div class="chat-box-header">
-      ChatBot
-      <span class="chat-box-toggle"><i class="fas fa-times"></i></span>
-    </div>
-    <div class="chat-box-body chat_msg_box22">
-      <div class="chat-box-overlay">   
-      </div>
-      <div class="chat-logs">
-       
-      </div><!--chat-log -->
-    </div>
-    <div class="chat-input">      
-      <form action="{{route('mail')}}" method="POST">
-        <input type="text" id="chat-input" placeholder="Send a message..."/>
-      <button type="submit" class="chat-submit" id="chat-submit"><i class="fas fa-paper-plane"></i></button>
-      </form>      
-    </div>
   </div>
   <!-- chat box Wrapper end -->
     <!--custom js files-->
@@ -1032,6 +1141,19 @@ Author: webstrot
     <script src="js/isotope.pkgd.min.js"></script>
     <script src="js/custom.js"></script>
     <!-- custom js-->
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/656a7923bfb79148e5992a6d/1hgjuidol';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 </body>
 
 

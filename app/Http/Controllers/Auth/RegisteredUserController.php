@@ -70,4 +70,11 @@ class RegisteredUserController extends Controller
         
         return redirect(RouteServiceProvider::HOME);
     }
+    /*public function update()
+    {
+        $user = Auth::user();
+        
+       return view('profile.edit',compact('user'));
+    }*/
+    
 }

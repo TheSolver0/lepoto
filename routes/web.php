@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +23,7 @@ use Illuminate\Support\Facades\Route;
  Route::get('/livre',[PostController::class, 'show'])->name('posts.show');
 
  Route::get('/', [PostController::class, 'index'])->name('accueil');
+ Route::get('/#manuel', [PostController::class, 'index'])->name('manuel');
  Route::get('/posts',[PostController::class, 'search'])->name('posts.search');
  Route::get('/mail',[PostController::class, 'mail'])->name('mail');
  Route::get('/contact',function () {
@@ -29,7 +32,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    // Route::get('/profile', [RegisteredUserController::class, 'update'])->name('update');
+    Route::patch('/profile/{id}', [UserController::class, 'update'])->name('update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/createpost',[PostController::class, 'create'])->name('vendre');
     Route::post('/storepost', [PostController::class, 'store'])->name('posts.store');
