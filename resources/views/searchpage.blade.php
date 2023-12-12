@@ -209,71 +209,69 @@ Author: webstrot
         <div class="line_shape">
             <img src="images/line.png" class="img-responsive" alt="img">
         </div>
-        <div class="container">
+        <div class="container" id="manuel">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-12">
                     <div class="jb_heading_wraper">
 
-                        <h3>Les Résultats de votre recherche : </h3>
+                        <h3>Les Résultats de votre recherche :</h3>
 
-<div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="index3_form_box jb_cover">
-                        <div class="select_box select_box3">
+                        <p>Faites votre choix ....</p>
+                    </div>
+                    <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="index3_form_box jb_cover">
+                            <form action="{{route('posts.search')}}" method="get">
+                                <div class="select_box select_box3">
 
-                            <select>
-                                <option>categorie</option>
-                                <option>Science</option>
-                                <option>Technologie</option>
-                                <option>Litterature</option>
-                                <option>Autre</option>
+                                    <select name="tri">
+                                        <option value="tri">Tri par</option>
+                                        <option value="triRecent">plus recent</option>
+                                        <option value="triAncien">plus ancien</option>
 
-                            </select>
+                                    </select>
 
-                        </div>
-                        <div class="select_box select_box3">
+                                </div>
+                                <div class="select_box select_box3">
 
-                            <select>
-                                <option>titre connu</option>
-                                <option>Excellence</option>
-                                <option>ciam</option>
-                                <option>autre</option>
-                                {{-- <option>graphic</option> --}}
+                                    <select name="titreconnu">
+                                        <option value="titreconnu">titre connu</option>
+                                        <option value="Excellence">Excellence</option>
+                                        <option value="ciam">ciam</option>
+                                        <option value="autre">autre</option>
+                                        {{-- <option>graphic</option> --}}
 
-                            </select>
+                                    </select>
 
-                        </div>
-                        <div class="select_box select_box3">
+                                </div>
+                                <div class="select_box select_box3">
 
-                            <select>
-                                <option>localisation</option>
-                                <option>Douala</option>
-                                <option>Yaounde</option>
-                                <option>Bandjoun</option>
-                                <option>Souza</option>
+                                    <select name="localisation">
+                                        <option value="localisation">localisation</option>
+                                        <option value="douala">Douala</option>
+                                        <option value="yaounde">Yaounde</option>
+                                        <option value="bandjoun">Bandjoun</option>
+                                        <option value="souza">Souza</option>
 
-                            </select>
+                                    </select>
 
-                        </div>
-                        <div class="contect_form3 contct_form_new3">
+                                </div>
+                                <div class="contect_form3 contct_form_new3">
 
-                       <form action="{{route('posts.search')}}" method="get">
-                            <input type="text" name="recherche" placeholder="Keyword">
-                        </form>
-                        </div>
-                        <div class="index3_form_search">
-                            <a href="#"><i class="fas fa-search"></i></a>
-                        </div>
-                    
-                </div>
-            </div>
-        </div>
-                        {{-- <p>Faites votre choix ....</p> --}}
+                                    <input type="text" name="recherche" placeholder="Keyword">
+                                </div>
+                                <div class="index3_form_search" onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                    <a href="#" ><i class="fas fa-search"></i></a>
+                                </div>
+                                </form>
+                            
+                    </div>
                     </div>
                 </div>
                 <div class="job_filter_listing_wrapper jb_cover">
-        <div class="container">
+        {{-- <div class="container">
 
             <div class="row">
                 <div class="col-lg-3 col-md-12 col-sm-12 col-12 d-none d-sm-none d-md-none d-lg-block d-xl-block ">
@@ -334,13 +332,13 @@ Author: webstrot
                                 <input type="checkbox" id="c02" name="cb">
                                 <label for="c02">
                                     Yaounde
-                                    <span> (1**2)</span>
+                                    <span> (**)</span>
                                 </label>
                             </p>
                             <p class="job_field">
                                 <input type="checkbox" id="c03" name="cb">
                                 <label for="c03">Bandjoun
-                                    <span>(458)</span>
+                                    <span>(**)</span>
                                 </label>
                             </p>
                             <div class="seeMore"><a href="#">Tout voir</a></div>
@@ -355,10 +353,11 @@ Author: webstrot
                                 <option>filtrer par</option>
                                 <option>plus recent</option>
                                 <option>plus ancien</option>
-                                {{-- <option>top rated</option> --}}
+                                {{-- <option>top rated</option> 
                             </select>
 
                         </div>
+                        </div>--}}
                         <div class="tab-content btc_shop_index_content_tabs_main jb_cover">
                             <div id="grid" class="tab-pane active">
                                 <div class="row">
@@ -368,12 +367,12 @@ Author: webstrot
                                         <div class="job_listing_left_fullwidth job_listing_grid_wrapper jb_cover">
                                             <div class="row">
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                                    <div class="jp_job_post_side_img" style="margin-left:0;">
-                                                    @if($post->image->path != null)
-                                                        <img src="{{ Storage::url($post->image->path) }}" alt="post_img" style="width:175px;height:200px;" />
+                                                    <div class="jp_job_post_side_img">
+                                                    @if(!empty($post->image->path))
+                                                        <img src="{{ Storage::url($post->image->path) }}" alt="post_img" style="width:170px;height:200px;" />
                                                     @endif
                                                     @if(!empty($post->auteur->users_name) || !empty($post->auteur->users_tel))
-                                                        <br> <span>Luc Fotso 695984844</span>
+                                                        <br> <span>{{$post->auteur->users_name}} </span>
                                                     @else 
                                                         Auteur
                                                     @endif 
@@ -383,7 +382,7 @@ Author: webstrot
 
                                                         <ul>
                                                             <li><i class="flaticon-cash"></i>&nbsp; XAF {{ $post->prix }} </li>
-                                                            <li><i class="flaticon-location-pointer"></i>&nbsp;{{ $post->ville }}</li>
+                                                            <li><i class="flaticon-location-pointer"></i>&nbsp; {{ $post->ville }} </li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -393,7 +392,7 @@ Author: webstrot
                                                             <li>
                                                             </li>
                                                             <li>
-                                                            <form method="GET" action="{{ route('posts.show')}}" style="">
+                                                            <form method="GET" action="{{ route('posts.show')}}">
                                                                 <input type="hidden" name="id" value="{{$post->id}}">
                                                                 <a href=""><input type="submit" value="Description" style="background:transparent;border:1px solid transparent;cursor:pointer;"></a>
                                                             </form>
@@ -401,32 +400,126 @@ Author: webstrot
                                                             <li>
                                                             <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
                                                             </li>
-
+                                                            
                                                             {{-- @if(!empty(Auth::user()))
                                                             <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
                                                             @else
                                                             <a href="{{route('login')}}" data-toggle="modal" data-target="#myModal01">Acheter</a></li>
                                                             @endif --}}
                                                         </ul>
+                                                    <a href="" class="btn btn-danger" style="margin-left:25px;margin-top:18px; border-radius:0 !important;">Signaler</a>
+                                                        
                                                     </div>
-
-                                                    
                                                 </div>
 
                                             </div>
                                         </div>
                                     </div>
                                 @empty
-                                    <h3 style="color:red;size:25px; font-weight:bold;">Aucun Résultat</h3>
-                                @endforelse
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+
+                                        <div class="job_listing_left_fullwidth job_listing_grid_wrapper jb_cover">
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <div class="jp_job_post_side_img" style="margin-left:0;">
+                                                        <img src="images/logolepoto.jpg" alt="post_img" style="width:200px;" />
+                                                        <br> <span>Luc Fotso 695984844</span>
+                                                    </div>
+                                                    <div class="jp_job_post_right_cont">
+                                                        <h4><a href="#">L'excellence en mathématique Tle</a></h4>
+
+                                                        <ul>
+                                                            <li><i class="flaticon-cash"></i>&nbsp; XAF 5000 </li>
+                                                            <li><i class="flaticon-location-pointer"></i>&nbsp;Douala,Nyalla pariso</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <div class="jp_job_post_right_btn_wrapper jb_cover">
+                                                        <ul>
+                                                            <li>
+                                                                <div class="job_adds_right">
+                                                                    <a href="#!"><i class="far fa-heart"></i></a>
+                                                                </div>
+                                                            </li>
+                                                            <li><a href="job_single.html">Description</a></li>
+                                                            <li> <a href="#" data-toggle="modal" data-target="#myModal01">Acheter</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+
+                                        <div class="job_listing_left_fullwidth job_listing_grid_wrapper jb_cover">
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <div class="jp_job_post_side_img">
+                                                        <img src="images/physique.jpg" alt="post_img" style="width:200px;" />
+                                                        <br> <span>Arthur Ekoko</span>
+                                                    </div>
+                                                    <div class="jp_job_post_right_cont">
+                                                        <h4><a href="#">Livre Excellence en physique Tle</a></h4>
+
+                                                        <ul>
+                                                            <li><i class="flaticon-cash"></i>&nbsp; XAF 5000</li>
+                                                            <li><i class="flaticon-location-pointer"></i>&nbsp; souza</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <div class="jp_job_post_right_btn_wrapper jb_cover">
+                                                        <ul>
+                                                            <li>
+                                                                <div class="job_adds_right">
+                                                                    <a href="#!"><i class="far fa-heart"></i></a>
+                                                                </div>
+                                                            </li>
+                                                            <li><a href="job_single.html">description</a></li>
+                                                            <li> <a href="#" data-toggle="modal" data-target="#myModal02">acheter</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endforelse
+                                                                        
+                                </div>
+                            </div>
+                            <div class="blog_pagination_section jb_cover">
+                            {{-- {{$posts->links()}} --}}
+                             {!! $posts->withQueryString()->links('pagination::bootstrap-5') !!}
+                                {{-- <ul>
+                                    <li>
+                                        <a href="#" class="prev"> <i class="flaticon-left-arrow"></i> </a>
+                                    </li>
+                                    <li><a href="#">1</a>
+                                    </li>
+                                    <li class="third_pagger"><a href="#">2</a>
+                                    </li>
+                                    <li class="d-block d-sm-block d-md-block d-lg-block"><a href="#">3</a>
+                                    </li>
+                                    <li class="d-none d-sm-block d-md-block d-lg-block"><a href="#">...</a>
+                                    </li>
+                                    <li class="d-none d-sm-block d-md-block d-lg-block"><a href="#">6</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="next"> <i class="flaticon-right-arrow"></i> </a>
+                                    </li>
+                                </ul> --}}
+                            </div>
                         </div>
-                    </div>
-                    </div>
-                    </div>
                     </div>
                 </div>
 				<div class="col-lg-3 col-md-12 col-sm-12 col-12 d-block d-sm-block d-md-block d-lg-none d-xl-none">
-                    <div class="job_filter_category_sidebar jb_cover">
+                    {{-- <div class="job_filter_category_sidebar jb_cover">
                         <div class="job_filter_sidebar_heading jb_cover">
                             <h1>Livres par sujet</h1>
                         </div>
@@ -494,7 +587,7 @@ Author: webstrot
                             </p>
                             <div class="seeMore"><a href="#">Tout voir</a></div>
                         </div>
-                    </div>
+                    </div> --}}
                     
                 </div>
             </div>

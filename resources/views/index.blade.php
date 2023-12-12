@@ -39,6 +39,14 @@ Author: webstrot
     <link rel="stylesheet" type="text/css" href="css/responsive.css" />
     <!--favicon-->
     <link rel="shortcut icon" type="image/png" href="images/icolepoto.png" />
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JTS4X9C6LN');
+</script>
 </head>
 
 <body>
@@ -53,7 +61,7 @@ Author: webstrot
     <!-- Top Scroll Start --><a href="javascript:" id="return-to-top" class="return_top3"><i class="fas fa-angle-double-up"></i></a>
     <!-- Top Scroll End -->
     <!-- cp navi wrapper Start -->
-    <nav class="cd-dropdown cd_dropdown_index2 cd_dropdown_index3 d-block d-sm-block d-md-block d-lg-none d-xl-none" style="border-bottom:1px solid gray !important;">
+    <nav class="cd-dropdown cd_dropdown_index2 cd_dropdown_index3 d-block d-sm-block d-md-block d-lg-none d-xl-none">
         <h2><a href="index.html"> <span><img src="images/logolepoto1.png" style="width:163px;height:43px;" alt="img"></span></a></h2>
         <a href="#0" class="cd-close">Close</a>
         <ul class="cd-dropdown-content">
@@ -63,7 +71,7 @@ Author: webstrot
                 </form>
             </li>
             <li class="">
-                <a href="{{ route('accueil') }}">accueil</a>
+                <a href="{{ route('accueil') }}">acceuil</a>
             </li>
             <li class="">
                 <a href="#manuel">Manuels</a>
@@ -72,8 +80,8 @@ Author: webstrot
             <li class="">
                 <a href="#accordion">FAQ</a>
             </li>
-            <li><a href="{{route('contact_us')}}">A  propos</a></li>
-            <li><a href="{{ route('login') }}">Contact</a></li>
+            <li><a href="{{route('contact_us')}}">A propos </a></li>
+            <li><a href="{{ route('login') }}">contact</a></li>
         </ul>
         <!-- .cd-dropdown-content -->
     </nav>
@@ -135,7 +143,7 @@ Author: webstrot
                             <!-- Quik search -->
                             <div class="dez-quik-search bg-primary-dark">
                                 <form action="{{route('posts.search')}}" method="get">
-                                    <input name="recherche" value="" type="text" class="form-control" placeholder="Type to search...">
+                                    <input name="recherche" value="" type="text" class="form-control" placeholder="Entrez votre recherche...">
                                     <span id="quik-search-remove"><i class="fas fa-times"></i></span>
                                 </form>
                             </div>
@@ -143,11 +151,8 @@ Author: webstrot
                     </li>
                     <li>
                         <div class="jb_profile_box jb_3_profile_box">
-                            @if(!empty($user->avatar->path))
-                                <img src="{{ Storage::url($user->avatar->path) }}" alt="img" style="width:50px;height:50px;border-radius:50%;"></span>
-                            @else
-                                <img src="images/profile-11.jpg" alt="img" style="width:50px;height:50px;border-radius:50%;"></span>
-                            @endif    <ul class="list">
+                            <div class="nice-select" tabindex="0"> <span class="current"><img src="images/profile-11.jpg" alt="img"></span>
+                                <ul class="list">
                                     <li><a href="#accordion"><i class="fas fa-user-edit"></i>FAQ</a>
                                     </li>
 
@@ -161,12 +166,7 @@ Author: webstrot
                                     </li>
                                     {{-- <li><a href="#"><i class="fas fa-lock"></i>Lock Screen</a> --}}
                                     </li>
-                                    <li>
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-                                        <a onclick="event.preventDefault();
-                                                this.closest('form').submit();"><i class="fas fa-sign-in-alt"></i>logout</a>
-                                    </form>
+                                    <li><a href="#"><i class="fas fa-sign-in-alt"></i>logout</a>
                                     </li>
                                 </ul>
                             </div>
@@ -180,18 +180,18 @@ Author: webstrot
 
             <div class="mainmenu green_main_menu blue_main_menu d-xl-block d-lg-block d-md-none d-sm-none d-none">
                 <ul class="main_nav_ul menu_2_ul">
-                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation active_class active_class2 active_class3">accueil</a>
+                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation active_class active_class2 active_class3">acceuil</a>
                         
                     </li>		
                     <li class="has-mega gc_main_navigation"><a href="#manuel" class="gc_main_navigation">Manuels</a>
                      
                     </li>
                     <li class="has-mega gc_main_navigation kv_sub_menu green_sub_menu blue_sub_menu">
-                        <a href="#accordion" class="gc_main_navigation">  FAQ</a>
+                        <a href="#accordion" class="gc_main_navigation"> FAQ</a>
                         <!-- mega menu start -->
                         
                     </li>
-                    <li class="has-mega gc_main_navigation"><a href="{{route('profile.edit')}}" class="gc_main_navigation">A   propos</a>
+                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">A   propos</a>
                             
                         </li>
 					
@@ -204,6 +204,13 @@ Author: webstrot
         </div>
     </div>
 
+    <!-- navi wrapper End -->
+    <!-- slider wrapper Start -->
+                
+    <!-- slider wrapper End -->
+    <!--services wrapper start-->
+        
+    </div>
     <!-- navi wrapper End -->
     <!-- slider wrapper Start -->
     <div class="main_slider_wrapper slider-area jb_cover">
@@ -420,25 +427,24 @@ Vacancies Right Now!.</h2>
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="index3_form_box jb_cover">
+                            <form action="{{route('posts.search')}}" method="get">
                                 <div class="select_box select_box3">
 
-                                    <select>
-                                        <option>categorie</option>
-                                        <option>Science</option>
-                                        <option>Technologie</option>
-                                        <option>Litterature</option>
-                                        <option>Autre</option>
+                                    <select name="tri">
+                                        <option value="tri">Tri par</option>
+                                        <option value="triRecent">plus recent</option>
+                                        <option value="triAncien">plus ancien</option>
 
                                     </select>
 
                                 </div>
                                 <div class="select_box select_box3">
 
-                                    <select>
-                                        <option>titre connu</option>
-                                        <option>Excellence</option>
-                                        <option>ciam</option>
-                                        <option>autre</option>
+                                    <select name="titreconnu">
+                                        <option value="titreconnu">titre connu</option>
+                                        <option value="Excellence">Excellence</option>
+                                        <option value="ciam">ciam</option>
+                                        <option value="autre">autre</option>
                                         {{-- <option>graphic</option> --}}
 
                                     </select>
@@ -446,25 +452,25 @@ Vacancies Right Now!.</h2>
                                 </div>
                                 <div class="select_box select_box3">
 
-                                    <select>
-                                        <option>localisation</option>
-                                        <option>Douala</option>
-                                        <option>Yaounde</option>
-                                        <option>Bandjoun</option>
-                                        <option>Souza</option>
+                                    <select name="localisation">
+                                        <option value="localisation">localisation</option>
+                                        <option value="douala">Douala</option>
+                                        <option value="yaounde">Yaounde</option>
+                                        <option value="bandjoun">Bandjoun</option>
+                                        <option value="souza">Souza</option>
 
                                     </select>
 
                                 </div>
                                 <div class="contect_form3 contct_form_new3">
 
-                            <form action="{{route('posts.search')}}" method="get">
                                     <input type="text" name="recherche" placeholder="Keyword">
+                                </div>
+                                <div class="index3_form_search" onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                    <a href="#" ><i class="fas fa-search"></i></a>
+                                </div>
                                 </form>
-                                </div>
-                                <div class="index3_form_search">
-                                    <a href="#"><i class="fas fa-search"></i></a>
-                                </div>
                             
                     </div>
                     </div>
@@ -597,17 +603,22 @@ Vacancies Right Now!.</h2>
                                                             </form>
                                                             </li>
                                                             <li>
+                                                        @if(!empty($post->auteur->users_tel))
                                                             <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
+                                                        @else
+                                                            <a href="https://wa.me/698549128/?text=Bonjour  Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
+                                                        @endif
                                                             </li>
-
+                                                            
                                                             {{-- @if(!empty(Auth::user()))
                                                             <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
                                                             @else
                                                             <a href="{{route('login')}}" data-toggle="modal" data-target="#myModal01">Acheter</a></li>
                                                             @endif --}}
                                                         </ul>
+                                                    <a href="" class="btn btn-danger" style="margin-left:25px;margin-top:18px; border-radius:0 !important;">Signaler</a>
+                                                        
                                                     </div>
-                                                    
                                                 </div>
 
                                             </div>
@@ -717,7 +728,7 @@ Vacancies Right Now!.</h2>
                     </div>
                 </div>
 				<div class="col-lg-3 col-md-12 col-sm-12 col-12 d-block d-sm-block d-md-block d-lg-none d-xl-none">
-                    <div class="job_filter_category_sidebar jb_cover">
+                    {{-- <div class="job_filter_category_sidebar jb_cover">
                         <div class="job_filter_sidebar_heading jb_cover">
                             <h1>Livres par sujet</h1>
                         </div>
@@ -785,7 +796,7 @@ Vacancies Right Now!.</h2>
                             </p>
                             <div class="seeMore"><a href="#">Tout voir</a></div>
                         </div>
-                    </div>
+                    </div> --}}
                     
                 </div>
             </div>
@@ -1154,6 +1165,15 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+
+{{-- <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JTS4X9C6LN');
+</script> --}}
+
 </body>
 
 

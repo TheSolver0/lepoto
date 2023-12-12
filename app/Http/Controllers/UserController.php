@@ -33,26 +33,43 @@ class UserController extends Controller
         $user->tel = $request->tel;
         $user->password = $request->password;
 
-        $filename = time() . '.' . $request->avatar->extension();
+        if(!empty($request->avatar))
+        {
+
+
+            $filename = time() . '.' . $request->avatar->extension();
+            
+            $path = $request->avatar->storeAs(
+                'avatars',
+                $filename,
+                'public'
+            );
         
-        $path = $request->avatar->storeAs(
-            'avatars',
-            $filename,
-            'public'
-        );
-       
-        if(!empty($user->avatar->path))
-        { 
+            if(empty($user->avatar->path))
+            { 
 
-            $avatar = Avatar::create([
-                'path' => $path,
-                'users_id' => $user->id
-            ]);
+                $avatar = Avatar::create([
+                    'path' => $path,
+                    'users_id' => $user->id
+                ]);
 
+                $avatar->update();
+            }
+            else
+            {
+                $avatar = Avatar::all();
+                foreach($avatar as $avat)
+                {
+                    if($avat->users_id == $user->id)
+                    {
+                        $avat->path = $path;
+                        $avat->update();
+                    }
+                }
+            }
         }
 
         $user->update();
-        $avatar->update();
 
         return redirect('/profile');
     }

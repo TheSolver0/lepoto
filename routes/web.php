@@ -20,6 +20,10 @@ use Illuminate\Support\Facades\Route;
  Route::get('/', function () {
      return view('index');
  });
+ 
+ Route::get('/dash', function () {
+    return view('dash');
+});
  Route::get('/livre',[PostController::class, 'show'])->name('posts.show');
 
  Route::get('/', [PostController::class, 'index'])->name('accueil');
@@ -35,9 +39,12 @@ Route::middleware('auth')->group(function () {
     // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     // Route::get('/profile', [RegisteredUserController::class, 'update'])->name('update');
     Route::patch('/profile/{id}', [UserController::class, 'update'])->name('update');
+    Route::get('/post/{id}', [PostController::class, 'viewUpdate'])->name('updatelivre');
+    Route::patch('/updatePost/{id}', [PostController::class, 'update'])->name('updatePost');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/createpost',[PostController::class, 'create'])->name('vendre');
     Route::post('/storepost', [PostController::class, 'store'])->name('posts.store');
+    Route::get('/profile', [PostController::class, 'userPosts'])->name('profile.edit');
 });
 
 require __DIR__.'\auth.php';

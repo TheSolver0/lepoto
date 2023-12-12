@@ -202,9 +202,10 @@ Author: webstrot
 
                 </ul>
             </div>
+            </div>
             <!-- mainmenu end -->
-        <div class="login_wrapper jb_cover" style="width:1000px;margin-left:-200px;">
-        <div class="container">
+        <div class="login_wrapper jb_cover" >
+        <div class="container" style="width:1000px;margin-rigth:500px;">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="login_top_box jb_cover">

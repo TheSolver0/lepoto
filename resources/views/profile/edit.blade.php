@@ -39,6 +39,14 @@ Author: webstrot
     <link rel="stylesheet" type="text/css" href="css/responsive.css" />
     <!--favicon-->
     <link rel="shortcut icon" type="image/png" href="images/icolepoto.png" />
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JTS4X9C6LN');
+</script>
 </head>
 
 <body>
@@ -66,14 +74,14 @@ Author: webstrot
                 <a href="{{ route('accueil') }}">acceuil</a>
             </li>
             <li class="">
-                <a href="{{route('vendre')}}">vendre</a>
+                <a href="#manuel">Manuels</a>
             </li>
             <!-- .has-children -->
             <li class="">
-                <a href="">profile</a>
+                <a href="#accordion">FAQ</a>
             </li>
-            <li><a href="{{route('contact_us')}}">contact us </a></li>
-            <li><a href="{{ route('login') }}">login</a></li>
+            <li><a href="{{route('contact_us')}}">A propos </a></li>
+            <li><a href="{{ route('login') }}">contact</a></li>
         </ul>
         <!-- .cd-dropdown-content -->
     </nav>
@@ -135,7 +143,7 @@ Author: webstrot
                             <!-- Quik search -->
                             <div class="dez-quik-search bg-primary-dark">
                                 <form action="{{route('posts.search')}}" method="get">
-                                    <input name="recherche" value="" type="text" class="form-control" placeholder="Type to search...">
+                                    <input name="recherche" value="" type="text" class="form-control" placeholder="Entrez votre recherche...">
                                     <span id="quik-search-remove"><i class="fas fa-times"></i></span>
                                 </form>
                             </div>
@@ -143,15 +151,14 @@ Author: webstrot
                     </li>
                     <li>
                         <div class="jb_profile_box jb_3_profile_box">
-
                             <div class="nice-select" tabindex="0"> <span class="current">
                             @if(!empty($user->avatar->path))
-                            <img src="{{ Storage::url($user->avatar->path) }}" alt="img" style="width:50px;height:50px;border-radius:50%;"></span>
-                            @else
-                            <img src="images/profile-11.jpg" alt="img" style="width:50px;height:50px;border-radius:50%;"></span>
-                            @endif
+                                        <img src="{{ Storage::url($user->avatar->path) }}" alt="img" style="width:50px;height:50px;border-radius:50%;"></span>
+                                    @else
+                                        <img src="images/profile-11.jpg" alt="img" style="width:50px;height:50px;border-radius:50%;"></span>
+                                    @endif</span>
                                 <ul class="list">
-                                    <li><a href=""><i class="fas fa-user-edit"></i>Profile</a>
+                                    <li><a href="#accordion"><i class="fas fa-user-edit"></i>FAQ</a>
                                     </li>
 
                                     {{-- <li><a href="#"><i class="far fa-calendar-alt"></i> My Calender</a> --}}
@@ -164,37 +171,32 @@ Author: webstrot
                                     </li>
                                     {{-- <li><a href="#"><i class="fas fa-lock"></i>Lock Screen</a> --}}
                                     </li>
-                                    <li>
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-                                        <a onclick="event.preventDefault();
-                                                this.closest('form').submit();"><i class="fas fa-sign-in-alt"></i>logout</a>
-                                    </form>
+                                    <li><a href="#"><i class="fas fa-sign-in-alt"></i>logout</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </li>
                     <li class="btn_hover">
-                         <a href="{{ route('vendre') }}">Ajouter un article</a>
+                         <a href="{{ route('login') }}">Connexion</a>
                     </li>
                 </ul>
             </div>
 
             <div class="mainmenu green_main_menu blue_main_menu d-xl-block d-lg-block d-md-none d-sm-none d-none">
                 <ul class="main_nav_ul menu_2_ul">
-                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation ">acceuil</a>
+                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation active_class active_class2 active_class3">acceuil</a>
                         
                     </li>		
-                    <li class="has-mega gc_main_navigation"><a href="{{route('vendre')}}" class="gc_main_navigation">vendre</a>
+                    <li class="has-mega gc_main_navigation"><a href="#manuel" class="gc_main_navigation">Manuels</a>
                      
                     </li>
                     <li class="has-mega gc_main_navigation kv_sub_menu green_sub_menu blue_sub_menu">
-                        <a href="" class="gc_main_navigation ">  profile</a>
+                        <a href="#accordion" class="gc_main_navigation"> FAQ</a>
                         <!-- mega menu start -->
                         
                     </li>
-                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation active_class active_class2 active_class3">dashboard</a>
+                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">A   propos</a>
                             
                         </li>
 					
@@ -203,11 +205,35 @@ Author: webstrot
                 </ul>
             </div>
             <!-- mainmenu end -->
- </div>
+
+        </div>
     </div>
 
-{{-- <div class="container"> --}}
-<div class="page_title_section">
+    <!-- navi wrapper End -->
+    <!-- slider wrapper Start -->
+                
+    <!-- slider wrapper End -->
+    <!--services wrapper start-->
+        
+    </div>
+    <!-- navi wrapper End -->
+    <!-- slider wrapper Start -->
+    <div class="main_slider_wrapper slider-area jb_cover">
+        <div class="mains_slider_shaper">
+            <img src="images/slider_bg.png" class="img-responsive" alt="img">
+        </div>
+        <div class="slider_small2_shape">
+            <img src="images/shape4.png" class="img-responsive " alt="img">
+        </div>
+        <div class="slider_shape_smt bubble-1">
+            <img src="images/bubble.png" class="img-responsive " alt="img">
+        </div>
+                        <!-- mainmenu end -->
+          
+
+    <!-- navi wrapper End -->
+    <!-- top header wrapper start -->
+    <div class="page_title_section">
 
         <div class="page_header">
             <div class="container">
@@ -215,13 +241,13 @@ Author: webstrot
                     <!-- section_heading start -->
                     <div class="col-lg-9 col-md-8 col-12 col-sm-7">
 
-                        <h1>Profil</h1>
+                        <h1>Dashboard</h1>
                     </div>
                     <div class="col-lg-3 col-md-4 col-12 col-sm-5">
                         <div class="sub_title_section">
                             <ul class="sub_title">
                                 <li> <a href="#"> Accueil </a>&nbsp; / &nbsp; </li>
-                                <li>profil</li>
+                                <li>Dashboard</li>
                             </ul>
                         </div>
                     </div>
@@ -230,34 +256,45 @@ Author: webstrot
         </div>
     </div>
     <!-- top header wrapper end -->
-    <!-- sign up wrapper start -->
-    <div class="login_wrapper jb_cover">
+    <!-- company details wrapper start-->
+    <div class="company_details_wrapper jb_cover">
+    </div>
+    <div class="webstrot_tech_detail jb_cover">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="login_top_box jb_cover">
-                        <div class="login_banner_wrapper">
-                            {{-- <img src="images/logo.png" alt="logo">
-                            <div class="header_btn search_btn facebook_wrap jb_cover">
-
-                                <a href="#" title="pas encore fonctionnel">s'inscire via facebook <i class="fab fa-facebook-f"></i></a>
+                    <div class="job_listing_left_fullwidth jb_cover">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-7 col-sm-12 col-12">
+                                <div class="jp_job_post_side_img">
+                                    @if(!empty($user->avatar->path))
+                                        <img src="{{ Storage::url($user->avatar->path) }}" alt="img" style="width:50px;height:50px;border-radius:50%;"></span>
+                                    @else
+                                        <img src="images/profile-11.jpg" alt="img" style="width:50px;height:50px;border-radius:50%;"></span>
+                                    @endif
+                                </div>
+                                <div class="jp_job_post_right_cont web_text">
+                               </div>
+                                    <a href="#informations"><h4>{{$user->name}}</h4></a>
+                            </div>
+                            <div class="col-lg-4 col-md-5 col-sm-12 col-12">
+                                <div class="jp_job_post_right_btn_wrapper web_single_btn">
+                                    <ul>
+                                        <li><a href="#manuel">Voir mes Livres</a></li>
+                                    </ul>
+                                </div>
 
                             </div>
-                            {{-- <div class="header_btn search_btn google_wrap jb_cover">
 
-                                <a href="#">login with pinterest <i class="fab fa-google-p"></i></a>
-
-                            </div> 
-                            <div class="jp_regis_center_tag_wrapper jb_register_red_or">
-                                <h1>Ou</h1>
-                            </div> --}}
                         </div>
-                        <div class="login_form_wrapper signup_wrapper">
-    {{-- <x-guest-layout> --}}
-                        <form method="POST" action="{{ route('update',['id' => $user->id]) }}" enctype="multipart/form-data">
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-12 col-sm-12 col-12">
+                    <div class="jb_listing_single_overview jb_cover">
+                    <form method="POST" id="informations" action="{{ route('update',['id' => $user->id]) }}" enctype="multipart/form-data" style="margin:50px;">
                         @csrf
                         @method('PATCH')
-                            <h2>Vos informations</h2>
+                            <h2>Mes informations</h2>
 							<div class="form-group icon_form comments_form">
 
                                 <x-text-input id="name" class="form-control require" type="text" name="name" value="{{$user->name}}" placeholder="Nom complet *" required />
@@ -290,7 +327,8 @@ Author: webstrot
 
                                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
                                 {{-- <input type="password" name="password" class="form-control require" placeholder="Mot de passe *"> --}}
-                                <i class="fas fa-eye"></i>
+                                <i class="fas fa-eye" id="oeilomdp"></i>
+                                <i class="fas fa-eye-slash" id="oeilfmdp" display="none"></i>
                             </div>
                             {{-- <x-input-error :messages="$errors->get('password')" class="mt-2" /> --}}
                             <div class="form-group icon_form comments_form">
@@ -300,7 +338,8 @@ Author: webstrot
 
                                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                                 {{-- <input type="password" name="password" class="form-control require" placeholder="Mot de passe *"> --}}
-                                <i class="fas fa-eye"></i>
+                                <i class="fas fa-eye" id="oeilomdpc"></i>
+                                <i class="fas fa-eye-slash" id="oeilfmdpc" display="none"></i>
                             </div>
                             <div class="form-group icon_form comments_form">
 
@@ -326,16 +365,375 @@ Author: webstrot
                                 <p>Avez-vous un compte ? <a href="{{route('login')}}">connectez vous</a></p>
                             </div>
                         </form>
-    {{-- </x-guest-layout> --}}
+                        
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+                    <div class="job_filter_category_sidebar jb_cover">
+                        <div class="job_filter_sidebar_heading jb_cover">
+                            <h1>dashboard</h1>
+                        </div>
+                        <div class="job_overview_header jb_cover">
+
+                            <div class="jp_listing_overview_list_main_wrapper jb_cover">
+                                <div class="jp_listing_list_icon">
+                                    <i class="far fa-calendar"></i>
+                                </div>
+                                <div class="jp_listing_list_icon_cont_wrapper">
+                                    <ul>
+                                        <li>Mes informations:</li>
+                                        {{-- <li>Design & Creative</li> --}}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="jp_listing_overview_list_main_wrapper jb_cover">
+                                <div class="jp_listing_list_icon">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <div class="jp_listing_list_icon_cont_wrapper">
+                                    <ul>
+                                        <li>Mes livres:</li>
+                                        {{-- <li>Los Angeles Califonia PO</li> --}}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="jp_listing_overview_list_main_wrapper jb_cover">
+                                <div class="jp_listing_list_icon">
+                                    <i class="fa fa-info-circle"></i>
+                                </div>
+                                <div class="jp_listing_list_icon_cont_wrapper">
+                                    <ul>
+                                        <li>FAQ :</li>
+                                        {{-- <li>0145636941:</li> --}}
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+
+<div class="container" id="manuel" style="margin-top:250px;">
+            <div class="row" >
+                <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-12">
+                    <div class="jb_heading_wraper">
+
+                        <h3>Mes livres</h3>
+
+                        {{-- <p>Faites votre choix ....</p> --}}
+                    </div>
+                    <div class="container" >
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="index3_form_box jb_cover">
+                            <form action="{{route('posts.search')}}" method="get">
+                                <div class="select_box select_box3">
+
+                                    <select name="tri">
+                                        <option value="tri">Tri par</option>
+                                        <option value="triRecent">plus recent</option>
+                                        <option value="triAncien">plus ancien</option>
+
+                                    </select>
+
+                                </div>
+                                <div class="select_box select_box3">
+
+                                    <select name="titreconnu">
+                                        <option value="titreconnu">titre connu</option>
+                                        <option value="Excellence">Excellence</option>
+                                        <option value="ciam">ciam</option>
+                                        <option value="autre">autre</option>
+                                        {{-- <option>graphic</option> --}}
+
+                                    </select>
+
+                                </div>
+                                <div class="select_box select_box3">
+
+                                    <select name="localisation">
+                                        <option value="localisation">localisation</option>
+                                        <option value="douala">Douala</option>
+                                        <option value="yaounde">Yaounde</option>
+                                        <option value="bandjoun">Bandjoun</option>
+                                        <option value="souza">Souza</option>
+
+                                    </select>
+
+                                </div>
+                                <div class="contect_form3 contct_form_new3">
+
+                                    <input type="text" name="recherche" placeholder="Keyword">
+                                </div>
+                                <div class="index3_form_search" onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                    <a href="#" ><i class="fas fa-search"></i></a>
+                                </div>
+                                </form>
+                            
+                    </div>
+                    </div>
+                </div>
+                <div class="job_filter_listing_wrapper jb_cover" id="#manuels">
+        {{-- <div class="container">
+
+            <div class="row">
+                <div class="col-lg-3 col-md-12 col-sm-12 col-12 d-none d-sm-none d-md-none d-lg-block d-xl-block ">
+                    <div class="job_filter_category_sidebar jb_cover">
+                        <div class="job_filter_sidebar_heading jb_cover">
+                            <h1>Livres par sujet</h1>
+                        </div>
+
+                        <div class="category_jobbox jb_cover">
+                            <p class="job_field">
+                                <input type="checkbox" id="c1" name="cb">
+                                <label for="c1">Mathematiques<span> (**)</span></label>
+                            </p>
+                            <p class="job_field">
+                                <input type="checkbox" id="c2" name="cb">
+                                <label for="c2">
+                                    Informatique<span> (**)</span>
+                                </label>
+                            </p>
+                            <p class="job_field">
+                                <input type="checkbox" id="c3" name="cb">
+                                <label for="c3">Physique<span> (**)</span>
+                                </label>
+                            </p>
+                            <p class="job_field">
+                                <input type="checkbox" id="c4" name="cb">
+                                <label for="c4">Chimie<span> (**)</span>
+                                </label>
+                            </p>
+                            <p class="job_field">
+                                <input type="checkbox" id="c5" name="cb">
+                                <label for="c5">SVT<span> (**)</span> </label>
+                            </p>
+                            <p class="job_field">
+                                <input type="checkbox" id="c6" name="cb">
+                                <label for="c6">Histoire<span> (**)</span> </label>
+                            </p>
+                            <p class="job_field">
+                                <input type="checkbox" id="c7" name="cb">
+                                <label for="c7">Geographie<span> (**)</span> </label>
+                            </p>
+                            <div class="seeMore"><a href="#">Tout voir</a></div>
+                        </div>
+
+                    </div>
+                    <div class="job_filter_category_sidebar jb_cover">
+                        <div class="job_filter_sidebar_heading jb_cover active_class3">
+                            <h1>Livre par lieu</h1>
+                        </div>
+
+                        <div class="category_jobbox jb_cover">
+                            <p class="job_field">
+                                <input type="checkbox" id="c01" name="cb">
+                                <label for="c01">Douala
+                                    <span> (**)</span></label>
+                            </p>
+                            <p class="job_field">
+                                <input type="checkbox" id="c02" name="cb">
+                                <label for="c02">
+                                    Yaounde
+                                    <span> (**)</span>
+                                </label>
+                            </p>
+                            <p class="job_field">
+                                <input type="checkbox" id="c03" name="cb">
+                                <label for="c03">Bandjoun
+                                    <span>(**)</span>
+                                </label>
+                            </p>
+                            <div class="seeMore"><a href="#">Tout voir</a></div>
+                        </div>
+                    </div>
+                                    </div>
+                <div class="col-lg-9 col-md-12 col-sm-12 col-12">
+                    <div class="job_listing_left_side jb_cover">
+                        <div class="filter-area jb_cover">
+
+                            <select>
+                                <option>filtrer par</option>
+                                <option>plus recent</option>
+                                <option>plus ancien</option>
+                                {{-- <option>top rated</option> 
+                            </select>
+
+                        </div>
+                        </div>--}}
+                        <div class="tab-content btc_shop_index_content_tabs_main jb_cover">
+                            <div id="grid" class="tab-pane active">
+                                <div class="row">
+                                @forelse ($posts as $post)
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+
+                                        <div class="job_listing_left_fullwidth job_listing_grid_wrapper jb_cover">
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <div class="jp_job_post_side_img">
+                                                    @if(!empty($post->image->path))
+                                                        <img src="{{ Storage::url($post->image->path) }}" alt="post_img" style="width:170px;height:200px;" />
+                                                    @endif
+                                                    @if(!empty($post->auteur->users_name) || !empty($post->auteur->users_tel))
+                                                        <br> <span>{{$post->auteur->users_name}} </span>
+                                                    @else 
+                                                        Auteur {{$post->users_id}}
+                                                    @endif 
+                                                    </div>
+                                                    <div class="jp_job_post_right_cont">
+                                                        <h4><a href="#">{{ $post->title }}</a></h4>
+
+                                                        <ul>
+                                                            <li><i class="flaticon-cash"></i>&nbsp; XAF {{ $post->prix }} </li>
+                                                            <li><i class="flaticon-location-pointer"></i>&nbsp; {{ $post->ville }} </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <div class="jp_job_post_right_btn_wrapper jb_cover">
+                                                        <ul>
+                                                            <li>
+                                                            </li>
+                                                            <li>
+                                                            <form method="GET" action="{{ route('posts.show')}}">
+                                                                <input type="hidden" name="id" value="{{$post->id}}">
+                                                                <a href=""><input type="submit" value="Description" style="background:transparent;border:1px solid transparent;cursor:pointer;"></a>
+                                                            </form>
+                                                            </li>
+                                                            <li>
+                                                        @if(!empty($post->auteur->users_tel))
+                                                            <a href="{{route("updatelivre" ,['id'=>$post->id ])}}"><li> Modifier Livre</a></li>
+                                                        @else
+                                                            <a href="{{route("updatelivre" ,['id'=>$post->id ])}}"><li class=""> Modifier </a></li>
+                                                        @endif
+                                                            </li>
+                                                            
+                                                            {{-- @if(!empty(Auth::user()))
+                                                            <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
+                                                            @else
+                                                            <a href="{{route('login')}}" data-toggle="modal" data-target="#myModal01">Acheter</a></li>
+                                                            @endif --}}
+                                                        </ul>
+                                                    <a href="" class="btn btn-danger" style="margin-left:15px;margin-top:18px; border-radius:0 !important;">Supprimer</a>
+                                                        
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                @empty
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+
+                                        <div class="job_listing_left_fullwidth job_listing_grid_wrapper jb_cover">
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <div class="jp_job_post_side_img" style="margin-left:0;">
+                                                        <img src="images/logolepoto.jpg" alt="post_img" style="width:200px;" />
+                                                        <br> <span>Luc Fotso 695984844</span>
+                                                    </div>
+                                                    <div class="jp_job_post_right_cont">
+                                                        <h4><a href="#">L'excellence en mathématique Tle</a></h4>
+
+                                                        <ul>
+                                                            <li><i class="flaticon-cash"></i>&nbsp; XAF 5000 </li>
+                                                            <li><i class="flaticon-location-pointer"></i>&nbsp;Douala,Nyalla pariso</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <div class="jp_job_post_right_btn_wrapper jb_cover">
+                                                        <ul>
+                                                            <li>
+                                                                <div class="job_adds_right">
+                                                                    <a href="#!"><i class="far fa-heart"></i></a>
+                                                                </div>
+                                                            </li>
+                                                            <li><a href="job_single.html">Description</a></li>
+                                                            <li> <a href="#" data-toggle="modal" data-target="#myModal01">Acheter</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+
+                                        <div class="job_listing_left_fullwidth job_listing_grid_wrapper jb_cover">
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <div class="jp_job_post_side_img">
+                                                        <img src="images/physique.jpg" alt="post_img" style="width:200px;" />
+                                                        <br> <span>Arthur Ekoko</span>
+                                                    </div>
+                                                    <div class="jp_job_post_right_cont">
+                                                        <h4><a href="#">Livre Excellence en physique Tle</a></h4>
+
+                                                        <ul>
+                                                            <li><i class="flaticon-cash"></i>&nbsp; XAF 5000</li>
+                                                            <li><i class="flaticon-location-pointer"></i>&nbsp; souza</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <div class="jp_job_post_right_btn_wrapper jb_cover">
+                                                        <ul>
+                                                            <li>
+                                                                <div class="job_adds_right">
+                                                                    <a href="#!"><i class="far fa-heart"></i></a>
+                                                                </div>
+                                                            </li>
+                                                            <li><a href="job_single.html">description</a></li>
+                                                            <li> <a href="#" data-toggle="modal" data-target="#myModal02">acheter</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endforelse
+                                                                        
+                                </div>
+                            </div>
+                            <div class="blog_pagination_section jb_cover">
+                            {{-- {{$posts->links()}} --}}
+                             {!! $posts->withQueryString()->links('pagination::bootstrap-5') !!}
+                            
+                            </div>
                         </div>
                     </div>
                 </div>
+				<div class="col-lg-3 col-md-12 col-sm-12 col-12 d-block d-sm-block d-md-block d-lg-none d-xl-none">
+                    
+                </div>
+            </div>
+        </div>
+        </div>
+    
+
             </div>
         </div>
     </div>
-    {{-- footer --}}
-        <div class="col-lg-12 col-md-12 col-sm-12" style="margin-top:200px;">
-                            <div id="accordion" role="tablist">
+    <!-- company details wrapper end-->
+    <!-- news app wrapper start-->
+    <div class="news_letter_wrapper jb_cover">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="job_newsletter_wrapper pd00 jb_cover">
+                        <div id="accordion" role="tablist">
                                 <h1>Questions fréquemment posées...</h1>
                                 <div class="card">
 
@@ -382,23 +780,11 @@ Author: webstrot
                                 </div>
 
                             </div>
-                        </div>
-    <!--popular wrapper end-->
-    <!--resume wrapper start-->
-    <div class="pricing_table_3 recent_resume_wrapper jb_cover">
-        <div class="slider_small_shape44">
-            <img src="images/p2.png" class="img-responsive " alt="img">
-        </div>
-        
-        <div class="counter_jbbb2 jb_cover">
-
-            <img src="images/line3.png" class="img-responsive" alt="img">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <!--resume wrapper end-->
-    <!-- news app wrapper start-->
-    
-    
     <!-- news app wrapper end-->
     <!-- footer Wrapper Start -->
     <div class="footer jb_cover">
@@ -467,15 +853,15 @@ Author: webstrot
 
     <!-- footer Wrapper End -->
 	 <!-- chat box Wrapper start -->
-	<div id="chat-circle" class="btn btn-raised circle_index3"> 
+	<div id="chat-circle" class="btn btn-raised"> 
 		<i class="fas fa-comment-alt"></i>
 	</div>
-  <div class="chat-box chat_box_3">
+  <div class="chat-box">
     <div class="chat-box-header">
       ChatBot
       <span class="chat-box-toggle"><i class="fas fa-times"></i></span>
     </div>
-    <div class="chat-box-body chat_msg_box22">
+    <div class="chat-box-body">
       <div class="chat-box-overlay">   
       </div>
       <div class="chat-logs">
@@ -483,7 +869,7 @@ Author: webstrot
       </div><!--chat-log -->
     </div>
     <div class="chat-input">      
-      <form action="{{route('mail')}}" method="POST">
+      <form>
         <input type="text" id="chat-input" placeholder="Send a message..."/>
       <button type="submit" class="chat-submit" id="chat-submit"><i class="fas fa-paper-plane"></i></button>
       </form>      
@@ -497,18 +883,62 @@ Author: webstrot
     <script src="js/jquery.menu-aim.js"></script>
     <script src="js/plugin.js"></script>
     <script src="js/owl.carousel.js"></script>
-    <script src="js/jquery-ui.js"></script>
     <script src="js/jquery.countTo.js"></script>
-    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="js/jquery-ui.js"></script>
     <script src="js/dropify.min.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
     <script src="js/jquery.inview.min.js"></script>
     <script src="js/jquery.nice-select.min.js"></script>
     <script src="js/imagesloaded.pkgd.min.js"></script>
     <script src="js/isotope.pkgd.min.js"></script>
     <script src="js/custom.js"></script>
     <!-- custom js-->
+    <script>
+        function initMap() {
+            var uluru = {
+                lat: -36.742775,
+                lng: 174.731559
+            };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                scrollwheel: false,
+                center: uluru
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            });
+        }
+        const eye = document.querySelector("#oeilomdp");
+        const eyec = document.querySelector("#oeilomdpc");
+        const eyeoff = document.querySelector("#oeilfmdp");
+        const eyeoffc = document.querySelector("#oeilfmdpc");
+        const pass = document.querySelector("#password");
+        const passc = document.querySelector("#password_confirmation");
+        eye.addEventListener("click",() => {
+            eye.style.display = "none";
+            eyeoff.style.display = "";
+            pass.type="text";
+        });
+        eyeoff.addEventListener("click",() => {
+            eyeoff.style.display = "none";
+            eye.style.display = "";
+            pass.type="password";
+        });
+        eyec.addEventListener("click",() => {
+            eyec.style.display = "none";
+            eyeoffc.style.display = "";
+            passc.type="text";
+        });
+        eyeoffc.addEventListener("click",() => {
+            eyeoffc.style.display = "none";
+            eyec.style.display = "";
+            passc.type="password";
+        });
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBi2zbxXa0ObGqaSBo5NJMdwLs_xtQ03nI&amp;callback=initMap"></script>
 </body>
 
 
-<!-- Mirrored from webstrot.com/html/jbdesk/main_pages/index_III.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Jun 2019 23:02:06 GMT -->
+<!-- Mirrored from webstrot.com/html/jbdesk/main_pages/company_single.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Jun 2019 23:02:21 GMT -->
 </html>
