@@ -46,7 +46,7 @@ class RegisteredUserController extends Controller
             'tel' => $request->tel,
             'password' => Hash::make($request->password),
         ]);
-        
+        $user->sendEmailVerificationNotification();
         // $filename = time() . '.' . $request->avatar->extension();
         
         // $path = $request->avatar->storeAs(
@@ -68,7 +68,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
         
-        return redirect(RouteServiceProvider::HOME);
+        return redirect(RouteServiceProvider::Dash);
     }
     /*public function update()
     {

@@ -166,8 +166,12 @@ Author: webstrot
                                     </li>
                                     {{-- <li><a href="#"><i class="fas fa-lock"></i>Lock Screen</a> --}}
                                     </li>
-                                    <li><a href="#"><i class="fas fa-sign-in-alt"></i>logout</a>
-                                    </li>
+                                     <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+
+                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                this.closest('form').submit();"><i class="ion-power"></i>Log out</a></li> 
+                            </form></li>
                                 </ul>
                             </div>
                         </div>
