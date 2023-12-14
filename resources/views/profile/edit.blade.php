@@ -612,7 +612,10 @@ Author: webstrot
                                                         @if(!empty($post->auteur->users_tel))
                                                             <a href="{{route("updatelivre" ,['id'=>$post->id ])}}"><li> Modifier Livre</a></li>
                                                         @else
-                                                            <a href="{{route("updatelivre" ,['id'=>$post->id ])}}"><li class=""> Modifier </a></li>
+                                                            <form method="GET" action="{{ route('updatelivre')}}">
+                                                                <input type="hidden" name="id" value="{{$post->id}}">
+                                                                <a href=""><input type="submit" value="Modifier" style="background:transparent;border:1px solid transparent;cursor:pointer;"></a>
+                                                            </form>
                                                         @endif
                                                             </li>
                                                             

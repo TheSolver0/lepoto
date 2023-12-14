@@ -39,14 +39,14 @@ Author: webstrot
     <link rel="stylesheet" type="text/css" href="css/responsive.css" />
     <!--favicon-->
     <link rel="shortcut icon" type="image/png" href="images/icolepoto.png" />
-
+{{-- google analytics
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-JTS4X9C6LN');
-</script>
+</script> --}}
 </head>
 
 <body>
@@ -219,15 +219,19 @@ Author: webstrot
         <div class="container" style="width:1000px;margin-rigth:500px;">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="login_top_box jb_cover">
+                    <div class="login_top_box jb_cover" style="min-height:600;height:100%">
+                        @if(!empty($post->image->path))
+                        <div class="login_banner_wrapper" style="background:url({{ Storage::url($post->image->path) }}) !important;background-repeat:no-repeat  !important;background-position:center !important;">
+                        @else
                         <div class="login_banner_wrapper" style="background:url(../images/blog-img5.jpg) !important;">
+                        @endif
                         </div>
             <div class="login_form_wrapper signup_wrapper">
-    {{-- <x-guest-layout> --}}
+    {{-- <x-guest-layout> {{ Storage::url($post->image->path) }}--}}
                         <form method="POST" action="{{ route('updatePost' , ['id' => $post->id]) }}" enctype="multipart/form-data">
                         @csrf
                         @method("PATCH")
-                            <h2>Enregistrer un nouveau livre</h2>
+                            <h2>Modifier un livre</h2>
 							<div class="form-group icon_form comments_form">
 
                                 <x-text-input id="title" class="form-control require" type="text" name="title" value="{{$post->title}}" placeholder="Entrez le titre du manuel ex:Livre Ciam Tle" required />

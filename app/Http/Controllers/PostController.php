@@ -81,13 +81,30 @@ class PostController extends Controller
             'users_name' => Auth::user()->name,
             'users_tel' => Auth::user()->tel
         ]);
-
-        return Redirect::route('manuel');
+        if(!empty($avatar) && !empty($auteur))
+        {
+            // dump("Livre enregistré avec succes !");
+            echo '<script>alert("Livre enregistré avec succès !");
+                            document.location.href="/profile#manuel";                    
+                    </script>';
+            // return view('profile.edit');
+            // return Redirect::route('profile.edit');
+        }
+        else
+        {
+            // dump("Livre enregistré avec succes !");
+            echo '<script>alert("Echec de l\'enregistrement du livre !")
+                        document.location.href="#";                    
+                    </script>';
+            // return Redirect::route('vendre');
+        }
     }
     public function userPosts()
     {
         $activeUserId = Auth::user()->id;
-        $posts = Post::where('users_id','LIKE',$activeUserId)->paginate(4);
+        $posts = Post::where('users_id','LIKE',$activeUserId)
+                        ->orderBy('id','desc')
+                        ->paginate(4);
         // dd($posts);
         // $i = 0;
         // foreach($auteur as $item)
@@ -99,6 +116,13 @@ class PostController extends Controller
         $user = Auth::user();
 
         return view('profile.edit',compact('posts','user'));
+    }
+    public function viewUpdate()
+    {
+        $recherche = $_GET['id'];
+        $post = Post::findOrfail($recherche);
+
+        return view('updateLivre',compact('post'));
     }
     public function update(Request $request, $id )
     {
@@ -157,12 +181,6 @@ class PostController extends Controller
 
         return redirect('/profile');
     
-    }
-    public function viewUpdate($id)
-    {
-        $post = Post::findOrFail($id);
-
-        return view('updateLivre',compact('post'));
     }
     public function mail()
     {

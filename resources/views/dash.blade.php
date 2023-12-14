@@ -235,7 +235,7 @@ Author: webstrot
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="login_top_box jb_cover">
+                    <div class="login_top_box jb_cover" style="min-height:600;height:100%">
                         <div class="login_banner_wrapper">
                             <img src="images/logolepoto.png" alt="logo" style="width:200px;height:110px;">
                             {{-- <div class="header_btn search_btn facebook_wrap jb_cover">

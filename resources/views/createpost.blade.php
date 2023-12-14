@@ -208,7 +208,7 @@ Author: webstrot
         <div class="container" style="width:1000px;margin-rigth:500px;">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="login_top_box jb_cover">
+                    <div class="login_top_box jb_cover" style="min-height:600;height:100%">
                         <div class="login_banner_wrapper" style="background:url(../images/blog-img5.jpg) !important;">
                         </div>
             <div class="login_form_wrapper signup_wrapper">

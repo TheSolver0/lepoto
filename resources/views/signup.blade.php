@@ -228,7 +228,7 @@ Author: webstrot
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="login_top_box jb_cover">
+                    <div class="login_top_box jb_cover" style="min-height:600;height:100%">
                         <div class="login_banner_wrapper">
                             {{-- <img src="images/logo.png" alt="logo">
                             <div class="header_btn search_btn facebook_wrap jb_cover">
@@ -278,22 +278,23 @@ Author: webstrot
                                 <x-text-input id="password" class="form-control require"
                                 type="password"
                                 name="password"
-                                placeholder="Mot de passe *"
-                                required autocomplete="new-password" />
+                                placeholder="Mot de passe *"/>
 
                                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
                                 {{-- <input type="password" name="password" class="form-control require" placeholder="Mot de passe *"> --}}
-                                <i class="fas fa-lock"></i>
+                                <i class="fas fa-eye" id="oeilomdp"></i>
+                                <i class="fas fa-eye-slash" id="oeilfmdp" display="none"></i>
                             </div>
                             {{-- <x-input-error :messages="$errors->get('password')" class="mt-2" /> --}}
                             <div class="form-group icon_form comments_form">
                                 <x-text-input id="password_confirmation" class="form-control require"
                                 type="password" placeholder="Mot de passe(confirmation) *"
-                                name="password_confirmation" required autocomplete="new-password" />
+                                name="password_confirmation" />
 
                                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                                 {{-- <input type="password" name="password" class="form-control require" placeholder="Mot de passe *"> --}}
-                                <i class="fas fa-lock"></i>
+                                <i class="fas fa-eye" id="oeilomdpc"></i>
+                                <i class="fas fa-eye-slash" id="oeilfmdpc" display="none"></i>
                             </div>
                             
                             <div class="login_remember_box">
@@ -494,6 +495,35 @@ Author: webstrot
     <script src="js/isotope.pkgd.min.js"></script>
     <script src="js/custom.js"></script>
     <!-- custom js-->
+    <script>
+        const eye = document.querySelector("#oeilomdp");
+        const eyec = document.querySelector("#oeilomdpc");
+        const eyeoff = document.querySelector("#oeilfmdp");
+        const eyeoffc = document.querySelector("#oeilfmdpc");
+        const pass = document.querySelector("#password");
+        const passc = document.querySelector("#password_confirmation");
+        eye.addEventListener("click",() => {
+            eye.style.display = "none";
+            eyeoff.style.display = "";
+            pass.type="text";
+        });
+        eyeoff.addEventListener("click",() => {
+            eyeoff.style.display = "none";
+            eye.style.display = "";
+            pass.type="password";
+        });
+        eyec.addEventListener("click",() => {
+            eyec.style.display = "none";
+            eyeoffc.style.display = "";
+            passc.type="text";
+        });
+        eyeoffc.addEventListener("click",() => {
+            eyeoffc.style.display = "none";
+            eyec.style.display = "";
+            passc.type="password";
+        });
+    </script>
+    
 </body>
 
 

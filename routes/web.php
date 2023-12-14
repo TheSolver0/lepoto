@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function () {
     // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     // Route::get('/profile', [RegisteredUserController::class, 'update'])->name('update');
     Route::patch('/profile/{id}', [UserController::class, 'update'])->name('update');
-    Route::get('/post/{id}', [PostController::class, 'viewUpdate'])->name('updatelivre');
+    Route::get('/updateLivre', [PostController::class, 'viewUpdate'])->name('updatelivre');
     Route::patch('/updatePost/{id}', [PostController::class, 'update'])->name('updatePost');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/createpost',[PostController::class, 'create'])->name('vendre');
