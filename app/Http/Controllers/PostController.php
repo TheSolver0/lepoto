@@ -15,7 +15,8 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderBy('id', 'desc')->get();
+        $posts = Post::orderBy('id','desc')->paginate(4);
+        // $posts = Post::orderBy('id', 'desc')->get();
 
         return view('index',compact('posts'));
     }
@@ -33,8 +34,16 @@ class PostController extends Controller
     }
     public function search()
     {
-        $recherche = $_GET['recherche'];
-        $posts = Post::where('title','LIKE',"%$recherche%")->get();
+        $recherche = (empty($_GET['recherche'])) ? "" : $_GET['recherche'];
+        $tri = ($_GET['tri'] == 'tri par') ? "" : $_GET['tri'] ;
+        $reqtri = ($_GET['tri'] == 'triRecent') ? 'desc' : 'asc';
+        $titreconnu = ($_GET['titreconnu'] == 'titreconnu') ? "" : $_GET['titreconnu'];
+        $localisation = ($_GET['localisation'] == 'localisation') ? "" : $_GET['localisation'];
+        $posts = Post::where('title' , 'LIKE', "%$recherche%")
+                        ->where('ville', 'LIKE' ,"%$localisation%")
+                        ->where('title', 'LIKE' ,"%$titreconnu%" )
+                        ->orderBy('id',$reqtri)
+                        ->paginate(4);
 
         return view('searchpage',compact('posts'));
     }
@@ -48,7 +57,8 @@ class PostController extends Controller
             'title' => $request->title,
             'prix' => $request->prix,
             'ville' => $request->ville,
-            'description' => $request->description
+            'description' => $request->description,
+            'users_id' => Auth::user()->id
         ]);
 
         $filename = time() . '.' . $request->image->extension();
@@ -71,8 +81,106 @@ class PostController extends Controller
             'users_name' => Auth::user()->name,
             'users_tel' => Auth::user()->tel
         ]);
+        if(!empty($avatar) && !empty($auteur))
+        {
+            // dump("Livre enregistré avec succes !");
+            echo '<script>alert("Livre enregistré avec succès !");
+                            document.location.href="/profile#manuel";                    
+                    </script>';
+            // return view('profile.edit');
+            // return Redirect::route('profile.edit');
+        }
+        else
+        {
+            // dump("Livre enregistré avec succes !");
+            echo '<script>alert("Echec de l\'enregistrement du livre !")
+                        document.location.href="#";                    
+                    </script>';
+            // return Redirect::route('vendre');
+        }
+    }
+    public function userPosts()
+    {
+        $activeUserId = Auth::user()->id;
+        $posts = Post::where('users_id','LIKE',$activeUserId)
+                        ->orderBy('id','desc')
+                        ->paginate(4);
+        // dd($posts);
+        // $i = 0;
+        // foreach($auteur as $item)
+        // {
+            // $id = $auteur->posts_id;
+            // $posts = Post::findOrFail($id)->get();
+        //     $i++;
+        // }
+        $user = Auth::user();
 
-        return Redirect::route('accueil');
+        return view('profile.edit',compact('posts','user'));
+    }
+    public function viewUpdate()
+    {
+        $recherche = $_GET['id'];
+        $post = Post::findOrfail($recherche);
+
+        return view('updateLivre',compact('post'));
+    }
+    public function update(Request $request, $id )
+    {
+        
+        // $request->validate([
+        //     'name' => ['required', 'string', 'max:255'],
+        //     'email' => ['required', 'string', 'email', 'max:255'],
+        //     // 'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+        //     'tel' => ['required'],
+        //     'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        // ]);
+        $post = Post::findOrFail($id);
+        $post->title = $request->title;
+        $post->prix = $request->prix;
+        $post->ville = $request->ville;
+        $post->description = $request->description;
+        // $post->post_id = $post->id;
+
+        if(!empty($request->image))
+        {
+
+
+            $filename = time() . '.' . $request->image->extension();
+            
+            $path = $request->image->storeAs(
+                'Images',
+                $filename,
+                'public'
+            );
+        
+            if(empty($post->image->path))
+            { 
+
+                $image = Image::create([
+                    'path' => $path,
+                    'posts_id' => $post->id
+                ]);
+
+                $image->update();
+            }
+            else
+            {
+                $image = Image::all();
+                foreach($image as $avat)
+                {
+                    if($avat->posts_id == $post->id)
+                    {
+                        $avat->path = $path;
+                        $avat->update();
+                    }
+                }
+            }
+        }
+
+        $post->update();
+
+        return redirect('/profile');
+    
     }
     public function mail()
     {

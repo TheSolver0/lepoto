@@ -46,7 +46,7 @@
                 </div>
             @endif
         </div>
-
+ 
         <div>
             <x-input-label for="avatar" :value="__('Avatar')" />
             <x-text-input id="avatar" name="avatar" type="file" class="mt-1 block w-full"  required autofocus autocomplete="avatar" />

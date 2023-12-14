@@ -53,7 +53,7 @@ Author: webstrot
     <!-- Top Scroll Start --><a href="javascript:" id="return-to-top" class="return_top3"><i class="fas fa-angle-double-up"></i></a>
     <!-- Top Scroll End -->
     <!-- cp navi wrapper Start -->
-    <nav class="cd-dropdown cd_dropdown_index2 cd_dropdown_index3 d-block d-sm-block d-md-block d-lg-none d-xl-none">
+    <nav class="cd-dropdown cd_dropdown_index2 cd_dropdown_index3 d-block d-sm-block d-md-block d-lg-none d-xl-none" style="border-bottom:1px solid gray !important;">
         <h2><a href="index.html"> <span><img src="images/logolepoto1.png" style="width:163px;height:43px;" alt="img"></span></a></h2>
         <a href="#0" class="cd-close">Close</a>
         <ul class="cd-dropdown-content">
@@ -66,14 +66,14 @@ Author: webstrot
                 <a href="{{ route('accueil') }}">acceuil</a>
             </li>
             <li class="">
-                <a href="#">vendre</a>
+                <a href="{{ route('accueil') }}#manuel">Manuels</a>
             </li>
             <!-- .has-children -->
             <li class="">
-                <a href="{{route('profile.edit')}}">profile</a>
+                <a href="#accordion">FAQ</a>
             </li>
-            <li><a href="{{route('contact_us')}}">contact us </a></li>
-            <li><a href="{{ route('login') }}">login</a></li>
+            <li><a href="{{route('contact_us')}}">A propos</a></li>
+            <li><a href="{{ route('login') }}">contact</a></li>
         </ul>
         <!-- .cd-dropdown-content -->
     </nav>
@@ -143,9 +143,15 @@ Author: webstrot
                     </li>
                     <li>
                         <div class="jb_profile_box jb_3_profile_box">
-                            <div class="nice-select" tabindex="0"> <span class="current"><img src="images/profile-11.jpg" alt="img"></span>
+                            <div class="nice-select" tabindex="0"> <span class="current">
+                            @if(!empty($user->avatar->path))
+                                <img src="{{ Storage::url($user->avatar->path) }}" alt="img" style="width:50px;height:50px;border-radius:50%;"></span>
+                            @else
+                                <img src="images/profile-11.jpg" alt="img" style="width:50px;height:50px;border-radius:50%;"></span>
+                            @endif
+                            </span>
                                 <ul class="list">
-                                    <li><a href="{{route('profile.edit')}}"><i class="fas fa-user-edit"></i>Profile</a>
+                                    <li><a href="#accordion"><i class="fas fa-user-edit"></i>FAQ</a>
                                     </li>
 
                                     {{-- <li><a href="#"><i class="far fa-calendar-alt"></i> My Calender</a> --}}
@@ -170,7 +176,7 @@ Author: webstrot
                         </div>
                     </li>
                     <li class="btn_hover">
-                         <a href="{{ route('vendre') }}">Ajouter un article</a>
+                        <a href="{{ route('login') }}">Connexion</a>
                     </li>
                 </ul>
             </div>
@@ -184,11 +190,11 @@ Author: webstrot
                      
                     </li>
                     <li class="has-mega gc_main_navigation kv_sub_menu green_sub_menu blue_sub_menu">
-                        <a href="{{route('profile.edit')}}" class="gc_main_navigation">  profile</a>
+                        <a href="#accordion" class="gc_main_navigation">FAQ</a>
                         <!-- mega menu start -->
                         
                     </li>
-                    <li class="has-mega gc_main_navigation"><a href="{{route('profile.edit')}}" class="gc_main_navigation">dashboard</a>
+                    <li class="has-mega gc_main_navigation"><a href="{{route('profile.edit')}}" class="gc_main_navigation">A propos</a>
                             
                         </li>
 					
@@ -196,43 +202,234 @@ Author: webstrot
 
                 </ul>
             </div>
+            </div>
             <!-- mainmenu end -->
+        <div class="login_wrapper jb_cover" >
+        <div class="container" style="width:1000px;margin-rigth:500px;">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="login_top_box jb_cover" style="min-height:600;height:100%">
+                        <div class="login_banner_wrapper" style="background:url(../images/blog-img5.jpg) !important;">
+                        </div>
+            <div class="login_form_wrapper signup_wrapper">
+    {{-- <x-guest-layout> --}}
+                        <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
+                        @csrf
+                            <h2>Enregistrer un nouveau livre</h2>
+							<div class="form-group icon_form comments_form">
 
-<div class="login_form_wrapper">
-<form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
-    @csrf
-    <h2>vendre un nouveau livre</h2>
-    @if ($errors->any())
-      @foreach ($errors->all() as $error)
-          <div style="color:red;"> {{ $error }} </div>
-      @endforeach
+                                <x-text-input id="title" class="form-control require" type="text" name="title" value="" placeholder="Entrez le titre du manuel ex:Livre Ciam Tle" required />
+                                <x-input-error :messages="$errors->get('title')" class="mt-2" />
+                                {{-- <input type="text" class="form-control require" name="name" placeholder="Nom complet *"> --}}
+                                {{-- <i class="fas fa-user"></i> --}}
+                            </div>
+                            {{-- <x-input-error :messages="$errors->get('name')" class="mt-2" /> --}}
+                            <div class="form-group icon_form comments_form">
+                               <x-text-input id="prix" class="form-control require" type="number" placeholder="Entrez le prix du manuel ex:5000" name="prix" value="" required/>
+                                <x-input-error :messages="$errors->get('prix')" class="mt-2" />
+                                {{-- <input type="text" class="form-control require" name="email" placeholder="Email*"> --}}
+                                {{-- <i class="fas fa-envelope"></i> --}}
+                            </div>
+                            {{-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> --}}
+                            <div class="form-group icon_form comments_form">
+
+                                <x-text-input id="ville" class="form-control require" type="text" placeholder="Entrez votre emplacement ex: Douala , nyalla pariso" name="ville" value="" required />
+                                <x-input-error :messages="$errors->get('ville')" class="mt-2" />
+                                {{-- <input type="number" class="form-control require" name="tel" placeholder="Numero de téléphone*"> --}}
+                                {{-- <i class="fas fa-phone"></i> --}}
+                            </div>
+                            {{-- <x-input-error :messages="$errors->get('tel')" class="mt-2" /> --}}
+                            <div class="form-group icon_form comments_form">
+
+                                <x-text-input id="description" class="form-control require" type="text" placeholder="Entrez une description du manuel ex: Manuels quasi neuf , aucune mais 2 pages maquantes" name="description" value="" required />
+                                <x-input-error :messages="$errors->get('description')" class="mt-2" />
+                                {{-- <input type="number" class="form-control require" name="tel" placeholder="Numero de téléphone*"> --}}
+                                {{-- <i class="fas fa-phone"></i> --}}
+                            </div>
+                            
+                            <div class="form-group icon_form comments_form">
+
+                                <x-text-input id="image" class="form-control require" type="file" name="image" />
+                                <x-input-error :messages="$errors->get('image')" class="mt-2" />
+                                {{-- <input type="number" class="form-control require" name="tel" placeholder="Numero de téléphone*"> --}}
+                                {{-- <i class="fas fa-file"></i> --}}
+                            </div>
+                            <div class="header_btn search_btn login_btn jb_cover">
+
+                                <input type="submit" value="S'inscrire" style="visibility:hidden;background:transparent;">
+                                    <a onclick="event.preventDefault();
+                                                this.closest('form').submit();"
+                                     href="">Enregistrer</a>
+                            </div>
+                        </form>
+    {{-- </x-guest-layout> --}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    {{-- footer --}}
+        <div class="col-lg-12 col-md-12 col-sm-12" style="margin-top:200px;">
+                            <div id="accordion" role="tablist">
+                                <h1>Questions fréquemment posées...</h1>
+                                <div class="card">
+
+                                    <div class="card_pagee" role="tab" id="heading1">
+                                        <h5 class="h5-md">
+								       	    <a class="collapsed" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">
+								          		Is there any auto-renew subscription?
+
+								        	</a>
+								     	 </h5>
+                                    </div>
+
+                                    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="heading1" data-parent="#accordion" style="">
+                                        <div class="card-body">
+
+                                            <div class="card_cntnt">
+                                                <p>This is Photoshop's version of LoremProin gravida nibh vel velit auctor Ipsum. Proin gravida nibh vel velit auctor aliquet....</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="card">
+
+                                    <div class="card_pagee" role="tab" id="heading2">
+                                        <h5 class="h5-md">
+								       	    <a class="collapsed" data-toggle="collapse" href="#collapsethree" role="button" aria-expanded="false" aria-controls="collapsethree">
+								          How many sites can I use my themes on?
+
+								        	</a>
+								     	 </h5>
+                                    </div>
+
+                                    <div id="collapsethree" class="collapse" role="tabpanel" aria-labelledby="heading2" data-parent="#accordion" style="">
+                                        <div class="card-body">
+
+                                            <div class="card_cntnt">
+                                                <p>This is Photoshop's version of LoremProin gravida nibh vel velit auctor Ipsum. Proin gravida nibh vel velit auctor aliquet....</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+    <!--popular wrapper end-->
+    <!--resume wrapper start-->
+    <div class="pricing_table_3 recent_resume_wrapper jb_cover">
+        <div class="slider_small_shape44">
+            <img src="images/p2.png" class="img-responsive " alt="img">
+        </div>
         
-    @endif
-    <div class="form-floating mb-3">
-        <input type="text" name="title" class="form-control" id="floatingInput" placeholder="Titre ex:Livre Ciam Tle C">
-        <label for="floatingInput">Titre ex:Livre Ciam Tle C</label>
+        <div class="counter_jbbb2 jb_cover">
+
+            <img src="images/line3.png" class="img-responsive" alt="img">
+        </div>
+    </div>
+    <!--resume wrapper end-->
+    <!-- news app wrapper start-->
+    
+    
+    <!-- news app wrapper end-->
+    <!-- footer Wrapper Start -->
+    <div class="footer jb_cover">
+        <div class="ft_shape bubble-18">
+            <img src="images/bubble2.png" class="img-responsive " alt="img">
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="footerNav jb_cover">
+                        <a href="#"><img src="images/logolepoto.png" alt="img" style="width:250px;"></a>
+                        <ul class="footer_first_contact">
+                            <li><i class="flaticon-location-pointer"></i>
+                                <p>Douala, Nyalla
+                                </p>
+                            </li>
+                            <li><i class="flaticon-telephone"></i>
+                                <p>698-549-128
+                            </li>
+                            <li><i class="flaticon-envelope"></i><a href="#">contact.lepoto@gmail.com </a>
+                                <br>
+                                <a href="#">support@gmail.com</a>
+                            </li>
+
+                        </ul>
+
+                        <ul class="icon_list_news index2_icon_list jb_cover">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li>
+                                <a href="#"><i class="fab fa-twitter"></i>
+                                    </a>
+                            </li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                                <div class="copyright_left"><i class="fa fa-copyright"></i> 2023 <a href="#">  LEPOTO.  </a> Tout droit réservé.
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+            <!--/.row-->
+        </div>
+        <!--/.container-->
+        <div class="waveWrapper waveAnimation">
+            <div class="waveWrapperInner bgTop gradient-color">
+                <div class="wave waveTop wavetop_1 wavetop_3"></div>
+            </div>
+            <div class="waveWrapperInner bgMiddle">
+                <div class="wave waveMiddle"></div>
+            </div>
+            <div class="waveWrapperInner bgBottom">
+                <div class="wave waveBottom wavebottom_1 wavebottom_3"></div>
+            </div>
+        </div>
+        <div class="ft_shape2 bubble-190">
+            <img src="images/bubble2.png" class="img-responsive " alt="img">
+        </div>
+        <div class="ft_shape1 bubble-19">
+            <img src="images/bubble2.png" class="img-responsive " alt="img">
+        </div>
+    </div>
+
+    <!-- footer Wrapper End -->
+	 <!-- chat box Wrapper start -->
+	<div id="chat-circle" class="btn btn-raised circle_index3"> 
+		<i class="fas fa-comment-alt"></i>
+	</div>
+  <div class="chat-box chat_box_3">
+    <div class="chat-box-header">
+      ChatBot
+      <span class="chat-box-toggle"><i class="fas fa-times"></i></span>
+    </div>
+    <div class="chat-box-body chat_msg_box22">
+      <div class="chat-box-overlay">   
       </div>
-    <div class="form-floating mb-3">
-        <input type="number" name="prix" class="form-control" id="floatingInput" placeholder="Prix ex:2500">
-        <label for="floatingInput">Prix ex:2500</label>
-      </div>
-    <div class="form-floating mb-3">
-        <input type="text" name="ville" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Entre ta ville</label>
-      </div>
-      <div class="form-floating">
-        <textarea name="description" class="form-control" placeholder="description" id="floatingTextarea"></textarea>
-        <label for="floatingTextarea">Description 'vous pourriez donner plus d'information sur le livre , son etat'</label>
-      </div><br>
-        <label for="image">Choisir une image:</label><br><br>
-        <input type="file"
-          id="image" name="image" 
-          accept="image/png , image/jpeg">
-          <br><br>
-        <button class="btn btn-success" type="submit">Enregistrer</button>
-</form>
-</div>
- <script src="js/jquery-3.3.1.min.js"></script>
+      <div class="chat-logs">
+       
+      </div><!--chat-log -->
+    </div>
+    <div class="chat-input">      
+      <form action="{{route('mail')}}" method="POST">
+        <input type="text" id="chat-input" placeholder="Send a message..."/>
+      <button type="submit" class="chat-submit" id="chat-submit"><i class="fas fa-paper-plane"></i></button>
+      </form>      
+    </div>
+  </div>
+  <!-- chat box Wrapper end -->
+    <!--custom js files-->
+    <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/modernizr.js"></script>
     <script src="js/jquery.menu-aim.js"></script>

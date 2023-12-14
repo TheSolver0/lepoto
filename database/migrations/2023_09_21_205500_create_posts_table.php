@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('prix');
             $table->string('ville');
             $table->mediumText('description');
+            $table->foreignId('users_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

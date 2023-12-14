@@ -53,7 +53,7 @@ Author: webstrot
     <!-- Top Scroll Start --><a href="javascript:" id="return-to-top" class="return_top3"><i class="fas fa-angle-double-up"></i></a>
     <!-- Top Scroll End -->
     <!-- cp navi wrapper Start -->
-    <nav class="cd-dropdown cd_dropdown_index2 cd_dropdown_index3 d-block d-sm-block d-md-block d-lg-none d-xl-none">
+    <nav class="cd-dropdown cd_dropdown_index2 cd_dropdown_index3 d-block d-sm-block d-md-block d-lg-none d-xl-none" style="border-bottom:1px solid gray !important;">
         <h2><a href="index.html"> <span><img src="images/logolepoto1.png" style="width:163px;height:43px;" alt="img"></span></a></h2>
         <a href="#0" class="cd-close">Close</a>
         <ul class="cd-dropdown-content">
@@ -63,17 +63,17 @@ Author: webstrot
                 </form>
             </li>
             <li class="">
-                <a href="{{ route('accueil') }}">acceuil</a>
+                <a href="{{ route('accueil') }}">accueil</a>
             </li>
             <li class="">
-                <a href="#">vendre</a>
+                <a href="{{route('accueil')}}#manuel">Manuels</a>
             </li>
             <!-- .has-children -->
             <li class="">
-                <a href="#">profile</a>
+                <a href="#accordion">FAQ</a>
             </li>
-            <li><a href="{{route('contact_us')}}">contact us </a></li>
-            <li><a href="{{ route('login') }}">login</a></li>
+            <li><a href="{{route('contact_us')}}">A  propos</a></li>
+            <li><a href="{{ route('login') }}">Contact</a></li>
         </ul>
         <!-- .cd-dropdown-content -->
     </nav>
@@ -134,8 +134,8 @@ Author: webstrot
 
                             <!-- Quik search -->
                             <div class="dez-quik-search bg-primary-dark">
-                                <form action="#">
-                                    <input name="search" value="" type="text" class="form-control" placeholder="Type to search...">
+                                <form action="{{route('posts.search')}}" method="get">
+                                    <input name="recherche" value="" type="text" class="form-control" placeholder="Type to search...">
                                     <span id="quik-search-remove"><i class="fas fa-times"></i></span>
                                 </form>
                             </div>
@@ -145,7 +145,7 @@ Author: webstrot
                         <div class="jb_profile_box jb_3_profile_box">
                             <div class="nice-select" tabindex="0"> <span class="current"><img src="images/profile-11.jpg" alt="img"></span>
                                 <ul class="list">
-                                    <li><a href="{{route('profile.edit')}}"><i class="fas fa-user-edit"></i>Profile</a>
+                                    <li><a href="#accordion"><i class="fas fa-user-edit"></i>FAQ</a>
                                     </li>
 
                                     {{-- <li><a href="#"><i class="far fa-calendar-alt"></i> My Calender</a> --}}
@@ -158,33 +158,37 @@ Author: webstrot
                                     </li>
                                     {{-- <li><a href="#"><i class="fas fa-lock"></i>Lock Screen</a> --}}
                                     </li>
-                                    <li><a href="#"><i class="fas fa-sign-in-alt"></i>logout</a>
+                                    <li>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <a onclick="event.preventDefault();
+                                                this.closest('form').submit();"><i class="fas fa-sign-in-alt"></i>logout</a>
+                                    </form>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </li>
                     <li class="btn_hover">
-                         <a href="{{ route('vendre') }}">Ajouter un article</a>
+                         <a href="{{ route('login') }}">Connexion</a>
                     </li>
                 </ul>
             </div>
 
             <div class="mainmenu green_main_menu blue_main_menu d-xl-block d-lg-block d-md-none d-sm-none d-none">
                 <ul class="main_nav_ul menu_2_ul">
-                    <li class="has-mega gc_main_navigation"><a href="{{route('accueil')}}" class="gc_main_navigation ">acceuil</a>
+                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation active_class active_class2 active_class3">accueil</a>
                         
                     </li>		
-                    <li class="has-mega gc_main_navigation"><a href="{{route('vendre')}}" class="gc_main_navigation">vendre</a>
+                    <li class="has-mega gc_main_navigation"><a href="{{route('accueil')}}#manuel" class="gc_main_navigation">Manuels</a>
                      
                     </li>
                     <li class="has-mega gc_main_navigation kv_sub_menu green_sub_menu blue_sub_menu">
-                        <a href="#" class="gc_main_navigation active_class active_class2 active_class3">  profile</a>
-                        {{-- <a href="#" class="gc_main_navigation">  profile</a> --}}
+                        <a href="#accordion" class="gc_main_navigation">  FAQ</a>
                         <!-- mega menu start -->
                         
                     </li>
-                    <li class="has-mega gc_main_navigation"><a href="{{route('profile.edit')}}" class="gc_main_navigation">dashboard</a>
+                    <li class="has-mega gc_main_navigation"><a href="{{route('profile.edit')}}" class="gc_main_navigation">A   propos</a>
                             
                         </li>
 					
@@ -204,13 +208,13 @@ Author: webstrot
                     <!-- section_heading start -->
                     <div class="col-lg-9 col-md-8 col-12 col-sm-7">
 
-                        <h1>sign up</h1>
+                        <h1>Inscription</h1>
                     </div>
                     <div class="col-lg-3 col-md-4 col-12 col-sm-5">
                         <div class="sub_title_section">
                             <ul class="sub_title">
-                                <li> <a href="#"> Home </a>&nbsp; / &nbsp; </li>
-                                <li>sign up</li>
+                                <li> <a href="#"> Accueil </a>&nbsp; / &nbsp; </li>
+                                <li>inscription</li>
                             </ul>
                         </div>
                     </div>
@@ -224,9 +228,9 @@ Author: webstrot
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="login_top_box jb_cover">
+                    <div class="login_top_box jb_cover" style="min-height:600;height:100%">
                         <div class="login_banner_wrapper">
-                            <img src="images/logo.png" alt="logo">
+                            {{-- <img src="images/logo.png" alt="logo">
                             <div class="header_btn search_btn facebook_wrap jb_cover">
 
                                 <a href="#" title="pas encore fonctionnel">s'inscire via facebook <i class="fab fa-facebook-f"></i></a>
@@ -236,10 +240,10 @@ Author: webstrot
 
                                 <a href="#">login with pinterest <i class="fab fa-google-p"></i></a>
 
-                            </div> --}}
+                            </div> 
                             <div class="jp_regis_center_tag_wrapper jb_register_red_or">
                                 <h1>Ou</h1>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="login_form_wrapper signup_wrapper">
     {{-- <x-guest-layout> --}}
@@ -274,22 +278,23 @@ Author: webstrot
                                 <x-text-input id="password" class="form-control require"
                                 type="password"
                                 name="password"
-                                placeholder="Mot de passe *"
-                                required autocomplete="new-password" />
+                                placeholder="Mot de passe *"/>
 
                                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
                                 {{-- <input type="password" name="password" class="form-control require" placeholder="Mot de passe *"> --}}
-                                <i class="fas fa-lock"></i>
+                                <i class="fas fa-eye" id="oeilomdp"></i>
+                                <i class="fas fa-eye-slash" id="oeilfmdp" display="none"></i>
                             </div>
                             {{-- <x-input-error :messages="$errors->get('password')" class="mt-2" /> --}}
                             <div class="form-group icon_form comments_form">
                                 <x-text-input id="password_confirmation" class="form-control require"
                                 type="password" placeholder="Mot de passe(confirmation) *"
-                                name="password_confirmation" required autocomplete="new-password" />
+                                name="password_confirmation" />
 
                                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                                 {{-- <input type="password" name="password" class="form-control require" placeholder="Mot de passe *"> --}}
-                                <i class="fas fa-lock"></i>
+                                <i class="fas fa-eye" id="oeilomdpc"></i>
+                                <i class="fas fa-eye-slash" id="oeilfmdpc" display="none"></i>
                             </div>
                             
                             <div class="login_remember_box">
@@ -317,7 +322,74 @@ Author: webstrot
         </div>
     </div>
     {{-- footer --}}
-        <div class="footer index2_footer_wrapper footer_index3 shaa jb_cover">
+        <div class="col-lg-12 col-md-12 col-sm-12" style="margin-top:200px;">
+                            <div id="accordion" role="tablist">
+                                <h1>Questions fréquemment posées...</h1>
+                                <div class="card">
+
+                                    <div class="card_pagee" role="tab" id="heading1">
+                                        <h5 class="h5-md">
+								       	    <a class="collapsed" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">
+								          		Is there any auto-renew subscription?
+
+								        	</a>
+								     	 </h5>
+                                    </div>
+
+                                    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="heading1" data-parent="#accordion" style="">
+                                        <div class="card-body">
+
+                                            <div class="card_cntnt">
+                                                <p>This is Photoshop's version of LoremProin gravida nibh vel velit auctor Ipsum. Proin gravida nibh vel velit auctor aliquet....</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="card">
+
+                                    <div class="card_pagee" role="tab" id="heading2">
+                                        <h5 class="h5-md">
+								       	    <a class="collapsed" data-toggle="collapse" href="#collapsethree" role="button" aria-expanded="false" aria-controls="collapsethree">
+								          How many sites can I use my themes on?
+
+								        	</a>
+								     	 </h5>
+                                    </div>
+
+                                    <div id="collapsethree" class="collapse" role="tabpanel" aria-labelledby="heading2" data-parent="#accordion" style="">
+                                        <div class="card-body">
+
+                                            <div class="card_cntnt">
+                                                <p>This is Photoshop's version of LoremProin gravida nibh vel velit auctor Ipsum. Proin gravida nibh vel velit auctor aliquet....</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+    <!--popular wrapper end-->
+    <!--resume wrapper start-->
+    <div class="pricing_table_3 recent_resume_wrapper jb_cover">
+        <div class="slider_small_shape44">
+            <img src="images/p2.png" class="img-responsive " alt="img">
+        </div>
+        
+        <div class="counter_jbbb2 jb_cover">
+
+            <img src="images/line3.png" class="img-responsive" alt="img">
+        </div>
+    </div>
+    <!--resume wrapper end-->
+    <!-- news app wrapper start-->
+    
+    
+    <!-- news app wrapper end-->
+    <!-- footer Wrapper Start -->
+    <div class="footer jb_cover">
         <div class="ft_shape bubble-18">
             <img src="images/bubble2.png" class="img-responsive " alt="img">
         </div>
@@ -326,7 +398,7 @@ Author: webstrot
             <div class="row">
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="footerNav jb_cover">
-                        <a href="#"><img src="images/logolepoto1.png" alt="img" style="width:250px;"></a>
+                        <a href="#"><img src="images/logolepoto.png" alt="img" style="width:250px;"></a>
                         <ul class="footer_first_contact">
                             <li><i class="flaticon-location-pointer"></i>
                                 <p>Douala, Nyalla
@@ -354,7 +426,7 @@ Author: webstrot
                         </ul>
                     </div>
                 </div>
-                                <div class="copyright_left"><i class="fa fa-copyright"></i> 2019 <a href="#">  JB desks.  </a> All Rights Reserved.
+                                <div class="copyright_left"><i class="fa fa-copyright"></i> 2023 <a href="#">  LEPOTO.  </a> Tout droit réservé.
                 </div>
 
                 <div class="clearfix"></div>
@@ -423,6 +495,35 @@ Author: webstrot
     <script src="js/isotope.pkgd.min.js"></script>
     <script src="js/custom.js"></script>
     <!-- custom js-->
+    <script>
+        const eye = document.querySelector("#oeilomdp");
+        const eyec = document.querySelector("#oeilomdpc");
+        const eyeoff = document.querySelector("#oeilfmdp");
+        const eyeoffc = document.querySelector("#oeilfmdpc");
+        const pass = document.querySelector("#password");
+        const passc = document.querySelector("#password_confirmation");
+        eye.addEventListener("click",() => {
+            eye.style.display = "none";
+            eyeoff.style.display = "";
+            pass.type="text";
+        });
+        eyeoff.addEventListener("click",() => {
+            eyeoff.style.display = "none";
+            eye.style.display = "";
+            pass.type="password";
+        });
+        eyec.addEventListener("click",() => {
+            eyec.style.display = "none";
+            eyeoffc.style.display = "";
+            passc.type="text";
+        });
+        eyeoffc.addEventListener("click",() => {
+            eyeoffc.style.display = "none";
+            eyec.style.display = "";
+            passc.type="password";
+        });
+    </script>
+    
 </body>
 
 
