@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Jobs\sendWelcomeUserMailJob;
 use App\Models\Avatar;
 use App\Models\User;
+use App\Models\Post;
 use App\Notifications\UserRegisteredNotification;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -18,6 +19,21 @@ use Illuminate\View\View;
 
 class UserController extends Controller
 {
+    public function index()
+    {
+        if(Auth::user()->email == 'lucfotso0+1@gmail.com')
+        {
+            $users = User::orderBy('id','asc')->get();
+            $posts = Post::orderBy('id','asc')->get();
+            // dd($users);
+
+            return view('admin',compact('users','posts'));
+        }
+        else
+        {
+            return abort('404');
+        }
+    }
     public function update(Request $request, $id )
     {
         $request->validate([

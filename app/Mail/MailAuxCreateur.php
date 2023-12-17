@@ -16,11 +16,12 @@ class MailAuxCreateur extends Mailable
     /**
      * Create a new message instance.
      */
-    public $user , $contenu;
-    public function __construct($user,$contenu)
+    public $nom ,$email , $message;
+    public function __construct($nom,$email,String $message)
     {
-        $this->user = $user;
-        $this->contenu = $contenu;
+        $this->nom = $nom;
+        $this->email = $email;
+        $this->message = $message;
     }
 
     /**
@@ -39,7 +40,7 @@ class MailAuxCreateur extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'email.mailauxcreateurs',
+            view: 'emails.mailauxcreateurs',
         );
     }
 

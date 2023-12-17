@@ -56,6 +56,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/createpost',[PostController::class, 'create'])->name('vendre');
     Route::post('/storepost', [PostController::class, 'store'])->name('posts.store');
     Route::get('/profile', [PostController::class, 'userPosts'])->name('profile.edit');
+    Route::get('/admin698BULL549lepoto128', [UserController::class, 'index']);
 });
 
 require __DIR__.'/auth.php';

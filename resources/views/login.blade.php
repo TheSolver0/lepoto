@@ -250,9 +250,9 @@ Author: webstrot
                         @csrf
 
                         <div class="login_form_wrapper">
-                            <h2>login</h2>
+                            <h2>Se connecter</h2>
                             <div class="form-group icon_form comments_form">
-                                <x-text-input id="email" class="form-control require" type="email" placeholder="Email Address*" name="email" :value="old('email')" required  autocomplete="username" />
+                                <x-text-input id="email" class="form-control require" type="email" placeholder="Addresse Email*" name="email" :value="old('email')" required  autocomplete="username" />
                                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                 {{-- <input type="text" class="form-control require" name="full_name" placeholder="Email Address*"> --}}
                                 <i class="fas fa-envelope"></i>
@@ -271,13 +271,13 @@ Author: webstrot
 
                             <div class="login_remember_box">
        
-                                <label class="control control--checkbox">Remember me
+                                <label class="control control--checkbox">Se souvenir de moi
                                     <input type="checkbox" name="remember">
                                     <span class="control__indicator"></span>
                                 </label>
                                 @if (Route::has('password.request'))
                                 <a href="{{ route('password.request') }}" class="forget_password">
-									Forgot Password
+									Mot de passe oublié
 								</a>
                                 @endif
                             </div>
@@ -285,10 +285,10 @@ Author: webstrot
 
                                 <input type="submit" value="login" style="visibility:hidden;background:transparent;">
                                 <a onclick="event.preventDefault();
-                                                this.closest('form').submit();" href="">login</a>
+                                                this.closest('form').submit();" href="">Se connecter</a>
                             </div>
                             <div class="dont_have_account jb_cover">
-                                <p>Don’t have an acount ? <a href="{{ route('register') }}">Sign up</a></p>
+                                <p>Vous n'avez pas de compte ? <a href="{{ route('register') }}">Inscrivez-vous</a></p>
                             </div>
                         </div>
                         </form>

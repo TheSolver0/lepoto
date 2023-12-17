@@ -39,6 +39,14 @@ Author: webstrot
     <link rel="stylesheet" type="text/css" href="css/responsive.css" />
     <!--favicon-->
     <link rel="shortcut icon" type="image/png" href="images/icolepoto.png" />
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JTS4X9C6LN');
+</script>
 </head>
 
 <body>
@@ -66,14 +74,14 @@ Author: webstrot
                 <a href="{{ route('accueil') }}">acceuil</a>
             </li>
             <li class="">
-                <a href="{{route('vendre')}}">vendre</a>
+                <a href="#manuel">Manuels</a>
             </li>
             <!-- .has-children -->
             <li class="">
-                <a href="#">profile</a>
+                <a href="#accordion">FAQ</a>
             </li>
-            <li><a href="{{route('contact_us')}}">contact us </a></li>
-            <li><a href="{{ route('login') }}">login</a></li>
+            <li><a href="{{route('contact_us')}}">A propos </a></li>
+            <li><a href="{{ route('login') }}">contact</a></li>
         </ul>
         <!-- .cd-dropdown-content -->
     </nav>
@@ -134,8 +142,8 @@ Author: webstrot
 
                             <!-- Quik search -->
                             <div class="dez-quik-search bg-primary-dark">
-                                <form action="#">
-                                    <input name="search" value="" type="text" class="form-control" placeholder="Type to search...">
+                                <form action="{{route('posts.search')}}" method="get">
+                                    <input name="recherche" value="" type="text" class="form-control" placeholder="Entrez votre recherche...">
                                     <span id="quik-search-remove"><i class="fas fa-times"></i></span>
                                 </form>
                             </div>
@@ -143,9 +151,14 @@ Author: webstrot
                     </li>
                     <li>
                         <div class="jb_profile_box jb_3_profile_box">
-                            <div class="nice-select" tabindex="0"> <span class="current"><img src="images/profile-11.jpg" alt="img"></span>
+                            <div class="nice-select" tabindex="0"> <span class="current">
+                                    @if(!empty(Auth::user()->avatar->path))
+                                        <img src="{{ Storage::url(Auth::user()->avatar->path) }}" alt="img" style="width:50px;height:50px;border-radius:50%;"></span>
+                                    @else
+                                        <img src="images/profile-11.jpg" alt="img" style="width:50px;height:50px;border-radius:50%;"></span>
+                                    @endif </span>
                                 <ul class="list">
-                                    <li><a href="{{route('profile.edit')}}"><i class="fas fa-user-edit"></i>Profile</a>
+                                    <li><a href="{{route('profile.edit')}}"><i class="fas fa-user-edit"></i>Profil</a>
                                     </li>
 
                                     {{-- <li><a href="#"><i class="far fa-calendar-alt"></i> My Calender</a> --}}
@@ -158,39 +171,56 @@ Author: webstrot
                                     </li>
                                     {{-- <li><a href="#"><i class="fas fa-lock"></i>Lock Screen</a> --}}
                                     </li>
-                                    <li><a href="#"><i class="fas fa-sign-in-alt"></i>logout</a>
-                                    </li>
+                                     <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+
+                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                this.closest('form').submit();"><i class="ion-power"></i>Log out</a></li> 
+                            </form></li>
                                 </ul>
                             </div>
                         </div>
                     </li>
                     <li class="btn_hover">
-                         <a href="{{ route('vendre') }}">Ajouter un article</a>
+                         <a href="{{ route('login') }}">Connexion</a>
                     </li>
                 </ul>
             </div>
 
             <div class="mainmenu green_main_menu blue_main_menu d-xl-block d-lg-block d-md-none d-sm-none d-none">
                 <ul class="main_nav_ul menu_2_ul">
-                    <li class="has-mega gc_main_navigation"><a href="{{route('accueil')}}" class="gc_main_navigation ">acceuil</a>
+                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation active_class active_class2 active_class3">acceuil</a>
                         
                     </li>		
-                    <li class="has-mega gc_main_navigation"><a href="{{route('vendre')}}" class="gc_main_navigation">vendre</a>
+                    <li class="has-mega gc_main_navigation"><a href="#manuel" class="gc_main_navigation">Manuels</a>
                      
                     </li>
-                    <li class="has-mega gc_main_navigation kv_sub_menu green_sub_menu blue_sub_menu ">
-                        <a href="{{route('profile.edit')}}" class="gc_main_navigation ">  profile</a>
+                    <li class="has-mega gc_main_navigation kv_sub_menu green_sub_menu blue_sub_menu">
+                        <a href="#accordion" class="gc_main_navigation"> FAQ</a>
                         <!-- mega menu start -->
                         
                     </li>
-                    <li class="has-mega gc_main_navigation"><a href="{{route('profile.edit')}}" class="gc_main_navigation">dashboard</a>
+                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">A   propos</a>
                             
                         </li>
 					
-                   <li><a href="#" class="gc_main_navigation active_class active_class2 active_class3">contact</a></li>
+                   <li><a href="{{route('contact_us')}}" class="gc_main_navigation">contact</a></li>
 
                 </ul>
             </div>
+            <!-- mainmenu end -->
+
+        </div>
+    </div>
+
+    <!-- navi wrapper End -->
+    <!-- slider wrapper Start -->
+                
+    <!-- slider wrapper End -->
+    <!--services wrapper start-->
+        
+    </div>
+    <!-- navi wrapper End -->
             <!-- mainmenu end -->
 
         </div>
@@ -249,7 +279,8 @@ Author: webstrot
                         </div>
                        
                         <p><a href="#">contact.bullGroup@gmail.com </a>
-                                        {{-- <br><a href="#">support@example.com</a></p> --}}
+                        <a href="#">contact.bullGroup@gmail.com </a>
+                        </p>                {{-- <br><a href="#">support@example.com</a></p> --}}
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
@@ -270,18 +301,14 @@ Author: webstrot
     </div>
     <!-- contact info section end -->
 	  <!-- map wrapper  start-->
-    <div class="map_wrapper_top jb_cover">
-		  <div class="map_wrapper map2_wrapper">
-				<div id='map'>
-				</div>
-		</div>
+
 	 <div class="contact_field_wrapper comments_form">
 			<div class="jb_heading_wraper left_rivew_heading">
                 <h3>envoyez un mail</h3>
                 {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, --}}
                     {{-- <br> sed do eiusmod tempor incididunt </p> --}}
             </div>
-				<form>
+				<form action="{{route('mail')}}" method="GET">
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-pos">
@@ -318,7 +345,7 @@ Author: webstrot
                                 <div class="tb_es_btn_div">
                                     <div class="response"></div>
                                     <div class="tb_es_btn_wrapper">
-                                        <button type="button" class="submitForm">envoyer</button>
+                                        <button type="submit" class="submitForm">envoyer</button>
                                     </div>
                                 </div>
                             </div>
@@ -329,7 +356,82 @@ Author: webstrot
 	  <!-- map wrapper  end-->
 	  <!-- news app wrapper start-->
     <!-- news app wrapper end-->
-    <!-- footer Wrapper Start -->        <div class="footer index2_footer_wrapper footer_index3 shaa jb_cover">
+    <!-- footer Wrapper Start -->        
+    <div class="popular_wrapper jb_cover">
+        <div class="slider_small3_shape shapenew">
+            <img src="images/shape4.png" class="img-responsive " alt="img">
+        </div>
+        
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div id="accordion" role="tablist">
+                                <h1>Questions fréquemment posées...</h1>
+                                <div class="card">
+
+                                    <div class="card_pagee" role="tab" id="heading1">
+                                        <h5 class="h5-md">
+								       	    <a class="collapsed" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">
+								          		Is there any auto-renew subscription?
+
+								        	</a>
+								     	 </h5>
+                                    </div>
+
+                                    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="heading1" data-parent="#accordion" style="">
+                                        <div class="card-body">
+
+                                            <div class="card_cntnt">
+                                                <p>This is Photoshop's version of LoremProin gravida nibh vel velit auctor Ipsum. Proin gravida nibh vel velit auctor aliquet....</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="card">
+
+                                    <div class="card_pagee" role="tab" id="heading2">
+                                        <h5 class="h5-md">
+								       	    <a class="collapsed" data-toggle="collapse" href="#collapsethree" role="button" aria-expanded="false" aria-controls="collapsethree">
+								          How many sites can I use my themes on?
+
+								        	</a>
+								     	 </h5>
+                                    </div>
+
+                                    <div id="collapsethree" class="collapse" role="tabpanel" aria-labelledby="heading2" data-parent="#accordion" style="">
+                                        <div class="card-body">
+
+                                            <div class="card_cntnt">
+                                                <p>This is Photoshop's version of LoremProin gravida nibh vel velit auctor Ipsum. Proin gravida nibh vel velit auctor aliquet....</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+    <!--popular wrapper end-->
+    <!--resume wrapper start-->
+    <div class="pricing_table_3 recent_resume_wrapper jb_cover">
+        <div class="slider_small_shape44">
+            <img src="images/p2.png" class="img-responsive " alt="img">
+        </div>
+        
+        <div class="counter_jbbb2 jb_cover">
+
+            <img src="images/line3.png" class="img-responsive" alt="img">
+        </div>
+    </div>
+    <!--resume wrapper end-->
+    <!-- news app wrapper start-->
+    
+    
+    <!-- news app wrapper end-->
+    <!-- footer Wrapper Start -->
+    <div class="footer jb_cover">
         <div class="ft_shape bubble-18">
             <img src="images/bubble2.png" class="img-responsive " alt="img">
         </div>
@@ -338,7 +440,7 @@ Author: webstrot
             <div class="row">
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="footerNav jb_cover">
-                        <a href="#"><img src="images/logolepoto1.png" alt="img" style="width:250px;"></a>
+                        <a href="#"><img src="images/logolepoto.png" alt="img" style="width:250px;"></a>
                         <ul class="footer_first_contact">
                             <li><i class="flaticon-location-pointer"></i>
                                 <p>Douala, Nyalla
@@ -366,7 +468,7 @@ Author: webstrot
                         </ul>
                     </div>
                 </div>
-                                <div class="copyright_left"><i class="fa fa-copyright"></i> 2019 <a href="#">  JB desks.  </a> All Rights Reserved.
+                                <div class="copyright_left"><i class="fa fa-copyright"></i> 2023 <a href="#">  LEPOTO.  </a> Tout droit réservé.
                 </div>
 
                 <div class="clearfix"></div>
@@ -395,27 +497,6 @@ Author: webstrot
 
     <!-- footer Wrapper End -->
 	 <!-- chat box Wrapper start -->
-	<div id="chat-circle" class="btn btn-raised circle_index3"> 
-		<i class="fas fa-comment-alt"></i>
-	</div>
-  <div class="chat-box chat_box_3">
-    <div class="chat-box-header">
-      ChatBot
-      <span class="chat-box-toggle"><i class="fas fa-times"></i></span>
-    </div>
-    <div class="chat-box-body chat_msg_box22">
-      <div class="chat-box-overlay">   
-      </div>
-      <div class="chat-logs">
-       
-      </div><!--chat-log -->
-    </div>
-    <div class="chat-input">      
-      <form action="{{route('mail')}}" method="POST">
-        <input type="text" id="chat-input" placeholder="Send a message..."/>
-      <button type="submit" class="chat-submit" id="chat-submit"><i class="fas fa-paper-plane"></i></button>
-      </form>      
-    </div>
   </div>
   <!-- chat box Wrapper end -->
     <!--custom js files-->
@@ -435,8 +516,30 @@ Author: webstrot
     <script src="js/isotope.pkgd.min.js"></script>
     <script src="js/custom.js"></script>
     <!-- custom js-->
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/656a7923bfb79148e5992a6d/1hgjuidol';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+{{-- <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JTS4X9C6LN');
+</script> --}}
+
 </body>
 
 
 <!-- Mirrored from webstrot.com/html/jbdesk/main_pages/index_III.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Jun 2019 23:02:06 GMT -->
-</html>     
+</html>

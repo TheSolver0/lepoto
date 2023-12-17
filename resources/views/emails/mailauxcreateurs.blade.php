@@ -7,13 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 style='font-weigth:bold;color:Gold;'>Mail de 
-    @if(!empty($user->name))
-        {{ $user->name }}
-    @else utilisateur non connecté
-    @endif
+    <h1 style='font-weigth:bold;color:Gold;'>Mail de {{$nom}} adresse mail : {{$email}}
+
     </h1>
-    <p>{{$contenu}}<b><a href="https://lepoto.stephanetoukam.com">lepoto</a></b></p>
+    <p>bonjour</p>
+    <br>
+    <b><a href="https://lepoto.stephanetoukam.com">lepoto</a></b>
 {{-- 
     @foreach (auth()->user()->notifications as $notification) 
     {
