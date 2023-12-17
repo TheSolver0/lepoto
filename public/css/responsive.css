@@ -98,7 +98,7 @@
 		width:100%;
 	}
 	.contact_field_wrapper{
-		padding-right:150px;
+		width:100%;
 	}
 	.index_2_logo{width:20%;}
 	.index_2_right_menu{width:80%;}
@@ -507,6 +507,7 @@
 		min-height:500px;
 		width:100%;
 		background-position: center -120px;
+		display: none;
 	}
 	.login_form_wrapper{
 		padding:100px 70px 80px 70px;
@@ -922,6 +923,7 @@
 	}
 	.login_banner_wrapper {
 		background-position: center 0;
+		display: none;
 	}
 	.login_form_wrapper{
 		padding:60px 30px;

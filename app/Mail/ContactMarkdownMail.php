@@ -9,26 +9,27 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class NotificationUserMail extends Mailable
+class ContactMarkdownMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $user;
     /**
      * Create a new message instance.
      */
-    public function __construct($user)
+    public $data = [],$message;
+    public function __construct(Array $user,$message)
     {
-        $this->user = $user;
+        $this->data = $user;
+        $this->message = $message;
     }
-
+ 
     /**
      * Get the message envelope.
      */
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Notification User Mail',
+            subject: 'Contact Markdown Mail',
         );
     }
 
@@ -38,7 +39,7 @@ class NotificationUserMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'emails.notification-user-mail',
+            markdown: 'emails.contactmail',
         );
     }
 

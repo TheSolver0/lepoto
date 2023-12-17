@@ -255,6 +255,7 @@ Author: webstrot
             </div>
         </div>
     </div>
+    
     <!-- top header wrapper end -->
     <!-- company details wrapper start-->
     <div class="company_details_wrapper jb_cover">
@@ -291,6 +292,9 @@ Author: webstrot
                 </div>
                 <div class="col-lg-8 col-md-12 col-sm-12 col-12">
                     <div class="jb_listing_single_overview jb_cover">
+                    <form id="send-verification" method="post" action="{{ route('verification.send') }}">
+                        @csrf
+                    </form>
                     <form method="POST" id="informations" action="{{ route('update',['id' => $user->id]) }}" enctype="multipart/form-data" style="margin:50px;">
                         @csrf
                         @method('PATCH')
@@ -365,7 +369,7 @@ Author: webstrot
                                 <p>Avez-vous un compte ? <a href="{{route('login')}}">connectez vous</a></p>
                             </div>
                         </form>
-                        
+                    @include('profile.partials.delete-user-form')
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 col-12">
@@ -425,7 +429,8 @@ Author: webstrot
                 <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-12">
                     <div class="jb_heading_wraper">
 
-                        <h3>Mes livres</h3>
+                        <h3>Mes livres <a href="{{route('vendre')}}" class="btn btn-success">Enregistrer un nouveau livre ?</a></h3>
+
 
                         {{-- <p>Faites votre choix ....</p> --}}
                     </div>
@@ -604,13 +609,13 @@ Author: webstrot
                                                             </li>
                                                             <li>
                                                             <form method="GET" action="{{ route('posts.show')}}">
-                                                                <input type="hidden" name="id" value="{{$post->id}}">
+                                                                <input type="hidden" name="id" value="{{$post->id}}" style="display:none;">
                                                                 <a href=""><input type="submit" value="Description" style="background:transparent;border:1px solid transparent;cursor:pointer;"></a>
                                                             </form>
                                                             </li>
                                                             <li>
                                                         @if(!empty($post->auteur->users_tel))
-                                                            <a href="{{route("updatelivre" ,['id'=>$post->id ])}}"><li> Modifier Livre</a></li>
+                                                            <a href="{{route("updatelivre" ,['id'=>$post->id ])}}" style=""><li> Modifier</a></li>
                                                         @else
                                                             <form method="GET" action="{{ route('updatelivre')}}">
                                                                 <input type="hidden" name="id" value="{{$post->id}}">
@@ -625,7 +630,7 @@ Author: webstrot
                                                             <a href="{{route('login')}}" data-toggle="modal" data-target="#myModal01">Acheter</a></li>
                                                             @endif --}}
                                                         </ul>
-                                                    <a href="" class="btn btn-danger" style="margin-left:15px;margin-top:18px; border-radius:0 !important;">Supprimer</a>
+                                                    <a href="" class="btn btn-danger" style="margin-left:15px;margin-top:20px;height:36px !important; border-radius:0 !important;">Supprimer</a>
                                                         
                                                     </div>
                                                 </div>

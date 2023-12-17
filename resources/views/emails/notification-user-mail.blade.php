@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,20 @@
     {
         {{ $notification }}
     }
-    @endforeach --}}
+    @endforeach 
 
 </body>
-</html>
+</html> --}}
+<x-mail::message>
+# Felicitation pour votre inscription {{ $user->name }}
+
+
+{{-- The body of your message. --}}
+La communauté de lepoto est fière de vous acceuillir {{':)'}}.
+<x-mail::button :url="'https://lepoto.stephanetoukam.com'" :color="'primary'">
+Allez sur lepoto
+</x-mail::button>
+
+Merci d'utiliser notre application,<br>
+{{ config('app.name') }}
+</x-mail::message>

@@ -151,9 +151,14 @@ Author: webstrot
                     </li>
                     <li>
                         <div class="jb_profile_box jb_3_profile_box">
-                            <div class="nice-select" tabindex="0"> <span class="current"><img src="images/profile-11.jpg" alt="img"></span>
+                            <div class="nice-select" tabindex="0"> <span class="current">
+                                    @if(!empty(Auth::user()->avatar->path))
+                                        <img src="{{ Storage::url(Auth::user()->avatar->path) }}" alt="img" style="width:50px;height:50px;border-radius:50%;"></span>
+                                    @else
+                                        <img src="images/profile-11.jpg" alt="img" style="width:50px;height:50px;border-radius:50%;"></span>
+                                    @endif </span>
                                 <ul class="list">
-                                    <li><a href="#accordion"><i class="fas fa-user-edit"></i>FAQ</a>
+                                    <li><a href="{{route('profile.edit')}}"><i class="fas fa-user-edit"></i>Profil</a>
                                     </li>
 
                                     {{-- <li><a href="#"><i class="far fa-calendar-alt"></i> My Calender</a> --}}

@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMarkdownMail;
 use App\Mail\MailAuxCreateur;
 use App\Models\Auteur;
 use App\Models\Image;
 use App\Models\Post;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
 
@@ -182,11 +184,13 @@ class PostController extends Controller
         return redirect('/profile');
     
     }
-    public function mail()
+    public function mail(Request $request)
     {
-        $contenu = $_POST["contenu"];
-        $user = Auth::user();
-        return (new MailAuxCreateur($user,$contenu))
-        ->to("lucfotso0@gmail.com");
+        $user = ['nom' => $request->full_name, 'email' => $request->email];
+        $message = $request->message;
+        
+        Mail::to("lucfotso0@gmail.com")->send(new ContactMarkdownMail($user,$message));
+
+        return redirect('/contact');
     }
 }
