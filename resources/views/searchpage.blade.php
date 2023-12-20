@@ -398,7 +398,10 @@ Author: webstrot
                                                             </form>
                                                             </li>
                                                             <li>
+                                                            @if(!empty($post->auteur->users_name) || !empty($post->auteur->users_tel))
                                                             <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
+                                                            @else
+                                                            @endif
                                                             </li>
                                                             
                                                             {{-- @if(!empty(Auth::user()))

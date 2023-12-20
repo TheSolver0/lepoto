@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ContactMarkdownMail;
+use App\Mail\SignalerPostMarkdownMail;
 use App\Mail\MailAuxCreateur;
 use App\Models\Auteur;
 use App\Models\Image;
 use App\Models\Post;
+use App\Models\User;
+use App\Models\PostsDelete;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -46,6 +49,19 @@ class PostController extends Controller
                         ->where('title', 'LIKE' ,"%$titreconnu%" )
                         ->orderBy('id',$reqtri)
                         ->paginate(4);
+
+        return view('searchpage',compact('posts'));
+    }
+    public function postAuteur(Request $request)
+    {
+        $tel = $request->tel;
+        $auteur = User::where('tel','LIKE',$tel)->get();
+        foreach($auteur as $aut)
+        {
+            $id = $aut->id;
+        }
+        // dd($auteur);
+        $posts = Post::where('users_id','LIKE',"$id")->paginate(4);
 
         return view('searchpage',compact('posts'));
     }
@@ -192,5 +208,32 @@ class PostController extends Controller
         Mail::to("lucfotso0@gmail.com")->send(new ContactMarkdownMail($user,$message));
 
         return redirect('/contact');
+    }
+    public function signalerPost(Request $request)
+    {
+        $idpost = $request->id;
+        $raison = $request->raison;
+        
+        Mail::to("lucfotso0@gmail.com")->send(new SignalerPostMarkdownMail($idpost,$raison));
+        
+        return redirect('/');
+    }
+    public function suppView($id)
+    {
+        return view('deletepost',compact('id'));
+    }
+    public function supp(Request $request)
+    {
+        $id = $request->idPost;
+        $post = Post::findOrFail($id);
+        $postSupp = PostsDelete::create([
+            'title' => $post->title,
+            'prix' => $post->prix,
+            'ville' => $post->ville,
+            'description' => $post->description,
+            'users_id' => $post->users_id
+        ]);
+        $post->delete();
+        return redirect('/');
     }
 }

@@ -74,14 +74,14 @@ Author: webstrot
                 <a href="{{ route('accueil') }}">acceuil</a>
             </li>
             <li class="">
-                <a href="#manuel">Manuels</a>
+                <a href="{{route('manuel')}}">Manuels</a>
             </li>
             <!-- .has-children -->
             <li class="">
                 <a href="#accordion">FAQ</a>
             </li>
             <li><a href="{{route('contact_us')}}">A propos </a></li>
-            <li><a href="{{ route('login') }}">contact</a></li>
+            <li><a href="{{route('contact_us')}}">contact</a></li>
         </ul>
         <!-- .cd-dropdown-content -->
     </nav>
@@ -189,10 +189,10 @@ Author: webstrot
 
             <div class="mainmenu green_main_menu blue_main_menu d-xl-block d-lg-block d-md-none d-sm-none d-none">
                 <ul class="main_nav_ul menu_2_ul">
-                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation active_class active_class2 active_class3">acceuil</a>
+                    <li class="has-mega gc_main_navigation"><a href="{{route('accueil')}}" class="gc_main_navigation ">acceuil</a>
                         
                     </li>		
-                    <li class="has-mega gc_main_navigation"><a href="#manuel" class="gc_main_navigation">Manuels</a>
+                    <li class="has-mega gc_main_navigation"><a href="{{route('manuel')}}" class="gc_main_navigation">Manuels</a>
                      
                     </li>
                     <li class="has-mega gc_main_navigation kv_sub_menu green_sub_menu blue_sub_menu">
@@ -204,7 +204,7 @@ Author: webstrot
                             
                         </li>
 					
-                   <li><a href="{{route('contact_us')}}" class="gc_main_navigation">contact</a></li>
+                   <li><a href="{{route('contact_us')}}" class="gc_main_navigation active_class active_class2 active_class3">contact</a></li>
 
                 </ul>
             </div>
@@ -279,7 +279,7 @@ Author: webstrot
                         </div>
                        
                         <p><a href="#">contact.bullGroup@gmail.com </a>
-                        <a href="#">contact.bullGroup@gmail.com </a>
+                        <a href="#">lucfotso0@gmail.com </a>
                         </p>                {{-- <br><a href="#">support@example.com</a></p> --}}
                     </div>
                 </div>

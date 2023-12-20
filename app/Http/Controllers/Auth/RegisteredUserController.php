@@ -31,6 +31,7 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
+    
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
@@ -66,7 +67,7 @@ class RegisteredUserController extends Controller
         // $user->notify(new UserRegisteredNotification);
         sendWelcomeUserMailJob::dispatch($user);
 
-        Auth::login($user);
+        // Auth::login($user);
         
         return redirect(RouteServiceProvider::Dash);
     }

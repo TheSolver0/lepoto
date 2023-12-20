@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html 
+{
+    box-sizing: border-box;
+    /* font-size: 1.1vw; */
+}
+*,
+*::after,
+*::before 
+{
+    box-sizing: inherit;
+}
+
+::selection 
+{
+    background: rgb(105, 200, 255);
+    color: white;
+}
+body
+{
+    background-color: #eff3f5 !important;
+    /* background-image: linear-gradient(100deg,lightblue,lightpink); */
+}
+a
+{
+    text-decoration: none !important;
+}
+.contenu
+{
+    margin:100px;
+}
+.logo
+{
+    width: 100px;
+    margin-left:100px;
+}
+#pagefooter1
+{
+    position: fixed;
+    z-index: 10;
+    /* overflow: hidden; */
+    text-align: center;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:#232f42;
+    /* border-top: 1px solid rgb(151, 150, 150); */
+}  
+
+
+/* Responsive pour le menu  Ecrans petits*/
+@media  (max-width:500px)
+{
+    .contenu
+    {
+        margin:0px;
+    }
+    .nav a
+    {
+        padding: .5em;
+    }
+    /* #pagefooter1
+    {
+        position: fixed;
+    } */
+}
+.container-fluid
+{
+    background: transparent !important;
+    /* position: absolute; */
+    margin: 100px;
+    bottom: 100px;
+}
+.container-fluid img
+{
+    max-width: 100%;
+    max-height: 100%;
+}
+.card
+{
+    background: white;
+    border: 1px solid #eff3f5 !important;
+    margin: 30px !important;
+    box-shadow: 0px 4px 8px 0px rgba(0, 36, 90, 0.07);
+}
+.card-body button
+{
+    /* margin-bottom: 20px !important; */
+    margin: 15px !important;
+    margin-left: -9px !important;
+    /* margin-right: -5px !important; */
+}
+.improfile
+{
+    width: 54px;
+    height: 54px;
+}
+/* Responsive pour le menu  Ecrans moyens*/
+@media  (max-width:888px)
+{
+    .card-group
+    {
+        display: block !important;
+    }
+
+}
