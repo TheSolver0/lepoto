@@ -66,7 +66,7 @@ Author: webstrot
                 <a href="{{ route('accueil') }}">acceuil</a>
             </li>
             <li class="">
-                <a href="{{ route('accueil') }}#manuel">Manuels</a>
+                <a href="{{ route('accueil') }}{{route('manuel')}}">Manuels</a>
             </li>
             <!-- .has-children -->
             <li class="">

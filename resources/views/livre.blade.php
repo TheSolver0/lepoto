@@ -74,7 +74,7 @@ Author: webstrot
                 <a href="{{ route('accueil') }}">acceuil</a>
             </li>
             <li class="">
-                <a href="#manuel">Manuels</a>
+                <a href="{{route('manuel')}}">Manuels</a>
             </li>
             <!-- .has-children -->
             <li class="">
@@ -183,7 +183,7 @@ Author: webstrot
                     <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation active_class active_class2 active_class3">acceuil</a>
                         
                     </li>		
-                    <li class="has-mega gc_main_navigation"><a href="#manuel" class="gc_main_navigation">Manuels</a>
+                    <li class="has-mega gc_main_navigation"><a href="{{route('manuel')}}" class="gc_main_navigation">Manuels</a>
                      
                     </li>
                     <li class="has-mega gc_main_navigation kv_sub_menu green_sub_menu blue_sub_menu">
@@ -307,9 +307,9 @@ Author: webstrot
                             <ul>
                                 {{-- <li><i class="fas fa-globe-asia"></i>&nbsp;&nbsp; <a href="">whatsapp du vendeur</a></li> --}}
                                  @if(!empty($post->auteur))   
-                                <li><i class="fas fa-globe-asia"></i>&nbsp;&nbsp; <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}">whatsapp du vendeur</a></li>
+                                <li><i class="fas fa-globe-asia"></i>&nbsp;&nbsp; <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}">Contactez le vendeur</a></li>
                                 @else
-                                <li><i class="fas fa-file-download"></i>&nbsp;&nbsp; <a href="{{route('login')}}">Connectez ou Inscrivez vous d' abord</a></li> 
+                                {{-- <li><i class="fas fa-file-download"></i>&nbsp;&nbsp; <a href="{{route('login')}}">Connectez ou Inscrivez vous d' abord</a></li>  --}}
                                 @endif
                             </ul>
                         </div>

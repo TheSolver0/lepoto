@@ -74,7 +74,7 @@ Author: webstrot
                 <a href="{{ route('accueil') }}">acceuil</a>
             </li>
             <li class="">
-                <a href="#manuel">Manuels</a>
+                <a href="{{route('manuel')}}">Manuels</a>
             </li>
             <!-- .has-children -->
             <li class="">
@@ -183,7 +183,7 @@ Author: webstrot
                     <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation active_class active_class2 active_class3">acceuil</a>
                         
                     </li>		
-                    <li class="has-mega gc_main_navigation"><a href="#manuel" class="gc_main_navigation">Manuels</a>
+                    <li class="has-mega gc_main_navigation"><a href="{{route('manuel')}}" class="gc_main_navigation">Manuels</a>
                      
                     </li>
                     <li class="has-mega gc_main_navigation kv_sub_menu green_sub_menu blue_sub_menu">

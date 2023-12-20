@@ -74,7 +74,7 @@ Author: webstrot
                 <a href="{{ route('accueil') }}">acceuil</a>
             </li>
             <li class="">
-                <a href="#manuel">Manuels</a>
+                <a href="{{route('manuel')}}">Manuels</a>
             </li>
             <!-- .has-children -->
             <li class="">
@@ -192,7 +192,7 @@ Author: webstrot
                     <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation active_class active_class2 active_class3">acceuil</a>
                         
                     </li>		
-                    <li class="has-mega gc_main_navigation"><a href="#manuel" class="gc_main_navigation">Manuels</a>
+                    <li class="has-mega gc_main_navigation"><a href="{{route('manuel')}}" class="gc_main_navigation">Manuels</a>
                      
                     </li>
                     <li class="has-mega gc_main_navigation kv_sub_menu green_sub_menu blue_sub_menu">
@@ -586,7 +586,13 @@ Vacancies Right Now!.</h2>
                                                         <img src="{{ Storage::url($post->image->path) }}" alt="post_img" style="width:170px;height:200px;" />
                                                     @endif
                                                     @if(!empty($post->auteur->users_name) || !empty($post->auteur->users_tel))
-                                                        <br> <span>{{$post->auteur->users_name}} </span>
+                                                        <br> 
+                                                        <form action="{{route('posts.auteur')}}" method="get">
+                                                            @csrf
+                                                            @method('GET')
+                                                            <input type="hidden" name = "tel" value="{{$post->auteur->users_tel}}">
+                                                            <button type="submit" style="" class="btn btn-light"><span>{{$post->auteur->users_name}} </span></button>
+                                                        </form>
                                                     @else 
                                                         Auteur
                                                     @endif 
@@ -612,11 +618,15 @@ Vacancies Right Now!.</h2>
                                                             </form>
                                                             </li>
                                                             <li>
-                                                        @if(!empty($post->auteur->users_tel))
-                                                            <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
-                                                        @else
-                                                            <a href="https://wa.me/698549128/?text=Bonjour  Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
-                                                        @endif
+                                                            
+                                                            <form method="GET" action="">
+                                                                <input type="hidden" name="id" value="{{$post->id}}">
+                                                                @if(!empty($post->auteur->users_tel))
+                                                                <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"><input type="submit" value="Acheter" style="background:transparent;border:1px solid transparent;cursor:pointer;"></a>
+                                                                @else
+                                                                <a href="https://wa.me/698549128/?text=Bonjour  Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
+                                                                @endif
+                                                            </form>
                                                             </li>
                                                             
                                                             {{-- @if(!empty(Auth::user()))
@@ -625,8 +635,16 @@ Vacancies Right Now!.</h2>
                                                             <a href="{{route('login')}}" data-toggle="modal" data-target="#myModal01">Acheter</a></li>
                                                             @endif --}}
                                                         </ul>
-                                                    <a href="" class="btn btn-danger" style="margin-left:25px;margin-top:18px; border-radius:0 !important;">Signaler</a>
-                                                        
+                                                        <form method="GET" action="{{route('signalerPost')}}"
+                                                            onmouseover="event.preventDefault();
+                                                                    this.querySelector('.raison').style.display='';"
+                                                            onmouseout="event.preventDefault();
+                                                                    this.querySelector('.raison').style.display='none';">
+                                                            <input type="hidden" name="id" value="{{$post->id}}">
+                                                               
+                                                            <input type="text" name="raison" class="raison" placeholder="Entrez la raison du signalement" style="display:none;">
+                                                            <button type="submit" class="btn btn-danger" name="signale" style="margin-left:25px;margin-top:18px; border-radius:0 !important;">Signaler</button>
+                                                        </form>
                                                     </div>
                                                 </div>
 
@@ -1176,11 +1194,12 @@ s0.parentNode.insertBefore(s1,s0);
 <!--End of Tawk.to Script-->
 
 {{-- <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-JTS4X9C6LN');
+    const signale = document.querySelector("#signale");
+    const raison = document.querySelector("#raison");
+    signale.addEventListener("mouseover",() =>
+    {
+        raison.style.display='';
+    })
 </script> --}}
 
 </body>

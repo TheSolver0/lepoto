@@ -7,6 +7,7 @@ use App\Jobs\sendWelcomeUserMailJob;
 use App\Models\Avatar;
 use App\Models\User;
 use App\Models\Post;
+use App\Models\UsersDelete;
 use App\Notifications\UserRegisteredNotification;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -89,4 +90,22 @@ class UserController extends Controller
 
         return redirect('/profile');
     }
+    public function suppView($id)
+    {
+        return view('deleteuser',compact('id'));
+    }
+    public function supp(Request $request)
+    {
+        $id = $request->idUser;
+        $user = User::findOrFail($id);
+        $userDel = UsersDelete::create([
+            'name' => $user->name,
+            'email' => $user->email,
+            'tel' => $user->tel,
+            'password' => $user->password,
+        ]);
+        $user->delete();
+        return redirect('/');
+    }
+
 }

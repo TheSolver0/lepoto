@@ -40,7 +40,7 @@
                 <td>{{$user->email}}</td>
                 <td>{{$user->tel}}</td>
                 <td><a name="" id="" class="btn btn-warning" href="#" role="button">Suspendre</a></td>
-                <td><a name="" id="" class="btn btn-danger" href="#" role="button">Supprimer</a></td>
+                <td><a name="" id="" class="btn btn-danger" href="{{route('suppressionCompte',['id'=>$user->id])}}" role="button">Supprimer</a></td>
             </tr>
     @empty
         Aucun users
@@ -72,7 +72,7 @@
                 <td>{{$post->users_id}}</td>
                 @endif
                 {{-- <td><a name="" id="" class="btn btn-warning" href="#" role="button">Suspendre</a></td> --}}
-                <td><a name="" id="" class="btn btn-danger" href="#" role="button">Supprimer</a></td>
+                <td><a name="" id="" class="btn btn-danger" href="{{route('suppressionPost',['id'=>$post->id])}}" role="button">Supprimer</a></td>
             </tr>
     @empty
         Aucun users

@@ -74,7 +74,7 @@ Author: webstrot
                 <a href="{{ route('accueil') }}">acceuil</a>
             </li>
             <li class="">
-                <a href="#manuel">Manuels</a>
+                <a href="{{route('manuel')}}">Manuels</a>
             </li>
             <!-- .has-children -->
             <li class="">
@@ -188,7 +188,7 @@ Author: webstrot
                     <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation active_class active_class2 active_class3">acceuil</a>
                         
                     </li>		
-                    <li class="has-mega gc_main_navigation"><a href="#manuel" class="gc_main_navigation">Manuels</a>
+                    <li class="has-mega gc_main_navigation"><a href="{{route('manuel')}}" class="gc_main_navigation">Manuels</a>
                      
                     </li>
                     <li class="has-mega gc_main_navigation kv_sub_menu green_sub_menu blue_sub_menu">
@@ -366,10 +366,11 @@ Author: webstrot
                                      href="">Enregistrer</a>
                             </div>
                             <div class="dont_have_account jb_cover">
-                                <p>Avez-vous un compte ? <a href="{{route('login')}}">connectez vous</a></p>
+                                {{-- <p>Avez-vous un compte ? <a href="{{route('login')}}">connectez vous</a></p> --}}
+                            <a name="" id="" class="btn btn-danger" href="{{route('suppressionCompte',['id'=>$user->id])}}" role="button">Supprimer le compte</a></td>
                             </div>
                         </form>
-                    @include('profile.partials.delete-user-form')
+                    
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 col-12">
@@ -486,7 +487,7 @@ Author: webstrot
                     </div>
                     </div>
                 </div>
-                <div class="job_filter_listing_wrapper jb_cover" id="#manuels">
+                <div class="job_filter_listing_wrapper jb_cover" id="{{route('manuel')}}s">
         {{-- <div class="container">
 
             <div class="row">
@@ -630,7 +631,8 @@ Author: webstrot
                                                             <a href="{{route('login')}}" data-toggle="modal" data-target="#myModal01">Acheter</a></li>
                                                             @endif --}}
                                                         </ul>
-                                                    <a href="" class="btn btn-danger" style="margin-left:15px;margin-top:20px;height:36px !important; border-radius:0 !important;">Supprimer</a>
+                                                    {{-- <td><a name="" id="" class="btn btn-danger" href="{{route('suppressionPost',['id'=>$post->id])}}" role="button">Supprimer</a></td> --}}
+                                                    <a href="{{route('suppressionPost',['id'=>$post->id])}}" class="btn btn-danger" style="margin-left:15px;margin-top:20px;height:36px !important; border-radius:0 !important;">Supprimer</a>
                                                         
                                                     </div>
                                                 </div>
@@ -861,28 +863,19 @@ Author: webstrot
 
     <!-- footer Wrapper End -->
 	 <!-- chat box Wrapper start -->
-	<div id="chat-circle" class="btn btn-raised"> 
-		<i class="fas fa-comment-alt"></i>
-	</div>
-  <div class="chat-box">
-    <div class="chat-box-header">
-      ChatBot
-      <span class="chat-box-toggle"><i class="fas fa-times"></i></span>
-    </div>
-    <div class="chat-box-body">
-      <div class="chat-box-overlay">   
-      </div>
-      <div class="chat-logs">
-       
-      </div><!--chat-log -->
-    </div>
-    <div class="chat-input">      
-      <form>
-        <input type="text" id="chat-input" placeholder="Send a message..."/>
-      <button type="submit" class="chat-submit" id="chat-submit"><i class="fas fa-paper-plane"></i></button>
-      </form>      
-    </div>
-  </div>
+	    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/656a7923bfb79148e5992a6d/1hgjuidol';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
   <!-- chat box Wrapper end -->
     <!--custom js files-->
     <script src="js/jquery-3.3.1.min.js"></script>
