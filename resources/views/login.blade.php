@@ -5,10 +5,10 @@ Version: 1.0.0
 Author: webstrot
 
 -->
-<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if IE 8]> <html lang="fr" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="fr" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
-<html lang="zxx">
+<html lang="fr">
 <!--[endif]-->
 
 
@@ -16,11 +16,11 @@ Author: webstrot
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8" />
-    <title>lepoto</title>
+    <title>lepoto | se connecter</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta name="description" content="JB desks,job portal,job" />
-    <meta name="keywords" content="JB desks,job portal,job" />
-    <meta name="author" content="" />
+                        <meta name="description" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" />
+                        <meta name="keywords" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" />
+                        <meta name="author" content="BULL" />
     <meta name="MobileOptimized" content="320" />
     <!--Template style -->
     <link rel="stylesheet" type="text/css" href="css/animate.css" />
@@ -373,111 +373,159 @@ Author: webstrot
     <!-- news app wrapper end-->
     <!-- footer Wrapper Start -->
     <div class="footer jb_cover">
-        <div class="ft_shape bubble-18">
-            <img src="images/bubble2.png" class="img-responsive " alt="img">
-        </div>
+    <div class="ft_shape bubble-18">
+        <img src="images/bubble2.png" class="img-responsive " alt="img">
+    </div>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="footerNav jb_cover">
-                        <a href="#"><img src="images/logolepoto.png" alt="img" style="width:250px;"></a>
-                        <ul class="footer_first_contact">
-                            <li><i class="flaticon-location-pointer"></i>
-                                <p>Douala, Nyalla
-                                </p>
-                            </li>
-                            <li><i class="flaticon-telephone"></i>
-                                <p>698-549-128
-                            </li>
-                            <li><i class="flaticon-envelope"></i><a href="#">contact.lepoto@gmail.com </a>
-                                <br>
-                                <a href="#">support@gmail.com</a>
-                            </li>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6 col-12">
+                <div class="footerNav jb_cover">
+                    <a href="#"><img src="images/logolepoto.png" alt="img" style="width:250px;"></a>
+                    <ul class="footer_first_contact">
+                        <li><i class="flaticon-location-pointer"></i>
+                            <p>Douala, Nyalla
+                            </p>
+                        </li>
+                        <li><i class="flaticon-telephone"></i>
+                            <p>698-549-128
+                        </li>
+                        <li><i class="flaticon-envelope"></i><a href="#">contact.lepoto@gmail.com </a>
+                            <br>
+                            <a href="#">support@gmail.com</a>
+                        </li>
 
-                        </ul>
+                    </ul>
 
-                        <ul class="icon_list_news index2_icon_list jb_cover">
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li>
-                                <a href="#"><i class="fab fa-twitter"></i>
-                                    </a>
-                            </li>
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                            <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                    <ul class="icon_list_news index2_icon_list jb_cover">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li>
+                            <a href="#"><i class="fab fa-twitter"></i>
+                                </a>
+                        </li>
+                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
 
-                        </ul>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-9 col-sm-6 col-12">
+                <div class="footerNav jb_cover footer_border_displ">
+              
+                    <div class="contact_field_wrapper comments_form">
+                    <div class="jb_heading_wraper left_rivew_heading">
+                    <h3>envoyez nous un mail(laissez des avis ou autres)</h3>
+                    {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, --}}
+                        {{-- <br> sed do eiusmod tempor incididunt </p> --}}
                     </div>
-                </div>
-                                <div class="copyright_left"><i class="fa fa-copyright"></i> 2023 <a href="#">  LEPOTO.  </a> Tout droit réservé.
-                </div>
+                    <form action="{{route('mail')}}" method="GET">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-pos">
+                                        <div class="form-group i-name">
 
-                <div class="clearfix"></div>
+                                            <input type="text" class="form-control require" name="full_name"  id="namTen-first" placeholder=" Name*">
+                                            <i class="fas fa-user-alt"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- /.col-md-12 -->
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-e">
+                                        <div class="form-group i-email">
+                                            <label class="sr-only">Email </label>
+                                            <input type="email" class="form-control require" name="email"  id="emailTen" placeholder=" Email *" data-valid="email" data-error="Email should be valid.">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div class="col-md-12">
+                                    <div class="form-m">
+                                        <div class="form-group i-message">
+
+                                            <textarea class="form-control require" name="message" rows="5" id="messageTen" placeholder=" Message"></textarea>
+                                            <i class="fas fa-comment"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.col-md-12 -->
+                                <div class="col-md-12">
+                                    <div class="tb_es_btn_div">
+                                        <div class="response"></div>
+                                        <div class="tb_es_btn_wrapper">
+                                            <button type="submit" class="submitForm">envoyer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                </div>
             </div>
-            <!--/.row-->
+                <div class="copyright_left"><i class="fa fa-copyright"></i> 2023 <a href="#">  LEPOTO.  </a> Tout droit réservé.
+            </div>
+
+            <div class="clearfix"></div>
         </div>
-        <!--/.container-->
-        <div class="waveWrapper waveAnimation">
-            <div class="waveWrapperInner bgTop gradient-color">
-                <div class="wave waveTop wavetop_1 wavetop_3"></div>
-            </div>
-            <div class="waveWrapperInner bgMiddle">
-                <div class="wave waveMiddle"></div>
-            </div>
-            <div class="waveWrapperInner bgBottom">
-                <div class="wave waveBottom wavebottom_1 wavebottom_3"></div>
-            </div>
+        <!--/.row-->
+    </div>
+    <!--/.container-->
+    <div class="waveWrapper waveAnimation">
+        <div class="waveWrapperInner bgTop gradient-color">
+            <div class="wave waveTop wavetop_1 wavetop_3"></div>
         </div>
-        <div class="ft_shape2 bubble-190">
-            <img src="images/bubble2.png" class="img-responsive " alt="img">
+        <div class="waveWrapperInner bgMiddle">
+            <div class="wave waveMiddle"></div>
         </div>
-        <div class="ft_shape1 bubble-19">
-            <img src="images/bubble2.png" class="img-responsive " alt="img">
+        <div class="waveWrapperInner bgBottom">
+            <div class="wave waveBottom wavebottom_1 wavebottom_3"></div>
         </div>
     </div>
+    <div class="ft_shape2 bubble-190">
+        <img src="images/bubble2.png" class="img-responsive " alt="img">
+    </div>
+    <div class="ft_shape1 bubble-19">
+        <img src="images/bubble2.png" class="img-responsive " alt="img">
+    </div>
+</div>
+
 
     <!-- footer Wrapper End -->
 	 <!-- chat box Wrapper start -->
-	<div id="chat-circle" class="btn btn-raised circle_index3"> 
-		<i class="fas fa-comment-alt"></i>
 	</div>
-  <div class="chat-box chat_box_3">
-    <div class="chat-box-header">
-      ChatBot
-      <span class="chat-box-toggle"><i class="fas fa-times"></i></span>
-    </div>
-    <div class="chat-box-body chat_msg_box22">
-      <div class="chat-box-overlay">   
-      </div>
-      <div class="chat-logs">
-       
-      </div><!--chat-log -->
-    </div>
-    <div class="chat-input">      
-      <form action="{{route('mail')}}" method="POST">
-        <input type="text" id="chat-input" placeholder="Send a message..."/>
-      <button type="submit" class="chat-submit" id="chat-submit"><i class="fas fa-paper-plane"></i></button>
-      </form>      
-    </div>
-  </div>
-  <!-- chat box Wrapper end -->
-    <!--custom js files-->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/modernizr.js"></script>
-    <script src="js/jquery.menu-aim.js"></script>
-    <script src="js/plugin.js"></script>
-    <script src="js/owl.carousel.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <script src="js/jquery.countTo.js"></script>
-    <script src="js/jquery.magnific-popup.js"></script>
-    <script src="js/dropify.min.js"></script>
-    <script src="js/jquery.inview.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/imagesloaded.pkgd.min.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/custom.js"></script>
-    <!-- custom js-->
+<!-- chat box Wrapper end -->
+<!--custom js files-->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/modernizr.js"></script>
+<script src="js/jquery.menu-aim.js"></script>
+<script src="js/plugin.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/jquery.countTo.js"></script>
+<script src="js/jquery.magnific-popup.js"></script>
+<script src="js/dropify.min.js"></script>
+<script src="js/jquery.inview.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/imagesloaded.pkgd.min.js"></script>
+<script src="js/isotope.pkgd.min.js"></script>
+<script src="js/custom.js"></script>
+<!-- custom js-->
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/656a7923bfb79148e5992a6d/1hgjuidol';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
     <script>
         const eye = document.querySelector("#oeilomdp");
         const eyeoff = document.querySelector("#oeilfmdp");

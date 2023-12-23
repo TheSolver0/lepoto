@@ -5,10 +5,10 @@ Version: 1.0.0
 Author: webstrot
 
 -->
-<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if IE 8]> <html lang="fr" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="fr" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
-<html lang="zxx">
+<html lang="fr">
 <!--[endif]-->
 
 
@@ -16,11 +16,11 @@ Author: webstrot
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8" />
-    <title>lepoto</title>
+    <title>lepoto | recherche</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta name="description" content="JB desks,job portal,job" />
-    <meta name="keywords" content="JB desks,job portal,job" />
-    <meta name="author" content="" />
+                        <meta name="description" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" />
+                        <meta name="keywords" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" />
+                        <meta name="author" content="BULL" />
     <meta name="MobileOptimized" content="320" />
     <!--Template style -->
     <link rel="stylesheet" type="text/css" href="css/animate.css" />
@@ -691,46 +691,39 @@ Author: webstrot
 
     <!-- footer Wrapper End -->
 	 <!-- chat box Wrapper start -->
-	<div id="chat-circle" class="btn btn-raised circle_index3"> 
-		<i class="fas fa-comment-alt"></i>
 	</div>
-  <div class="chat-box chat_box_3">
-    <div class="chat-box-header">
-      ChatBot
-      <span class="chat-box-toggle"><i class="fas fa-times"></i></span>
-    </div>
-    <div class="chat-box-body chat_msg_box22">
-      <div class="chat-box-overlay">   
-      </div>
-      <div class="chat-logs">
-       
-      </div><!--chat-log -->
-    </div>
-    <div class="chat-input">      
-      <form action="{{route('mail')}}" method="POST">
-        <input type="text" id="chat-input" placeholder="Send a message..."/>
-      <button type="submit" class="chat-submit" id="chat-submit"><i class="fas fa-paper-plane"></i></button>
-      </form>      
-    </div>
-  </div>
-  <!-- chat box Wrapper end -->
-    <!--custom js files-->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/modernizr.js"></script>
-    <script src="js/jquery.menu-aim.js"></script>
-    <script src="js/plugin.js"></script>
-    <script src="js/owl.carousel.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <script src="js/jquery.countTo.js"></script>
-    <script src="js/jquery.magnific-popup.js"></script>
-    <script src="js/dropify.min.js"></script>
-    <script src="js/jquery.inview.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/imagesloaded.pkgd.min.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/custom.js"></script>
-    <!-- custom js-->
+<!-- chat box Wrapper end -->
+<!--custom js files-->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/modernizr.js"></script>
+<script src="js/jquery.menu-aim.js"></script>
+<script src="js/plugin.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/jquery.countTo.js"></script>
+<script src="js/jquery.magnific-popup.js"></script>
+<script src="js/dropify.min.js"></script>
+<script src="js/jquery.inview.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/imagesloaded.pkgd.min.js"></script>
+<script src="js/isotope.pkgd.min.js"></script>
+<script src="js/custom.js"></script>
+<!-- custom js-->
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/656a7923bfb79148e5992a6d/1hgjuidol';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
 </body>
 
 
