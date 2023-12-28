@@ -22,11 +22,12 @@
 	}
 	.contact_field_wrapper{
 		padding-right:300px;
+		width:100%;
 	}
 }
 @media (max-width: 1650px){
 	.contact_field_wrapper{
-		padding-right:250px;
+		/* padding-right:250px; */
 	}
 	.index_2_category_job{
 		padding:0 30px;
@@ -47,6 +48,7 @@
 	}
 	.contact_field_wrapper{
 		padding-right:250px;
+		width:100%;
 	}
 	.blog_after_img{
 		right:-350px;
