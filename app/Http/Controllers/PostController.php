@@ -71,6 +71,13 @@ class PostController extends Controller
     }
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'prix' => ['required'],
+            'ville' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string', 'max:255'],
+            'image' => ['required', 'sometimes','mimes:jpeg,png,jpg', 'max:4096'],
+        ]);
         $post = Post::create([
             'title' => $request->title,
             'prix' => $request->prix,
