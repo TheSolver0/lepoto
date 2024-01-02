@@ -63,7 +63,7 @@ Author: webstrot
     <!-- Top Scroll End -->
     <!-- cp navi wrapper Start -->
     <nav class="cd-dropdown cd_dropdown_index2 cd_dropdown_index3 d-block d-sm-block d-md-block d-lg-none d-xl-none">
-        <h2><a href="index.html"> <span><img src="images/logolepoto1.png" style="width:163px;height:43px;" alt="img"></span></a></h2>
+        <h2><a href="index.html"> <span><img src="images/logolepoto1.png" style="width:163px;height:43px;object-fit: cover;object-position: center;" alt="img"></span></a></h2>
         <a href="#0" class="cd-close">Close</a>
         <ul class="cd-dropdown-content">
             <li>
@@ -90,7 +90,7 @@ Author: webstrot
 
         <div class="cp_logo_wrapper index_2_logo index_3_logo">
             <a href="{{route('accueil')}}">
-                <img src="images/logolepoto.png" alt="logo" style="width:163px;height:43px;">
+                <img src="images/logolepoto.png" alt="logo" style="width:163px;height:43px;object-fit: cover;object-position: center;">
             </a>
         </div>
         <!-- mobile menu area start -->
@@ -378,7 +378,7 @@ Author: webstrot
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                                     <div class="jp_job_post_side_img">
                                                     @if(!empty($post->image->path))
-                                                        <img src="{{ Storage::url($post->image->path) }}" alt="post_img" style="width:170px;height:200px;" />
+                                                        <img src="{{ Storage::url($post->image->path) }}" alt="post_img" style="width:170px;height:200px;object-fit:contain;" />
                                                     @endif
                                                     @if(!empty($post->auteur->users_name) || !empty($post->auteur->users_tel))
                                                         <br> <span>{{$post->auteur->users_name}} </span>
@@ -403,16 +403,25 @@ Author: webstrot
                                                             <li>
                                                             <form method="GET" action="{{ route('posts.show')}}">
                                                                 <input type="hidden" name="id" value="{{$post->id}}">
-                                                                <a href=""><input type="submit" value="Description" style="background:transparent;border:1px solid transparent;cursor:pointer;"></a>
+                                                                <a href="" onclick="event.preventDefault();
+                                                                            this.closest('form').submit();">description</a>
                                                             </form>
                                                             </li>
                                                             <li>
-                                                            @if(!empty($post->auteur->users_name) || !empty($post->auteur->users_tel))
-                                                            <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
-                                                            @else
-                                                            @endif
-                                                            </li>
                                                             
+                                                            <form method="GET" action="">
+                                                                <input type="hidden" name="id" value="{{$post->id}}">
+                                                                @if(!empty($post->auteur->users_tel))
+                                                                <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"
+                                                                    onclick="event.preventDefault();
+                                                                            this.closest('form').submit();">acheter</a>
+                                                                @else
+                                                                <a href="https://wa.me/698549128/?text=Bonjour  Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"
+                                                                    onclick="event.preventDefault();
+                                                                            this.closest('form').submit();"> acheter</a>
+                                                                @endif
+                                                            </form>
+                                                            </li>
                                                             {{-- @if(!empty(Auth::user()))
                                                             <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
                                                             @else

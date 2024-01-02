@@ -30,6 +30,16 @@
 /*--------------
 1.Theme default CSS
 --------------------------*/
+html {
+	scroll-behavior: smooth;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
+
 body, html {
 	font-family: 'Lato';
 	font-size: 16px;
@@ -562,7 +572,7 @@ a:hover {
 .cp_navi_main_wrapper{
 	position:relative;
 	z-index:1;
-	border-bottom:1px solid #e2e2e2;
+	/* /* border-bottom:1px solid #e2e2e2; */ */
 }
 .kv_logo_wrapper a{
 	float:left;
@@ -1134,7 +1144,7 @@ a:hover {
     background-size: cover;
     height: 100%;
 	position:relative;
-	border-bottom:1px solid #e2e2e2;
+	/* border-bottom:1px solid #e2e2e2; */
 }
 .jb_banner_left{
 	float:left;
@@ -1589,7 +1599,7 @@ a:hover {
 	border-left:0;
 }
 .latest_job_toper {
-	border-bottom:1px solid #e2e2e2;
+	/* border-bottom:1px solid #e2e2e2; */
 }
 .latest_job_tabs .nav-tabs .nav-item.show .nav-link, .latest_job_tabs .nav-tabs .nav-link.active {
     color: #442b90;
@@ -1600,7 +1610,7 @@ a:hover {
 	background:transparent;
 }
 .latest_job_box{
-	border-bottom:1px solid #e2e2e2;
+	/* border-bottom:1px solid #e2e2e2; */
 	padding:30px 0;
 }
 .latest_job_tabs .nav-tabs .nav-link{
@@ -1693,7 +1703,7 @@ a:hover {
 	text-transform:capitalize;
 	font-size:20px;
 	font-weight:500;
-	border-bottom:1px solid #e2e2e2;
+	/* border-bottom:1px solid #e2e2e2; */
 }
 .apply_job_form input {
     width: 100%;
@@ -2668,7 +2678,7 @@ a:hover {
 }
 .job_newsletter_wrapper{
 	margin:90px 0;
-	border-bottom:1px solid #e2e2e2;
+	/* border-bottom:1px solid #e2e2e2; */
 	padding-bottom:20px;
 }
 .jb_newslwtteter_left{
@@ -4506,7 +4516,7 @@ a:hover {
 	width:100%;
 	padding-bottom:30px;
 	margin-bottom:30px;
-	border-bottom:1px solid #e2e2e2;
+	/* border-bottom:1px solid #e2e2e2; */
 }
 .widget_heading h2{
 	text-transform:capitalize;
@@ -4676,14 +4686,15 @@ a:hover {
 }
 .contact_field_wrapper{
 	float:left;
-	width:55%;
+	/* width:55%; */
     background-image: url(../images/cntct_bg.jpg);
     height: 100%;
     background-position: center 0;
     background-size: cover;
     position: relative;
 	min-height:600px;
-	padding:80px 350px 100px 50px;
+	/* padding:80px 350px 100px 50px; */
+	padding:100px 20px 100px 20px;
 }
 .tb_es_btn_wrapper  button{
     width: 170px;
@@ -5381,14 +5392,14 @@ a:hover {
 	padding:20px;
 	color:#222;
 	font-size:18px;
-	border-bottom:1px solid #e2e2e2;
+	/* border-bottom:1px solid #e2e2e2; */
 }
 .index2_pricing_wrapper .main_pdet:before, .index2_pricing_wrapper .main_pdet:after{
 	display:none;
 }
 .index2_pricing_wrapper .main_pdet{
 	background:#f9f9f9;
-	border-bottom:1px solid #e2e2e2;
+	/* border-bottom:1px solid #e2e2e2; */
 }
 .index2_pricing_wrapper h2, .index2_pricing_wrapper h2 .dollarr{
 	color:#222 !important;
@@ -5575,7 +5586,7 @@ a:hover {
 .index_3_right_menu{
 	width:78%;
 	padding-right:50px;
-	border-bottom:1px solid #e2e2e2;
+	/* border-bottom:1px solid #e2e2e2; */
 	/* border-bottom:1px solid #7a62fe; */
 }
 .index_2_top_header{

@@ -20,8 +20,10 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderBy('id','desc')->paginate(4);
+        $posts = Post::orderBy('id','desc')->paginate(4)->fragment('manuel');
         // $posts = Post::orderBy('id', 'desc')->get();
+        // $url = url();
+        // $posts->withPath($url.'#');
 
         return view('index',compact('posts'));
     }

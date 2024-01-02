@@ -16,7 +16,7 @@ Author: webstrot
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8" />
-    <title>lepoto</title>
+    <title>LEPOTO</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
                         <meta name="description" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" />
                         <meta name="keywords" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" />
@@ -62,7 +62,7 @@ Author: webstrot
     <!-- Top Scroll End -->
     <!-- cp navi wrapper Start -->
     <nav class="cd-dropdown cd_dropdown_index2 cd_dropdown_index3 d-block d-sm-block d-md-block d-lg-none d-xl-none">
-        <h2><a href="index.html"> <span><img src="images/logolepoto1.png" style="width:163px;height:43px;" alt="img"></span></a></h2>
+        <h2><a href="index.html"> <span><img src="images/logolepoto1.png" style="width:163px;height:43px;object-fit: cover;object-position: center;" alt="img"></span></a></h2>
         <a href="#0" class="cd-close">Close</a>
         <ul class="cd-dropdown-content">
             <li>
@@ -74,14 +74,14 @@ Author: webstrot
                 <a href="{{ route('accueil') }}">acceuil</a>
             </li>
             <li class="">
-                <a href="{{route('manuel')}}">Manuels</a>
+                <a href="#manuel">Manuels</a>
             </li>
             <!-- .has-children -->
             <li class="">
                 <a href="#accordion">FAQ</a>
             </li>
-            <li><a href="{{route('contact_us')}}">A propos </a></li>
-            <li><a href="{{ route('login') }}">contact</a></li>
+            <li><a href="{{route('apropos')}}">A propos </a></li>
+            <li><a href="{{ route('contact_us') }}">contact</a></li>
         </ul>
         <!-- .cd-dropdown-content -->
     </nav>
@@ -89,7 +89,7 @@ Author: webstrot
 
         <div class="cp_logo_wrapper index_2_logo index_3_logo">
             <a href="{{route('accueil')}}">
-                <img src="images/logolepoto.png" alt="logo" style="width:163px;height:43px;">
+                <img src="images/logolepoto.png" alt="logo" style="width:163px;height:43px;object-fit: cover;object-position: center;">
             </a>
         </div>
         <!-- mobile menu area start -->
@@ -150,6 +150,7 @@ Author: webstrot
                         </div>
                     </li>
                     <li>
+                        @if(!empty(Auth::user()))
                         <div class="jb_profile_box jb_3_profile_box">
                             <div class="nice-select" tabindex="0"> <span class="current">
                                     @if(!empty(Auth::user()->avatar->path))
@@ -163,23 +164,22 @@ Author: webstrot
 
                                     {{-- <li><a href="#"><i class="far fa-calendar-alt"></i> My Calender</a> --}}
                                     </li>
-                                    <li><a href="#"><i class="fas fa-comment"></i>Inbox</a>
-                                    </li>
-                                    <li><a href="#"><i class="fas fa-cog"></i>Setting</a>
-                                    </li>
-                                    <li><a href="#"><i class="fas fa-question-circle"></i>Help</a>
+                                    <li><a href="#"><i class="fas fa-comment"></i>FAQ</a>
                                     </li>
                                     {{-- <li><a href="#"><i class="fas fa-lock"></i>Lock Screen</a> --}}
                                     </li>
                                      <form method="POST" action="{{ route('logout') }}">
-                                @csrf
+                                        @csrf
 
-                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                this.closest('form').submit();"><i class="ion-power"></i>Log out</a></li> 
-                            </form></li>
+                                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                this.closest('form').submit();"><i class="ion-power"></i>Déconnexion</a></li> 
+                                     </form>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
+                        @else
+                        @endif
                     </li>
                     <li class="btn_hover">
                          <a href="{{ route('login') }}">Connexion</a>
@@ -192,7 +192,7 @@ Author: webstrot
                     <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation active_class active_class2 active_class3">acceuil</a>
                         
                     </li>		
-                    <li class="has-mega gc_main_navigation"><a href="{{route('manuel')}}" class="gc_main_navigation">Manuels</a>
+                    <li class="has-mega gc_main_navigation"><a href="#manuel" class="gc_main_navigation">Manuels</a>
                      
                     </li>
                     <li class="has-mega gc_main_navigation kv_sub_menu green_sub_menu blue_sub_menu">
@@ -200,7 +200,7 @@ Author: webstrot
                         <!-- mega menu start -->
                         
                     </li>
-                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">A   propos</a>
+                    <li class="has-mega gc_main_navigation"><a href="{{route('apropos')}}" class="gc_main_navigation">A   propos</a>
                             
                         </li>
 					
@@ -245,7 +245,7 @@ Author: webstrot
                                         </div>
                                         <h2 data-animation="animated fadeInUp">Revendez en toute simplicité les manuels que vous n'utilisez plus</h2>
 
-                                        <p data-animation="animated fadeInUp">lepoto, la meilleure plateforme pour élèves et etudiants.</p>
+                                        <p data-animation="animated fadeInUp">LEPOTO, la meilleure plateforme pour élèves et etudiants.</p>
                                         <div data-animation="animated fadeInUp" class="btn_hover slider_btn">
                                             <a href="{{route('register')}}" style="margin:10px;">Inscription gratuite</a>
                                         </div>
@@ -295,7 +295,7 @@ Author: webstrot
                                         </div>
                                         <h2 data-animation="animated fadeInUp">Acheter en toute simplicité les manuels dont vous avez besoin</h2>
 
-                                        <p data-animation="animated fadeInUp">lepoto la meilleure plateforme pour vous...</p>
+                                        <p data-animation="animated fadeInUp"> LEPOTO la meilleure plateforme pour vous...</p>
                                         <div data-animation="animated fadeInUp" class="btn_hover slider_btn">
                                             <a href="{{ route('register') }}" style="margin:10px;">Inscription gratuite</a>
                                         </div>
@@ -583,7 +583,7 @@ Vacancies Right Now!.</h2>
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                                     <div class="jp_job_post_side_img">
                                                     @if(!empty($post->image->path))
-                                                        <img src="{{ Storage::url($post->image->path) }}" alt="post_img" style="width:170px;height:200px;" />
+                                                        <img src="{{ Storage::url($post->image->path) }}" alt="post_img" style="width:170px;height:200px;object-fit:contain;" />
                                                     @endif
                                                     @if(!empty($post->auteur->users_name) || !empty($post->auteur->users_tel))
                                                         <br> 
@@ -614,7 +614,8 @@ Vacancies Right Now!.</h2>
                                                             <li>
                                                             <form method="GET" action="{{ route('posts.show')}}">
                                                                 <input type="hidden" name="id" value="{{$post->id}}">
-                                                                <a href=""><input type="submit" value="Description" style="background:transparent;border:1px solid transparent;cursor:pointer;"></a>
+                                                                <a href="" onclick="event.preventDefault();
+                                                                            this.closest('form').submit();">description</a>
                                                             </form>
                                                             </li>
                                                             <li>
@@ -622,20 +623,54 @@ Vacancies Right Now!.</h2>
                                                             <form method="GET" action="">
                                                                 <input type="hidden" name="id" value="{{$post->id}}">
                                                                 @if(!empty($post->auteur->users_tel))
-                                                                <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"><input type="submit" value="Acheter" style="background:transparent;border:1px solid transparent;cursor:pointer;"></a>
+                                                                <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis LEPOTO par rapport a  votre article du titre : {{$post->title}}"
+                                                                    onclick="event.preventDefault();
+                                                                            this.closest('form').submit();">acheter</a>
                                                                 @else
-                                                                <a href="https://wa.me/698549128/?text=Bonjour  Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
+                                                                <a href="https://wa.me/698549128/?text=Bonjour  Je viens vers vous depuis LEPOTO par rapport a  votre article du titre : {{$post->title}}"
+                                                                    onclick="event.preventDefault();
+                                                                            this.closest('form').submit();"> acheter</a>
                                                                 @endif
                                                             </form>
                                                             </li>
                                                             
                                                             {{-- @if(!empty(Auth::user()))
-                                                            <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
+                                                            <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis LEPOTO par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
                                                             @else
                                                             <a href="{{route('login')}}" data-toggle="modal" data-target="#myModal01">Acheter</a></li>
                                                             @endif --}}
                                                         </ul>
-                                                        <form method="GET" action="{{route('signalerPost')}}"
+                                                        <!-- Button trigger modal -->
+                                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" style="margin-left:20px;margin-top:18px; border-radius:0 !important;">
+                                                            Signaler
+                                                            </button>
+
+                                                            <!-- Modal -->
+                                                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form method="GET" action="{{route('signalerPost')}}">
+                                                                        <input type="hidden" name="id" value="{{$post->id}}">
+                                                                        <input type="text" name="raison" class="raison" placeholder="Entrez la raison du signalement">
+                                                                        {{-- <button type="submit" class="btn btn-danger" name="signale" style="margin-left:25px;margin-top:18px; border-radius:0 !important;">Signaler</button> --}}
+                                                                    
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Sortir</button>
+                                                                    <button type="submit" class="btn btn-danger">Signaler</button>
+                                                                    </form>    
+                                                                </div>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                        {{-- <form method="GET" action="{{route('signalerPost')}}"
                                                             onmouseover="event.preventDefault();
                                                                     this.querySelector('.raison').style.display='';"
                                                             onmouseout="event.preventDefault();
@@ -644,7 +679,7 @@ Vacancies Right Now!.</h2>
                                                                
                                                             <input type="text" name="raison" class="raison" placeholder="Entrez la raison du signalement" style="display:none;">
                                                             <button type="submit" class="btn btn-danger" name="signale" style="margin-left:25px;margin-top:18px; border-radius:0 !important;">Signaler</button>
-                                                        </form>
+                                                        </form> --}}
                                                     </div>
                                                 </div>
 
@@ -992,7 +1027,7 @@ Vacancies Right Now!.</h2>
 
                                             <h1><a href="#">Arthur Ekoko</a> <span>(Acheteur)</span></h1>
 
-                                            <p>A l'ecole nos enseignants nous parlais de livres hors programme mais tres efficaces pour comprendre , j'ai justement pu acheter ces livres sur lepoto</p>
+                                            <p>A l'ecole nos enseignants nous parlais de livres hors programme mais tres efficaces pour comprendre , j'ai justement pu acheter ces livres sur LEPOTO</p>
                                             <div class="client_shap3 bubble-6">
                                                 <img src="images/bubble.png" class="img-responsive" alt="img">
                                             </div>
@@ -1028,14 +1063,14 @@ Vacancies Right Now!.</h2>
     </div>
 
     <div class="col-lg-12 col-md-12 col-sm-12">
-                            <div id="accordion" role="tablist">
+                            <div id="accordion" role="tablist" style="margin:100px 100px;">
                                 <h1>Questions fréquemment posées...</h1>
                                 <div class="card">
 
                                     <div class="card_pagee" role="tab" id="heading1">
                                         <h5 class="h5-md">
 								       	    <a class="collapsed" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">
-								          		Is there any auto-renew subscription?
+								          		C'est quoi LEPOTO?
 
 								        	</a>
 								     	 </h5>
@@ -1045,7 +1080,7 @@ Vacancies Right Now!.</h2>
                                         <div class="card-body">
 
                                             <div class="card_cntnt">
-                                                <p>This is Photoshop's version of LoremProin gravida nibh vel velit auctor Ipsum. Proin gravida nibh vel velit auctor aliquet....</p>
+                                                <p>LEPOTO est une plateforme de commerce de livres en ligne pour en savoir plus merci de vous rendre sur la page <a href="{{route('apropos')}}">a propos </a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -1057,7 +1092,7 @@ Vacancies Right Now!.</h2>
                                     <div class="card_pagee" role="tab" id="heading2">
                                         <h5 class="h5-md">
 								       	    <a class="collapsed" data-toggle="collapse" href="#collapsethree" role="button" aria-expanded="false" aria-controls="collapsethree">
-								          How many sites can I use my themes on?
+								            Qui êtes-vous?
 
 								        	</a>
 								     	 </h5>
@@ -1067,7 +1102,7 @@ Vacancies Right Now!.</h2>
                                         <div class="card-body">
 
                                             <div class="card_cntnt">
-                                                <p>This is Photoshop's version of LoremProin gravida nibh vel velit auctor Ipsum. Proin gravida nibh vel velit auctor aliquet....</p>
+                                                <p>Nous sommes une entreprise specialisé spécialisée dans les solutions digitales . De l'idée au déploiement nous vous permettons d'atteindre vos objectifs grâce au digital. </p>
                                             </div>
                                         </div>
                                     </div>
@@ -1102,19 +1137,23 @@ Vacancies Right Now!.</h2>
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-sm-6 col-12">
-                <div class="footerNav jb_cover">
+                <div class="footerNav jb_cover" >
                     <a href="#"><img src="images/logolepoto.png" alt="img" style="width:250px;"></a>
                     <ul class="footer_first_contact">
-                        <li><i class="flaticon-location-pointer"></i>
+                        <li style="display:flex;align-items:center;"><i class="flaticon-location-pointer"></i>
                             <p>Douala, Nyalla
                             </p>
                         </li>
-                        <li><i class="flaticon-telephone"></i>
-                            <p>698-549-128
+                        <li style="display:flex;align-items:center;flex-flow:row column;"><i class="flaticon-telephone"></i>
+                            <p>
+                                <a href="tel:+237698549128">698-549-128</a>
+                                {{-- <a href="tel:+237698549128">652-097-642</a> --}}
+                            </p>
+                            
                         </li>
-                        <li><i class="flaticon-envelope"></i><a href="#">contact.lepoto@gmail.com </a>
+                        <li style="display:flex;align-items:center;"><i class="flaticon-envelope"></i><a href="mailto:lucfotso0@gmail.com">contact.lepoto@gmail.com </a>
                             <br>
-                            <a href="#">support@gmail.com</a>
+                            {{-- <a href="mailto:lucfotso0@gmail.com">support@gmail.com</a> --}}
                         </li>
 
                     </ul>
@@ -1136,7 +1175,7 @@ Vacancies Right Now!.</h2>
               
                     <div class="contact_field_wrapper comments_form">
                     <div class="jb_heading_wraper left_rivew_heading">
-                    <h3>envoyez nous un mail(laissez des avis ou autres)</h3>
+                    <h3>Donnez nous un avis</h3>
                     {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, --}}
                         {{-- <br> sed do eiusmod tempor incididunt </p> --}}
                     </div>
@@ -1146,7 +1185,7 @@ Vacancies Right Now!.</h2>
                                     <div class="form-pos">
                                         <div class="form-group i-name">
 
-                                            <input type="text" class="form-control require" name="full_name"  id="namTen-first" placeholder=" Name*">
+                                            <input type="text" class="form-control require" name="full_name"  id="namTen-first" placeholder=" Nom*">
                                             <i class="fas fa-user-alt"></i>
                                         </div>
                                     </div>

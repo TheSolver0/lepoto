@@ -28,7 +28,7 @@ class NotificationUserMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Notification User Mail',
+            subject: 'Mail de bienvenue',
         );
     }
 

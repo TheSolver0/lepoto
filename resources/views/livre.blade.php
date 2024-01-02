@@ -62,7 +62,7 @@ Author: webstrot
     <!-- Top Scroll End -->
     <!-- cp navi wrapper Start -->
     <nav class="cd-dropdown cd_dropdown_index2 cd_dropdown_index3 d-block d-sm-block d-md-block d-lg-none d-xl-none">
-        <h2><a href="index.html"> <span><img src="images/logolepoto1.png" style="width:163px;height:43px;" alt="img"></span></a></h2>
+        <h2><a href="index.html"> <span><img src="images/logolepoto1.png" style="width:163px;height:43px;object-fit: cover;object-position: center;" alt="img"></span></a></h2>
         <a href="#0" class="cd-close">Close</a>
         <ul class="cd-dropdown-content">
             <li>
@@ -89,7 +89,7 @@ Author: webstrot
 
         <div class="cp_logo_wrapper index_2_logo index_3_logo">
             <a href="{{route('accueil')}}">
-                <img src="images/logolepoto.png" alt="logo" style="width:163px;height:43px;">
+                <img src="images/logolepoto.png" alt="logo" style="width:163px;height:43px;object-fit: cover;object-position: center;">
             </a>
         </div>
         <!-- mobile menu area start -->
@@ -233,7 +233,7 @@ Author: webstrot
                                 <h4>{{ $post->title }}</h4>
                             @if(!empty($post->auteur->users_name) || !empty($post->auteur->users_tel))
                                 <ul class="job_single_lists">
-                                <p>{{ $post->auteur->users_name }}  : {{ $post->auteur->users_tel }} (vous pouvez appeler si vous n'avez pas whatsapp)</p>
+                                <p><a href="tel:+237698549128">Appelez-nous pour passer commande</a></p>
                             @else 
                                 Auteur
                             @endif 
@@ -307,7 +307,7 @@ Author: webstrot
                             <ul>
                                 {{-- <li><i class="fas fa-globe-asia"></i>&nbsp;&nbsp; <a href="">whatsapp du vendeur</a></li> --}}
                                  @if(!empty($post->auteur))   
-                                <li><i class="fas fa-globe-asia"></i>&nbsp;&nbsp; <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}">Contactez le vendeur</a></li>
+                                <li><i class="fas fa-globe-asia"></i>&nbsp;&nbsp; <a href="https://wa.me/698549128/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->id}}->{{$post->title}}">Passer commande par whatsapp</a></li>
                                 @else
                                 {{-- <li><i class="fas fa-file-download"></i>&nbsp;&nbsp; <a href="{{route('login')}}">Connectez ou Inscrivez vous d' abord</a></li>  --}}
                                 @endif

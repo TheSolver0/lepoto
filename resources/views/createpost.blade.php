@@ -39,7 +39,9 @@ Author: webstrot
     <link rel="stylesheet" type="text/css" href="css/responsive.css" />
     <!--favicon-->
     <link rel="shortcut icon" type="image/png" href="images/icolepoto.png" />
-    
+    <link rel="stylesheet" href="css/vanilla-notify.css" />
+
+<script src="js/vanilla-notify.js"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -63,7 +65,7 @@ Author: webstrot
     <!-- Top Scroll End -->
     <!-- cp navi wrapper Start -->
     <nav class="cd-dropdown cd_dropdown_index2 cd_dropdown_index3 d-block d-sm-block d-md-block d-lg-none d-xl-none" style="border-bottom:1px solid gray !important;">
-        <h2><a href="index.html"> <span><img src="images/logolepoto1.png" style="width:163px;height:43px;" alt="img"></span></a></h2>
+        <h2><a href="index.html"> <span><img src="images/logolepoto1.png" style="width:163px;height:43px;object-fit: cover;object-position: center;" alt="img"></span></a></h2>
         <a href="#0" class="cd-close">Close</a>
         <ul class="cd-dropdown-content">
             <li>
@@ -90,7 +92,7 @@ Author: webstrot
 
         <div class="cp_logo_wrapper index_2_logo index_3_logo">
             <a href="{{route('accueil')}}">
-                <img src="images/logolepoto.png" alt="logo" style="width:163px;height:43px;">
+                <img src="images/logolepoto.png" alt="logo" style="width:163px;height:43px;object-fit: cover;object-position: center;">
             </a>
         </div>
         <!-- mobile menu area start -->
@@ -281,7 +283,7 @@ Author: webstrot
     </div>
     </div>
     {{-- footer --}}
-        <div class="col-lg-12 col-md-12 col-sm-12" style="margin-top:200px;">
+    <div class="col-lg-12 col-md-12 col-sm-12" style="margin-top:200px;">
                             <div id="accordion" role="tablist">
                                 <h1>Questions fréquemment posées...</h1>
                                 <div class="card">
