@@ -87,7 +87,7 @@ Author: webstrot
     </nav>
     <div class="cp_navi_main_wrapper index_2_top_header index_3_top_header jb_cover">
 
-        <div class="cp_logo_wrapper index_2_logo index_3_logo">
+        <div class="cp_logo_wrapper index_2_logo index_3_logo" style="display: flex;align-items: center;justify-content: center;">
             <a href="{{route('accueil')}}">
                 <img src="images/logolepoto.png" alt="logo" style="width:163px;height:43px;object-fit: cover;object-position: center;">
             </a>
@@ -604,7 +604,7 @@ Author: webstrot
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                                    <div class="jp_job_post_right_btn_wrapper jb_cover">
+                                                    <div class="jp_job_post_right_btn_wrapper jb_cover" style="position: relative;z-index: 10;">
                                                         <ul>
                                                             <li>
                                                             </li>
@@ -660,7 +660,7 @@ Author: webstrot
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                                    <div class="jp_job_post_right_btn_wrapper jb_cover">
+                                                    <div class="jp_job_post_right_btn_wrapper jb_cover" style="position: relative;z-index: 10;">
                                                         <ul>
                                                             <li>
                                                                 <div class="job_adds_right">
@@ -696,7 +696,7 @@ Author: webstrot
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                                    <div class="jp_job_post_right_btn_wrapper jb_cover">
+                                                    <div class="jp_job_post_right_btn_wrapper jb_cover" style="position: relative;z-index: 10;">
                                                         <ul>
                                                             <li>
                                                                 <div class="job_adds_right">
@@ -717,7 +717,7 @@ Author: webstrot
                                                                         
                                 </div>
                             </div>
-                            <div class="blog_pagination_section jb_cover">
+                            <div class="blog_pagination_section jb_cover" style="position: relative;z-index: 10;">
                             {{-- {{$posts->links()}} --}}
                              {!! $posts->withQueryString()->links('pagination::bootstrap-5') !!}
                             

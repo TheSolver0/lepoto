@@ -90,7 +90,7 @@ Author: webstrot
     </nav>
     <div class="cp_navi_main_wrapper index_2_top_header index_3_top_header jb_cover">
 
-        <div class="cp_logo_wrapper index_2_logo index_3_logo">
+        <div class="cp_logo_wrapper index_2_logo index_3_logo" style="display: flex;align-items: center;justify-content: center;">
             <a href="{{route('accueil')}}">
                 <img src="images/logolepoto.png" alt="logo" style="width:163px;height:43px;object-fit: cover;object-position: center;">
             </a>

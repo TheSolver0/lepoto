@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Jobs\sendWelcomeUserMailJob;
 use App\Models\Avatar;
+use App\Models\RecherchesNotFound;
 use App\Models\User;
 use App\Models\Post;
 use App\Models\UsersDelete;
@@ -26,9 +27,10 @@ class UserController extends Controller
         {
             $users = User::orderBy('id','asc')->get();
             $posts = Post::orderBy('id','asc')->get();
+            $recherches = RecherchesNotFound::orderBy('id','asc')->get();
             // dd($users);
 
-            return view('admin',compact('users','posts'));
+            return view('admin',compact('users','posts','recherches'));
         }
         else
         {

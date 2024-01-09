@@ -8,6 +8,7 @@ use App\Mail\MailAuxCreateur;
 use App\Models\Auteur;
 use App\Models\Image;
 use App\Models\Post;
+use App\Models\RecherchesNotFound;
 use App\Models\User;
 use App\Models\PostsDelete;
 
@@ -41,16 +42,23 @@ class PostController extends Controller
     }
     public function search()
     {
-        $recherche = (empty($_GET['recherche'])) ? "" : $_GET['recherche'];
-        $tri = ($_GET['tri'] == 'tri par') ? "" : $_GET['tri'] ;
-        $reqtri = ($_GET['tri'] == 'triRecent') ? 'desc' : 'asc';
-        $titreconnu = ($_GET['titreconnu'] == 'titreconnu') ? "" : $_GET['titreconnu'];
-        $localisation = ($_GET['localisation'] == 'localisation') ? "" : $_GET['localisation'];
+        $recherche = (!isset($_GET['recherche'])) ? "" : $_GET['recherche'];
+        $tri = (!isset($_GET['tri']) || ($_GET['tri'] == 'tri par')) ? "" : $_GET['tri'] ;
+        $reqtri = (!isset($_GET['tri']) || $_GET['tri'] == 'triRecent') ? 'desc' : 'asc';
+        $titreconnu = (!isset($_GET['titreconnu']) || $_GET['titreconnu'] == 'titreconnu') ? "" : $_GET['titreconnu'];
+        $localisation = (!isset($_GET['localisation']) || $_GET['localisation'] == 'localisation') ? "" : $_GET['localisation'];
         $posts = Post::where('title' , 'LIKE', "%$recherche%")
                         ->where('ville', 'LIKE' ,"%$localisation%")
                         ->where('title', 'LIKE' ,"%$titreconnu%" )
                         ->orderBy('id',$reqtri)
                         ->paginate(4);
+        // dd($posts);
+        if(isset($posts))
+        {
+            $recherches_not_found = RecherchesNotFound::create([
+                'title' => $recherche,
+            ]);
+        }
 
         return view('searchpage',compact('posts'));
     }

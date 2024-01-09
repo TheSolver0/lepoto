@@ -87,9 +87,9 @@ Author: webstrot
     </nav>
     <div class="cp_navi_main_wrapper index_2_top_header index_3_top_header jb_cover">
 
-        <div class="cp_logo_wrapper index_2_logo index_3_logo">
+        <div class="cp_logo_wrapper index_2_logo index_3_logo" style="display: flex;align-items: center;justify-content: center;" style="display: flex;align-items: center;justify-content: center;">
             <a href="{{route('accueil')}}">
-                <img src="images/logolepoto.png" alt="logo" style="width:163px;height:43px;object-fit: cover;object-position: center;">
+                <img src="images/logolepoto.png" alt="logo" style="width:163px;height:43px;object-fit: cover;">
             </a>
         </div>
         <!-- mobile menu area start -->
@@ -607,7 +607,7 @@ Vacancies Right Now!.</h2>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                                    <div class="jp_job_post_right_btn_wrapper jb_cover">
+                                                    <div class="jp_job_post_right_btn_wrapper jb_cover" style="position: relative;z-index: 10;" style="position: relative;z-index: 10;">
                                                         <ul>
                                                             <li>
                                                             </li>
@@ -706,7 +706,7 @@ Vacancies Right Now!.</h2>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                                    <div class="jp_job_post_right_btn_wrapper jb_cover">
+                                                    <div class="jp_job_post_right_btn_wrapper jb_cover" style="position: relative;z-index: 10;">
                                                         <ul>
                                                             <li>
                                                                 <div class="job_adds_right">
@@ -742,7 +742,7 @@ Vacancies Right Now!.</h2>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                                    <div class="jp_job_post_right_btn_wrapper jb_cover">
+                                                    <div class="jp_job_post_right_btn_wrapper jb_cover" style="position: relative;z-index: 10;">
                                                         <ul>
                                                             <li>
                                                                 <div class="job_adds_right">
@@ -763,9 +763,9 @@ Vacancies Right Now!.</h2>
                                                                         
                                 </div>
                             </div>
-                            <div class="blog_pagination_section jb_cover">
+                            <div class="blog_pagination_section jb_cover" style="position: relative;z-index: 10;">
                             {{-- {{$posts->links()}} --}}
-                             {!! $posts->withQueryString()->links('pagination::bootstrap-5') !!}
+                             {!! $posts->withQueryString()->links('pagination::bootstrap-4') !!}
                                 {{-- <ul>
                                     <li>
                                         <a href="#" class="prev"> <i class="flaticon-left-arrow"></i> </a>
@@ -866,7 +866,7 @@ Vacancies Right Now!.</h2>
     </div>
        </div>
         <div class="slider_small3_shape">
-            <img src="images/shape4.png" class="img-responsive" alt="img">
+            <img src="images/shape4.png" class="img-responsive" alt="img" style="position: relative;z-index: -5;">
         </div>
     </div>
     </div>
@@ -1136,7 +1136,7 @@ Vacancies Right Now!.</h2>
 
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-sm-6 col-12">
+            <div class="col-lg-4 col-sm-6 col-12">
                 <div class="footerNav jb_cover" >
                     <a href="#"><img src="images/logolepoto.png" alt="img" style="width:250px;"></a>
                     <ul class="footer_first_contact">
@@ -1170,23 +1170,35 @@ Vacancies Right Now!.</h2>
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-9 col-sm-6 col-12">
-                <div class="footerNav jb_cover footer_border_displ">
-              
-                    <div class="contact_field_wrapper comments_form">
-                    <div class="jb_heading_wraper left_rivew_heading">
-                    <h3>Donnez nous un avis</h3>
-                    {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, --}}
-                        {{-- <br> sed do eiusmod tempor incididunt </p> --}}
+            <div class="col-lg-4 col-sm-6 col-12">
+                    <div class="footerNav jb_cover footer_border_displ">
+                        <h5>Pages</h5>
+                        <ul class="nav-widget">
+                            <li><a href="{{route('accueil')}}"><i class="fa fa-square"></i>Accueil</a></li>
+
+                            <li><a href="{{route('manuel')}}"><i class="fa fa-square"></i>Manuels</a></li>
+
+                            <li><a href="#accordion"><i class="fa fa-square"></i>FAQ</a></li>
+
+                            <li><a href="{{route('apropos')}}"><i class="fa fa-square"></i>A propos</a></li>
+
+                            <li><a href="{{route('contact_us')}}"><i class="fa fa-square"></i>Contact</a></li>
+
+
+                        </ul>
                     </div>
-                    <form action="{{route('mail')}}" method="GET">
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12">
+                    <div class="footerNav jb_cover footer_border_displ">
+                        <h5>Nous laissez un avis ?</h5>
+                        <form action="{{route('mail')}}" method="GET">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-pos">
                                         <div class="form-group i-name">
 
                                             <input type="text" class="form-control require" name="full_name"  id="namTen-first" placeholder=" Nom*">
-                                            <i class="fas fa-user-alt"></i>
+                                            {{-- <i class="fas fa-user-alt"></i> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -1197,7 +1209,7 @@ Vacancies Right Now!.</h2>
                                         <div class="form-group i-email">
                                             <label class="sr-only">Email </label>
                                             <input type="email" class="form-control require" name="email"  id="emailTen" placeholder=" Email *" data-valid="email" data-error="Email should be valid.">
-                                            <i class="fas fa-envelope"></i>
+                                            {{-- <i class="fas fa-envelope"></i> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -1207,7 +1219,7 @@ Vacancies Right Now!.</h2>
                                         <div class="form-group i-message">
 
                                             <textarea class="form-control require" name="message" rows="5" id="messageTen" placeholder=" Message"></textarea>
-                                            <i class="fas fa-comment"></i>
+                                            {{-- <i class="fas fa-comment"></i> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -1222,8 +1234,12 @@ Vacancies Right Now!.</h2>
                                 </div>
                             </div>
                         </form>
+
+                    </div>
+                </div>    
+                <div class="col-lg-4 col-sm-6 col-12">
+                    
                 </div>
-            </div>
                 <div class="copyright_left"><i class="fa fa-copyright"></i> 2023 <a href="#">  LEPOTO.  </a> Tout droit réservé.
             </div>
 

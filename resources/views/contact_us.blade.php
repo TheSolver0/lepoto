@@ -16,7 +16,7 @@ Author: webstrot
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8" />
-    <title>lepoto | contact</title>
+    <title>LEPOTO | contact</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta name="description" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" />
     <meta name="keywords" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" />
@@ -87,7 +87,7 @@ Author: webstrot
     </nav>
     <div class="cp_navi_main_wrapper index_2_top_header index_3_top_header jb_cover">
 
-        <div class="cp_logo_wrapper index_2_logo index_3_logo">
+        <div class="cp_logo_wrapper index_2_logo index_3_logo" style="display: flex;align-items: center;justify-content: center;">
             <a href="{{route('accueil')}}">
                 <img src="images/logolepoto.png" alt="logo" style="width:163px;height:43px;object-fit: cover;object-position: center;">
             </a>
@@ -301,18 +301,62 @@ Author: webstrot
     </div>
     <!-- contact info section end -->
 	  <!-- map wrapper  start-->
+<div class="contact_field_wrapper comments_form" style="">
+                        <div class="jb_heading_wraper left_rivew_heading">
+                        <h3>envoyez nous un mail</h3>
+                        {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, --}}
+                            {{-- <br> sed do eiusmod tempor incididunt </p> --}}
+                        </div>
+                        <form action="{{route('mail')}}" method="GET">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-pos">
+                                            <div class="form-group i-name">
 
+                                                <input type="text" class="form-control require" name="full_name"  id="namTen-first" placeholder=" Name*">
+                                                <i class="fas fa-user-alt"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- /.col-md-12 -->
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-e">
+                                            <div class="form-group i-email">
+                                                <label class="sr-only">Email </label>
+                                                <input type="email" class="form-control require" name="email"  id="emailTen" placeholder=" Email *" data-valid="email" data-error="Email should be valid.">
+                                                <i class="fas fa-envelope"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="col-md-12">
+                                        <div class="form-m">
+                                            <div class="form-group i-message">
+
+                                                <textarea class="form-control require" name="message" rows="5" id="messageTen" placeholder=" Message"></textarea>
+                                                <i class="fas fa-comment"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.col-md-12 -->
+                                    <div class="col-md-12">
+                                        <div class="tb_es_btn_div">
+                                            <div class="response"></div>
+                                            <div class="tb_es_btn_wrapper">
+                                                <button type="submit" class="submitForm">envoyer</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                    </div>
+	            
 	 
 	  <!-- map wrapper  end-->
 	  <!-- news app wrapper start-->
     <!-- news app wrapper end-->
     <!-- footer Wrapper Start -->        
-    <div class="popular_wrapper jb_cover">
-        <div class="slider_small3_shape shapenew">
-            <img src="images/shape4.png" class="img-responsive " alt="img">
-        </div>
-        
-    </div>
 
     <div class="col-lg-12 col-md-12 col-sm-12">
                             <div id="accordion" role="tablist">
@@ -421,57 +465,7 @@ Author: webstrot
                 <div class="col-lg-9 col-sm-6 col-12">
                     <div class="footerNav jb_cover footer_border_displ">
                   
-                        <div class="contact_field_wrapper comments_form">
-                        <div class="jb_heading_wraper left_rivew_heading">
-                        <h3>envoyez nous un mail(laissez des avis ou autres)</h3>
-                        {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, --}}
-                            {{-- <br> sed do eiusmod tempor incididunt </p> --}}
-                        </div>
-                        <form action="{{route('mail')}}" method="GET">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="form-pos">
-                                            <div class="form-group i-name">
-
-                                                <input type="text" class="form-control require" name="full_name"  id="namTen-first" placeholder=" Name*">
-                                                <i class="fas fa-user-alt"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- /.col-md-12 -->
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="form-e">
-                                            <div class="form-group i-email">
-                                                <label class="sr-only">Email </label>
-                                                <input type="email" class="form-control require" name="email"  id="emailTen" placeholder=" Email *" data-valid="email" data-error="Email should be valid.">
-                                                <i class="fas fa-envelope"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                
-                                    <div class="col-md-12">
-                                        <div class="form-m">
-                                            <div class="form-group i-message">
-
-                                                <textarea class="form-control require" name="message" rows="5" id="messageTen" placeholder=" Message"></textarea>
-                                                <i class="fas fa-comment"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.col-md-12 -->
-                                    <div class="col-md-12">
-                                        <div class="tb_es_btn_div">
-                                            <div class="response"></div>
-                                            <div class="tb_es_btn_wrapper">
-                                                <button type="submit" class="submitForm">envoyer</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                    </div>
-	            </div>
+                        
                     <div class="copyright_left"><i class="fa fa-copyright"></i> 2023 <a href="#">  LEPOTO.  </a> Tout droit réservé.
                 </div>
 
