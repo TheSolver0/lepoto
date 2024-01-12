@@ -16,7 +16,7 @@ Author: webstrot
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8" />
-    <title>LEPOTO</title>
+    <title>lepoto</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
                         <meta name="description" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" />
                         <meta name="keywords" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" />
@@ -1138,7 +1138,7 @@ Vacancies Right Now!.</h2>
         <div class="row">
             <div class="col-lg-4 col-sm-6 col-12">
                 <div class="footerNav jb_cover" >
-                    <a href="#"><img src="images/logolepoto.png" alt="img" style="width:250px;"></a>
+                    <a href="#"><img src="images/logolepoto.png" alt="img" style="width:200px;"></a>
                     <ul class="footer_first_contact">
                         <li style="display:flex;align-items:center;"><i class="flaticon-location-pointer"></i>
                             <p>Douala, Nyalla

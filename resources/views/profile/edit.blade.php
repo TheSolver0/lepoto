@@ -284,7 +284,6 @@ Author: webstrot
                                         <li><a href="#manuel">Voir mes Livres</a></li>
                                     </ul>
                                 </div>
-
                             </div>
 
                         </div>
