@@ -512,7 +512,7 @@ Author: webstrot
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                                    <div class="jp_job_post_right_btn_wrapper jb_cover" style="position: relative;z-index: 10;">
+                                                    <div class="jp_job_post_right_btn_wrapper jb_cover" >
                                                         <ul>
                                                             <li>
                                                             </li>
@@ -564,7 +564,7 @@ Author: webstrot
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                                    <div class="jp_job_post_right_btn_wrapper jb_cover" style="position: relative;z-index: 10;">
+                                                    <div class="jp_job_post_right_btn_wrapper jb_cover" >
                                                         <ul>
                                                             <li>
                                                                 <div class="job_adds_right">
@@ -600,7 +600,7 @@ Author: webstrot
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                                    <div class="jp_job_post_right_btn_wrapper jb_cover" style="position: relative;z-index: 10;">
+                                                    <div class="jp_job_post_right_btn_wrapper jb_cover" >
                                                         <ul>
                                                             <li>
                                                                 <div class="job_adds_right">
@@ -621,7 +621,7 @@ Author: webstrot
                                                                         
                                 </div>
                             </div>
-                            <div class="blog_pagination_section jb_cover" style="position: relative;z-index: 10;">
+                            <div class="blog_pagination_section jb_cover">
                             {{-- {{$posts->links()}} --}}
                              {!! $posts->withQueryString()->links('pagination::bootstrap-5') !!}
                             
