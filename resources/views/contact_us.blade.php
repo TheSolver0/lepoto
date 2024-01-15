@@ -16,7 +16,7 @@ Author: webstrot
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8" />
-    <title>LEPOTO | contact</title>
+    <title>lepoto | contact</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta name="description" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" />
     <meta name="keywords" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" />
@@ -150,6 +150,7 @@ Author: webstrot
                         </div>
                     </li>
                     <li>
+                        @if(!empty(Auth::user()))
                         <div class="jb_profile_box jb_3_profile_box">
                             <div class="nice-select" tabindex="0"> <span class="current">
                                     @if(!empty(Auth::user()->avatar->path))
@@ -163,23 +164,22 @@ Author: webstrot
 
                                     {{-- <li><a href="#"><i class="far fa-calendar-alt"></i> My Calender</a> --}}
                                     </li>
-                                    <li><a href="#"><i class="fas fa-comment"></i>Inbox</a>
-                                    </li>
-                                    <li><a href="#"><i class="fas fa-cog"></i>Setting</a>
-                                    </li>
-                                    <li><a href="#"><i class="fas fa-question-circle"></i>Help</a>
+                                    <li><a href="#"><i class="fas fa-comment"></i>FAQ</a>
                                     </li>
                                     {{-- <li><a href="#"><i class="fas fa-lock"></i>Lock Screen</a> --}}
                                     </li>
                                      <form method="POST" action="{{ route('logout') }}">
-                                @csrf
+                                        @csrf
 
-                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                this.closest('form').submit();"><i class="ion-power"></i>Log out</a></li> 
-                            </form></li>
+                                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                this.closest('form').submit();"><i class="ion-power"></i>Déconnexion</a></li> 
+                                     </form>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
+                        @else
+                        @endif
                     </li>
                     <li class="btn_hover">
                          <a href="{{ route('login') }}">Connexion</a>
@@ -200,7 +200,7 @@ Author: webstrot
                         <!-- mega menu start -->
                         
                     </li>
-                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">A   propos</a>
+                    <li class="has-mega gc_main_navigation"><a href="{{route('apropos')}}" class="gc_main_navigation">A   propos</a>
                             
                         </li>
 					

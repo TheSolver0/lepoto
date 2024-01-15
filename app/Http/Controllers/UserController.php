@@ -57,15 +57,15 @@ class UserController extends Controller
 
 
             $filename = time() . '.' . $request->avatar->extension();
-            
+
             $path = $request->avatar->storeAs(
                 'avatars',
                 $filename,
                 'public'
             );
-        
+
             if(empty($user->avatar->path))
-            { 
+            {
 
                 $avatar = Avatar::create([
                     'path' => $path,
@@ -92,13 +92,13 @@ class UserController extends Controller
 
         return redirect('/profile');
     }
-    public function suppView($id)
+    // public function suppView($id)
+    // {
+    //     return view('deleteuser',compact('id'));
+    // }
+    public function supp($id)
     {
-        return view('deleteuser',compact('id'));
-    }
-    public function supp(Request $request)
-    {
-        $id = $request->idUser;
+        // $id = $request->idUser;
         $user = User::findOrFail($id);
         $userDel = UsersDelete::create([
             'name' => $user->name,

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 
+<!--
 Template Name: JB desks
 Version: 1.0.0
 Author: webstrot
@@ -186,20 +186,20 @@ Author: webstrot
             <div class="mainmenu green_main_menu blue_main_menu d-xl-block d-lg-block d-md-none d-sm-none d-none">
                 <ul class="main_nav_ul menu_2_ul">
                     <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation active_class active_class2 active_class3">acceuil</a>
-                        
-                    </li>		
+
+                    </li>
                     <li class="has-mega gc_main_navigation"><a href="{{route('manuel')}}" class="gc_main_navigation">Manuels</a>
-                     
+
                     </li>
                     <li class="has-mega gc_main_navigation kv_sub_menu green_sub_menu blue_sub_menu">
                         <a href="#accordion" class="gc_main_navigation"> FAQ</a>
                         <!-- mega menu start -->
-                        
+
                     </li>
                     <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">A   propos</a>
-                            
+
                         </li>
-					
+
                    <li><a href="{{route('contact_us')}}" class="gc_main_navigation">contact</a></li>
 
                 </ul>
@@ -211,10 +211,10 @@ Author: webstrot
 
     <!-- navi wrapper End -->
     <!-- slider wrapper Start -->
-                
+
     <!-- slider wrapper End -->
     <!--services wrapper start-->
-        
+
     </div>
     <!-- navi wrapper End -->
     <!-- slider wrapper Start -->
@@ -229,7 +229,7 @@ Author: webstrot
             <img src="images/bubble.png" class="img-responsive " alt="img">
         </div>
                         <!-- mainmenu end -->
-          
+
 
     <!-- navi wrapper End -->
     <!-- top header wrapper start -->
@@ -255,7 +255,7 @@ Author: webstrot
             </div>
         </div>
     </div>
-    
+
     <!-- top header wrapper end -->
     <!-- company details wrapper start-->
     <div class="company_details_wrapper jb_cover">
@@ -364,12 +364,43 @@ Author: webstrot
                                                 this.closest('form').submit();"
                                      href="">Enregistrer</a>
                             </div>
-                            <div class="dont_have_account jb_cover">
-                                {{-- <p>Avez-vous un compte ? <a href="{{route('login')}}">connectez vous</a></p> --}}
-                            <a name="" id="" class="btn btn-danger" href="{{route('suppressionCompte',['id'=>$user->id])}}" role="button">Supprimer le compte</a></td>
-                            </div>
                         </form>
-                    
+                        <div class="dont_have_account jb_cover">
+                                {{-- <p>Avez-vous un compte ? <a href="{{route('login')}}">connectez vous</a></p> --}}
+                            {{-- <a name="" id="" class="btn btn-danger" href="{{route('suppressionCompte',['id'=>$user->id])}}" role="button">Supprimer le compte</a></td> --}}
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" style="margin-left:20px;margin-top:18px; border-radius:0 !important;">
+                                Supprimer le compte
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Suppression</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="post" action="{{route('SupprimCompte',['id' => Auth::user()->id])}}">
+                                            @csrf
+                                                @method('delete')
+                                            Etes-vous vraiment certain de vouloir supprimer votre compte ?
+                                            {{-- <input type="hidden" name="idUser" value="{{}}"> --}}
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Sortir</button>
+                                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                                        </form>
+                                    </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+
+                            </div>
+
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 col-12">
@@ -416,7 +447,7 @@ Author: webstrot
                         </div>
 
                     </div>
-                    
+
                 </div>
                 </div>
                 </div>
@@ -482,7 +513,7 @@ Author: webstrot
                                     <a href="#" ><i class="fas fa-search"></i></a>
                                 </div>
                                 </form>
-                            
+
                     </div>
                     </div>
                 </div>
@@ -513,7 +544,7 @@ Author: webstrot
                                 </label>
                             </p>
                             <p class="job_field">
-                                <input type="checkbox" id="c4" name="cb">
+                                  <input type="checkbox" id="c4" name="cb">
                                 <label for="c4">Chimie<span> (**)</span>
                                 </label>
                             </p>
@@ -569,11 +600,12 @@ Author: webstrot
                                 <option>filtrer par</option>
                                 <option>plus recent</option>
                                 <option>plus ancien</option>
-                                {{-- <option>top rated</option> 
+                                {{-- <option>top rated</option>
                             </select>
 
                         </div>
                         </div>--}}
+
                         <div class="tab-content btc_shop_index_content_tabs_main jb_cover">
                             <div id="grid" class="tab-pane active">
                                 <div class="row">
@@ -588,10 +620,16 @@ Author: webstrot
                                                         <img src="{{ Storage::url($post->image->path) }}" alt="post_img" style="width:170px;height:200px;object-fit:contain;" />
                                                     @endif
                                                     @if(!empty($post->auteur->users_name) || !empty($post->auteur->users_tel))
-                                                        <br> <span>{{$post->auteur->users_name}} </span>
-                                                    @else 
-                                                        Auteur {{$post->users_id}}
-                                                    @endif 
+                                                        <br>
+                                                        <form action="{{route('posts.auteur')}}" method="get">
+                                                            @csrf
+                                                            @method('GET')
+                                                            <input type="hidden" name = "tel" value="{{$post->auteur->users_tel}}">
+                                                            <button type="submit" style="" class="btn btn-light"><span>{{$post->auteur->users_name}} </span></button>
+                                                        </form>
+                                                    @else
+                                                        Auteur
+                                                    @endif
                                                     </div>
                                                     <div class="jp_job_post_right_cont">
                                                         <h4><a href="#">{{ $post->title }}</a></h4>
@@ -603,43 +641,48 @@ Author: webstrot
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                                    <div class="jp_job_post_right_btn_wrapper jb_cover" >
+                                                    <div class="jp_job_post_right_btn_wrapper jb_cover">
                                                         <ul>
                                                             <li>
                                                             </li>
                                                             <li>
                                                             <form method="GET" action="{{ route('posts.show')}}">
-                                                                <input type="hidden" name="id" value="{{$post->id}}" style="display:none;">
-                                                                <a href=""><input type="submit" value="Description" style="background:transparent;border:1px solid transparent;cursor:pointer;"></a>
+                                                                <input type="hidden" name="id" value="{{$post->id}}">
+                                                                <a href="" onclick="event.preventDefault();
+                                                                            this.closest('form').submit();">description</a>
                                                             </form>
                                                             </li>
                                                             <li>
-                                                        @if(!empty($post->auteur->users_tel))
-                                                            <a href="{{route("updatelivre" ,['id'=>$post->id ])}}" style=""><li> Modifier</a></li>
-                                                        @else
-                                                            <form method="GET" action="{{ route('updatelivre')}}">
+
+                                                            <form method="GET" action="">
                                                                 <input type="hidden" name="id" value="{{$post->id}}">
-                                                                <a href=""><input type="submit" value="Modifier" style="background:transparent;border:1px solid transparent;cursor:pointer;"></a>
+                                                                @if(!empty($post->auteur->users_tel))
+                                                                <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis LEPOTO par rapport a  votre article du titre : {{$post->title}}"
+                                                                    onclick="event.preventDefault();
+                                                                            this.closest('form').submit();">acheter</a>
+                                                                @else
+                                                                <a href="https://wa.me/698549128/?text=Bonjour  Je viens vers vous depuis LEPOTO par rapport a  votre article du titre : {{$post->title}}"
+                                                                    onclick="event.preventDefault();
+                                                                            this.closest('form').submit();"> acheter</a>
+                                                                @endif
                                                             </form>
-                                                        @endif
                                                             </li>
-                                                            
+
                                                             {{-- @if(!empty(Auth::user()))
-                                                            <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
+                                                            <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis LEPOTO par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
                                                             @else
                                                             <a href="{{route('login')}}" data-toggle="modal" data-target="#myModal01">Acheter</a></li>
                                                             @endif --}}
                                                         </ul>
-                                                    {{-- <td><a name="" id="" class="btn btn-danger" href="{{route('suppressionPost',['id'=>$post->id])}}" role="button">Supprimer</a></td> --}}
-                                                    <a href="{{route('suppressionPost',['id'=>$post->id])}}" class="btn btn-danger" style="margin-left:15px;margin-top:20px;height:36px !important; border-radius:0 !important;">Supprimer</a>
-                                                        
+                                                        <!-- Button trigger modal -->
+
                                                     </div>
                                                 </div>
 
                                             </div>
                                         </div>
                                     </div>
-                                @empty
+                                    @empty
                                     <div class="col-lg-6 col-md-6 col-sm-12">
 
                                         <div class="job_listing_left_fullwidth job_listing_grid_wrapper jb_cover">
@@ -670,7 +713,7 @@ Author: webstrot
                                                             <li> <a href="#" data-toggle="modal" data-target="#myModal01">Acheter</a></li>
                                                         </ul>
                                                     </div>
-                                                    
+
                                                 </div>
 
                                             </div>
@@ -706,31 +749,31 @@ Author: webstrot
                                                             <li> <a href="#" data-toggle="modal" data-target="#myModal02">acheter</a></li>
                                                         </ul>
                                                     </div>
-                                                    
+
                                                 </div>
 
                                             </div>
                                         </div>
                                     </div>
                                     @endforelse
-                                                                        
+
                                 </div>
                             </div>
                             <div class="blog_pagination_section jb_cover">
                             {{-- {{$posts->links()}} --}}
                              {!! $posts->withQueryString()->links('pagination::bootstrap-5') !!}
-                            
+
                             </div>
                         </div>
                     </div>
                 </div>
 				<div class="col-lg-3 col-md-12 col-sm-12 col-12 d-block d-sm-block d-md-block d-lg-none d-xl-none">
-                    
+
                 </div>
             </div>
         </div>
         </div>
-    
+
 
             </div>
         </div>
@@ -801,7 +844,7 @@ Author: webstrot
         <img src="images/bubble2.png" class="img-responsive " alt="img">
     </div>
 
-    
+
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-sm-6 col-12">
@@ -817,7 +860,7 @@ Author: webstrot
                                 <a href="tel:+237698549128">698-549-128</a>
                                 {{-- <a href="tel:+237698549128">652-097-642</a> --}}
                             </p>
-                            
+
                         </li>
                         <li style="display:flex;align-items:center;"><i class="flaticon-envelope"></i><a href="mailto:lucfotso0@gmail.com">contact.lepoto@gmail.com </a>
                             <br>
@@ -881,7 +924,7 @@ Author: webstrot
                                         </div>
                                     </div>
                                 </div>
-                            
+
                                 <div class="col-md-12">
                                     <div class="form-m">
                                         <div class="form-group i-message">
@@ -904,9 +947,9 @@ Author: webstrot
                         </form>
 
                     </div>
-                </div>    
+                </div>
                 <div class="col-lg-4 col-sm-6 col-12">
-                    
+
                 </div>
                 <div class="copyright_left"><i class="fa fa-copyright"></i> 2023 <a href="#">  LEPOTO.  </a> Tout droit réservé.
             </div>

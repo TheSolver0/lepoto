@@ -151,27 +151,37 @@ Author: webstrot
                         </div>
                     </li>
                     <li>
+                        @if(!empty(Auth::user()))
                         <div class="jb_profile_box jb_3_profile_box">
-                            <div class="nice-select" tabindex="0"> <span class="current"><img src="images/profile-11.jpg" alt="img"></span>
+                            <div class="nice-select" tabindex="0"> <span class="current">
+                                    @if(!empty(Auth::user()->avatar->path))
+                                        <img src="{{ Storage::url(Auth::user()->avatar->path) }}" alt="img" style="width:50px;height:50px;border-radius:50%;"></span>
+                                    @else
+                                        <img src="images/profile-11.jpg" alt="img" style="width:50px;height:50px;border-radius:50%;"></span>
+                                    @endif </span>
                                 <ul class="list">
-                                    <li><a href=""><i class="fas fa-user-edit"></i>FAQ</a>
+                                    <li><a href="{{route('profile.edit')}}"><i class="fas fa-user-edit"></i>Profil</a>
                                     </li>
 
                                     {{-- <li><a href="#"><i class="far fa-calendar-alt"></i> My Calender</a> --}}
                                     </li>
-                                    <li><a href="#"><i class="fas fa-comment"></i>Inbox</a>
-                                    </li>
-                                    <li><a href="#"><i class="fas fa-cog"></i>Setting</a>
-                                    </li>
-                                    <li><a href="#"><i class="fas fa-question-circle"></i>Help</a>
+                                    <li><a href="#"><i class="fas fa-comment"></i>FAQ</a>
                                     </li>
                                     {{-- <li><a href="#"><i class="fas fa-lock"></i>Lock Screen</a> --}}
                                     </li>
-                                    <li><a href="#"><i class="fas fa-sign-in-alt"></i>logout</a>
+                                     <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+
+                                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                this.closest('form').submit();"><i class="ion-power"></i>Déconnexion</a></li> 
+                                     </form>
                                     </li>
                                 </ul>
                             </div>
                         </div>
+                        @else
+                        @endif
+   
                     </li>
                     <li class="btn_hover">
                          <a href="{{ route('login') }}">Connexion</a>
@@ -381,7 +391,13 @@ Author: webstrot
                                                         <img src="{{ Storage::url($post->image->path) }}" alt="post_img" style="width:170px;height:200px;object-fit:contain;" />
                                                     @endif
                                                     @if(!empty($post->auteur->users_name) || !empty($post->auteur->users_tel))
-                                                        <br> <span>{{$post->auteur->users_name}} </span>
+                                                        <br> 
+                                                        <form action="{{route('posts.auteur')}}" method="get">
+                                                            @csrf
+                                                            @method('GET')
+                                                            <input type="hidden" name = "tel" value="{{$post->auteur->users_tel}}">
+                                                            <button type="submit" style="" class="btn btn-light"><span>{{$post->auteur->users_name}} </span></button>
+                                                        </form>
                                                     @else 
                                                         Auteur
                                                     @endif 
@@ -396,7 +412,7 @@ Author: webstrot
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                                    <div class="jp_job_post_right_btn_wrapper jb_cover" >
+                                                    <div class="jp_job_post_right_btn_wrapper jb_cover">
                                                         <ul>
                                                             <li>
                                                             </li>
@@ -412,24 +428,63 @@ Author: webstrot
                                                             <form method="GET" action="">
                                                                 <input type="hidden" name="id" value="{{$post->id}}">
                                                                 @if(!empty($post->auteur->users_tel))
-                                                                <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"
+                                                                <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis LEPOTO par rapport a  votre article du titre : {{$post->title}}"
                                                                     onclick="event.preventDefault();
                                                                             this.closest('form').submit();">acheter</a>
                                                                 @else
-                                                                <a href="https://wa.me/698549128/?text=Bonjour  Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"
+                                                                <a href="https://wa.me/698549128/?text=Bonjour  Je viens vers vous depuis LEPOTO par rapport a  votre article du titre : {{$post->title}}"
                                                                     onclick="event.preventDefault();
                                                                             this.closest('form').submit();"> acheter</a>
                                                                 @endif
                                                             </form>
                                                             </li>
+                                                            
                                                             {{-- @if(!empty(Auth::user()))
-                                                            <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
+                                                            <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis LEPOTO par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
                                                             @else
                                                             <a href="{{route('login')}}" data-toggle="modal" data-target="#myModal01">Acheter</a></li>
                                                             @endif --}}
                                                         </ul>
-                                                    <a href="" class="btn btn-danger" style="margin-left:25px;margin-top:18px; border-radius:0 !important;">Signaler</a>
-                                                        
+                                                        <!-- Button trigger modal -->
+                                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" style="margin-left:20px;margin-top:18px; border-radius:0 !important;">
+                                                            Signaler
+                                                            </button>
+
+                                                            <!-- Modal -->
+                                                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLongTitle">Signalement</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form method="GET" action="{{route('signalerPost')}}">
+                                                                        <input type="hidden" name="id" value="{{$post->id}}">
+                                                                        <input type="text" name="raison" class="raison" placeholder="Entrez la raison du signalement">
+                                                                        {{-- <button type="submit" class="btn btn-danger" name="signale" style="margin-left:25px;margin-top:18px; border-radius:0 !important;">Signaler</button> --}}
+                                                                    
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Sortir</button>
+                                                                    <button type="submit" class="btn btn-danger">Signaler</button>
+                                                                    </form>    
+                                                                </div>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                        {{-- <form method="GET" action="{{route('signalerPost')}}"
+                                                            onmouseover="event.preventDefault();
+                                                                    this.querySelector('.raison').style.display='';"
+                                                            onmouseout="event.preventDefault();
+                                                                    this.querySelector('.raison').style.display='none';">
+                                                            <input type="hidden" name="id" value="{{$post->id}}">
+                                                               
+                                                            <input type="text" name="raison" class="raison" placeholder="Entrez la raison du signalement" style="display:none;">
+                                                            <button type="submit" class="btn btn-danger" name="signale" style="margin-left:25px;margin-top:18px; border-radius:0 !important;">Signaler</button>
+                                                        </form> --}}
                                                     </div>
                                                 </div>
 
@@ -444,7 +499,7 @@ Author: webstrot
                             </div>
                             <div class="blog_pagination_section jb_cover">
                             {{-- {{$posts->links()}} --}}
-                             {!! $posts->withQueryString()->links('pagination::bootstrap-5') !!}
+                             {!! $posts->withQueryString()->links('pagination::bootstrap-4') !!}
                                 {{-- <ul>
                                     <li>
                                         <a href="#" class="prev"> <i class="flaticon-left-arrow"></i> </a>
@@ -563,73 +618,230 @@ Author: webstrot
     
     <!-- news app wrapper end-->
     <!-- footer Wrapper Start -->
-    <div class="footer jb_cover">
-        <div class="ft_shape bubble-18">
-            <img src="images/bubble2.png" class="img-responsive " alt="img">
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="footerNav jb_cover">
-                        <a href="#"><img src="images/logolepoto.png" alt="img" style="width:250px;"></a>
-                        <ul class="footer_first_contact">
-                            <li><i class="flaticon-location-pointer"></i>
-                                <p>Douala, Nyalla
-                                </p>
-                            </li>
-                            <li><i class="flaticon-telephone"></i>
-                                <p>698-549-128
-                            </li>
-                            <li><i class="flaticon-envelope"></i><a href="#">contact.lepoto@gmail.com </a>
-                                <br>
-                                <a href="#">support@gmail.com</a>
-                            </li>
-
-                        </ul>
-
-                        <ul class="icon_list_news index2_icon_list jb_cover">
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li>
-                                <a href="#"><i class="fab fa-twitter"></i>
-                                    </a>
-                            </li>
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                            <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-
-                        </ul>
-                    </div>
-                </div>
-                                <div class="copyright_left"><i class="fa fa-copyright"></i> 2023 <a href="#">  LEPOTO.  </a> Tout droits réservés.
-                </div>
-
-                <div class="clearfix"></div>
-            </div>
-            <!--/.row-->
-        </div>
-        <!--/.container-->
-        <div class="waveWrapper waveAnimation">
-            <div class="waveWrapperInner bgTop gradient-color">
-                <div class="wave waveTop wavetop_1 wavetop_3"></div>
-            </div>
-            <div class="waveWrapperInner bgMiddle">
-                <div class="wave waveMiddle"></div>
-            </div>
-            <div class="waveWrapperInner bgBottom">
-                <div class="wave waveBottom wavebottom_1 wavebottom_3"></div>
-            </div>
-        </div>
-        <div class="ft_shape2 bubble-190">
-            <img src="images/bubble2.png" class="img-responsive " alt="img">
-        </div>
-        <div class="ft_shape1 bubble-19">
-            <img src="images/bubble2.png" class="img-responsive " alt="img">
-        </div>
+    <div class="slider_small3_shape shapenew">
+        <img src="images/shape4.png" class="img-responsive" alt="img">
     </div>
+</div>
+<!--clients wrapper end-->
+<!--pricing table start-->
+<!--pricing table end-->
+<!--popular wrapper start-->
+<div class="popular_wrapper jb_cover">
+    <div class="slider_small3_shape shapenew">
+        <img src="images/shape4.png" class="img-responsive " alt="img">
+    </div>
+    
+</div>
 
-    <!-- footer Wrapper End -->
-	 <!-- chat box Wrapper start -->
-	</div>
+<div class="col-lg-12 col-md-12 col-sm-12">
+                        <div id="accordion" role="tablist" style="margin:100px 100px;">
+                            <h1>Questions fréquemment posées...</h1>
+                            <div class="card">
+
+                                <div class="card_pagee" role="tab" id="heading1">
+                                    <h5 class="h5-md">
+                                           <a class="collapsed" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">
+                                              C'est quoi LEPOTO?
+
+                                        </a>
+                                      </h5>
+                                </div>
+
+                                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="heading1" data-parent="#accordion" style="">
+                                    <div class="card-body">
+
+                                        <div class="card_cntnt">
+                                            <p>LEPOTO est une plateforme de commerce de livres en ligne pour en savoir plus merci de vous rendre sur la page <a href="{{route('apropos')}}">a propos </a></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="card">
+
+                                <div class="card_pagee" role="tab" id="heading2">
+                                    <h5 class="h5-md">
+                                           <a class="collapsed" data-toggle="collapse" href="#collapsethree" role="button" aria-expanded="false" aria-controls="collapsethree">
+                                        Qui êtes-vous?
+
+                                        </a>
+                                      </h5>
+                                </div>
+
+                                <div id="collapsethree" class="collapse" role="tabpanel" aria-labelledby="heading2" data-parent="#accordion" style="">
+                                    <div class="card-body">
+
+                                        <div class="card_cntnt">
+                                            <p>Nous sommes une entreprise specialisé spécialisée dans les solutions digitales . De l'idée au déploiement nous vous permettons d'atteindre vos objectifs grâce au digital. </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+<!--popular wrapper end-->
+<!--resume wrapper start-->
+<div class="pricing_table_3 recent_resume_wrapper jb_cover">
+    <div class="slider_small_shape44">
+        <img src="images/p2.png" class="img-responsive " alt="img">
+    </div>
+    
+    <div class="counter_jbbb2 jb_cover">
+
+        <img src="images/line3.png" class="img-responsive" alt="img">
+    </div>
+</div>
+<!--resume wrapper end-->
+<!-- news app wrapper start-->
+
+
+<!-- news app wrapper end-->
+<!-- footer Wrapper Start -->
+<div class="footer jb_cover">
+<div class="ft_shape bubble-18">
+    <img src="images/bubble2.png" class="img-responsive " alt="img">
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-sm-6 col-12">
+            <div class="footerNav jb_cover" >
+                <a href="#"><img src="images/logolepoto.png" alt="img" style="width:200px;"></a>
+                <ul class="footer_first_contact">
+                    <li style="display:flex;align-items:center;"><i class="flaticon-location-pointer"></i>
+                        <p>Douala, Nyalla
+                        </p>
+                    </li>
+                    <li style="display:flex;align-items:center;flex-flow:row column;"><i class="flaticon-telephone"></i>
+                        <p>
+                            <a href="tel:+237698549128">698-549-128</a>
+                            {{-- <a href="tel:+237698549128">652-097-642</a> --}}
+                        </p>
+                        
+                    </li>
+                    <li style="display:flex;align-items:center;"><i class="flaticon-envelope"></i><a href="mailto:lucfotso0@gmail.com">contact.lepoto@gmail.com </a>
+                        <br>
+                        {{-- <a href="mailto:lucfotso0@gmail.com">support@gmail.com</a> --}}
+                    </li>
+
+                </ul>
+
+                <ul class="icon_list_news index2_icon_list jb_cover">
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li>
+                        <a href="#"><i class="fab fa-twitter"></i>
+                            </a>
+                    </li>
+                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 col-12">
+                <div class="footerNav jb_cover footer_border_displ">
+                    <h5>Pages</h5>
+                    <ul class="nav-widget">
+                        <li><a href="{{route('accueil')}}"><i class="fa fa-square"></i>Accueil</a></li>
+
+                        <li><a href="{{route('manuel')}}"><i class="fa fa-square"></i>Manuels</a></li>
+
+                        <li><a href="#accordion"><i class="fa fa-square"></i>FAQ</a></li>
+
+                        <li><a href="{{route('apropos')}}"><i class="fa fa-square"></i>A propos</a></li>
+
+                        <li><a href="{{route('contact_us')}}"><i class="fa fa-square"></i>Contact</a></li>
+
+
+                    </ul>
+                </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 col-12">
+                <div class="footerNav jb_cover footer_border_displ">
+                    <h5>Nous laissez un avis ?</h5>
+                    <form action="{{route('mail')}}" method="GET">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-pos">
+                                    <div class="form-group i-name">
+
+                                        <input type="text" class="form-control require" name="full_name"  id="namTen-first" placeholder=" Nom*">
+                                        {{-- <i class="fas fa-user-alt"></i> --}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- /.col-md-12 -->
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-e">
+                                    <div class="form-group i-email">
+                                        <label class="sr-only">Email </label>
+                                        <input type="email" class="form-control require" name="email"  id="emailTen" placeholder=" Email *" data-valid="email" data-error="Email should be valid.">
+                                        {{-- <i class="fas fa-envelope"></i> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="col-md-12">
+                                <div class="form-m">
+                                    <div class="form-group i-message">
+
+                                        <textarea class="form-control require" name="message" rows="5" id="messageTen" placeholder=" Message"></textarea>
+                                        {{-- <i class="fas fa-comment"></i> --}}
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.col-md-12 -->
+                            <div class="col-md-12">
+                                <div class="tb_es_btn_div">
+                                    <div class="response"></div>
+                                    <div class="tb_es_btn_wrapper">
+                                        <button type="submit" class="submitForm">envoyer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>    
+            <div class="col-lg-4 col-sm-6 col-12">
+                
+            </div>
+            <div class="copyright_left"><i class="fa fa-copyright"></i> 2023 <a href="#">  LEPOTO.  </a> Tout droit réservé.
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+    <!--/.row-->
+</div>
+<!--/.container-->
+<div class="waveWrapper waveAnimation">
+    <div class="waveWrapperInner bgTop gradient-color">
+        <div class="wave waveTop wavetop_1 wavetop_3"></div>
+    </div>
+    <div class="waveWrapperInner bgMiddle">
+        <div class="wave waveMiddle"></div>
+    </div>
+    <div class="waveWrapperInner bgBottom">
+        <div class="wave waveBottom wavebottom_1 wavebottom_3"></div>
+    </div>
+</div>
+<div class="ft_shape2 bubble-190">
+    <img src="images/bubble2.png" class="img-responsive " alt="img">
+</div>
+<div class="ft_shape1 bubble-19">
+    <img src="images/bubble2.png" class="img-responsive " alt="img">
+</div>
+</div>
+
+
+<!-- footer Wrapper End -->
+ <!-- chat box Wrapper start -->
+</div>
 <!-- chat box Wrapper end -->
 <!--custom js files-->
 <script src="js/jquery-3.3.1.min.js"></script>
@@ -661,6 +873,15 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+
+{{-- <script>
+const signale = document.querySelector("#signale");
+const raison = document.querySelector("#raison");
+signale.addEventListener("mouseover",() =>
+{
+    raison.style.display='';
+})
+</script> --}}
 
 </body>
 
