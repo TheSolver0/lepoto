@@ -16,7 +16,7 @@ Author: webstrot
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8" />
-    <title>lepoto</title>
+    <title>lepoto | a propos</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
                         <meta name="description" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" />
                         <meta name="keywords" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" />
@@ -189,7 +189,7 @@ Author: webstrot
 
             <div class="mainmenu green_main_menu blue_main_menu d-xl-block d-lg-block d-md-none d-sm-none d-none">
                 <ul class="main_nav_ul menu_2_ul">
-                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation active_class active_class2 active_class3">acceuil</a>
+                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation ">acceuil</a>
                         
                     </li>		
                     <li class="has-mega gc_main_navigation"><a href="{{route('manuel')}}" class="gc_main_navigation">Manuels</a>
@@ -200,7 +200,7 @@ Author: webstrot
                         <!-- mega menu start -->
                         
                     </li>
-                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">A   propos</a>
+                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation active_class active_class2 active_class3">A   propos</a>
                             
                         </li>
 					
@@ -218,54 +218,252 @@ Author: webstrot
                 
     <!-- slider wrapper End -->
     <!--services wrapper start-->
-    <section style="margin:50px;">
-    <p>
-        Bienvenu sur notre plateforme dédiée au commerce des manuels ! Notre application web offre 
-        une expérience unique , permettant aux étudiants et autres de vendre , achéter et échanger facilement leurs manuels.
-        Simplifiez votre vie étudiante en découvrant un marché dédié aux livres nécessaires à votre réussite academique.
-        <br>
-        <b><i> Pourquoi choisir notre plateforme ? </i></b>
-        <br>
-        <br>
-        <br>
-        <h5>1-Economie collaborative:</h5>
-        <br>
-                <p>
-                    Encouragez le partage entre étudiants en mettantt en vente vs manuels dont vous n'avez plus
-                    besoin, et trouvez des manuels à des prix avantageux.
-                </p>
-        <br>
-        <h5>2-Facilité d'utilisation:</h5>
-        <br>
-                <p>
-                    Notre interface conviviale rend la mise en ligne de vos manuels et la recherche
-                    de ceux dont vous avez besoin simples et rapides .
-                </p>
-        <br>
-        <h5>3-Confiance et sécurité:</h5>
-        <br>
-                <p>
-                    Nous mettons l'accent sur la confiance entre les utilisateurs . Les profils vérifiés
-                    et les évaluations garantissent une expérience fiable.
-                </p>    
-        <br>
-        <h5>4-Ecologique:</h5>
-        <br>
-                <p>
-                    Contribuez à la durabilité en réduisant le gaspillage de papier en réutilisant
-                    des manuels déjà produits.
-                </p>
-        <br>
-        <br>
-        <p>
-            Transformez votre façon d'aborder l'achat de manuels scolaires et participez à une initiative
-            qui favorise l'échange et la solidarité au sein de la communauté étudiante .
-            Rejoignez-nous aujourd'hui et simplifiez votre parcours académique!
-        </p>
-    </p>
-    </section>
+    <div class="company_details_wrapper jb_cover">
+    </div>
+    <div class="webstrot_tech_detail jb_cover">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="job_listing_left_fullwidth jb_cover">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-7 col-sm-12 col-12">
+                                <div class="jp_job_post_side_img">
+                                </div>
+                                <div class="jp_job_post_right_cont web_text">
+                               </div>
+                                    <a href="#informations"><h4>LEPOTO : meilleure plateforme d'échange de tout type de livres</h4></a>
+                            </div>
 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="jb_listing_single_overview jb_cover">
 
+                    <section style="margin:50px;">  
+                    <p>
+                        Bienvenu sur notre plateforme dédiée au commerce des manuels ! Notre application web offre 
+                        une expérience unique , permettant aux étudiants et autres de vendre , achéter et échanger facilement leurs manuels.
+                        Simplifiez votre vie étudiante en découvrant un marché dédié aux livres nécessaires à votre réussite academique.
+                        <br>
+                        <b><i> Pourquoi choisir notre plateforme ? </i></b>
+                        <br>
+                        <br>
+                        <br>
+                        <h5>1-Economie collaborative:</h5>
+                        <br>
+                                <p>
+                                    Encouragez le partage entre étudiants en mettantt en vente vs manuels dont vous n'avez plus
+                                    besoin, et trouvez des manuels à des prix avantageux.
+                                </p>
+                        <br>
+                        <h5>2-Facilité d'utilisation:</h5>
+                        <br>
+                                <p>
+                                    Notre interface conviviale rend la mise en ligne de vos manuels et la recherche
+                                    de ceux dont vous avez besoin simples et rapides .
+                                </p>
+                        <br>
+                        <h5>3-Confiance et sécurité:</h5>
+                        <br>
+                                <p>
+                                    Nous mettons l'accent sur la confiance entre les utilisateurs . Les profils vérifiés
+                                    et les évaluations garantissent une expérience fiable.
+                                </p>    
+                        <br>
+                        <h5>4-Ecologique:</h5>
+                        <br>
+                                <p>
+                                    Contribuez à la durabilité en réduisant le gaspillage de papier en réutilisant
+                                    des manuels déjà produits.
+                                </p>
+                        <br>
+                        <br>
+                        <p>
+                            Transformez votre façon d'aborder l'achat de manuels scolaires et participez à une initiative
+                            qui favorise l'échange et la solidarité au sein de la communauté étudiante .
+                            Rejoignez-nous aujourd'hui et simplifiez votre parcours académique!
+                        </p>
+                    </p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="counter_wrapper counter_3_wrapper jb_cover">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                    <div class="counter_mockup_design jb_cover">
+
+                        <img src="images/mockup6.png" class="img-responsive" alt="img">
+                    </div>
+                    <div class="counter_jbbb jb_cover">
+
+                        <img src="images/line2.png" class="img-responsive" alt="img">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                    <div class="counter_right_wrapper counter_index3_right jb_cover">
+                        <h1>Statistique</h1>
+                        <div class="counter_width">
+                            <div class="counter_cntnt_box">
+
+                                <div class="count-description"><span class="timer">2500</span>
+                                    <p class="con2">clients satisfait </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="counter_width">
+                            <div class="counter_cntnt_box">
+
+                                <div class="count-description"> <span class="timer">9425</span>
+                                    <p class="con2">nombre de ventes</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="counter_width">
+                            <div class="counter_cntnt_box">
+
+                                <div class="count-description"> <span class="timer">9</span><span>+</span>
+                                    <p class="con2">Note</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- counter wrapper end-->
+    <!--services wrapper start-->
+    <div class="services_wrapper control_wrapper jb_cover">
+        <div class="slider_small_shape44">
+            <img src="images/shape4.png" class="img-responsive " alt="img">
+        </div>
+        <div class="counter_jbbb2 jb_cover">
+
+            <img src="images/line3.png" class="img-responsive" alt="img">
+        </div>
+
+                <div class="slider_small3_shape">
+            <img src="images/shape4.png" class="img-responsive" alt="img">
+        </div>
+
+    </div>
+    <!--services wrapper end-->
+    <!-- download app wrapper start-->
+    <div class="download_wrapper index3_download jb_cover">
+        <div class="line_shape">
+            <img src="images/line.png" class="img-responsive" alt="img">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                    <div class="download_mockup_design jb_cover">
+
+                        <img src="images/mockup7.png" class="img-responsive" alt="img">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                    <div class="download_app_store jb_cover">
+                        <h1>Télécharger</h1>
+                        <h2>Bientôt disponible</h2>
+                        <div class="app_btn playstore_2 jb_cover">
+                            <a href="#" class="ss_playstore"><span><i class="flaticon-android-logo"></i></span> Play Store</a>
+                            <a href="#" class="ss_appstore"><span><i class="flaticon-apple"></i></span> App Store</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- download app wrapper end-->
+    <!--clients wrapper start-->
+    <div class="client_wrapper_top jb_cover">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-12">
+                    <div class="jb_heading_wraper">
+
+                        <h3>Témoignage de clients satisfait
+</h3>
+
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="client_wrapper jb_cover">
+                        <div class="owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12">
+                                        <div class="client_wrapper_cntnt jb_cover">
+                                            <div class="client_shap1 bubble-5">
+                                                <img src="images/bubble.png" class="img-responsive" alt="img">
+                                            </div>
+                                            <div class="client_shap2 bubble-7">
+                                                <img src="images/bubble.png" class="img-responsive" alt="img">
+                                            </div>
+                                            <img src="images/quote1.png" alt="img">
+
+                                            <h1><a href="#">Luc FOTSO</a> <span>(vendeur)</span></h1>
+
+                                            <p>J'ai reussi a me faire 50k xaf en une semaine en vendant mes manuels apres le bac cela m'a permis de payer mon école </p>
+                                            <div class="client_shap3 bubble-6">
+                                                <img src="images/bubble.png" class="img-responsive" alt="img">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                                        <div class="clinnt_slider_img jb_cover">
+                                {{-- mettre l'image quote la --}}
+                                            <img src="images/vv.png" class="img-responsive" alt="img">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12">
+                                        <div class="client_wrapper_cntnt jb_cover">
+                                            <div class="client_shap1 bubble-8">
+                                                <img src="images/bubble.png" class="img-responsive" alt="img">
+                                            </div>
+                                            <div class="client_shap2 bubble-9">
+                                                <img src="images/bubble.png" class="img-responsive" alt="img">
+                                            </div>
+                                            <img src="images/quote1.png" alt="img">
+
+                                            <h1><a href="#">Arthur Ekoko</a> <span>(Acheteur)</span></h1>
+
+                                            <p>A l'ecole nos enseignants nous parlais de livres hors programme mais tres efficaces pour comprendre , j'ai justement pu acheter ces livres sur LEPOTO</p>
+                                            <div class="client_shap3 bubble-6">
+                                                <img src="images/bubble.png" class="img-responsive" alt="img">
+                                            </div>
+                                        </div>
+                                    </div>
+                                      <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                                        <div class="clinnt_slider_img jb_cover">
+                                {{-- mettre l'image quote la --}}
+                                            <img src="images/vv.png" class="img-responsive" alt="img">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slider_small3_shape shapenew">
+            <img src="images/shape4.png" class="img-responsive" alt="img">
+        </div>
+    </div>
+    
 
 
     <div class="popular_wrapper jb_cover">
@@ -276,14 +474,14 @@ Author: webstrot
     </div>
 
     <div class="col-lg-12 col-md-12 col-sm-12">
-                            <div id="accordion" role="tablist">
+                            <div id="accordion" role="tablist" style="margin:100px 100px;">
                                 <h1>Questions fréquemment posées...</h1>
                                 <div class="card">
 
                                     <div class="card_pagee" role="tab" id="heading1">
                                         <h5 class="h5-md">
 								       	    <a class="collapsed" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">
-								          		Is there any auto-renew subscription?
+								          		C'est quoi LEPOTO?
 
 								        	</a>
 								     	 </h5>
@@ -293,7 +491,7 @@ Author: webstrot
                                         <div class="card-body">
 
                                             <div class="card_cntnt">
-                                                <p>This is Photoshop's version of LoremProin gravida nibh vel velit auctor Ipsum. Proin gravida nibh vel velit auctor aliquet....</p>
+                                                <p>LEPOTO est une plateforme de commerce de livres en ligne pour en savoir plus merci de vous rendre sur la page <a href="{{route('apropos')}}">a propos </a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -305,7 +503,7 @@ Author: webstrot
                                     <div class="card_pagee" role="tab" id="heading2">
                                         <h5 class="h5-md">
 								       	    <a class="collapsed" data-toggle="collapse" href="#collapsethree" role="button" aria-expanded="false" aria-controls="collapsethree">
-								          How many sites can I use my themes on?
+								            Qui êtes-vous?
 
 								        	</a>
 								     	 </h5>
@@ -315,7 +513,7 @@ Author: webstrot
                                         <div class="card-body">
 
                                             <div class="card_cntnt">
-                                                <p>This is Photoshop's version of LoremProin gravida nibh vel velit auctor Ipsum. Proin gravida nibh vel velit auctor aliquet....</p>
+                                                <p>Nous sommes une entreprise specialisé spécialisée dans les solutions digitales . De l'idée au déploiement nous vous permettons d'atteindre vos objectifs grâce au digital. </p>
                                             </div>
                                         </div>
                                     </div>
@@ -347,22 +545,27 @@ Author: webstrot
         <img src="images/bubble2.png" class="img-responsive " alt="img">
     </div>
 
+    
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-sm-6 col-12">
-                <div class="footerNav jb_cover">
-                    <a href="#"><img src="images/logolepoto.png" alt="img" style="width:250px;"></a>
+            <div class="col-lg-4 col-sm-6 col-12">
+                <div class="footerNav jb_cover" >
+                    <a href="#"><img src="images/logolepoto.png" alt="img" style="width:200px;"></a>
                     <ul class="footer_first_contact">
-                        <li><i class="flaticon-location-pointer"></i>
+                        <li style="display:flex;align-items:center;"><i class="flaticon-location-pointer"></i>
                             <p>Douala, Nyalla
                             </p>
                         </li>
-                        <li><i class="flaticon-telephone"></i>
-                            <p>698-549-128
+                        <li style="display:flex;align-items:center;flex-flow:row column;"><i class="flaticon-telephone"></i>
+                            <p>
+                                <a href="tel:+237698549128">698-549-128</a>
+                                {{-- <a href="tel:+237698549128">652-097-642</a> --}}
+                            </p>
+                            
                         </li>
-                        <li><i class="flaticon-envelope"></i><a href="#">contact.lepoto@gmail.com </a>
+                        <li style="display:flex;align-items:center;"><i class="flaticon-envelope"></i><a href="mailto:lucfotso0@gmail.com">contact.lepoto@gmail.com </a>
                             <br>
-                            <a href="#">support@gmail.com</a>
+                            {{-- <a href="mailto:lucfotso0@gmail.com">support@gmail.com</a> --}}
                         </li>
 
                     </ul>
@@ -379,23 +582,35 @@ Author: webstrot
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-9 col-sm-6 col-12">
-                <div class="footerNav jb_cover footer_border_displ">
-              
-                    <div class="contact_field_wrapper comments_form">
-                    <div class="jb_heading_wraper left_rivew_heading">
-                    <h3>envoyez nous un mail(laissez des avis ou autres)</h3>
-                    {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, --}}
-                        {{-- <br> sed do eiusmod tempor incididunt </p> --}}
+            <div class="col-lg-4 col-sm-6 col-12">
+                    <div class="footerNav jb_cover footer_border_displ">
+                        <h5>Pages</h5>
+                        <ul class="nav-widget">
+                            <li><a href="{{route('accueil')}}"><i class="fa fa-square"></i>Accueil</a></li>
+
+                            <li><a href="{{route('manuel')}}"><i class="fa fa-square"></i>Manuels</a></li>
+
+                            <li><a href="#accordion"><i class="fa fa-square"></i>FAQ</a></li>
+
+                            <li><a href="{{route('apropos')}}"><i class="fa fa-square"></i>A propos</a></li>
+
+                            <li><a href="{{route('contact_us')}}"><i class="fa fa-square"></i>Contact</a></li>
+
+
+                        </ul>
                     </div>
-                    <form action="{{route('mail')}}" method="GET">
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12">
+                    <div class="footerNav jb_cover footer_border_displ">
+                        <h5>Nous laissez un avis ?</h5>
+                        <form action="{{route('mail')}}" method="GET">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-pos">
                                         <div class="form-group i-name">
 
-                                            <input type="text" class="form-control require" name="full_name"  id="namTen-first" placeholder=" Name*">
-                                            <i class="fas fa-user-alt"></i>
+                                            <input type="text" class="form-control require" name="full_name"  id="namTen-first" placeholder=" Nom*">
+                                            {{-- <i class="fas fa-user-alt"></i> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -406,7 +621,7 @@ Author: webstrot
                                         <div class="form-group i-email">
                                             <label class="sr-only">Email </label>
                                             <input type="email" class="form-control require" name="email"  id="emailTen" placeholder=" Email *" data-valid="email" data-error="Email should be valid.">
-                                            <i class="fas fa-envelope"></i>
+                                            {{-- <i class="fas fa-envelope"></i> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -416,7 +631,7 @@ Author: webstrot
                                         <div class="form-group i-message">
 
                                             <textarea class="form-control require" name="message" rows="5" id="messageTen" placeholder=" Message"></textarea>
-                                            <i class="fas fa-comment"></i>
+                                            {{-- <i class="fas fa-comment"></i> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -431,8 +646,12 @@ Author: webstrot
                                 </div>
                             </div>
                         </form>
+
+                    </div>
+                </div>    
+                <div class="col-lg-4 col-sm-6 col-12">
+                    
                 </div>
-            </div>
                 <div class="copyright_left"><i class="fa fa-copyright"></i> 2023 <a href="#">  LEPOTO.  </a> Tout droit réservé.
             </div>
 
@@ -460,6 +679,10 @@ Author: webstrot
     </div>
 </div>
 
+
+    <!-- footer Wrapper End -->
+	 <!-- chat box Wrapper start -->
+  </div>
 
     <!-- footer Wrapper End -->
 	 <!-- chat box Wrapper start -->

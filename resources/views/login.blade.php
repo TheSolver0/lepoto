@@ -306,14 +306,14 @@ Author: webstrot
         </div>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12" style="margin-top:200px;">
-                            <div id="accordion" role="tablist">
+                            <div id="accordion" role="tablist" style="margin:100px 100px;">
                                 <h1>Questions fréquemment posées...</h1>
                                 <div class="card">
 
                                     <div class="card_pagee" role="tab" id="heading1">
                                         <h5 class="h5-md">
 								       	    <a class="collapsed" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">
-								          		Is there any auto-renew subscription?
+								          		C'est quoi LEPOTO?
 
 								        	</a>
 								     	 </h5>
@@ -323,7 +323,7 @@ Author: webstrot
                                         <div class="card-body">
 
                                             <div class="card_cntnt">
-                                                <p>This is Photoshop's version of LoremProin gravida nibh vel velit auctor Ipsum. Proin gravida nibh vel velit auctor aliquet....</p>
+                                                <p>LEPOTO est une plateforme de commerce de livres en ligne pour en savoir plus merci de vous rendre sur la page <a href="{{route('apropos')}}">a propos </a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -335,7 +335,7 @@ Author: webstrot
                                     <div class="card_pagee" role="tab" id="heading2">
                                         <h5 class="h5-md">
 								       	    <a class="collapsed" data-toggle="collapse" href="#collapsethree" role="button" aria-expanded="false" aria-controls="collapsethree">
-								          How many sites can I use my themes on?
+								            Qui êtes-vous?
 
 								        	</a>
 								     	 </h5>
@@ -345,7 +345,7 @@ Author: webstrot
                                         <div class="card-body">
 
                                             <div class="card_cntnt">
-                                                <p>This is Photoshop's version of LoremProin gravida nibh vel velit auctor Ipsum. Proin gravida nibh vel velit auctor aliquet....</p>
+                                                <p>Nous sommes une entreprise specialisé spécialisée dans les solutions digitales . De l'idée au déploiement nous vous permettons d'atteindre vos objectifs grâce au digital. </p>
                                             </div>
                                         </div>
                                     </div>
@@ -377,22 +377,27 @@ Author: webstrot
         <img src="images/bubble2.png" class="img-responsive " alt="img">
     </div>
 
+    
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-sm-6 col-12">
-                <div class="footerNav jb_cover">
-                    <a href="#"><img src="images/logolepoto.png" alt="img" style="width:250px;"></a>
+            <div class="col-lg-4 col-sm-6 col-12">
+                <div class="footerNav jb_cover" >
+                    <a href="#"><img src="images/logolepoto.png" alt="img" style="width:200px;"></a>
                     <ul class="footer_first_contact">
-                        <li><i class="flaticon-location-pointer"></i>
+                        <li style="display:flex;align-items:center;"><i class="flaticon-location-pointer"></i>
                             <p>Douala, Nyalla
                             </p>
                         </li>
-                        <li><i class="flaticon-telephone"></i>
-                            <p>698-549-128
+                        <li style="display:flex;align-items:center;flex-flow:row column;"><i class="flaticon-telephone"></i>
+                            <p>
+                                <a href="tel:+237698549128">698-549-128</a>
+                                {{-- <a href="tel:+237698549128">652-097-642</a> --}}
+                            </p>
+                            
                         </li>
-                        <li><i class="flaticon-envelope"></i><a href="#">contact.lepoto@gmail.com </a>
+                        <li style="display:flex;align-items:center;"><i class="flaticon-envelope"></i><a href="mailto:lucfotso0@gmail.com">contact.lepoto@gmail.com </a>
                             <br>
-                            <a href="#">support@gmail.com</a>
+                            {{-- <a href="mailto:lucfotso0@gmail.com">support@gmail.com</a> --}}
                         </li>
 
                     </ul>
@@ -409,23 +414,35 @@ Author: webstrot
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-9 col-sm-6 col-12">
-                <div class="footerNav jb_cover footer_border_displ">
-              
-                    <div class="contact_field_wrapper comments_form">
-                    <div class="jb_heading_wraper left_rivew_heading">
-                    <h3>envoyez nous un mail(laissez des avis ou autres)</h3>
-                    {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, --}}
-                        {{-- <br> sed do eiusmod tempor incididunt </p> --}}
+            <div class="col-lg-4 col-sm-6 col-12">
+                    <div class="footerNav jb_cover footer_border_displ">
+                        <h5>Pages</h5>
+                        <ul class="nav-widget">
+                            <li><a href="{{route('accueil')}}"><i class="fa fa-square"></i>Accueil</a></li>
+
+                            <li><a href="{{route('manuel')}}"><i class="fa fa-square"></i>Manuels</a></li>
+
+                            <li><a href="#accordion"><i class="fa fa-square"></i>FAQ</a></li>
+
+                            <li><a href="{{route('apropos')}}"><i class="fa fa-square"></i>A propos</a></li>
+
+                            <li><a href="{{route('contact_us')}}"><i class="fa fa-square"></i>Contact</a></li>
+
+
+                        </ul>
                     </div>
-                    <form action="{{route('mail')}}" method="GET">
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12">
+                    <div class="footerNav jb_cover footer_border_displ">
+                        <h5>Nous laissez un avis ?</h5>
+                        <form action="{{route('mail')}}" method="GET">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-pos">
                                         <div class="form-group i-name">
 
-                                            <input type="text" class="form-control require" name="full_name"  id="namTen-first" placeholder=" Name*">
-                                            <i class="fas fa-user-alt"></i>
+                                            <input type="text" class="form-control require" name="full_name"  id="namTen-first" placeholder=" Nom*">
+                                            {{-- <i class="fas fa-user-alt"></i> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -436,7 +453,7 @@ Author: webstrot
                                         <div class="form-group i-email">
                                             <label class="sr-only">Email </label>
                                             <input type="email" class="form-control require" name="email"  id="emailTen" placeholder=" Email *" data-valid="email" data-error="Email should be valid.">
-                                            <i class="fas fa-envelope"></i>
+                                            {{-- <i class="fas fa-envelope"></i> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -446,7 +463,7 @@ Author: webstrot
                                         <div class="form-group i-message">
 
                                             <textarea class="form-control require" name="message" rows="5" id="messageTen" placeholder=" Message"></textarea>
-                                            <i class="fas fa-comment"></i>
+                                            {{-- <i class="fas fa-comment"></i> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -461,8 +478,12 @@ Author: webstrot
                                 </div>
                             </div>
                         </form>
+
+                    </div>
+                </div>    
+                <div class="col-lg-4 col-sm-6 col-12">
+                    
                 </div>
-            </div>
                 <div class="copyright_left"><i class="fa fa-copyright"></i> 2023 <a href="#">  LEPOTO.  </a> Tout droit réservé.
             </div>
 
@@ -490,6 +511,10 @@ Author: webstrot
     </div>
 </div>
 
+
+    <!-- footer Wrapper End -->
+	 <!-- chat box Wrapper start -->
+  </div>
 
     <!-- footer Wrapper End -->
 	 <!-- chat box Wrapper start -->

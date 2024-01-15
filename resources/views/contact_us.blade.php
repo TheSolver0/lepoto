@@ -238,7 +238,7 @@ Author: webstrot
                     <div class="col-lg-3 col-md-4 col-12 col-sm-5">
                         <div class="sub_title_section">
                             <ul class="sub_title">
-                                <li> <a href="#"> Home </a>&nbsp; / &nbsp; </li>
+                                <li> <a href="#"> Accueil </a>&nbsp; / &nbsp; </li>
                                 <li>Contact</li>
                             </ul>
                         </div>
@@ -359,14 +359,14 @@ Author: webstrot
     <!-- footer Wrapper Start -->        
 
     <div class="col-lg-12 col-md-12 col-sm-12">
-                            <div id="accordion" role="tablist">
+                            <div id="accordion" role="tablist" style="margin:100px 100px;">
                                 <h1>Questions fréquemment posées...</h1>
                                 <div class="card">
 
                                     <div class="card_pagee" role="tab" id="heading1">
                                         <h5 class="h5-md">
 								       	    <a class="collapsed" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">
-								          		Is there any auto-renew subscription?
+								          		C'est quoi LEPOTO?
 
 								        	</a>
 								     	 </h5>
@@ -376,7 +376,7 @@ Author: webstrot
                                         <div class="card-body">
 
                                             <div class="card_cntnt">
-                                                <p>This is Photoshop's version of LoremProin gravida nibh vel velit auctor Ipsum. Proin gravida nibh vel velit auctor aliquet....</p>
+                                                <p>LEPOTO est une plateforme de commerce de livres en ligne pour en savoir plus merci de vous rendre sur la page <a href="{{route('apropos')}}">a propos </a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -388,7 +388,7 @@ Author: webstrot
                                     <div class="card_pagee" role="tab" id="heading2">
                                         <h5 class="h5-md">
 								       	    <a class="collapsed" data-toggle="collapse" href="#collapsethree" role="button" aria-expanded="false" aria-controls="collapsethree">
-								          How many sites can I use my themes on?
+								            Qui êtes-vous?
 
 								        	</a>
 								     	 </h5>
@@ -398,7 +398,7 @@ Author: webstrot
                                         <div class="card-body">
 
                                             <div class="card_cntnt">
-                                                <p>This is Photoshop's version of LoremProin gravida nibh vel velit auctor Ipsum. Proin gravida nibh vel velit auctor aliquet....</p>
+                                                <p>Nous sommes une entreprise specialisé spécialisée dans les solutions digitales . De l'idée au déploiement nous vous permettons d'atteindre vos objectifs grâce au digital. </p>
                                             </div>
                                         </div>
                                     </div>
@@ -430,72 +430,145 @@ Author: webstrot
             <img src="images/bubble2.png" class="img-responsive " alt="img">
         </div>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="footerNav jb_cover">
-                        <a href="#"><img src="images/logolepoto.png" alt="img" style="width:250px;"></a>
-                        <ul class="footer_first_contact">
-                            <li><i class="flaticon-location-pointer"></i>
-                                <p>Douala, Nyalla
-                                </p>
-                            </li>
-                            <li><i class="flaticon-telephone"></i>
-                                <p>698-549-128
-                            </li>
-                            <li><i class="flaticon-envelope"></i><a href="#">contact.lepoto@gmail.com </a>
-                                <br>
-                                <a href="#">support@gmail.com</a>
-                            </li>
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-sm-6 col-12">
+                <div class="footerNav jb_cover" >
+                    <a href="#"><img src="images/logolepoto.png" alt="img" style="width:200px;"></a>
+                    <ul class="footer_first_contact">
+                        <li style="display:flex;align-items:center;"><i class="flaticon-location-pointer"></i>
+                            <p>Douala, Nyalla
+                            </p>
+                        </li>
+                        <li style="display:flex;align-items:center;flex-flow:row column;"><i class="flaticon-telephone"></i>
+                            <p>
+                                <a href="tel:+237698549128">698-549-128</a>
+                                {{-- <a href="tel:+237698549128">652-097-642</a> --}}
+                            </p>
+                            
+                        </li>
+                        <li style="display:flex;align-items:center;"><i class="flaticon-envelope"></i><a href="mailto:lucfotso0@gmail.com">contact.lepoto@gmail.com </a>
+                            <br>
+                            {{-- <a href="mailto:lucfotso0@gmail.com">support@gmail.com</a> --}}
+                        </li>
 
-                        </ul>
+                    </ul>
 
-                        <ul class="icon_list_news index2_icon_list jb_cover">
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li>
-                                <a href="#"><i class="fab fa-twitter"></i>
-                                    </a>
-                            </li>
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                            <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                    <ul class="icon_list_news index2_icon_list jb_cover">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li>
+                            <a href="#"><i class="fab fa-twitter"></i>
+                                </a>
+                        </li>
+                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12">
+                    <div class="footerNav jb_cover footer_border_displ">
+                        <h5>Pages</h5>
+                        <ul class="nav-widget">
+                            <li><a href="{{route('accueil')}}"><i class="fa fa-square"></i>Accueil</a></li>
+
+                            <li><a href="{{route('manuel')}}"><i class="fa fa-square"></i>Manuels</a></li>
+
+                            <li><a href="#accordion"><i class="fa fa-square"></i>FAQ</a></li>
+
+                            <li><a href="{{route('apropos')}}"><i class="fa fa-square"></i>A propos</a></li>
+
+                            <li><a href="{{route('contact_us')}}"><i class="fa fa-square"></i>Contact</a></li>
+
 
                         </ul>
                     </div>
-                </div>
-                <div class="col-lg-9 col-sm-6 col-12">
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12">
                     <div class="footerNav jb_cover footer_border_displ">
-                  
-                        
-                    <div class="copyright_left"><i class="fa fa-copyright"></i> 2023 <a href="#">  LEPOTO.  </a> Tout droit réservé.
-                </div>
+                        <h5>Nous laissez un avis ?</h5>
+                        <form action="{{route('mail')}}" method="GET">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-pos">
+                                        <div class="form-group i-name">
 
-                <div class="clearfix"></div>
+                                            <input type="text" class="form-control require" name="full_name"  id="namTen-first" placeholder=" Nom*">
+                                            {{-- <i class="fas fa-user-alt"></i> --}}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- /.col-md-12 -->
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-e">
+                                        <div class="form-group i-email">
+                                            <label class="sr-only">Email </label>
+                                            <input type="email" class="form-control require" name="email"  id="emailTen" placeholder=" Email *" data-valid="email" data-error="Email should be valid.">
+                                            {{-- <i class="fas fa-envelope"></i> --}}
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div class="col-md-12">
+                                    <div class="form-m">
+                                        <div class="form-group i-message">
+
+                                            <textarea class="form-control require" name="message" rows="5" id="messageTen" placeholder=" Message"></textarea>
+                                            {{-- <i class="fas fa-comment"></i> --}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.col-md-12 -->
+                                <div class="col-md-12">
+                                    <div class="tb_es_btn_div">
+                                        <div class="response"></div>
+                                        <div class="tb_es_btn_wrapper">
+                                            <button type="submit" class="submitForm">envoyer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>    
+                <div class="col-lg-4 col-sm-6 col-12">
+                    
+                </div>
+                <div class="copyright_left"><i class="fa fa-copyright"></i> 2023 <a href="#">  LEPOTO.  </a> Tout droit réservé.
             </div>
-            <!--/.row-->
+
+            <div class="clearfix"></div>
         </div>
-        <!--/.container-->
-        <div class="waveWrapper waveAnimation">
-            <div class="waveWrapperInner bgTop gradient-color">
-                <div class="wave waveTop wavetop_1 wavetop_3"></div>
-            </div>
-            <div class="waveWrapperInner bgMiddle">
-                <div class="wave waveMiddle"></div>
-            </div>
-            <div class="waveWrapperInner bgBottom">
-                <div class="wave waveBottom wavebottom_1 wavebottom_3"></div>
-            </div>
+        <!--/.row-->
+    </div>
+    <!--/.container-->
+    <div class="waveWrapper waveAnimation">
+        <div class="waveWrapperInner bgTop gradient-color">
+            <div class="wave waveTop wavetop_1 wavetop_3"></div>
         </div>
-        <div class="ft_shape2 bubble-190">
-            <img src="images/bubble2.png" class="img-responsive " alt="img">
+        <div class="waveWrapperInner bgMiddle">
+            <div class="wave waveMiddle"></div>
         </div>
-        <div class="ft_shape1 bubble-19">
-            <img src="images/bubble2.png" class="img-responsive " alt="img">
+        <div class="waveWrapperInner bgBottom">
+            <div class="wave waveBottom wavebottom_1 wavebottom_3"></div>
         </div>
     </div>
+    <div class="ft_shape2 bubble-190">
+        <img src="images/bubble2.png" class="img-responsive " alt="img">
+    </div>
+    <div class="ft_shape1 bubble-19">
+        <img src="images/bubble2.png" class="img-responsive " alt="img">
+    </div>
+</div>
+
 
     <!-- footer Wrapper End -->
 	 <!-- chat box Wrapper start -->
   </div>
+
   <!-- chat box Wrapper end -->
     <!--custom js files-->
     <script src="js/jquery-3.3.1.min.js"></script>
