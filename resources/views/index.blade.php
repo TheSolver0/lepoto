@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 
+<!--
 Template Name: JB desks
 Version: 1.0.0
 Author: webstrot
@@ -172,7 +172,7 @@ Author: webstrot
                                         @csrf
 
                                             <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                this.closest('form').submit();"><i class="ion-power"></i>Déconnexion</a></li> 
+                                                this.closest('form').submit();"><i class="ion-power"></i>Déconnexion</a></li>
                                      </form>
                                     </li>
                                 </ul>
@@ -190,20 +190,20 @@ Author: webstrot
             <div class="mainmenu green_main_menu blue_main_menu d-xl-block d-lg-block d-md-none d-sm-none d-none">
                 <ul class="main_nav_ul menu_2_ul">
                     <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation active_class active_class2 active_class3">acceuil</a>
-                        
-                    </li>		
+
+                    </li>
                     <li class="has-mega gc_main_navigation"><a href="#manuel" class="gc_main_navigation">Manuels</a>
-                     
+
                     </li>
                     <li class="has-mega gc_main_navigation kv_sub_menu green_sub_menu blue_sub_menu">
                         <a href="#accordion" class="gc_main_navigation"> FAQ</a>
                         <!-- mega menu start -->
-                        
+
                     </li>
                     <li class="has-mega gc_main_navigation"><a href="{{route('apropos')}}" class="gc_main_navigation">A   propos</a>
-                            
+
                         </li>
-					
+
                    <li><a href="{{route('contact_us')}}" class="gc_main_navigation">contact</a></li>
 
                 </ul>
@@ -215,10 +215,10 @@ Author: webstrot
 
     <!-- navi wrapper End -->
     <!-- slider wrapper Start -->
-                
+
     <!-- slider wrapper End -->
     <!--services wrapper start-->
-        
+
     </div>
     <!-- navi wrapper End -->
     <!-- slider wrapper Start -->
@@ -415,7 +415,7 @@ Vacancies Right Now!.</h2>
         <div class="slider_small3_shape">
             <img src="images/shape4.png" class="img-responsive" alt="img">
         </div>
-        
+
     </div>
     <!--service wrapper end-->
     <!-- best jobs wrapper start-->
@@ -480,7 +480,7 @@ Vacancies Right Now!.</h2>
                                     <a href="#" ><i class="fas fa-search"></i></a>
                                 </div>
                                 </form>
-                            
+
                     </div>
                     </div>
                 </div>
@@ -567,7 +567,7 @@ Vacancies Right Now!.</h2>
                                 <option>filtrer par</option>
                                 <option>plus recent</option>
                                 <option>plus ancien</option>
-                                {{-- <option>top rated</option> 
+                                {{-- <option>top rated</option>
                             </select>
 
                         </div>
@@ -586,16 +586,16 @@ Vacancies Right Now!.</h2>
                                                         <img src="{{ Storage::url($post->image->path) }}" alt="post_img" style="width:170px;height:200px;object-fit:contain;" />
                                                     @endif
                                                     @if(!empty($post->auteur->users_name) || !empty($post->auteur->users_tel))
-                                                        <br> 
+                                                        <br>
                                                         <form action="{{route('posts.auteur')}}" method="get">
                                                             @csrf
                                                             @method('GET')
                                                             <input type="hidden" name = "tel" value="{{$post->auteur->users_tel}}">
                                                             <button type="submit" style="" class="btn btn-light"><span>{{$post->auteur->users_name}} </span></button>
                                                         </form>
-                                                    @else 
+                                                    @else
                                                         Auteur
-                                                    @endif 
+                                                    @endif
                                                     </div>
                                                     <div class="jp_job_post_right_cont">
                                                         <h4><a href="#">{{ $post->title }}</a></h4>
@@ -619,7 +619,7 @@ Vacancies Right Now!.</h2>
                                                             </form>
                                                             </li>
                                                             <li>
-                                                            
+
                                                             <form method="GET" action="">
                                                                 <input type="hidden" name="id" value="{{$post->id}}">
                                                                 @if(!empty($post->auteur->users_tel))
@@ -633,7 +633,7 @@ Vacancies Right Now!.</h2>
                                                                 @endif
                                                             </form>
                                                             </li>
-                                                            
+
                                                             {{-- @if(!empty(Auth::user()))
                                                             <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis LEPOTO par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
                                                             @else
@@ -660,11 +660,11 @@ Vacancies Right Now!.</h2>
                                                                         <input type="hidden" name="id" value="{{$post->id}}">
                                                                         <input type="text" name="raison" class="raison" placeholder="Entrez la raison du signalement">
                                                                         {{-- <button type="submit" class="btn btn-danger" name="signale" style="margin-left:25px;margin-top:18px; border-radius:0 !important;">Signaler</button> --}}
-                                                                    
+
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Sortir</button>
                                                                     <button type="submit" class="btn btn-danger">Signaler</button>
-                                                                    </form>    
+                                                                    </form>
                                                                 </div>
                                                                 </div>
                                                                 </div>
@@ -676,7 +676,7 @@ Vacancies Right Now!.</h2>
                                                             onmouseout="event.preventDefault();
                                                                     this.querySelector('.raison').style.display='none';">
                                                             <input type="hidden" name="id" value="{{$post->id}}">
-                                                               
+
                                                             <input type="text" name="raison" class="raison" placeholder="Entrez la raison du signalement" style="display:none;">
                                                             <button type="submit" class="btn btn-danger" name="signale" style="margin-left:25px;margin-top:18px; border-radius:0 !important;">Signaler</button>
                                                         </form> --}}
@@ -687,80 +687,9 @@ Vacancies Right Now!.</h2>
                                         </div>
                                     </div>
                                 @empty
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
 
-                                        <div class="job_listing_left_fullwidth job_listing_grid_wrapper jb_cover">
-                                            <div class="row">
-                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                                    <div class="jp_job_post_side_img" style="margin-left:0;">
-                                                        <img src="images/logolepoto.jpg" alt="post_img" style="width:200px;" />
-                                                        <br> <span>Luc Fotso 695984844</span>
-                                                    </div>
-                                                    <div class="jp_job_post_right_cont">
-                                                        <h4><a href="#">L'excellence en mathématique Tle</a></h4>
+                                @endforelse
 
-                                                        <ul>
-                                                            <li><i class="flaticon-cash"></i>&nbsp; XAF 5000 </li>
-                                                            <li><i class="flaticon-location-pointer"></i>&nbsp;Douala,Nyalla pariso</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                                    <div class="jp_job_post_right_btn_wrapper jb_cover" >
-                                                        <ul>
-                                                            <li>
-                                                                <div class="job_adds_right">
-                                                                    <a href="#!"><i class="far fa-heart"></i></a>
-                                                                </div>
-                                                            </li>
-                                                            <li><a href="job_single.html">Description</a></li>
-                                                            <li> <a href="#" data-toggle="modal" data-target="#myModal01">Acheter</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-
-                                        <div class="job_listing_left_fullwidth job_listing_grid_wrapper jb_cover">
-                                            <div class="row">
-                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                                    <div class="jp_job_post_side_img">
-                                                        <img src="images/physique.jpg" alt="post_img" style="width:200px;" />
-                                                        <br> <span>Arthur Ekoko</span>
-                                                    </div>
-                                                    <div class="jp_job_post_right_cont">
-                                                        <h4><a href="#">Livre Excellence en physique Tle</a></h4>
-
-                                                        <ul>
-                                                            <li><i class="flaticon-cash"></i>&nbsp; XAF 5000</li>
-                                                            <li><i class="flaticon-location-pointer"></i>&nbsp; souza</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                                    <div class="jp_job_post_right_btn_wrapper jb_cover" >
-                                                        <ul>
-                                                            <li>
-                                                                <div class="job_adds_right">
-                                                                    <a href="#!"><i class="far fa-heart"></i></a>
-                                                                </div>
-                                                            </li>
-                                                            <li><a href="job_single.html">description</a></li>
-                                                            <li> <a href="#" data-toggle="modal" data-target="#myModal02">acheter</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endforelse
-                                                                        
                                 </div>
                             </div>
                             <div class="blog_pagination_section jb_cover">
@@ -859,7 +788,7 @@ Vacancies Right Now!.</h2>
                             <div class="seeMore"><a href="#">Tout voir</a></div>
                         </div>
                     </div> --}}
-                    
+
                 </div>
             </div>
         </div>
@@ -1046,7 +975,7 @@ Vacancies Right Now!.</h2>
                 </div>
             </div>
         </div>
-        
+
         <div class="slider_small3_shape shapenew">
             <img src="images/shape4.png" class="img-responsive" alt="img">
         </div>
@@ -1059,7 +988,7 @@ Vacancies Right Now!.</h2>
         <div class="slider_small3_shape shapenew">
             <img src="images/shape4.png" class="img-responsive " alt="img">
         </div>
-        
+
     </div>
 
     <div class="col-lg-12 col-md-12 col-sm-12">
@@ -1117,7 +1046,7 @@ Vacancies Right Now!.</h2>
         <div class="slider_small_shape44">
             <img src="images/p2.png" class="img-responsive " alt="img">
         </div>
-        
+
         <div class="counter_jbbb2 jb_cover">
 
             <img src="images/line3.png" class="img-responsive" alt="img">
@@ -1125,8 +1054,8 @@ Vacancies Right Now!.</h2>
     </div>
     <!--resume wrapper end-->
     <!-- news app wrapper start-->
-    
-    
+
+
     <!-- news app wrapper end-->
     <!-- footer Wrapper Start -->
     <div class="footer jb_cover">
@@ -1149,7 +1078,7 @@ Vacancies Right Now!.</h2>
                                 <a href="tel:+237698549128">698-549-128</a>
                                 {{-- <a href="tel:+237698549128">652-097-642</a> --}}
                             </p>
-                            
+
                         </li>
                         <li style="display:flex;align-items:center;"><i class="flaticon-envelope"></i><a href="mailto:lucfotso0@gmail.com">contact.lepoto@gmail.com </a>
                             <br>
@@ -1213,7 +1142,7 @@ Vacancies Right Now!.</h2>
                                         </div>
                                     </div>
                                 </div>
-                            
+
                                 <div class="col-md-12">
                                     <div class="form-m">
                                         <div class="form-group i-message">
@@ -1236,9 +1165,9 @@ Vacancies Right Now!.</h2>
                         </form>
 
                     </div>
-                </div>    
+                </div>
                 <div class="col-lg-4 col-sm-6 col-12">
-                    
+
                 </div>
                 <div class="copyright_left"><i class="fa fa-copyright"></i> 2023 <a href="#">  LEPOTO.  </a> Tout droit réservé.
             </div>

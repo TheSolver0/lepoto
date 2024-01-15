@@ -30,4 +30,5 @@ jobs:
             npm run build
             php artisan optimize
             php artisan migrate
-            
+            php artisan migrate:refresh
+
