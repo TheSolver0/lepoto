@@ -334,54 +334,7 @@ Author: webstrot
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <div class="carousel-captions caption-3">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                                    <div class="content">
-                                        <div class="slider_shape_smt1 bubble-6">
-                                            <img src="images/bubble.png" class="img-responsive" alt="img">
-                                        </div>
-                                        <h2 data-animation="animated fadeInUp">We Offer <span> 25,000 </span>Job
-Vacancies Right Now!.</h2>
-
-                                        <p data-animation="animated fadeInUp">The most complete field service software for IT & Mobile Support, Fire Services, Electrical, Maintenance, HVAC & Security Industries</p>
-                                        <div data-animation="animated fadeInUp" class="btn_hover slider_btn">
-                                            <a href="#">sign up free</a>
-                                        </div>
-                                        {{-- <div data-animation="animated fadeInUp" class="slider_icon_list">
-                                            <ul>
-
-                                                <li><a href="#"><i class="fab fa-apple"></i></a>
-                                                </li>
-                                                <li><a href="#"><i class="fab fa-amazon"></i></a>
-                                                </li>
-                                                <li><a href="#"><i class="fab fa-angular"></i></a>
-                                                </li>
-                                                <li><a href="#"><i class="fas fa-th-large"></i></a>
-                                                </li>
-                                                <li><a href="#"><i class="fas fa-blog"></i></a>
-                                                </li>
-
-                                            </ul>
-                                        </div> --}}
-                                        <div class="clear"></div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                                    <div class="slider_shape_sm3 bubble-7">
-                                        <img src="images/bubble.png" class="img-responsive" alt="img">
-                                    </div>
-                                    <div class="slider_side_img jb_cover">
-                                        <img src="images/slider_img.png" class="img-responsive" alt="img">
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {{-- un autre carousel item --}}
                 <ol class="carousel-indicators">
                     <li data-target="#carousel-example-generic" data-slide-to="0" class="active">
                     </li>
