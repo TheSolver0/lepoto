@@ -18,7 +18,8 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'LEPOTO'),
+    // 'name' => env('APP_NAME', 'Laravel'),
 
     /*
     |--------------------------------------------------------------------------
@@ -31,7 +32,8 @@ return [
     |
     */
 
-    'env' => env('APP_ENV', 'production'),
+    'env' => env('APP_ENV', 'local'),
+    // 'env' => env('APP_ENV', 'production'),
 
     /*
     |--------------------------------------------------------------------------

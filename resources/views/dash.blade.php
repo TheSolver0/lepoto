@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 
+<!--
 Template Name: JB desks
 Version: 1.0.0
 Author: webstrot
@@ -54,7 +54,7 @@ Author: webstrot
     <!-- Top Scroll End -->
     <!-- cp navi wrapper Start -->
     <nav class="cd-dropdown cd_dropdown_index2 cd_dropdown_index3 d-block d-sm-block d-md-block d-lg-none d-xl-none">
-        <h2><a href="index.html"> <span><img src="images/logolepoto1.png" style="width:163px;height:43px;object-fit: cover;object-position: center;" alt="img"></span></a></h2>
+        <h2><a href="{{ route('accueil') }}"> <span><img src="images/logolepoto1.png" style="width:163px;height:43px;object-fit: cover;object-position: center;" alt="img"></span></a></h2>
         <a href="#0" class="cd-close">Close</a>
         <ul class="cd-dropdown-content">
             <li>
@@ -184,20 +184,20 @@ Author: webstrot
             <div class="mainmenu green_main_menu blue_main_menu d-xl-block d-lg-block d-md-none d-sm-none d-none">
                 <ul class="main_nav_ul menu_2_ul">
                     <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation ">acceuil</a>
-                        
-                    </li>		
+
+                    </li>
                     <li class="has-mega gc_main_navigation"><a href="{{route('vendre')}}" class="gc_main_navigation">vendre</a>
-                     
+
                     </li>
                     <li class="has-mega gc_main_navigation kv_sub_menu green_sub_menu blue_sub_menu">
                         <a href="" class="gc_main_navigation ">  profile</a>
                         <!-- mega menu start -->
-                        
+
                     </li>
                     <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation active_class active_class2 active_class3">dashboard</a>
-                            
+
                         </li>
-					
+
                    <li><a href="{{route('contact_us')}}" class="gc_main_navigation">contact</a></li>
 
                 </ul>
@@ -247,7 +247,7 @@ Author: webstrot
 
                                 <a href="#">login with pinterest <i class="fab fa-google-p"></i></a>
 
-                            </div> 
+                            </div>
                             <div class="jp_regis_center_tag_wrapper jb_register_red_or">
                                 <h1>Ou</h1>
                             </div> --}}
@@ -391,7 +391,7 @@ Author: webstrot
                                     <a href="#" ><i class="fas fa-search"></i></a>
                                 </div>
                                 </form>
-                            
+
                     </div>
                     </div>
                 </div>
@@ -478,7 +478,7 @@ Author: webstrot
                                 <option>filtrer par</option>
                                 <option>plus recent</option>
                                 <option>plus ancien</option>
-                                {{-- <option>top rated</option> 
+                                {{-- <option>top rated</option>
                             </select>
 
                         </div>
@@ -498,9 +498,9 @@ Author: webstrot
                                                     @endif
                                                     @if(!empty($post->auteur->users_name) || !empty($post->auteur->users_tel))
                                                         <br> <span>{{$post->auteur->users_name}} </span>
-                                                    @else 
+                                                    @else
                                                         Auteur {{$post->users_id}}
-                                                    @endif 
+                                                    @endif
                                                     </div>
                                                     <div class="jp_job_post_right_cont">
                                                         <h4><a href="#">{{ $post->title }}</a></h4>
@@ -529,7 +529,7 @@ Author: webstrot
                                                             <a href="https://wa.me/"><li class=""> Modifier </a></li>
                                                         @endif
                                                             </li>
-                                                            
+
                                                             {{-- @if(!empty(Auth::user()))
                                                             <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis lepoto par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
                                                             @else
@@ -537,7 +537,7 @@ Author: webstrot
                                                             @endif --}}
                                                         </ul>
                                                     <a href="" class="btn btn-danger" style="margin-left:15px;margin-top:18px; border-radius:0 !important;">Supprimer</a>
-                                                        
+
                                                     </div>
                                                 </div>
 
@@ -575,7 +575,7 @@ Author: webstrot
                                                             <li> <a href="#" data-toggle="modal" data-target="#myModal01">Acheter</a></li>
                                                         </ul>
                                                     </div>
-                                                    
+
                                                 </div>
 
                                             </div>
@@ -611,26 +611,26 @@ Author: webstrot
                                                             <li> <a href="#" data-toggle="modal" data-target="#myModal02">acheter</a></li>
                                                         </ul>
                                                     </div>
-                                                    
+
                                                 </div>
 
                                             </div>
                                         </div>
                                     </div>
                                     @endforelse
-                                                                        
+
                                 </div>
                             </div>
                             <div class="blog_pagination_section jb_cover">
                             {{-- {{$posts->links()}} --}}
                              {!! $posts->withQueryString()->links('pagination::bootstrap-5') !!}
-                            
+
                             </div>
                         </div>
                     </div>
                 </div>
 				<div class="col-lg-3 col-md-12 col-sm-12 col-12 d-block d-sm-block d-md-block d-lg-none d-xl-none">
-                    
+
                 </div>
             </div>
         </div>
@@ -691,7 +691,7 @@ Author: webstrot
         <div class="slider_small_shape44">
             <img src="images/p2.png" class="img-responsive " alt="img">
         </div>
-        
+
         <div class="counter_jbbb2 jb_cover">
 
             <img src="images/line3.png" class="img-responsive" alt="img">
@@ -699,8 +699,8 @@ Author: webstrot
     </div>
     <!--resume wrapper end-->
     <!-- news app wrapper start-->
-    
-    
+
+
     <!-- news app wrapper end-->
     <!-- footer Wrapper Start -->
     <div class="footer jb_cover">
@@ -708,7 +708,7 @@ Author: webstrot
         <img src="images/bubble2.png" class="img-responsive " alt="img">
     </div>
 
-    
+
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-sm-6 col-12">
@@ -724,7 +724,7 @@ Author: webstrot
                                 <a href="tel:+237698549128">698-549-128</a>
                                 {{-- <a href="tel:+237698549128">652-097-642</a> --}}
                             </p>
-                            
+
                         </li>
                         <li style="display:flex;align-items:center;"><i class="flaticon-envelope"></i><a href="mailto:lucfotso0@gmail.com">contact.lepoto@gmail.com </a>
                             <br>
@@ -788,7 +788,7 @@ Author: webstrot
                                         </div>
                                     </div>
                                 </div>
-                            
+
                                 <div class="col-md-12">
                                     <div class="form-m">
                                         <div class="form-group i-message">
@@ -811,9 +811,9 @@ Author: webstrot
                         </form>
 
                     </div>
-                </div>    
+                </div>
                 <div class="col-lg-4 col-sm-6 col-12">
-                    
+
                 </div>
                 <div class="copyright_left"><i class="fa fa-copyright"></i> 2023 <a href="#">  LEPOTO.  </a> Tout droit réservé.
             </div>

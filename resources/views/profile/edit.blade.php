@@ -11,7 +11,6 @@ Author: webstrot
 <html lang="zxx">
 <!--[endif]-->
 
-
 <!-- Mirrored from webstrot.com/html/jbdesk/main_pages/index_III.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Jun 2019 23:01:26 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
@@ -62,7 +61,7 @@ Author: webstrot
     <!-- Top Scroll End -->
     <!-- cp navi wrapper Start -->
     <nav class="cd-dropdown cd_dropdown_index2 cd_dropdown_index3 d-block d-sm-block d-md-block d-lg-none d-xl-none">
-        <h2><a href="index.html"> <span><img src="images/logolepoto1.png" style="width:163px;height:43px;object-fit: cover;object-position: center;" alt="img"></span></a></h2>
+        <h2><a href="{{ route('accueil') }}"> <span><img src="images/logolepoto1.png" style="width:163px;height:43px;object-fit: cover;object-position: center;" alt="img"></span></a></h2>
         <a href="#0" class="cd-close">Close</a>
         <ul class="cd-dropdown-content">
             <li>
@@ -74,14 +73,15 @@ Author: webstrot
                 <a href="{{ route('accueil') }}">acceuil</a>
             </li>
             <li class="">
-                <a href="{{route('manuel')}}">Manuels</a>
+                <a href="#manuel">Manuels</a>
             </li>
             <!-- .has-children -->
             <li class="">
                 <a href="#accordion">FAQ</a>
             </li>
-            <li><a href="{{route('contact_us')}}">A propos </a></li>
-            <li><a href="{{ route('login') }}">contact</a></li>
+            <li><a href="{{route('profile.edit')}}" class="gc_main_navigation">Profil</a></li>
+            <li><a href="{{route('apropos')}}">A propos </a></li>
+            <li><a href="{{ route('contact_us') }}">contact</a></li>
         </ul>
         <!-- .cd-dropdown-content -->
     </nav>
@@ -150,32 +150,36 @@ Author: webstrot
                         </div>
                     </li>
                     <li>
+                        @if(!empty(Auth::user()))
                         <div class="jb_profile_box jb_3_profile_box">
                             <div class="nice-select" tabindex="0"> <span class="current">
-                            @if(!empty($user->avatar->path))
-                                        <img src="{{ Storage::url($user->avatar->path) }}" alt="img" style="width:50px;height:50px;border-radius:50%;"></span>
+                                    @if(!empty(Auth::user()->avatar->path))
+                                        <img src="{{ Storage::url(Auth::user()->avatar->path) }}" alt="img" style="width:50px;height:50px;border-radius:50%;"></span>
                                     @else
                                         <img src="images/profile-11.jpg" alt="img" style="width:50px;height:50px;border-radius:50%;"></span>
-                                    @endif</span>
+                                    @endif </span>
                                 <ul class="list">
-                                    <li><a href="#accordion"><i class="fas fa-user-edit"></i>FAQ</a>
+                                    <li><a href="{{route('profile.edit')}}"><i class="fas fa-user-edit"></i>Profil</a>
                                     </li>
 
                                     {{-- <li><a href="#"><i class="far fa-calendar-alt"></i> My Calender</a> --}}
                                     </li>
-                                    <li><a href="#"><i class="fas fa-comment"></i>Inbox</a>
-                                    </li>
-                                    <li><a href="#"><i class="fas fa-cog"></i>Setting</a>
-                                    </li>
-                                    <li><a href="#"><i class="fas fa-question-circle"></i>Help</a>
+                                    <li><a href="#"><i class="fas fa-comment"></i>FAQ</a>
                                     </li>
                                     {{-- <li><a href="#"><i class="fas fa-lock"></i>Lock Screen</a> --}}
                                     </li>
-                                    <li><a href="#"><i class="fas fa-sign-in-alt"></i>logout</a>
+                                     <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+
+                                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                this.closest('form').submit();"><i class="ion-power"></i>Déconnexion</a></li>
+                                     </form>
                                     </li>
                                 </ul>
                             </div>
                         </div>
+                        @else
+                        @endif
                     </li>
                     <li class="btn_hover">
                          <a href="{{ route('login') }}">Connexion</a>
@@ -661,7 +665,7 @@ Author: webstrot
                                                                     onclick="event.preventDefault();
                                                                             this.closest('form').submit();">acheter</a>
                                                                 @else
-                                                                <a href="https://wa.me/698549128/?text=Bonjour  Je viens vers vous depuis LEPOTO par rapport a  votre article du titre : {{$post->title}}"
+                                                                <a href="https://wa.me/+237{{$post->auteur->users_tel}}/?text=Bonjour  Je viens vers vous depuis LEPOTO par rapport a  votre article du titre : {{$post->title}}"
                                                                     onclick="event.preventDefault();
                                                                             this.closest('form').submit();"> acheter</a>
                                                                 @endif
@@ -675,93 +679,62 @@ Author: webstrot
                                                             @endif --}}
                                                         </ul>
                                                         <!-- Button trigger modal -->
+                                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" style="margin-left:20px;margin-top:18px; border-radius:0 !important;">
+                                                            Signaler
+                                                            </button>
 
+                                                            <!-- Modal -->
+                                                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLongTitle">Signalement</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form method="GET" action="{{route('signalerPost')}}">
+                                                                        <input type="hidden" name="id" value="{{$post->id}}">
+                                                                        <input type="text" name="raison" class="raison" placeholder="Entrez la raison du signalement">
+                                                                        {{-- <button type="submit" class="btn btn-danger" name="signale" style="margin-left:25px;margin-top:18px; border-radius:0 !important;">Signaler</button> --}}
+
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Sortir</button>
+                                                                    <button type="submit" class="btn btn-danger">Signaler</button>
+                                                                    </form>
+                                                                </div>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                        {{-- <form method="GET" action="{{route('signalerPost')}}"
+                                                            onmouseover="event.preventDefault();
+                                                                    this.querySelector('.raison').style.display='';"
+                                                            onmouseout="event.preventDefault();
+                                                                    this.querySelector('.raison').style.display='none';">
+                                                            <input type="hidden" name="id" value="{{$post->id}}">
+
+                                                            <input type="text" name="raison" class="raison" placeholder="Entrez la raison du signalement" style="display:none;">
+                                                            <button type="submit" class="btn btn-danger" name="signale" style="margin-left:25px;margin-top:18px; border-radius:0 !important;">Signaler</button>
+                                                        </form> --}}
                                                     </div>
                                                 </div>
+
+                                            </div>
 
                                             </div>
                                         </div>
                                     </div>
                                     @empty
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-
-                                        <div class="job_listing_left_fullwidth job_listing_grid_wrapper jb_cover">
-                                            <div class="row">
-                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                                    <div class="jp_job_post_side_img" style="margin-left:0;">
-                                                        <img src="images/logolepoto.jpg" alt="post_img" style="width:200px;" />
-                                                        <br> <span>Luc Fotso 695984844</span>
-                                                    </div>
-                                                    <div class="jp_job_post_right_cont">
-                                                        <h4><a href="#">L'excellence en mathématique Tle</a></h4>
-
-                                                        <ul>
-                                                            <li><i class="flaticon-cash"></i>&nbsp; XAF 5000 </li>
-                                                            <li><i class="flaticon-location-pointer"></i>&nbsp;Douala,Nyalla pariso</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                                    <div class="jp_job_post_right_btn_wrapper jb_cover" >
-                                                        <ul>
-                                                            <li>
-                                                                <div class="job_adds_right">
-                                                                    <a href="#!"><i class="far fa-heart"></i></a>
-                                                                </div>
-                                                            </li>
-                                                            <li><a href="job_single.html">Description</a></li>
-                                                            <li> <a href="#" data-toggle="modal" data-target="#myModal01">Acheter</a></li>
-                                                        </ul>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-
-                                        <div class="job_listing_left_fullwidth job_listing_grid_wrapper jb_cover">
-                                            <div class="row">
-                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                                    <div class="jp_job_post_side_img">
-                                                        <img src="images/physique.jpg" alt="post_img" style="width:200px;" />
-                                                        <br> <span>Arthur Ekoko</span>
-                                                    </div>
-                                                    <div class="jp_job_post_right_cont">
-                                                        <h4><a href="#">Livre Excellence en physique Tle</a></h4>
-
-                                                        <ul>
-                                                            <li><i class="flaticon-cash"></i>&nbsp; XAF 5000</li>
-                                                            <li><i class="flaticon-location-pointer"></i>&nbsp; souza</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                                    <div class="jp_job_post_right_btn_wrapper jb_cover" >
-                                                        <ul>
-                                                            <li>
-                                                                <div class="job_adds_right">
-                                                                    <a href="#!"><i class="far fa-heart"></i></a>
-                                                                </div>
-                                                            </li>
-                                                            <li><a href="job_single.html">description</a></li>
-                                                            <li> <a href="#" data-toggle="modal" data-target="#myModal02">acheter</a></li>
-                                                        </ul>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
+                                        vous n'avez aucun livre enregistré.
                                     @endforelse
 
                                 </div>
                             </div>
                             <div class="blog_pagination_section jb_cover">
                             {{-- {{$posts->links()}} --}}
-                             {!! $posts->withQueryString()->links('pagination::bootstrap-5') !!}
+                             {!! $posts->withQueryString()->links('pagination::bootstrap-4') !!}
 
                             </div>
                         </div>

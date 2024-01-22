@@ -62,7 +62,7 @@ Author: webstrot
     <!-- Top Scroll End -->
     <!-- cp navi wrapper Start -->
     <nav class="cd-dropdown cd_dropdown_index2 cd_dropdown_index3 d-block d-sm-block d-md-block d-lg-none d-xl-none">
-        <h2><a href="index.html"> <span><img src="images/logolepoto1.png" style="width:163px;height:43px;object-fit: cover;object-position: center;" alt="img"></span></a></h2>
+        <h2><a href="{{ route('accueil') }}"> <span><img src="images/logolepoto1.png" style="width:163px;height:43px;object-fit: cover;object-position: center;" alt="img"></span></a></h2>
         <a href="#0" class="cd-close">Close</a>
         <ul class="cd-dropdown-content">
             <li>
@@ -80,6 +80,7 @@ Author: webstrot
             <li class="">
                 <a href="#accordion">FAQ</a>
             </li>
+            <li><a href="{{route('profile.edit')}}" class="gc_main_navigation">Profil</a></li>
             <li><a href="{{route('apropos')}}">A propos </a></li>
             <li><a href="{{ route('contact_us') }}">contact</a></li>
         </ul>
@@ -205,6 +206,7 @@ Author: webstrot
                         </li>
 
                    <li><a href="{{route('contact_us')}}" class="gc_main_navigation">contact</a></li>
+                   <li><a href="{{route('profile.edit')}}" class="gc_main_navigation">Profil</a></li>
 
                 </ul>
             </div>
@@ -334,7 +336,7 @@ Author: webstrot
                         </div>
                     </div>
                 </div>
-                {{-- un autre carousel item --}}
+                {{-- un autre carousel --}}
                 <ol class="carousel-indicators">
                     <li data-target="#carousel-example-generic" data-slide-to="0" class="active">
                     </li>
@@ -580,7 +582,7 @@ Author: webstrot
                                                                     onclick="event.preventDefault();
                                                                             this.closest('form').submit();">acheter</a>
                                                                 @else
-                                                                <a href="https://wa.me/698549128/?text=Bonjour  Je viens vers vous depuis LEPOTO par rapport a  votre article du titre : {{$post->title}}"
+                                                                <a href="https://wa.me/+237{{$post->auteur->users_tel}}/?text=Bonjour  Je viens vers vous depuis LEPOTO par rapport a  votre article du titre : {{$post->title}}"
                                                                     onclick="event.preventDefault();
                                                                             this.closest('form').submit();"> acheter</a>
                                                                 @endif

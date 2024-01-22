@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 
+<!--
 Template Name: JB desks
 Version: 1.0.0
 Author: webstrot
@@ -39,7 +39,7 @@ Author: webstrot
     <link rel="stylesheet" type="text/css" href="css/responsive.css" />
     <!--favicon-->
     <link rel="shortcut icon" type="image/png" href="images/icolepoto.png" />
-    
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -70,7 +70,7 @@ Author: webstrot
     <!-- Top Scroll End -->
     <!-- cp navi wrapper Start -->
     <nav class="cd-dropdown cd_dropdown_index2 cd_dropdown_index3 d-block d-sm-block d-md-block d-lg-none d-xl-none">
-        <h2><a href="index.html"> <span><img src="images/logolepoto1.png" style="width:163px;height:43px;object-fit: cover;object-position: center;" alt="img"></span></a></h2>
+        <h2><a href="{{ route('accueil') }}"> <span><img src="images/logolepoto1.png" style="width:163px;height:43px;object-fit: cover;object-position: center;" alt="img"></span></a></h2>
         <a href="#0" class="cd-close">Close</a>
         <ul class="cd-dropdown-content">
             <li>
@@ -82,14 +82,15 @@ Author: webstrot
                 <a href="{{ route('accueil') }}">acceuil</a>
             </li>
             <li class="">
-                <a href="{{route('manuel')}}">Manuels</a>
+                <a href="#manuel">Manuels</a>
             </li>
             <!-- .has-children -->
             <li class="">
                 <a href="#accordion">FAQ</a>
             </li>
-            <li><a href="{{route('contact_us')}}">A propos </a></li>
-            <li><a href="{{ route('login') }}">contact</a></li>
+            <li><a href="{{route('profile.edit')}}" class="gc_main_navigation">Profil</a></li>
+            <li><a href="{{route('apropos')}}">A propos </a></li>
+            <li><a href="{{ route('contact_us') }}">contact</a></li>
         </ul>
         <!-- .cd-dropdown-content -->
     </nav>
@@ -161,20 +162,21 @@ Author: webstrot
                         <div class="jb_profile_box jb_3_profile_box">
                             <div class="nice-select" tabindex="0"> <span class="current"><img src="images/profile-11.jpg" alt="img"></span>
                                 <ul class="list">
-                                    <li><a href="#accordion"><i class="fas fa-user-edit"></i>FAQ</a>
+                                    <li><a href="{{route('profile.edit')}}"><i class="fas fa-user-edit"></i>Profil</a>
                                     </li>
 
                                     {{-- <li><a href="#"><i class="far fa-calendar-alt"></i> My Calender</a> --}}
                                     </li>
-                                    <li><a href="#"><i class="fas fa-comment"></i>Inbox</a>
-                                    </li>
-                                    <li><a href="#"><i class="fas fa-cog"></i>Setting</a>
-                                    </li>
-                                    <li><a href="#"><i class="fas fa-question-circle"></i>Help</a>
+                                    <li><a href="#"><i class="fas fa-comment"></i>FAQ</a>
                                     </li>
                                     {{-- <li><a href="#"><i class="fas fa-lock"></i>Lock Screen</a> --}}
                                     </li>
-                                    <li><a href="#"><i class="fas fa-sign-in-alt"></i>logout</a>
+                                     <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+
+                                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                this.closest('form').submit();"><i class="ion-power"></i>Déconnexion</a></li>
+                                     </form>
                                     </li>
                                 </ul>
                             </div>
@@ -189,20 +191,20 @@ Author: webstrot
             <div class="mainmenu green_main_menu blue_main_menu d-xl-block d-lg-block d-md-none d-sm-none d-none">
                 <ul class="main_nav_ul menu_2_ul">
                     <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation active_class active_class2 active_class3">acceuil</a>
-                        
-                    </li>		
+
+                    </li>
                     <li class="has-mega gc_main_navigation"><a href="{{route('manuel')}}" class="gc_main_navigation">Manuels</a>
-                     
+
                     </li>
                     <li class="has-mega gc_main_navigation kv_sub_menu green_sub_menu blue_sub_menu">
                         <a href="#accordion" class="gc_main_navigation"> FAQ</a>
                         <!-- mega menu start -->
-                        
+
                     </li>
                     <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">A   propos</a>
-                            
+
                         </li>
-					
+
                    <li><a href="{{route('contact_us')}}" class="gc_main_navigation">contact</a></li>
 
                 </ul>
@@ -214,10 +216,10 @@ Author: webstrot
 
     <!-- navi wrapper End -->
     <!-- slider wrapper Start -->
-                
+
     <!-- slider wrapper End -->
     <!--services wrapper start-->
-        
+
     </div>
     <!-- navi wrapper End -->
     <!-- slider wrapper Start -->
@@ -270,7 +272,7 @@ Author: webstrot
                                 {{-- <input type="number" class="form-control require" name="tel" placeholder="Numero de téléphone*"> --}}
                                 {{-- <i class="fas fa-phone"></i> --}}
                             </div>
-                            
+
                             <div class="form-group icon_form comments_form">
 
                                 <x-text-input id="image" class="form-control require" type="file" name="image" />
@@ -351,7 +353,7 @@ Author: webstrot
         <div class="slider_small_shape44">
             <img src="images/p2.png" class="img-responsive " alt="img">
         </div>
-        
+
         <div class="counter_jbbb2 jb_cover">
 
             <img src="images/line3.png" class="img-responsive" alt="img">
@@ -359,15 +361,15 @@ Author: webstrot
     </div>
     <!--resume wrapper end-->
     <!-- news app wrapper start-->
-    
-    
+
+
     <!-- news app wrapper end-->
     <!-- footer Wrapper Start -->
     <div class="popular_wrapper jb_cover">
         <div class="slider_small3_shape shapenew">
             <img src="images/shape4.png" class="img-responsive " alt="img">
         </div>
-        
+
     </div>
 
     <div class="col-lg-12 col-md-12 col-sm-12">
@@ -425,7 +427,7 @@ Author: webstrot
         <div class="slider_small_shape44">
             <img src="images/p2.png" class="img-responsive " alt="img">
         </div>
-        
+
         <div class="counter_jbbb2 jb_cover">
 
             <img src="images/line3.png" class="img-responsive" alt="img">
@@ -433,8 +435,8 @@ Author: webstrot
     </div>
     <!--resume wrapper end-->
     <!-- news app wrapper start-->
-    
-    
+
+
     <!-- news app wrapper end-->
     <!-- footer Wrapper Start -->
     <div class="footer jb_cover">
@@ -442,7 +444,7 @@ Author: webstrot
         <img src="images/bubble2.png" class="img-responsive " alt="img">
     </div>
 
-    
+
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-sm-6 col-12">
@@ -458,7 +460,7 @@ Author: webstrot
                                 <a href="tel:+237698549128">698-549-128</a>
                                 {{-- <a href="tel:+237698549128">652-097-642</a> --}}
                             </p>
-                            
+
                         </li>
                         <li style="display:flex;align-items:center;"><i class="flaticon-envelope"></i><a href="mailto:lucfotso0@gmail.com">contact.lepoto@gmail.com </a>
                             <br>
@@ -522,7 +524,7 @@ Author: webstrot
                                         </div>
                                     </div>
                                 </div>
-                            
+
                                 <div class="col-md-12">
                                     <div class="form-m">
                                         <div class="form-group i-message">
@@ -545,9 +547,9 @@ Author: webstrot
                         </form>
 
                     </div>
-                </div>    
+                </div>
                 <div class="col-lg-4 col-sm-6 col-12">
-                    
+
                 </div>
                 <div class="copyright_left"><i class="fa fa-copyright"></i> 2023 <a href="#">  LEPOTO.  </a> Tout droit réservé.
             </div>

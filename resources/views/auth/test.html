@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    
+
 </body>
 </html>
 <!Doctype html>
@@ -83,7 +83,7 @@
 
 
 <!DOCTYPE html>
-<!-- 
+<!--
 Template Name: JB desks
 Version: 1.0.0
 Author: webstrot
@@ -138,7 +138,7 @@ Author: webstrot
     <!-- Top Scroll End -->
     <!-- cp navi wrapper Start -->
     <nav class="cd-dropdown cd_dropdown_index2 cd_dropdown_index3 d-block d-sm-block d-md-block d-lg-none d-xl-none">
-        <h2><a href="index.html"> <span><img src="images/logolepoto1.png" style="width:163px;height:43px;object-fit: cover;object-position: center;" alt="img"></span></a></h2>
+        <h2><a href="{{ route('accueil') }}"> <span><img src="images/logolepoto1.png" style="width:163px;height:43px;object-fit: cover;object-position: center;" alt="img"></span></a></h2>
         <a href="#0" class="cd-close">Close</a>
         <ul class="cd-dropdown-content">
             <li>
@@ -262,20 +262,20 @@ Author: webstrot
             <div class="mainmenu green_main_menu blue_main_menu d-xl-block d-lg-block d-md-none d-sm-none d-none">
                 <ul class="main_nav_ul menu_2_ul">
                     <li class="has-mega gc_main_navigation"><a href="{{route('accueil')}}" class="gc_main_navigation ">acceuil</a>
-                        
-                    </li>		
+
+                    </li>
                     <li class="has-mega gc_main_navigation"><a href="{{route('vendre')}}" class="gc_main_navigation active_class active_class2 active_class3">vendre</a>
-                     
+
                     </li>
                     <li class="has-mega gc_main_navigation kv_sub_menu green_sub_menu blue_sub_menu">
                         <a href="{{route('profile.edit')}}" class="gc_main_navigation">  profile</a>
                         <!-- mega menu start -->
-                        
+
                     </li>
                     <li class="has-mega gc_main_navigation"><a href="{{route('profile.edit')}}" class="gc_main_navigation">dashboard</a>
-                            
+
                         </li>
-					
+
                    <li><a href="{{route('contact_us')}}" class="gc_main_navigation">contact</a></li>
 
                 </ul>
@@ -291,7 +291,7 @@ Author: webstrot
       @foreach ($errors->all() as $error)
           <div style="color:red;"> {{ $error }} </div>
       @endforeach
-        
+
     @endif
     <div class="form-group icon_form comments_form">
 
@@ -314,7 +314,7 @@ Author: webstrot
       </div><br>
         <label for="image">Choisir une image:</label><br><br>
         <input type="file"
-          id="image" name="image" 
+          id="image" name="image"
           accept="image/png , image/jpeg">
           <br><br>
         <button class="btn btn-success" type="submit">Enregistrer</button>
