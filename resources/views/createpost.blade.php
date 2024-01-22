@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 
+<!--
 Template Name: JB desks
 Version: 1.0.0
 Author: webstrot
@@ -195,20 +195,20 @@ Author: webstrot
             <div class="mainmenu green_main_menu blue_main_menu d-xl-block d-lg-block d-md-none d-sm-none d-none">
                 <ul class="main_nav_ul menu_2_ul">
                     <li class="has-mega gc_main_navigation"><a href="{{route('accueil')}}" class="gc_main_navigation ">acceuil</a>
-                        
-                    </li>		
+
+                    </li>
                     <li class="has-mega gc_main_navigation"><a href="{{route('vendre')}}" class="gc_main_navigation active_class active_class2 active_class3">vendre</a>
-                     
+
                     </li>
                     <li class="has-mega gc_main_navigation kv_sub_menu green_sub_menu blue_sub_menu">
                         <a href="#accordion" class="gc_main_navigation">FAQ</a>
                         <!-- mega menu start -->
-                        
+
                     </li>
                     <li class="has-mega gc_main_navigation"><a href="{{route('profile.edit')}}" class="gc_main_navigation">A propos</a>
-                            
+
                         </li>
-					
+
                    <li><a href="{{route('contact_us')}}" class="gc_main_navigation">contact</a></li>
 
                 </ul>
@@ -216,7 +216,7 @@ Author: webstrot
             </div>
             <!-- mainmenu end -->
         <div class="login_wrapper jb_cover" >
-        <div class="container" style="width:1000px;margin-rigth:500px;">
+        <div class="container" >
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="login_top_box jb_cover" style="min-height:600;height:100%">
@@ -241,6 +241,7 @@ Author: webstrot
                                 {{-- <input type="text" class="form-control require" name="email" placeholder="Email*"> --}}
                                 {{-- <i class="fas fa-envelope"></i> --}}
                             </div>
+
                             {{-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> --}}
                             <div class="form-group icon_form comments_form">
 
@@ -257,7 +258,7 @@ Author: webstrot
                                 {{-- <input type="number" class="form-control require" name="tel" placeholder="Numero de téléphone*"> --}}
                                 {{-- <i class="fas fa-phone"></i> --}}
                             </div>
-                            
+
                             <div class="form-group icon_form comments_form">
 
                                 <x-text-input id="image" class="form-control require" type="file" name="image" />
@@ -338,7 +339,7 @@ Author: webstrot
         <div class="slider_small_shape44">
             <img src="images/p2.png" class="img-responsive " alt="img">
         </div>
-        
+
         <div class="counter_jbbb2 jb_cover">
 
             <img src="images/line3.png" class="img-responsive" alt="img">
@@ -346,8 +347,8 @@ Author: webstrot
     </div>
     <!--resume wrapper end-->
     <!-- news app wrapper start-->
-    
-    
+
+
     <!-- news app wrapper end-->
     <!-- footer Wrapper Start -->
     <div class="footer jb_cover">
@@ -355,7 +356,7 @@ Author: webstrot
         <img src="images/bubble2.png" class="img-responsive " alt="img">
     </div>
 
-    
+
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-sm-6 col-12">
@@ -371,7 +372,7 @@ Author: webstrot
                                 <a href="tel:+237698549128">698-549-128</a>
                                 {{-- <a href="tel:+237698549128">652-097-642</a> --}}
                             </p>
-                            
+
                         </li>
                         <li style="display:flex;align-items:center;"><i class="flaticon-envelope"></i><a href="mailto:lucfotso0@gmail.com">contact.lepoto@gmail.com </a>
                             <br>
@@ -435,7 +436,7 @@ Author: webstrot
                                         </div>
                                     </div>
                                 </div>
-                            
+
                                 <div class="col-md-12">
                                     <div class="form-m">
                                         <div class="form-group i-message">
@@ -458,9 +459,9 @@ Author: webstrot
                         </form>
 
                     </div>
-                </div>    
+                </div>
                 <div class="col-lg-4 col-sm-6 col-12">
-                    
+
                 </div>
                 <div class="copyright_left"><i class="fa fa-copyright"></i> 2023 <a href="#">  LEPOTO.  </a> Tout droit réservé.
             </div>
