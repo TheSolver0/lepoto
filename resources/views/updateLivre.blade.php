@@ -38,7 +38,7 @@ Author: webstrot
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/responsive.css" />
     <!--favicon-->
-    <link rel="shortcut icon" type="image/png" href="images/icolepoto.png" />
+    <link rel="shortcut icon" type="image/png" href="images/icolepoto0.png" />
 
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -70,7 +70,7 @@ Author: webstrot
     <!-- Top Scroll End -->
     <!-- cp navi wrapper Start -->
     <nav class="cd-dropdown cd_dropdown_index2 cd_dropdown_index3 d-block d-sm-block d-md-block d-lg-none d-xl-none">
-        <h2><a href="{{ route('accueil') }}"> <span><img src="images/logolepoto1.png" style="height:100%;object-fit: contain;object-position: center;" alt="img"></span></a></h2>
+        <h2><a href="{{ route('accueil') }}"> <span><img src="images/logolepoto10.png" style="height:100%;object-fit: contain;object-position: center;" alt="img"></span></a></h2>
         <a href="#0" class="cd-close">Close</a>
         <ul class="cd-dropdown-content">
             <li>
