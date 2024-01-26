@@ -165,7 +165,7 @@ Author: webstrot
 
                                     {{-- <li><a href="#"><i class="far fa-calendar-alt"></i> My Calender</a> --}}
                                     </li>
-                                    <li><a href="#"><i class="fas fa-comment"></i>FAQ</a>
+                                    <li><a href="#accordion"><i class="fas fa-comment"></i>FAQ</a>
                                     </li>
                                     {{-- <li><a href="#"><i class="fas fa-lock"></i>Lock Screen</a> --}}
                                     </li>
@@ -182,9 +182,21 @@ Author: webstrot
                         @else
                         @endif
                     </li>
+                    @if(empty(Auth::user()))
                     <li class="btn_hover">
                          <a href="{{ route('login') }}">Connexion</a>
                     </li>
+                    @else
+                        <li class="btn_hover">
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+
+                                    <li class="btn_hover"><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        this.closest('form').submit();"><i class="ion-power"></i>Déconnexion</a></li>
+                            </form>
+                        </li>
+
+                     @endif
                 </ul>
             </div>
 
@@ -248,12 +260,26 @@ Author: webstrot
                                         <h2 data-animation="animated fadeInUp">Revendez en toute simplicité les manuels que vous n'utilisez plus</h2>
 
                                         <p data-animation="animated fadeInUp">LEPOTO, la meilleure plateforme pour élèves et etudiants.</p>
-                                        <div data-animation="animated fadeInUp" class="btn_hover slider_btn">
-                                            <a href="{{route('register')}}" style="margin:10px;">Inscription gratuite</a>
-                                        </div>
-                                        <div data-animation="animated fadeInUp" class="btn_hover slider_btn" >
-                                            <a href="{{route('login')}}" style="margin:10px;">Se connecter</a>
-                                        </div>
+                                        @if(empty(Auth::user()))
+                                            <div data-animation="animated fadeInUp" class="btn_hover slider_btn">
+                                                <a href="{{route('register')}}" style="margin:10px;">Inscription gratuite</a>
+                                            </div>
+                                            <div data-animation="animated fadeInUp" class="btn_hover slider_btn" >
+                                                <a href="{{route('login')}}" style="margin:10px;">Se connecter</a>
+                                            </div>
+                                        @else
+                                            <div data-animation="animated fadeInUp" class="btn_hover slider_btn">
+                                                <a href="{{route('profile.edit')}}" style="margin:10px;">Mon compte</a>
+                                            </div>
+                                            <div data-animation="animated fadeInUp" class="btn_hover slider_btn" >
+                                                <form method="POST" action="{{ route('logout') }}">
+                                                    @csrf
+
+                                                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                            this.closest('form').submit();"  style="margin:10px;"><i class="ion-power"></i>Se Déconnecter</a></li>
+                                                 </form>
+                                            </div>
+                                        @endif
                                         {{-- <div data-animation="animated fadeInUp" class="slider_icon_list">
                                             <ul>
 
