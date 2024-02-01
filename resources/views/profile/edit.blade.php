@@ -661,7 +661,7 @@ Author: webstrot
                                                             </li>
                                                             <li>
 
-                                                            <form method="post" action="{{ route('updatelivre') }}">
+                                                            <form method="post" action="{{ route('updatePost') }}">
                                                                 @csrf
                                                                 @method('PATCH')
                                                                 <input type="hidden" name="id" value="{{$post->id}}">
@@ -669,7 +669,7 @@ Author: webstrot
                                                                 <a href=""
                                                                     onclick="event.preventDefault();
                                                                             this.closest('form').submit();"> Modifier</a>
-                                                            
+
                                                             </form>
                                                             </li>
 
