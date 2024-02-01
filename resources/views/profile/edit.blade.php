@@ -669,7 +669,7 @@ Author: webstrot
                                                                 <a href=""
                                                                     onclick="event.preventDefault();
                                                                             this.closest('form').submit();"> Modifier</a>
-                                                                @endif
+                                                            
                                                             </form>
                                                             </li>
 
