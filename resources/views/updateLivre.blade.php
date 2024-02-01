@@ -38,22 +38,29 @@ Author: webstrot
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/responsive.css" />
     <!--favicon-->
+<<<<<<< HEAD
     <link rel="shortcut icon" type="image/png" href="images/icolepoto0.png" />
 
+=======
+    <link rel="shortcut icon" type="image/png" href="images/icolepoto.png" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JTS4X9C6LN"></script>
+>>>>>>> e56537a1bbc2f76bb231f5f9192c39a310086bf5
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-JTS4X9C6LN');
-</script>
-{{-- google analytics
+</script><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JTS4X9C6LN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-JTS4X9C6LN');
+</script>onfig', 'G-JTS4X9C6LN');
 </script> --}}
 </head>
 
