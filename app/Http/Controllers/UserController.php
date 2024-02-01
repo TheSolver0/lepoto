@@ -92,10 +92,10 @@ class UserController extends Controller
 
         return redirect('/profile');
     }
-    // public function suppView($id)
-    // {
-    //     return view('deleteuser',compact('id'));
-    // }
+    public function suppView($id)
+    {
+        return view('deleteuser',compact('id'));
+    }
     public function supp($id)
     {
         // $id = $request->idUser;
