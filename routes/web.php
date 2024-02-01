@@ -48,6 +48,7 @@ Route::post('/email/verification-notification', function (Request $request) {
 
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+Route::get('/admin698BULL549lepoto128', [UserController::class, 'index']);
 
 Route::middleware(['auth','verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -60,7 +61,6 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::get('/createpost',[PostController::class, 'create'])->name('vendre');
     Route::post('/storepost', [PostController::class, 'store'])->name('posts.store');
     Route::get('/profile', [PostController::class, 'userPosts'])->name('profile.edit');
-    Route::get('/admin698BULL549lepoto128', [UserController::class, 'index']);
     // Route::get('/suppressionCompte/{id}', [UserController::class, 'suppView'] )->name('suppressionCompte');
     Route::delete('/suppressionUser_en_cours/{id}', [UserController::class, 'supp'] )->name('SupprimCompte');
     Route::get('/suppressionPost/{id}', [PostController::class, 'suppView'] )->name('suppressionPost');
