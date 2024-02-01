@@ -661,9 +661,9 @@ Author: webstrot
                                                             </li>
                                                             <li>
 
-                                                            <form method="post" action="{{ route('updatePost') }}">
+                                                            <form method="GET" action="{{ route('updatelivre') }}">
                                                                 @csrf
-                                                                @method('PATCH')
+                                                                {{-- @method('PATCH') --}}
                                                                 <input type="hidden" name="id" value="{{$post->id}}">
 
                                                                 <a href=""
@@ -726,7 +726,7 @@ Author: webstrot
 
                                             </div>
                                         </div>
-                                    </div>
+
                                     @empty
                                         vous n'avez aucun livre enregistré.
                                     @endforelse
