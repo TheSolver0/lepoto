@@ -34,7 +34,7 @@ Author: webstrot
     <link rel="stylesheet" type="text/css" href="css/magnific-popup.css" />
     <link rel="stylesheet" type="text/css" href="css/nice-select.css" />
     <link rel="stylesheet" type="text/css" href="css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />  
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/responsive.css" />
     <!--favicon-->
     <link rel="shortcut icon" type="image/png" href="images/icolepoto0.png" />
@@ -296,7 +296,7 @@ Author: webstrot
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8 col-md-12 col-sm-12 col-12">
+                <div class="col-lg-10 col-md-12 col-sm-12 col-12">
                     <div class="jb_listing_single_overview jb_cover">
                     <form id="send-verification" method="post" action="{{ route('verification.send') }}">
                         @csrf
@@ -410,7 +410,7 @@ Author: webstrot
 
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+                <div class="col-lg-4 col-md-12 col-sm-12 col-12" style="display: none;">
                     <div class="job_filter_category_sidebar jb_cover">
                         <div class="job_filter_sidebar_heading jb_cover">
                             <h1>dashboard</h1>
@@ -661,16 +661,14 @@ Author: webstrot
                                                             </li>
                                                             <li>
 
-                                                            <form method="GET" action="">
+                                                            <form method="post" action="{{ route('updatelivre') }}">
+                                                                @csrf
+                                                                @method('PATCH')
                                                                 <input type="hidden" name="id" value="{{$post->id}}">
-                                                                @if(!empty($post->auteur->users_tel))
-                                                                <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis LEPOTO par rapport a  votre article du titre : {{$post->title}}"
+
+                                                                <a href=""
                                                                     onclick="event.preventDefault();
-                                                                            this.closest('form').submit();">acheter</a>
-                                                                @else
-                                                                <a href="https://wa.me/+237{{$post->auteur->users_tel}}/?text=Bonjour  Je viens vers vous depuis LEPOTO par rapport a  votre article du titre : {{$post->title}}"
-                                                                    onclick="event.preventDefault();
-                                                                            this.closest('form').submit();"> acheter</a>
+                                                                            this.closest('form').submit();"> Modifier</a>
                                                                 @endif
                                                             </form>
                                                             </li>
@@ -683,7 +681,7 @@ Author: webstrot
                                                         </ul>
                                                         <!-- Button trigger modal -->
                                                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" style="margin-left:20px;margin-top:18px; border-radius:0 !important;">
-                                                            Signaler
+                                                            Supprimer
                                                             </button>
 
                                                             <!-- Modal -->
