@@ -680,35 +680,12 @@ Author: webstrot
                                                             @endif --}}
                                                         </ul>
                                                         <!-- Button trigger modal -->
-                                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" style="margin-left:20px;margin-top:18px; border-radius:0 !important;">
+                                                            <a type="button" class="btn btn-danger" href="{{route('suppressionPost',['id' => $post->id])}}" style="margin-left:20px;margin-top:18px; border-radius:0 !important;">
                                                             Supprimer
-                                                            </button>
+                                                            </a>
 
                                                             <!-- Modal -->
-                                                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLongTitle">Signalement</h5>
-                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <form method="GET" action="{{route('signalerPost')}}">
-                                                                        <input type="hidden" name="id" value="{{$post->id}}">
-                                                                        <input type="text" name="raison" class="raison" placeholder="Entrez la raison du signalement">
-                                                                        {{-- <button type="submit" class="btn btn-danger" name="signale" style="margin-left:25px;margin-top:18px; border-radius:0 !important;">Signaler</button> --}}
 
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Sortir</button>
-                                                                    <button type="submit" class="btn btn-danger">Signaler</button>
-                                                                    </form>
-                                                                </div>
-                                                                </div>
-                                                                </div>
-                                                            </div>
-                                                            </div>
                                                         {{-- <form method="GET" action="{{route('signalerPost')}}"
                                                             onmouseover="event.preventDefault();
                                                                     this.querySelector('.raison').style.display='';"
