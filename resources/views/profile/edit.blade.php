@@ -34,7 +34,7 @@ Author: webstrot
     <link rel="stylesheet" type="text/css" href="css/magnific-popup.css" />
     <link rel="stylesheet" type="text/css" href="css/nice-select.css" />
     <link rel="stylesheet" type="text/css" href="css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />  
     <link rel="stylesheet" type="text/css" href="css/responsive.css" />
     <!--favicon-->
     <link rel="shortcut icon" type="image/png" href="images/icolepoto0.png" />
