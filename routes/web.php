@@ -61,7 +61,7 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::get('/createpost',[PostController::class, 'create'])->name('vendre');
     Route::post('/storepost', [PostController::class, 'store'])->name('posts.store');
     Route::get('/profile', [PostController::class, 'userPosts'])->name('profile.edit');
-    // Route::get('/suppressionCompte/{id}', [UserController::class, 'suppView'] )->name('suppressionCompte');
+    Route::get('/suppressionCompte/{id}', [UserController::class, 'suppView'] )->name('suppressionCompte');
     Route::delete('/suppressionUser_en_cours/{id}', [UserController::class, 'supp'] )->name('SupprimCompte');
     Route::get('/suppressionPost/{id}', [PostController::class, 'suppView'] )->name('suppressionPost');
     Route::delete('/suppressionPost_en_cours', [PostController::class, 'supp'] )->name('adminSupprimPost');
