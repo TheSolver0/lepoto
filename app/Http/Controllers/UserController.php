@@ -23,19 +23,19 @@ class UserController extends Controller
 {
     public function index()
     {
-        if(Auth::user()->email == 'lucfotso0+1@gmail.com')
-        {
+        // if(Auth::user()->email == 'lucfotso0+1@gmail.com')
+        // {
             $users = User::orderBy('id','asc')->get();
             $posts = Post::orderBy('id','asc')->get();
             $recherches = RecherchesNotFound::orderBy('id','asc')->get();
             // dd($users);
 
             return view('admin',compact('users','posts','recherches'));
-        }
-        else
-        {
-            return abort('404');
-        }
+        // }
+        // else
+        // {
+        //     return abort('404');
+        // }
     }
     public function update(Request $request, $id )
     {
