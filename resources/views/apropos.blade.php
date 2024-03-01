@@ -18,8 +18,8 @@ Author: webstrot
     <meta charset="utf-8" />
     <title>lepoto | a propos</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-                        <meta name="description" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" />
-                        <meta name="keywords" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" />
+                        <!-- <meta name="description" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" />
+                        <meta name="keywords" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" /> -->
                         <meta name="author" content="BULL" />
     <meta name="MobileOptimized" content="320" />
     <!--Template style -->
@@ -38,14 +38,11 @@ Author: webstrot
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/responsive.css" />
     <!--favicon-->
-<<<<<<< HEAD
     <link rel="shortcut icon" type="image/png" href="images/icolepoto0.png" />
 
-=======
     <link rel="shortcut icon" type="image/png" href="images/icolepoto.png" />
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JTS4X9C6LN"></script>
->>>>>>> e56537a1bbc2f76bb231f5f9192c39a310086bf5
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}

@@ -10,7 +10,8 @@ Author: webstrot
 <!--[if !IE]><!-->
 <html lang="fr">
 <!--[endif]-->
-
+<!-- <meta name="description" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" />
+                        <meta name="keywords" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" /> --> 
 
 <!-- Mirrored from webstrot.com/html/jbdesk/main_pages/index_III.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Jun 2019 23:01:26 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
@@ -18,8 +19,8 @@ Author: webstrot
     <meta charset="utf-8" />
     <title>lepoto</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-                        <meta name="description" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" />
-                        <meta name="keywords" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" />
+                        <!-- <meta name="description" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" />
+                        <meta name="keywords" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" /> -->
                         <meta name="author" content="BULL" />
     <meta name="MobileOptimized" content="320" />
     <!--Template style -->

@@ -18,8 +18,8 @@ Author: webstrot
     <meta charset="utf-8" />
     <title>lepoto | description</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-                        <meta name="description" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" />
-                        <meta name="keywords" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" />
+                        <!-- <meta name="description" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" />
+                        <meta name="keywords" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" /> -->
                         <meta name="author" content="BULL" />
     <meta name="MobileOptimized" content="320" />
     <!--Template style -->
