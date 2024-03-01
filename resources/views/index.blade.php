@@ -11,7 +11,7 @@ Author: webstrot
 <html lang="fr">
 <!--[endif]-->
 <!-- <meta name="description" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" />
-                        <meta name="keywords" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" /> --> 
+                        <meta name="keywords" content="lepoto,livres,manuels,education,ventes de manuels scolaire,achat de manuels scolaire" /> -->
 
 <!-- Mirrored from webstrot.com/html/jbdesk/main_pages/index_III.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Jun 2019 23:01:26 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
@@ -41,7 +41,7 @@ Author: webstrot
     <!--favicon-->
     <link rel="shortcut icon" type="image/png" href="images/icolepoto0.png" />
 
-    <link rel="shortcut icon" type="image/png" href="images/icolepoto.png" />
+    {{-- <link rel="shortcut icon" type="image/png" href="images/icolepoto.png" /> --}}
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JTS4X9C6LN"></script>
 <script>
