@@ -612,7 +612,7 @@ Author: webstrot
                                                                     onclick="event.preventDefault();
                                                                             this.closest('form').submit();">acheter</a>
                                                                 @else
-                                                                <a href="https://wa.me/+237{{$post->auteur->users_tel}}/?text=Bonjour  Je viens vers vous depuis LEPOTO par rapport a  votre article du titre : {{$post->title}}"
+                                                                <a href="https://wa.me/+237698549128/?text=Bonjour  Je viens vers vous depuis LEPOTO par rapport a  votre article du titre : {{$post->title}}"
                                                                     onclick="event.preventDefault();
                                                                             this.closest('form').submit();"> acheter</a>
                                                                 @endif
