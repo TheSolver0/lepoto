@@ -86,7 +86,7 @@ class PostController extends Controller
             'prix' => ['required'],
             'ville' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'max:255'],
-            'image' => ['required', 'sometimes','mimes:jpeg,png,jpg', 'max:4096'],
+            'image' => ['required', 'sometimes','mimes:jpeg,png', 'max:4096'],
         ]);
         $post = Post::create([
             'title' => $request->title,
@@ -97,20 +97,20 @@ class PostController extends Controller
         ]);
 
         $filename = time() . '.' . $request->image->extension();
-        
+
         $path = $request->image->storeAs(
             'Images',
             $filename,
             'public'
         );
-       
+
 
         $avatar = Image::create([
             'path' => $path,
             'posts_id' => $post->id
         ]);
 
-        
+
         $auteur = Auteur::create([
             'posts_id' => $post->id,
             'users_name' => Auth::user()->name,
@@ -118,21 +118,13 @@ class PostController extends Controller
         ]);
         if(!empty($avatar) && !empty($auteur))
         {
-            // dump("Livre enregistré avec succes !");
-            echo '<script>alert("Livre enregistré avec succès !");
-                            document.location.href="/profile#manuel";                    
-                    </script>';
-            // return view('profile.edit');
-            // return Redirect::route('profile.edit');
+            return response()->json([
+                'success' => true,
+                'message' => 'Livre Enregistré!'
+            ]);
         }
-        else
-        {
-            // dump("Livre enregistré avec succes !");
-            echo '<script>alert("Echec de l\'enregistrement du livre !")
-                        document.location.href="#";                    
-                    </script>';
-            // return Redirect::route('vendre');
-        }
+
+
     }
     public function userPosts()
     {
@@ -161,7 +153,7 @@ class PostController extends Controller
     }
     public function update(Request $request, $id )
     {
-        
+
         // $request->validate([
         //     'name' => ['required', 'string', 'max:255'],
         //     'email' => ['required', 'string', 'email', 'max:255'],
@@ -181,15 +173,15 @@ class PostController extends Controller
 
 
             $filename = time() . '.' . $request->image->extension();
-            
+
             $path = $request->image->storeAs(
                 'Images',
                 $filename,
                 'public'
             );
-        
+
             if(empty($post->image->path))
-            { 
+            {
 
                 $image = Image::create([
                     'path' => $path,
@@ -215,13 +207,13 @@ class PostController extends Controller
         $post->update();
 
         return redirect('/profile');
-    
+
     }
     public function mail(Request $request)
     {
         $user = ['nom' => $request->full_name, 'email' => $request->email];
         $message = $request->message;
-        
+
         Mail::to("lucfotso0@gmail.com")->send(new ContactMarkdownMail($user,$message));
 
         return redirect('/contact');
@@ -230,9 +222,9 @@ class PostController extends Controller
     {
         $idpost = $request->id;
         $raison = $request->raison;
-        
+
         Mail::to("lucfotso0@gmail.com")->send(new SignalerPostMarkdownMail($idpost,$raison));
-        
+
         return redirect('/');
     }
     public function suppView($id)

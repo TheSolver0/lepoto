@@ -90,7 +90,12 @@ class UserController extends Controller
 
         $user->update();
 
-        return redirect('/profile');
+
+        return  response()->json([
+            'success' => true,
+            'message' => 'Informations mises à jour!',
+            'status'=>true
+        ]);
     }
     public function suppView($id)
     {

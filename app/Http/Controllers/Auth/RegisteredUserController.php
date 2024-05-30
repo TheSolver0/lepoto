@@ -31,7 +31,7 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    
+
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
@@ -49,13 +49,13 @@ class RegisteredUserController extends Controller
         ]);
         $user->sendEmailVerificationNotification();
         // $filename = time() . '.' . $request->avatar->extension();
-        
+
         // $path = $request->avatar->storeAs(
         //     'avatars',
         //     $filename,
         //     'public'
         // );
-       
+
 
         // $avatar = Avatar::create([
         //     'path' => $path,
@@ -68,14 +68,14 @@ class RegisteredUserController extends Controller
         sendWelcomeUserMailJob::dispatch($user);
 
         // Auth::login($user);
-        
-        return redirect(RouteServiceProvider::Dash);
+
+        return redirect(RouteServiceProvider::Dash)->with('success', 'Votre compte a été crée avec succès !');
     }
     /*public function update()
     {
         $user = Auth::user();
-        
+
        return view('profile.edit',compact('user'));
     }*/
-    
+
 }
