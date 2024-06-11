@@ -21,6 +21,10 @@ use Illuminate\View\View;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('check.admin')->only('index','update','suppview','supp'); 
+    }
     public function index()
     {
         // if(Auth::user()->email == 'lucfotso0+1@gmail.com')
@@ -112,7 +116,7 @@ class UserController extends Controller
             'password' => $user->password,
         ]);
         $user->delete();
-        return redirect('/');
+        // return back();
     }
 
 }
