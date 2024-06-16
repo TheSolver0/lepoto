@@ -421,7 +421,6 @@
                                                                     alt="post_img"
                                                                     style="width:170px;height:200px;object-fit:contain;" />
                                                             @endif
-                                                            @if (!empty($post->auteur->users_name) || !empty($post->auteur->users_tel))
                                                                 <br>
                                                                 <form action="{{ route('posts.auteur') }}"
                                                                     method="get">
@@ -430,12 +429,10 @@
                                                                     <input type="hidden" name = "tel"
                                                                         value="{{ $post->auteur->users_tel }}">
                                                                     <button type="submit" style=""
-                                                                        class="btn btn-light"><span>{{ $post->auteur->users_name }}
+                                                                        class="btn btn-light"><span>{{ Auth::user()->name}}
                                                                         </span></button>
                                                                 </form>
-                                                            @else
-                                                                Auteur
-                                                            @endif
+
                                                         </div>
                                                         <div class="jp_job_post_right_cont">
                                                             <h4><a href="#">{{ $post->title }}</a></h4>

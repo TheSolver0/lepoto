@@ -322,9 +322,9 @@
                             <div id="grid" class="tab-pane active">
                                 <div class="row">
                                 @forelse ($posts as $post)
-
-                                    {{$auteur = App\Models\User::findOrFail($post->auteur->users_id)}}
-
+                                @php
+                                    $auteur = App\Models\User::find($post->auteur->users_id);
+                                @endphp
                                     <div class="col-lg-6 col-md-6 col-sm-12">
 
                                         <div class="job_listing_left_fullwidth job_listing_grid_wrapper jb_cover">
