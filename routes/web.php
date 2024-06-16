@@ -24,9 +24,7 @@ use Illuminate\Http\Request;
  Route::get('/apropos', function () {
     return view('apropos');
 })->name('apropos');
-Route::get('/test', function () {
-    return view('test');
-})->name('apropos');
+
  Route::get('/dash', function () {
     return view('dash');
 });

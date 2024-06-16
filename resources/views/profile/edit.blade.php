@@ -621,7 +621,7 @@
                     error: function(data) {
                         Swal.fire({
                             title: 'Error!',
-                            text: 'Something went wrong!',
+                            text: 'Une erreur est survenue!',
                             icon: 'error',
                             confirmButtonText: 'Ok'
                         });
