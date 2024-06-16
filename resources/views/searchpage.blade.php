@@ -159,7 +159,7 @@
                                 <div class="row">
                                 @forelse ($posts as $post)
                                 @php
-                                    $auteur = App\Models\User::find($post->auteur->users_id);
+                                    $auteur = App\Models\User::findOrFail($post->auteur->users_id);
                                 @endphp
                                     <div class="col-lg-6 col-md-6 col-sm-12">
 
