@@ -22,6 +22,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::orderBy('id','desc')->paginate(4)->fragment('manuel');
+
         // $posts = Post::orderBy('id', 'desc')->get();
         // $url = url();
         // $posts->withPath($url.'#');
@@ -64,14 +65,8 @@ class PostController extends Controller
     }
     public function postAuteur(Request $request)
     {
-        $tel = $request->tel;
-        $auteur = User::where('tel','LIKE',$tel)->get();
-        foreach($auteur as $aut)
-        {
-            $id = $aut->id;
-        }
-        // dd($auteur);
-        $posts = Post::where('users_id','LIKE',"$id")->paginate(4);
+
+        $posts = Post::where('users_id','LIKE',$request->id)->paginate(4);
 
         return view('searchpage',compact('posts'));
     }
@@ -113,8 +108,7 @@ class PostController extends Controller
 
         $auteur = Auteur::create([
             'posts_id' => $post->id,
-            'users_name' => Auth::user()->name,
-            'users_tel' => Auth::user()->tel
+            'users_id' => Auth::user()->id,
         ]);
         if(!empty($avatar) && !empty($auteur))
         {

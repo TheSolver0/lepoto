@@ -18,9 +18,7 @@ use Illuminate\Http\Request;
 |
 */
 
- Route::get('/', function () {
-     return view('index');
- });
+ 
  Route::get('/apropos', function () {
     return view('apropos');
 })->name('apropos');

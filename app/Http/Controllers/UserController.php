@@ -23,7 +23,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('check.admin')->only('index','update','suppview','supp'); 
+        $this->middleware('check.admin')->only('index','suppview','supp');
     }
     public function index()
     {

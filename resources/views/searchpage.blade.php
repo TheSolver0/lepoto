@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
 <div class="best_jobs_wrapper index3_best_job_wrapper  jb_cover" style="margin-top:200px !important;">
         <div class="line_shape">
             <img src="images/line.png" class="img-responsive" alt="img">
@@ -157,6 +158,9 @@
                             <div id="grid" class="tab-pane active">
                                 <div class="row">
                                 @forelse ($posts as $post)
+                                @php
+                                    $auteur = App\Models\User::find($post->auteur->users_id);
+                                @endphp
                                     <div class="col-lg-6 col-md-6 col-sm-12">
 
                                         <div class="job_listing_left_fullwidth job_listing_grid_wrapper jb_cover">
@@ -166,13 +170,13 @@
                                                     @if(!empty($post->image->path))
                                                         <img src="{{ Storage::url($post->image->path) }}" alt="post_img" style="width:170px;height:200px;object-fit:contain;" />
                                                     @endif
-                                                    @if(!empty($post->auteur->users_name) || !empty($post->auteur->users_tel))
+                                                    @if(!empty($auteur->name) || !empty($auteur->tel))
                                                         <br>
                                                         <form action="{{route('posts.auteur')}}" method="get">
                                                             @csrf
                                                             @method('GET')
-                                                            <input type="hidden" name = "tel" value="{{$post->auteur->users_tel}}">
-                                                            <button type="submit" style="" class="btn btn-light"><span>{{$post->auteur->users_name}} </span></button>
+                                                            <input type="hidden" name = "tel" value="{{$auteur->tel}}">
+                                                            <button type="submit" style="" class="btn btn-light"><span>{{$auteur->name}} </span></button>
                                                         </form>
                                                     @else
                                                         Auteur
@@ -203,12 +207,12 @@
 
                                                             <form method="GET" action="">
                                                                 <input type="hidden" name="id" value="{{$post->id}}">
-                                                                @if(!empty($post->auteur->users_tel))
-                                                                <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis LEPOTO par rapport a  votre article du titre : {{$post->title}}"
+                                                                @if(!empty($auteur->tel))
+                                                                <a href="https://wa.me/{{$auteur->tel}}/?text=Bonjour {{$auteur->name}} Je viens vers vous depuis LEPOTO par rapport a  votre article du titre : {{$post->title}}"
                                                                     onclick="event.preventDefault();
                                                                             this.closest('form').submit();">acheter</a>
                                                                 @else
-                                                                <a href="https://wa.me/+237{{$post->auteur->users_tel}}/?text=Bonjour  Je viens vers vous depuis LEPOTO par rapport a  votre article du titre : {{$post->title}}"
+                                                                <a href="https://wa.me/+237{{$auteur->tel}}/?text=Bonjour  Je viens vers vous depuis LEPOTO par rapport a  votre article du titre : {{$post->title}}"
                                                                     onclick="event.preventDefault();
                                                                             this.closest('form').submit();"> acheter</a>
                                                                 @endif
@@ -216,7 +220,7 @@
                                                             </li>
 
                                                             {{-- @if(!empty(Auth::user()))
-                                                            <a href="https://wa.me/{{$post->auteur->users_tel}}/?text=Bonjour {{$post->auteur->users_name}} Je viens vers vous depuis LEPOTO par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
+                                                            <a href="https://wa.me/{{$auteur->tel}}/?text=Bonjour {{$auteur->name}} Je viens vers vous depuis LEPOTO par rapport a  votre article du titre : {{$post->title}}"><li> Acheter</a></li>
                                                             @else
                                                             <a href="{{route('login')}}" data-toggle="modal" data-target="#myModal01">Acheter</a></li>
                                                             @endif --}}
