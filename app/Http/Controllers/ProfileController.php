@@ -36,7 +36,7 @@ class ProfileController extends Controller
         return  response()->json([
                 'success' => true,
                 'message' => 'Informations mises à jour!',
-                'status'=>true 
+                'status'=>true
             ]);
 
 

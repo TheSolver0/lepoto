@@ -23,7 +23,6 @@
         "league/flysystem-aws-s3-v3": "^3.16",
         "maatwebsite/excel": "^3.1",
         "mashape/unirest-php": "^3.0",
-        "mercadopago/dx-php": "^2.5",
         "midtrans/midtrans-php": "^2.5",
         "milon/barcode": "^10.0",
         "mollie/mollie-api-php": "^2.25",
@@ -34,7 +33,6 @@
         "paymentwall/paymentwall-php": "^2.2",
         "paytabscom/laravel_paytabs": "^1.4",
         "psr/simple-cache": "3.0",
-        "pusher/pusher-php-server": "^7.2",
         "rachidlaasri/laravel-installer": "^4.1",
         "spatie/browsershot": "^3.58",
         "spatie/laravel-google-calendar": "^3.5",
@@ -62,9 +60,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
-            "Modules\\": "Modules/"
+            "MercadoPago\\": "vendor/mercadopago/dx-php/src/MercadoPago/"
         }
     },
+
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"

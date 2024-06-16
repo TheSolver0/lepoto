@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -52,9 +51,7 @@ Route::post('/email/verification-notification', function (Request $request) {
 
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
-Route::get('/admin', [UserController::class, 'index'])->middleware('check.admin');
-
-Route::resource('/chat', ChatController::class);
+Route::get('/admin', [UserController::class, 'index']);
 
 Route::middleware(['auth','verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
