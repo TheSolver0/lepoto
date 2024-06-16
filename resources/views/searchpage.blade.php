@@ -158,6 +158,7 @@
                             <div id="grid" class="tab-pane active">
                                 <div class="row">
                                 @forelse ($posts as $post)
+                                    
                                     {{$auteur = App\Models\User::findOrFail($post->auteur->users_id)}}
                                     <div class="col-lg-6 col-md-6 col-sm-12">
 
