@@ -18,7 +18,7 @@ use Illuminate\Http\Request;
 |
 */
 
- 
+
  Route::get('/apropos', function () {
     return view('apropos');
 })->name('apropos');
@@ -47,7 +47,7 @@ Route::post('/email/verification-notification', function (Request $request) {
 
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
-Route::get('/admin', [UserController::class, 'index']);
+Route::get('/admin', [UserController::class, 'index'])->middleware('check.admin');
 
 Route::middleware(['auth','verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

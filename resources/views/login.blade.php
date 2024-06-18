@@ -98,5 +98,34 @@
         </div>
     </div>
 
+    <script>
+        const eye = document.querySelector("#oeilomdp");
+        const eyec = document.querySelector("#oeilomdpc");
+        const eyeoff = document.querySelector("#oeilfmdp");
+        const eyeoffc = document.querySelector("#oeilfmdpc");
+        const pass = document.querySelector("#password");
+        const passc = document.querySelector("#password_confirmation");
+        eye.addEventListener("click",() => {
+            eye.style.display = "none";
+            eyeoff.style.display = "";
+            pass.type="text";
+        });
+        eyeoff.addEventListener("click",() => {
+            eyeoff.style.display = "none";
+            eye.style.display = "";
+            pass.type="password";
+        });
+        eyec.addEventListener("click",() => {
+            eyec.style.display = "none";
+            eyeoffc.style.display = "";
+            passc.type="text";
+        });
+        eyeoffc.addEventListener("click",() => {
+            eyeoffc.style.display = "none";
+            eyec.style.display = "";
+            passc.type="password";
+        });
+    </script>
+
 
 @endsection
